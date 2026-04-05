@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Daily System">
+<title>JR's Daily System</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --bg: #0f0f0e;
+    --bg2: #1a1a18;
+    --bg3: #242422;
+    --text: #e8e4dc;
+    --text2: #9a9690;
+    --text3: #5a5650;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.15);
+    --teal: #5DCAA5;
+    --teal-bg: rgba(93,202,165,0.12);
+    --amber: #FAC775;
+    --amber-bg: rgba(250,199,117,0.12);
+    --blue: #85B7EB;
+    --blue-bg: rgba(133,183,235,0.12);
+    --purple: #AFA9EC;
+    --purple-bg: rgba(175,169,236,0.12);
+    --coral: #F0997B;
+    --coral-bg: rgba(240,153,123,0.12);
+    --pink: #ED93B1;
+    --pink-bg: rgba(237,147,177,0.12);
+    --gray: #888780;
+    --gray-bg: rgba(136,135,128,0.12);
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    min-height: 100vh;
+    overscroll-behavior: none;
+  }
+
+  .header {
+    padding: 52px 20px 16px;
+    border-bottom: 0.5px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+  .header-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
+  .header h1 { font-size: 20px; font-weight: normal; letter-spacing: -0.3px; }
+  .date { font-size: 12px; color: var(--text3); font-family: 'Courier New', monospace; }
+
+  .tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    font-size: 13px; padding: 7px 16px; border-radius: 99px;
+    border: 0.5px solid var(--border2); cursor: pointer;
+    color: var(--text2); background: transparent; white-space: nowrap;
+    font-family: 'Courier New', monospace; transition: all 0.15s; -webkit-appearance: none;
+  }
+  .tab.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+  .view { display: none; padding: 0 0 80px; }
+  .view.active { display: block; }
+
+  .phase { display: flex; gap: 12px; padding: 0 20px; }
+  .time-col { min-width: 56px; text-align: right; padding-top: 18px; font-size: 11px; color: var(--text3); font-family: 'Courier New', monospace; flex-shrink: 0; }
+  .line-col { display: flex; flex-direction: column; align-items: center; width: 18px; flex-shrink: 0; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 18px; flex-shrink: 0; }
+  .connector { width: 1px; flex: 1; min-height: 12px; background: var(--border2); margin-top: 4px; }
+
+  .card {
+    flex: 1; background: var(--bg2); border: 0.5px solid var(--border);
+    border-radius: var(--radius); padding: 14px 16px; margin: 8px 0 4px;
+    cursor: pointer; transition: border-color 0.15s;
+  }
+  .card:active { background: var(--bg3); }
+  .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 5px; }
+  .card-title { font-size: 15px; font-weight: normal; color: var(--text); letter-spacing: -0.2px; line-height: 1.3; }
+  .chevron { font-size: 11px; color: var(--text3); transition: transform 0.2s; flex-shrink: 0; margin-top: 3px; font-style: normal; }
+  .card.open .chevron { transform: rotate(180deg); }
+  .badge { font-size: 10px; padding: 3px 8px; border-radius: 99px; font-family: 'Courier New', monospace; white-space: nowrap; flex-shrink: 0; }
+  .card-desc { font-size: 13px; color: var(--text2); line-height: 1.55; }
+  .expanded { display: none; margin-top: 12px; }
+  .card.open .expanded { display: block; }
+  .science-note { font-size: 11px; color: var(--text3); font-style: italic; line-height: 1.5; border-top: 0.5px solid var(--border); padding-top: 10px; margin-bottom: 10px; font-family: 'Courier New', monospace; }
+  .items { display: flex; flex-direction: column; gap: 8px; }
+  .item { display: flex; gap: 10px; font-size: 13px; color: var(--text2); align-items: flex-start; line-height: 1.45; }
+  .item-dot { width: 4px; height: 4px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; padding: 14px 20px; border-bottom: 0.5px solid var(--border); }
+  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text2); font-family: 'Courier New', monospace; }
+  .leg-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .hint { font-size: 11px; color: var(--text3); padding: 10px 20px; font-family: 'Courier New', monospace; }
+
+  .pillars-wrap { padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .pillar-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .pillar-title { font-size: 15px; font-weight: normal; margin-bottom: 5px; letter-spacing: -0.2px; }
+  .pillar-sub { font-size: 12px; color: var(--text2); line-height: 1.55; margin-bottom: 12px; font-family: 'Courier New', monospace; }
+  .pillar-items { display: flex; flex-direction: column; gap: 7px; }
+  .pillar-item { font-size: 13px; color: var(--text2); display: flex; gap: 8px; align-items: flex-start; line-height: 1.45; }
+  .pi-dot { width: 4px; height: 4px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+
+  .meals-wrap { padding: 16px 20px; display: flex; flex-direction: column; gap: 16px; }
+  .meal-section-title { font-size: 10px; color: var(--text3); font-family: 'Courier New', monospace; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .meal-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .meal-label { font-size: 10px; font-family: 'Courier New', monospace; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; margin-top: 12px; }
+  .meal-label:first-child { margin-top: 0; }
+  .meal-text { font-size: 13px; color: var(--text2); line-height: 1.55; }
+  .note-box { background: var(--bg3); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 12px; color: var(--text2); line-height: 1.6; font-family: 'Courier New', monospace; }
+  .meal-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; }
+  .meal-row:last-child { margin-bottom: 0; }
+  .meal-time { min-width: 80px; font-size: 11px; color: var(--text3); font-family: 'Courier New', monospace; padding-top: 2px; flex-shrink: 0; }
+
+  .c-anchor .dot, .c-anchor .item-dot, .c-anchor .pi-dot { background: var(--teal); }
+  .c-anchor .badge { background: var(--teal-bg); color: var(--teal); }
+  .c-body .dot, .c-body .item-dot, .c-body .pi-dot { background: var(--amber); }
+  .c-body .badge { background: var(--amber-bg); color: var(--amber); }
+  .c-work .dot, .c-work .item-dot, .c-work .pi-dot { background: var(--blue); }
+  .c-work .badge { background: var(--blue-bg); color: var(--blue); }
+  .c-white .dot, .c-white .item-dot, .c-white .pi-dot { background: var(--purple); }
+  .c-white .badge { background: var(--purple-bg); color: var(--purple); }
+  .c-maddy .dot, .c-maddy .item-dot, .c-maddy .pi-dot { background: var(--coral); }
+  .c-maddy .badge { background: var(--coral-bg); color: var(--coral); }
+  .c-community .dot, .c-community .item-dot, .c-community .pi-dot { background: var(--pink); }
+  .c-community .badge { background: var(--pink-bg); color: var(--pink); }
+  .c-close .dot, .c-close .item-dot, .c-close .pi-dot { background: var(--gray); }
+  .c-close .badge { background: var(--gray-bg); color: var(--gray); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <h1>Daily System</h1>
+    <span class="date" id="today-date"></span>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="showView('timeline', this)">Full day</button>
+    <button class="tab" onclick="showView('pillars', this)">Pillars</button>
+    <button class="tab" onclick="showView('meals', this)">Meals</button>
+  </div>
+</div>
+
+<div id="timeline" class="view active">
+  <div class="legend">
+    <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Anchor</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--amber)"></div>Body</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--blue)"></div>Work</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--purple)"></div>Space</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--coral)"></div>Maddy</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--pink)"></div>Community</div>
+    <div class="leg-item"><div class="leg-dot" style="background:var(--gray)"></div>Close</div>
+  </div>
+  <p class="hint">Tap any block to expand</p>
+  <div id="phases-container"></div>
+</div>
+
+<div id="pillars" class="view">
+  <div class="pillars-wrap">
+    <div class="pillar-card c-anchor">
+      <div class="pillar-title" style="color:var(--teal)">Morning anchor</div>
+      <div class="pillar-sub">Non-negotiable. If only one thing survives a chaotic day, it's this.</div>
+      <div class="pillar-items">
+        <div class="pillar-item"><div class="pi-dot"></div>Meds, shower, teeth — no phone</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Cooper out + outdoor stretch</div>
+        <div class="pillar-item"><div class="pi-dot"></div>5 min Tier 1 breathwork outside</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Coffee + meditation — still no scroll</div>
+      </div>
+    </div>
+    <div class="pillar-card c-body">
+      <div class="pillar-title" style="color:var(--amber)">Body first</div>
+      <div class="pillar-sub">The biological lever that makes everything else work. Movement before cognitive demands.</div>
+      <div class="pillar-items">
+        <div class="pillar-item"><div class="pi-dot"></div>Gym by 9am ideally</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Walk with Cooper counts on off-days</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Pre-lift reset breath, perineum check</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Post-workout clean meal within 45 min</div>
+      </div>
+    </div>
+    <div class="pillar-card c-maddy">
+      <div class="pillar-title" style="color:var(--coral)">Maddy — scaffolded, not reactive</div>
+      <div class="pillar-sub">Predictable contact points matter more than what happens in them. Consistency is the thing.</div>
+      <div class="pillar-items">
+        <div class="pillar-item"><div class="pi-dot"></div>One anchored morning touchpoint daily</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Afternoon float = Maddy buffer zone</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Evening check-in before your close-down</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Shared meals when possible</div>
+      </div>
+    </div>
+    <div class="pillar-card c-community">
+      <div class="pillar-title" style="color:var(--pink)">Community — scheduled, not earned</div>
+      <div class="pillar-sub">Connection is not a reward for finishing the to-do list. Same calendar weight as work.</div>
+      <div class="pillar-items">
+        <div class="pillar-item"><div class="pi-dot"></div>Jason — one real contact per week minimum</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Partner — protected evening time, not leftover</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Therapist — bring the body work</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Out of Pacifica 1–2x per week</div>
+      </div>
+    </div>
+    <div class="pillar-card c-close">
+      <div class="pillar-title" style="color:var(--gray)">Evening close-down</div>
+      <div class="pillar-sub">The evening is the infrastructure for tomorrow morning.</div>
+      <div class="pillar-items">
+        <div class="pillar-item"><div class="pi-dot"></div>Dinner together when possible</div>
+        <div class="pillar-item"><div class="pi-dot"></div>30-sec hum in shower</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Brain dump + one priority for tomorrow</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Magnesium glycinate 400mg</div>
+        <div class="pillar-item"><div class="pi-dot"></div>10 min Tier 2/3 breathwork in bed</div>
+        <div class="pillar-item"><div class="pi-dot"></div>Phone away, blackout mask</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="meals" class="view">
+  <div class="meals-wrap">
+    <div>
+      <div class="meal-section-title">The core problem</div>
+      <div class="note-box">Ad hoc eating with clean-food standards means every meal requires a decision AND sourcing AND prep. Fix: batch once, assemble the rest of the week.</div>
+    </div>
+    <div>
+      <div class="meal-section-title">Sunday batch — 2 to 2.5 hrs</div>
+      <div class="meal-card">
+        <div class="meal-label">Proteins — cook all at once</div>
+        <div class="meal-text">2–3 lbs wild salmon or pasture-raised chicken thighs · Dozen hard-boiled eggs · Ground bison patties pre-formed for fridge or freezer</div>
+        <div class="meal-label">Carbs + veg — roast together</div>
+        <div class="meal-text">Sweet potatoes or organic white rice · Sheet pan roasted veg (zucchini, broccoli, peppers) · Washed greens for quick salads</div>
+        <div class="meal-label">Fats — shelf-stable</div>
+        <div class="meal-text">Avocados staggered to ripen across the week · Organic EVOO, raw nuts, coconut aminos ready to go</div>
+      </div>
+    </div>
+    <div>
+      <div class="meal-section-title">Daily assembly — not cooking</div>
+      <div class="meal-card">
+        <div class="meal-row">
+          <div class="meal-time">Post-workout</div>
+          <div class="meal-text">Grab pre-cooked protein, scoop carb. Done. 5 minutes. Within 45 min of gym.</div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-time">Midday</div>
+          <div class="meal-text">Big salad + batch protein + avocado + EVOO + lemon. No cooking. Works for Maddy too.</div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-time">Dinner</div>
+          <div class="meal-text">One real cook of the day. Simple protein + veg. The community meal — partner or Maddy involved. Shared cooking is connection.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="meal-section-title">The mess problem</div>
+      <div class="note-box">Batch day = one mess, cleaned once. Daily assembly = bowls and a fork. Same total work, restructured so it doesn't scatter across the week.</div>
+    </div>
+    <div>
+      <div class="meal-section-title">Costco — monthly anchor</div>
+      <div class="note-box">Wild salmon · organic chicken thighs · ground bison · pasture-raised eggs · organic sweet potatoes · organic frozen veg · raw nuts · coconut aminos · organic EVOO · avocados. Calendar event, not reactive errand.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const d = new Date();
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('today-date').textContent = days[d.getDay()] + ' ' + months[d.getMonth()] + ' ' + d.getDate();
+
+  function showView(id, btn) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  const phases = [
+    { type:'c-anchor', time:'7:00', title:'Morning anchor', badge:'~60 min',
+      desc:'Meds → shower → teeth → Cooper out + stretch + Pulsetto → coffee + meditation. No phone.',
+      science:'Cortisol awakening response peaks 20–30 min after waking. Phone contact here derails the whole day.',
+      items:['Wake — phone face-down. Meds, shower, teeth.','Cooper out: 6-move stretch, Pulsetto running','5 min Tier 1 diaphragmatic breathing outdoors','Coffee + Happier app — no news, no email'] },
+    { type:'c-maddy', time:'8:00', title:'Maddy morning touchpoint', badge:'15–20 min',
+      desc:'One consistent low-demand check-in. Not problem-solving — just contact.',
+      science:'For AuDHD, predictable contact points reduce ambient anxiety even when content is minimal.',
+      items:['Check in — how did she sleep, what does she need','Morning task help goes here if needed','Keep it light — not solving today\'s problems','If unavailable, note it and move on'] },
+    { type:'c-body', time:'8:30', title:'Gym / movement', badge:'~90 min',
+      desc:'Body before brain. The cognitive windows that follow depend on this.',
+      science:'Morning exercise raises BDNF, improves executive function for 2–4 hrs after.',
+      items:['Pre-lift reset breath before each heavy set','Push/Pull/Legs per program','Non-gym days: genuine walk, not a stroll','Post-workout: clean protein + carb within 45 min'] },
+    { type:'c-work', time:'10:15', title:'First work window', badge:'~90 min',
+      desc:'Deepest cognitive work. PwC prep, strategy, high-stakes writing.',
+      science:'First ultradian peak. Alertness, working memory, verbal fluency highest here.',
+      items:['One domain only — no task-switching','Phone in another room','Perineum check-in alarm fires here','Hard stop at 90 min even when flowing'] },
+    { type:'c-white', time:'11:45', title:'Transition + ideation', badge:'~45 min',
+      desc:'Walk, lunch assembly, nothing scheduled. Ideas surface here.',
+      science:'Default mode network activates during unfocused rest. This is when work integrates.',
+      items:['Walk outside — music or silence, no content','Assemble lunch from batch (5 min)','Brain dump anything that surfaced','Bathroom breathing practice fits here'] },
+    { type:'c-work', time:'12:30', title:'Second work window', badge:'~90 min',
+      desc:'Research, networking, outreach, applications, follow-ups.',
+      science:'Second ultradian cycle. Solid for communication and relational tasks.',
+      items:['LinkedIn, outreach, research, applications','Tactical interview prep','Schedule informational interviews here','Perineum check-in alarm #2'] },
+    { type:'c-maddy', time:'2:00', title:'Maddy buffer / afternoon float', badge:'60–90 min flex',
+      desc:'Where Maddy\'s unpredictability lands without wrecking the day. Also where you rest or nap.',
+      science:'20-min nap before 2:30 restores a full ultradian cycle. This slot absorbs Maddy AND recovery.',
+      items:['Maddy needs something — this is the slot','If not: nap 20 min max before 2:30','No content if resting — that\'s not rest','Perineum check-in alarm #3'] },
+    { type:'c-community', time:'3:30', title:'Connection / community', badge:'~60 min',
+      desc:'Jason, partner, getting out. Scheduled, not earned.',
+      science:'Social connection reduces cortisol and is independently protective against depression.',
+      items:['Jason — one real contact per week, this is the window','Partner: protected time, not leftover','Out of Pacifica 1–2x per week','If nothing planned: walk somewhere new'] },
+    { type:'c-work', time:'4:30', title:'Light work / admin', badge:'~60 min',
+      desc:'Email, logistics, scheduling. Doesn\'t need peak cognition.',
+      science:'Third ultradian cycle — right for admin, wrong for strategy.',
+      items:['Email, scheduling, tracking','Follow-ups from earlier windows','Low-stakes calls','Hard stop at 5:30'] },
+    { type:'c-close', time:'5:30', title:'Close-down ritual', badge:'20 min',
+      desc:'Brain dump, tomorrow\'s one priority, phone out of the room.',
+      science:'Written close-down signals the brain the day is complete. Reduces nighttime rumination.',
+      items:['Write the ONE thing tomorrow needs — not a list','Brain dump anything unresolved','Phone to bedroom — out of main space','No work content after this'] },
+    { type:'c-anchor', time:'Evening', title:'Dinner + evening', badge:'flexible',
+      desc:'Dinner together when possible. Shared cooking is connection and nutrition solved at once.',
+      science:'Eating together is one of the strongest predictors of family cohesion and individual wellbeing.',
+      items:['One real cook — simple protein + veg','Maddy or partner involved if possible','Evening check-in with Maddy','30-sec hum in shower — vagal toning'] },
+    { type:'c-close', time:'9:30', title:'Pre-sleep stack', badge:'~30 min',
+      desc:'Magnesium → breathwork → blackout mask. Tomorrow\'s morning anchor starts here.',
+      science:'Light after 9pm suppresses melatonin up to 50%. Resonance breathing improves HRV overnight.',
+      items:['Magnesium glycinate 400mg — 30–60 min before lights out','10 min Tier 2 or 3 breathwork — pelvic floor release','Blackout mask on','No phone once breathwork begins'] }
+  ];
+
+  const container = document.getElementById('phases-container');
+  phases.forEach((p, i) => {
+    const isLast = i === phases.length - 1;
+    const el = document.createElement('div');
+    el.className = `phase ${p.type}`;
+    el.innerHTML = `
+      <div class="time-col">${p.time}</div>
+      <div class="line-col">
+        <div class="dot"></div>
+        ${!isLast ? '<div class="connector"></div>' : ''}
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <div class="card-header">
+          <span class="card-title">${p.title}</span>
+          <span style="display:flex;gap:6px;align-items:center;flex-shrink:0">
+            <span class="badge">${p.badge}</span>
+            <em class="chevron">▾</em>
+          </span>
+        </div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="expanded">
+          <div class="science-note">${p.science}</div>
+          <div class="items">
+            ${p.items.map(item => `<div class="item"><div class="item-dot"></div><span>${item}</span></div>`).join('')}
+          </div>
+        </div>
+      </div>`;
+    container.appendChild(el);
+  });
+</script>
+</body>
+</html>
