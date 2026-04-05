@@ -369,6 +369,27 @@
     flex-shrink: 0;
   }
 
+
+  /* Skin */
+  .skin-wrap { padding: 16px 20px; display: flex; flex-direction: column; gap: 16px; }
+  .skin-section-title { font-size: 12px; font-weight: 700; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+  .skin-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .skin-card-title { font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; margin-bottom: 5px; }
+  .skin-card-sub { font-size: 13px; color: var(--text3); font-style: italic; line-height: 1.5; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+  .skin-steps { display: flex; flex-direction: column; gap: 10px; }
+  .skin-step { display: flex; gap: 12px; align-items: flex-start; }
+  .skin-num { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .skin-step-body { flex: 1; }
+  .skin-step-name { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.3; }
+  .skin-step-detail { font-size: 13px; color: var(--text2); line-height: 1.5; margin-top: 2px; }
+  .skin-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px; margin-top: 4px; }
+  .c-morning .skin-num { background: #fff3e0; color: #e65100; }
+  .c-night .skin-num { background: #ede7f6; color: #4527a0; }
+  .c-body-skin .skin-num { background: #e8f5e9; color: #1b5e20; }
+  .morning-badge { background: #fff3e0; color: #e65100; }
+  .night-badge { background: #ede7f6; color: #4527a0; }
+  .body-badge { background: #e8f5e9; color: #1b5e20; }
+
   /* Color assignments */
   .c-anchor .dot, .c-anchor .item-dot, .c-anchor .pi-dot { background: var(--teal); }
   .c-anchor .badge { background: var(--teal-bg); color: var(--teal); }
@@ -410,6 +431,7 @@
     <button class="tab active" onclick="showView('timeline', this)">Full day</button>
     <button class="tab" onclick="showView('pillars', this)">Pillars</button>
     <button class="tab" onclick="showView('meals', this)">Meals</button>
+    <button class="tab" onclick="showView('skin', this)">Skin</button>
   </div>
 </div>
 
@@ -532,6 +554,104 @@
   </div>
 </div>
 
+<!-- SKIN -->
+<div id="skin" class="view">
+  <div class="skin-wrap">
+
+    <div>
+      <div class="skin-section-title">Why this matters</div>
+      <div class="note-box">Skin is your largest organ and your first line of immune defense. At 40+, collagen production drops ~1% per year and UV damage compounds. A 5-minute daily routine with the right actives is the highest-ROI investment in how you look and how your skin ages. You already have most of what you need.</div>
+    </div>
+
+    <div>
+      <div class="skin-section-title">Morning — 2 to 3 minutes</div>
+      <div class="skin-card c-morning">
+        <div class="skin-card-sub">Cleanse, defend, protect — and lock in body moisture while the shower's still on your skin. Morning is about shielding from the day's oxidative assault. Vitamin C neutralizes free radicals before they do damage. SPF is non-negotiable. Aveeno goes on last while still damp.</div>
+        <div class="skin-steps">
+          <div class="skin-step">
+            <div class="skin-num">1</div>
+            <div class="skin-step-body">
+              <div class="skin-step-name">Cetaphil Cleanser</div>
+              <div class="skin-step-detail">Gentle, pH-balanced. Removes overnight sebum without stripping your moisture barrier. You already have it — use it.</div>
+              <span class="skin-badge morning-badge">Already owned</span>
+            </div>
+          </div>
+          <div class="skin-step">
+            <div class="skin-num">2</div>
+            <div class="skin-step-body">
+              <div class="skin-step-name">Vitamin C Serum</div>
+              <div class="skin-step-detail">Apply, let absorb 60 seconds. Vitamin C (L-ascorbic acid) is the most evidence-backed antioxidant in skincare. Neutralizes free radicals, stimulates collagen synthesis, fades hyperpigmentation. Most effective in the morning when UV exposure is ahead of you.</div>
+              <span class="skin-badge morning-badge">60 sec absorption</span>
+            </div>
+          </div>
+          <div class="skin-step">
+            <div class="skin-num">3</div>
+            <div class="skin-step-body">
+              <div class="skin-step-name">Brickell Daily Defense SPF 30</div>
+              <div class="skin-step-detail">Clean formula, SPF 30 mineral protection. UV is responsible for ~80% of visible facial aging. This is the single most important anti-aging step in any routine. Every day — including Pacifica's overcast days. UV penetrates cloud cover.</div>
+              <span class="skin-badge morning-badge">Non-negotiable daily</span>
+            </div>
+          </div>
+          <div class="skin-step">
+            <div class="skin-num">4</div>
+            <div class="skin-step-body">
+              <div class="skin-step-name">Aveeno Body Lotion</div>
+              <div class="skin-step-detail">Apply while skin is still damp — within 3 minutes of the shower. Moisture absorption is dramatically higher when the skin barrier is open and hydrated. Oat-based, proven to restore the skin barrier. At your height there's a lot of surface area to cover — this keeps it healthy, not just comfortable. You already have it.</div>
+              <span class="skin-badge morning-badge">Already owned · damp skin only</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skin-section-title">Night — 2 to 3 minutes</div>
+      <div class="skin-card c-night">
+        <div class="skin-card-sub">Cleanse, repair, restore. Night is when skin goes into repair mode — cell turnover peaks between 11pm and 4am. Niacinamide calms and strengthens. Retinol accelerates the cell renewal that naturally slows with age. This is where the real work happens.</div>
+        <div class="skin-steps">
+          <div class="skin-step">
+            <div class="skin-num">1</div>
+            <div class="skin-step-body">
+              <div class="skin-step-name">Cetaphil Cleanser</div>
+              <div class="skin-step-detail">Remove the day — sunscreen, sebum, environmental particulates. Clean skin absorbs actives far more effectively. Don't skip this.</div>
+              <span class="skin-badge night-badge">Already owned</span>
+            </div>
+          </div>
+          <div class="skin-step">
+            <div class="skin-num">2</div>
+            <div class="skin-step-body">
+              <div class="skin-step-name">Niacinamide Serum</div>
+              <div class="skin-step-detail">Apply, let absorb 60 seconds. Vitamin B3. Strengthens the skin barrier, reduces pore appearance, controls oil, fades dark spots, and — critically — reduces the irritation that retinol can cause when layered underneath it. Apply before retinol every night.</div>
+              <span class="skin-badge night-badge">60 sec absorption</span>
+            </div>
+          </div>
+          <div class="skin-step">
+            <div class="skin-num">3</div>
+            <div class="skin-step-body">
+              <div class="skin-step-name">CeraVe Resurfacing Retinol Serum</div>
+              <div class="skin-step-detail">Retinol is the gold standard of anti-aging actives — decades of clinical evidence. Accelerates cell turnover, stimulates collagen, reduces fine lines and discoloration. The niacinamide underneath buffers irritation. Give it 4–6 weeks before judging results.</div>
+              <span class="skin-badge night-badge">The heavy lifter</span>
+            </div>
+          </div>
+          <div class="skin-step">
+            <div class="skin-num">4</div>
+            <div class="skin-step-body">
+              <div class="skin-step-name">Cetaphil Lotion</div>
+              <div class="skin-step-detail">Lock in moisture after the retinol. Seals the skin barrier, reduces any dryness or flaking. You already have it — apply as the final step to keep retinol's benefits without the tightness.</div>
+              <span class="skin-badge night-badge">Already owned</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skin-section-title">The stack in context</div>
+      <div class="note-box">This routine costs 5–6 minutes total across morning and night. The actives — Vitamin C, niacinamide, retinol, SPF — are the four most clinically validated ingredients in modern dermatology. You're not doing a luxury routine. You're doing a science-backed one with what works.</div>
+    </div>
+
+  </div>
+</div>
 <script>
   const d = new Date();
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
