@@ -4,35 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Daily System">
-<title>JR's Daily System</title>
+<title>Daily System</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
   :root {
-    --bg: #0f0f0e;
-    --bg2: #1a1a18;
-    --bg3: #242422;
-    --text: #e8e4dc;
-    --text2: #9a9690;
-    --text3: #5a5650;
-    --border: rgba(255,255,255,0.08);
-    --border2: rgba(255,255,255,0.15);
-    --teal: #5DCAA5;
-    --teal-bg: rgba(93,202,165,0.12);
-    --amber: #FAC775;
-    --amber-bg: rgba(250,199,117,0.12);
-    --blue: #85B7EB;
-    --blue-bg: rgba(133,183,235,0.12);
-    --purple: #AFA9EC;
-    --purple-bg: rgba(175,169,236,0.12);
-    --coral: #F0997B;
-    --coral-bg: rgba(240,153,123,0.12);
-    --pink: #ED93B1;
-    --pink-bg: rgba(237,147,177,0.12);
-    --gray: #888780;
-    --gray-bg: rgba(136,135,128,0.12);
+    --bg: #f7f6f2;
+    --bg2: #ffffff;
+    --bg3: #eeede8;
+    --text: #1a1917;
+    --text2: #4a4845;
+    --text3: #9a9690;
+    --border: rgba(0,0,0,0.10);
+    --border2: rgba(0,0,0,0.18);
+    --teal: #0a8c63;
+    --teal-bg: #e1f5ee;
+    --amber: #a06010;
+    --amber-bg: #fef3dc;
+    --blue: #1460a0;
+    --blue-bg: #e4f0fb;
+    --purple: #5048a8;
+    --purple-bg: #eeedfe;
+    --coral: #b04820;
+    --coral-bg: #faede7;
+    --pink: #9a3060;
+    --pink-bg: #fbeaf0;
+    --gray: #5a5855;
+    --gray-bg: #eeede8;
     --radius: 14px;
     --radius-sm: 8px;
   }
@@ -40,99 +40,362 @@
   html, body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Georgia', 'Times New Roman', serif;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
     min-height: 100vh;
     overscroll-behavior: none;
+    font-size: 16px;
   }
 
   .header {
-    padding: 52px 20px 16px;
-    border-bottom: 0.5px solid var(--border);
+    padding: 56px 20px 14px;
+    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     background: var(--bg);
     z-index: 100;
   }
-  .header-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
-  .header h1 { font-size: 20px; font-weight: normal; letter-spacing: -0.3px; }
-  .date { font-size: 12px; color: var(--text3); font-family: 'Courier New', monospace; }
 
-  .tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
-  .tabs::-webkit-scrollbar { display: none; }
-  .tab {
-    font-size: 13px; padding: 7px 16px; border-radius: 99px;
-    border: 0.5px solid var(--border2); cursor: pointer;
-    color: var(--text2); background: transparent; white-space: nowrap;
-    font-family: 'Courier New', monospace; transition: all 0.15s; -webkit-appearance: none;
+  .header-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 14px;
   }
-  .tab.active { background: var(--text); color: var(--bg); border-color: var(--text); }
 
-  .view { display: none; padding: 0 0 80px; }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.4px;
+  }
+
+  .date {
+    font-size: 13px;
+    color: var(--text3);
+    font-weight: 500;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+
+  .tab {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 99px;
+    border: 1.5px solid var(--border2);
+    cursor: pointer;
+    color: var(--text2);
+    background: var(--bg2);
+    white-space: nowrap;
+    transition: all 0.15s;
+    -webkit-appearance: none;
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  }
+  .tab.active {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+  }
+
+  .view { display: none; padding: 0 0 100px; }
   .view.active { display: block; }
 
+  /* Timeline */
   .phase { display: flex; gap: 12px; padding: 0 20px; }
-  .time-col { min-width: 56px; text-align: right; padding-top: 18px; font-size: 11px; color: var(--text3); font-family: 'Courier New', monospace; flex-shrink: 0; }
-  .line-col { display: flex; flex-direction: column; align-items: center; width: 18px; flex-shrink: 0; }
-  .dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 18px; flex-shrink: 0; }
-  .connector { width: 1px; flex: 1; min-height: 12px; background: var(--border2); margin-top: 4px; }
+
+  .time-col {
+    min-width: 52px;
+    text-align: right;
+    padding-top: 22px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text3);
+    flex-shrink: 0;
+  }
+
+  .line-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20px;
+    flex-shrink: 0;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 20px;
+    flex-shrink: 0;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  }
+
+  .connector {
+    width: 2px;
+    flex: 1;
+    min-height: 12px;
+    background: var(--border);
+    margin-top: 4px;
+    border-radius: 1px;
+  }
 
   .card {
-    flex: 1; background: var(--bg2); border: 0.5px solid var(--border);
-    border-radius: var(--radius); padding: 14px 16px; margin: 8px 0 4px;
-    cursor: pointer; transition: border-color 0.15s;
+    flex: 1;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin: 8px 0 4px;
+    cursor: pointer;
+    transition: background 0.1s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
   .card:active { background: var(--bg3); }
-  .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 5px; }
-  .card-title { font-size: 15px; font-weight: normal; color: var(--text); letter-spacing: -0.2px; line-height: 1.3; }
-  .chevron { font-size: 11px; color: var(--text3); transition: transform 0.2s; flex-shrink: 0; margin-top: 3px; font-style: normal; }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    line-height: 1.25;
+  }
+
+  .card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+
+  .chevron {
+    font-size: 13px;
+    color: var(--text3);
+    transition: transform 0.2s;
+    line-height: 1;
+    font-style: normal;
+  }
   .card.open .chevron { transform: rotate(180deg); }
-  .badge { font-size: 10px; padding: 3px 8px; border-radius: 99px; font-family: 'Courier New', monospace; white-space: nowrap; flex-shrink: 0; }
-  .card-desc { font-size: 13px; color: var(--text2); line-height: 1.55; }
-  .expanded { display: none; margin-top: 12px; }
+
+  .card-desc {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+
+  .expanded { display: none; margin-top: 14px; }
   .card.open .expanded { display: block; }
-  .science-note { font-size: 11px; color: var(--text3); font-style: italic; line-height: 1.5; border-top: 0.5px solid var(--border); padding-top: 10px; margin-bottom: 10px; font-family: 'Courier New', monospace; }
-  .items { display: flex; flex-direction: column; gap: 8px; }
-  .item { display: flex; gap: 10px; font-size: 13px; color: var(--text2); align-items: flex-start; line-height: 1.45; }
-  .item-dot { width: 4px; height: 4px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
 
-  .legend { display: flex; gap: 10px; flex-wrap: wrap; padding: 14px 20px; border-bottom: 0.5px solid var(--border); }
-  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text2); font-family: 'Courier New', monospace; }
-  .leg-dot { width: 6px; height: 6px; border-radius: 50%; }
-  .hint { font-size: 11px; color: var(--text3); padding: 10px 20px; font-family: 'Courier New', monospace; }
+  .science-note {
+    font-size: 13px;
+    color: var(--text3);
+    font-style: italic;
+    line-height: 1.55;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-bottom: 12px;
+  }
 
-  .pillars-wrap { padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; }
-  .pillar-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 16px; }
-  .pillar-title { font-size: 15px; font-weight: normal; margin-bottom: 5px; letter-spacing: -0.2px; }
-  .pillar-sub { font-size: 12px; color: var(--text2); line-height: 1.55; margin-bottom: 12px; font-family: 'Courier New', monospace; }
-  .pillar-items { display: flex; flex-direction: column; gap: 7px; }
-  .pillar-item { font-size: 13px; color: var(--text2); display: flex; gap: 8px; align-items: flex-start; line-height: 1.45; }
-  .pi-dot { width: 4px; height: 4px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .items { display: flex; flex-direction: column; gap: 10px; }
 
-  .meals-wrap { padding: 16px 20px; display: flex; flex-direction: column; gap: 16px; }
-  .meal-section-title { font-size: 10px; color: var(--text3); font-family: 'Courier New', monospace; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
-  .meal-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .meal-label { font-size: 10px; font-family: 'Courier New', monospace; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; margin-top: 12px; }
+  .item {
+    display: flex;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--text2);
+    align-items: flex-start;
+    line-height: 1.45;
+  }
+
+  .item-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .leg-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text2);
+  }
+  .leg-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .hint { font-size: 13px; color: var(--text3); padding: 10px 20px 4px; }
+
+  /* Pillars */
+  .pillars-wrap { padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
+
+  .pillar-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .pillar-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+
+  .pillar-sub {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .pillar-items { display: flex; flex-direction: column; gap: 9px; }
+
+  .pillar-item {
+    font-size: 15px;
+    color: var(--text2);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    line-height: 1.45;
+  }
+
+  .pi-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  /* Meals */
+  .meals-wrap { padding: 16px 20px; display: flex; flex-direction: column; gap: 18px; }
+
+  .meal-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .meal-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .meal-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 5px;
+    margin-top: 14px;
+  }
   .meal-label:first-child { margin-top: 0; }
-  .meal-text { font-size: 13px; color: var(--text2); line-height: 1.55; }
-  .note-box { background: var(--bg3); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 12px; color: var(--text2); line-height: 1.6; font-family: 'Courier New', monospace; }
-  .meal-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; }
-  .meal-row:last-child { margin-bottom: 0; }
-  .meal-time { min-width: 80px; font-size: 11px; color: var(--text3); font-family: 'Courier New', monospace; padding-top: 2px; flex-shrink: 0; }
 
+  .meal-text {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.55;
+  }
+
+  .note-box {
+    background: var(--bg3);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.6;
+    border: 1px solid var(--border);
+  }
+
+  .meal-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .meal-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .meal-row:first-child { padding-top: 0; }
+
+  .meal-time {
+    min-width: 90px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text3);
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Color assignments */
   .c-anchor .dot, .c-anchor .item-dot, .c-anchor .pi-dot { background: var(--teal); }
   .c-anchor .badge { background: var(--teal-bg); color: var(--teal); }
+  .c-anchor .pillar-title { color: var(--teal); }
+
   .c-body .dot, .c-body .item-dot, .c-body .pi-dot { background: var(--amber); }
   .c-body .badge { background: var(--amber-bg); color: var(--amber); }
+  .c-body .pillar-title { color: var(--amber); }
+
   .c-work .dot, .c-work .item-dot, .c-work .pi-dot { background: var(--blue); }
   .c-work .badge { background: var(--blue-bg); color: var(--blue); }
+  .c-work .pillar-title { color: var(--blue); }
+
   .c-white .dot, .c-white .item-dot, .c-white .pi-dot { background: var(--purple); }
   .c-white .badge { background: var(--purple-bg); color: var(--purple); }
+
   .c-maddy .dot, .c-maddy .item-dot, .c-maddy .pi-dot { background: var(--coral); }
   .c-maddy .badge { background: var(--coral-bg); color: var(--coral); }
+  .c-maddy .pillar-title { color: var(--coral); }
+
   .c-community .dot, .c-community .item-dot, .c-community .pi-dot { background: var(--pink); }
   .c-community .badge { background: var(--pink-bg); color: var(--pink); }
+  .c-community .pillar-title { color: var(--pink); }
+
   .c-close .dot, .c-close .item-dot, .c-close .pi-dot { background: var(--gray); }
   .c-close .badge { background: var(--gray-bg); color: var(--gray); }
+  .c-close .pillar-title { color: var(--gray); }
 </style>
 </head>
 <body>
@@ -149,6 +412,7 @@
   </div>
 </div>
 
+<!-- TIMELINE -->
 <div id="timeline" class="view active">
   <div class="legend">
     <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Anchor</div>
@@ -163,10 +427,11 @@
   <div id="phases-container"></div>
 </div>
 
+<!-- PILLARS -->
 <div id="pillars" class="view">
   <div class="pillars-wrap">
     <div class="pillar-card c-anchor">
-      <div class="pillar-title" style="color:var(--teal)">Morning anchor</div>
+      <div class="pillar-title">Morning anchor</div>
       <div class="pillar-sub">Non-negotiable. If only one thing survives a chaotic day, it's this.</div>
       <div class="pillar-items">
         <div class="pillar-item"><div class="pi-dot"></div>Meds, shower, teeth — no phone</div>
@@ -176,7 +441,7 @@
       </div>
     </div>
     <div class="pillar-card c-body">
-      <div class="pillar-title" style="color:var(--amber)">Body first</div>
+      <div class="pillar-title">Body first</div>
       <div class="pillar-sub">The biological lever that makes everything else work. Movement before cognitive demands.</div>
       <div class="pillar-items">
         <div class="pillar-item"><div class="pi-dot"></div>Gym by 9am ideally</div>
@@ -186,7 +451,7 @@
       </div>
     </div>
     <div class="pillar-card c-maddy">
-      <div class="pillar-title" style="color:var(--coral)">Maddy — scaffolded, not reactive</div>
+      <div class="pillar-title">Maddy — scaffolded, not reactive</div>
       <div class="pillar-sub">Predictable contact points matter more than what happens in them. Consistency is the thing.</div>
       <div class="pillar-items">
         <div class="pillar-item"><div class="pi-dot"></div>One anchored morning touchpoint daily</div>
@@ -196,7 +461,7 @@
       </div>
     </div>
     <div class="pillar-card c-community">
-      <div class="pillar-title" style="color:var(--pink)">Community — scheduled, not earned</div>
+      <div class="pillar-title">Community — scheduled, not earned</div>
       <div class="pillar-sub">Connection is not a reward for finishing the to-do list. Same calendar weight as work.</div>
       <div class="pillar-items">
         <div class="pillar-item"><div class="pi-dot"></div>Jason — one real contact per week minimum</div>
@@ -206,7 +471,7 @@
       </div>
     </div>
     <div class="pillar-card c-close">
-      <div class="pillar-title" style="color:var(--gray)">Evening close-down</div>
+      <div class="pillar-title">Evening close-down</div>
       <div class="pillar-sub">The evening is the infrastructure for tomorrow morning.</div>
       <div class="pillar-items">
         <div class="pillar-item"><div class="pi-dot"></div>Dinner together when possible</div>
@@ -220,11 +485,12 @@
   </div>
 </div>
 
+<!-- MEALS -->
 <div id="meals" class="view">
   <div class="meals-wrap">
     <div>
       <div class="meal-section-title">The core problem</div>
-      <div class="note-box">Ad hoc eating with clean-food standards means every meal requires a decision AND sourcing AND prep. Fix: batch once, assemble the rest of the week.</div>
+      <div class="note-box">Ad hoc eating with clean-food standards means every meal requires a decision AND sourcing AND prep. Fix: batch once on Sunday, assemble the rest of the week.</div>
     </div>
     <div>
       <div class="meal-section-title">Sunday batch — 2 to 2.5 hrs</div>
@@ -242,7 +508,7 @@
       <div class="meal-card">
         <div class="meal-row">
           <div class="meal-time">Post-workout</div>
-          <div class="meal-text">Grab pre-cooked protein, scoop carb. Done. 5 minutes. Within 45 min of gym.</div>
+          <div class="meal-text">Grab pre-cooked protein, scoop carb. Done in 5 min. Within 45 min of gym.</div>
         </div>
         <div class="meal-row">
           <div class="meal-time">Midday</div>
@@ -322,7 +588,7 @@
       items:['Write the ONE thing tomorrow needs — not a list','Brain dump anything unresolved','Phone to bedroom — out of main space','No work content after this'] },
     { type:'c-anchor', time:'Evening', title:'Dinner + evening', badge:'flexible',
       desc:'Dinner together when possible. Shared cooking is connection and nutrition solved at once.',
-      science:'Eating together is one of the strongest predictors of family cohesion and individual wellbeing.',
+      science:'Eating together is one of the strongest predictors of family cohesion and wellbeing.',
       items:['One real cook — simple protein + veg','Maddy or partner involved if possible','Evening check-in with Maddy','30-sec hum in shower — vagal toning'] },
     { type:'c-close', time:'9:30', title:'Pre-sleep stack', badge:'~30 min',
       desc:'Magnesium → breathwork → blackout mask. Tomorrow\'s morning anchor starts here.',
@@ -344,7 +610,7 @@
       <div class="card" onclick="this.classList.toggle('open')">
         <div class="card-header">
           <span class="card-title">${p.title}</span>
-          <span style="display:flex;gap:6px;align-items:center;flex-shrink:0">
+          <span class="card-right">
             <span class="badge">${p.badge}</span>
             <em class="chevron">▾</em>
           </span>
