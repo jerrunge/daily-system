@@ -370,6 +370,181 @@
   }
 
 
+
+  /* Meals redesign */
+  .week-plan { display: none; }
+  .week-plan.active { display: block; }
+  .day-meal-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .day-meal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 16px;
+    cursor: pointer;
+  }
+  .day-meal-header:active { background: var(--bg3); }
+  .day-meal-title { font-size: 16px; font-weight: 700; color: var(--text); letter-spacing: -0.2px; }
+  .day-meal-sub { font-size: 12px; color: var(--text3); margin-top: 2px; }
+  .day-meal-body { display: none; padding: 0 16px 14px; border-top: 1px solid var(--border); }
+  .day-meal-body.open { display: block; }
+  .meal-slot { margin-top: 12px; }
+  .meal-slot-label { font-size: 11px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; }
+  .meal-slot-content { font-size: 14px; color: var(--text2); line-height: 1.6; }
+  .meal-slot-note { font-size: 12px; color: var(--text3); font-style: italic; margin-top: 3px; }
+  .prep-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .prep-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 5px; letter-spacing: -0.2px; }
+  .prep-sub { font-size: 12px; color: var(--text3); font-style: italic; margin-bottom: 12px; }
+  .prep-step { display: flex; gap: 10px; margin-bottom: 9px; align-items: flex-start; }
+  .prep-step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--bg3); border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--text2); flex-shrink: 0; margin-top: 1px; }
+  .prep-step-text { font-size: 14px; color: var(--text2); line-height: 1.5; flex: 1; }
+  .sweet-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-top: 4px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .sweet-icon { font-size: 24px; flex-shrink: 0; }
+  .sweet-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .sweet-text { font-size: 13px; color: var(--text2); line-height: 1.5; }
+  .week-tab-row { display: flex; gap: 8px; margin-bottom: 12px; }
+  .week-tab { flex: 1; text-align: center; font-size: 14px; font-weight: 600; padding: 9px; border-radius: 99px; border: 1.5px solid var(--border2); cursor: pointer; color: var(--text2); background: var(--bg2); font-family: -apple-system, sans-serif; transition: all 0.15s; }
+  .week-tab.active { background: var(--text); color: #fff; border-color: var(--text); }
+  .view-toggle { display: flex; gap: 6px; margin-bottom: 12px; }
+  .view-tab { font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 99px; border: 1px solid var(--border2); cursor: pointer; color: var(--text2); background: transparent; font-family: -apple-system, sans-serif; white-space: nowrap; }
+  .view-tab.active { background: var(--text); color: #fff; border-color: var(--text); }
+  .meals-inner { display: none; }
+  .meals-inner.active { display: block; }
+
+
+  /* ── Stretch & Breathe ── */
+  .sb-wrap { padding: 16px 20px 80px; }
+  .sb-view-toggle { display:flex; gap:6px; margin-bottom:14px; overflow-x:auto; scrollbar-width:none; }
+  .sb-view-toggle::-webkit-scrollbar { display:none; }
+  .sb-vtab { font-size:13px; font-weight:600; padding:7px 14px; border-radius:99px; border:1px solid var(--border2); cursor:pointer; color:var(--text2); background:transparent; font-family:-apple-system,sans-serif; white-space:nowrap; -webkit-appearance:none; }
+  .sb-vtab.active { background:var(--text); color:#fff; border-color:var(--text); }
+  .sb-inner { display:none; }
+  .sb-inner.active { display:block; }
+  .sb-progress { height:4px; background:var(--bg3); border-radius:2px; overflow:hidden; margin-bottom:14px; }
+  .sb-progress-fill { height:100%; background:linear-gradient(90deg,#5DCAA5,#AFA9EC); border-radius:2px; transition:width 0.4s; }
+  .sb-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); margin-bottom:8px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.04); }
+  .sb-hdr { display:flex; align-items:center; gap:12px; padding:14px 16px; cursor:pointer; }
+  .sb-hdr:active { background:var(--bg3); }
+  .sb-num { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; }
+  .m-num { background:#fff3e0; color:#e65100; }
+  .e-num { background:#ede7f6; color:#4527a0; }
+  .b-num { background:#e8f5e9; color:#1b5e20; }
+  .sb-title { font-size:16px; font-weight:700; color:var(--text); flex:1; letter-spacing:-.2px; line-height:1.3; }
+  .sb-sub { font-size:12px; color:var(--text3); margin-top:2px; }
+  .sb-body { display:none; padding:0 16px 16px; border-top:1px solid var(--border); }
+  .sb-body.open { display:block; }
+  .sb-why { font-size:13px; color:var(--text3); font-style:italic; line-height:1.55; margin:12px 0 10px; }
+  .sb-steps { display:flex; flex-direction:column; gap:8px; margin-bottom:12px; }
+  .sb-step { display:flex; gap:10px; font-size:14px; color:var(--text2); line-height:1.5; align-items:flex-start; }
+  .sb-dot { width:18px; height:18px; border-radius:50%; background:var(--bg3); border:1px solid var(--border2); font-size:10px; font-weight:700; color:var(--text3); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+  .sb-trow { display:flex; align-items:center; justify-content:space-between; margin-top:10px; }
+  .sb-ttime { font-size:12px; color:var(--text3); }
+  .sb-tbtn { background:var(--bg3); border:1px solid var(--border2); border-radius:var(--radius-sm); padding:7px 14px; font-size:12px; font-weight:600; color:var(--text2); cursor:pointer; font-family:-apple-system,sans-serif; }
+  .sb-tdisp { font-size:22px; font-weight:700; color:var(--text); text-align:center; margin-top:8px; display:none; }
+  .sb-tdisp.vis { display:block; }
+  .sb-caution { margin-top:10px; background:#fff3e0; border-left:3px solid #e65100; padding:9px 12px; font-size:12px; color:#bf360c; border-radius:0 6px 6px 0; line-height:1.5; }
+  .sb-done { font-size:12px; color:var(--text3); margin-top:10px; cursor:pointer; }
+  .sb-done.marked { color:var(--teal); }
+  .sb-complete-btn { width:100%; background:var(--bg3); border:1px solid var(--border2); border-radius:var(--radius); padding:14px; font-size:15px; font-weight:600; color:var(--teal); cursor:pointer; font-family:-apple-system,sans-serif; margin-top:12px; }
+  .tier-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:10px; }
+  .tier-badge { font-size:11px; font-weight:700; padding:3px 9px; border-radius:99px; background:#e8f5e9; color:#1b5e20; display:inline-block; margin-bottom:6px; }
+  .tier-title { font-size:16px; font-weight:700; color:var(--text); margin-bottom:5px; letter-spacing:-.2px; }
+  .tier-sub { font-size:13px; color:var(--text3); font-style:italic; margin-bottom:10px; line-height:1.5; }
+  .tier-detail { font-size:14px; color:var(--text2); line-height:1.65; }
+  .touchpoint-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; margin-bottom:8px; }
+  .tp-title { font-size:15px; font-weight:700; color:var(--text); margin-bottom:4px; }
+  .tp-text { font-size:13px; color:var(--text2); line-height:1.55; }
+
+  /* ── Workout ── */
+  .wo-wrap { padding:16px 20px 80px; }
+  .wo-day-toggle { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; margin-bottom:14px; }
+  .wo-day-toggle::-webkit-scrollbar { display:none; }
+  .wo-dtab { font-size:12px; font-weight:700; padding:7px 12px; border-radius:99px; border:1px solid var(--border2); cursor:pointer; color:var(--text2); background:transparent; font-family:-apple-system,sans-serif; white-space:nowrap; -webkit-appearance:none; }
+  .wo-dtab.push.active { background:#e65100; color:#fff; border-color:#e65100; }
+  .wo-dtab.pull.active { background:#1460a0; color:#fff; border-color:#1460a0; }
+  .wo-dtab.legs.active { background:#1b5e20; color:#fff; border-color:#1b5e20; }
+  .wo-dtab.rest.active { background:var(--text); color:#fff; border-color:var(--text); }
+  .wo-day { display:none; }
+  .wo-day.active { display:block; }
+  .wo-day-hdr { padding:14px 0 10px; border-bottom:1px solid var(--border); margin-bottom:12px; }
+  .wo-day-title { font-size:19px; font-weight:700; color:var(--text); letter-spacing:-.3px; }
+  .wo-day-sub { font-size:13px; color:var(--text3); margin-top:3px; }
+  .wo-warmup { background:var(--bg3); border-radius:var(--radius-sm); padding:10px 12px; font-size:13px; color:var(--text2); margin-bottom:12px; line-height:1.5; }
+  .wo-section-lbl { font-size:10px; font-weight:700; color:var(--text3); letter-spacing:.1em; text-transform:uppercase; margin:16px 0 8px; }
+  .wo-ex { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px; margin-bottom:6px; display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .wo-ex-name { font-size:15px; font-weight:600; color:var(--text); line-height:1.3; }
+  .wo-ex-muscle { font-size:11px; color:var(--text3); margin-top:2px; }
+  .wo-ex-sets { font-size:15px; font-weight:700; color:var(--blue); white-space:nowrap; flex-shrink:0; }
+
+  /* ── Nutrition ── */
+  .nut-wrap { padding:16px 20px 80px; }
+  .nut-toggle { display:flex; gap:6px; margin-bottom:16px; }
+  .nut-ttab { flex:1; text-align:center; font-size:14px; font-weight:600; padding:9px; border-radius:99px; border:1.5px solid var(--border2); cursor:pointer; color:var(--text2); background:var(--bg2); font-family:-apple-system,sans-serif; transition:all .15s; -webkit-appearance:none; }
+  .nut-ttab.active { background:var(--text); color:#fff; border-color:var(--text); }
+  .nut-day { display:none; }
+  .nut-day.active { display:block; }
+  .macro-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
+  .macro-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:14px; text-align:center; }
+  .macro-num { font-size:28px; font-weight:700; line-height:1; margin-bottom:4px; }
+  .macro-lbl { font-size:11px; font-weight:700; color:var(--text3); text-transform:uppercase; letter-spacing:.06em; }
+  .macro-sub { font-size:11px; color:var(--text3); margin-top:3px; }
+  .m-cal { color:var(--teal); border-top:3px solid var(--teal); grid-column:1/-1; }
+  .m-pro { color:#e65100; border-top:3px solid #e65100; }
+  .m-carb { color:var(--blue); border-top:3px solid var(--blue); }
+  .m-fat { color:var(--amber); border-top:3px solid var(--amber); }
+  .timing-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; margin-bottom:8px; }
+  .timing-slot { font-size:12px; font-weight:700; color:var(--text3); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; }
+  .timing-content { font-size:14px; color:var(--text2); line-height:1.55; }
+
+  /* ── Shop ── */
+  .shop-wrap { padding:16px 20px 80px; }
+  .shop-toggle { display:flex; gap:8px; margin-bottom:14px; }
+  .shop-ttab { flex:1; text-align:center; font-size:14px; font-weight:600; padding:9px; border-radius:99px; border:1.5px solid var(--border2); cursor:pointer; color:var(--text2); background:var(--bg2); font-family:-apple-system,sans-serif; -webkit-appearance:none; }
+  .shop-ttab.active { background:var(--text); color:#fff; border-color:var(--text); }
+  .shop-store { display:none; }
+  .shop-store.active { display:block; }
+  .shop-cat-title { font-size:12px; font-weight:700; color:var(--text3); letter-spacing:.08em; text-transform:uppercase; margin:16px 0 8px; }
+  .shop-item { display:flex; align-items:flex-start; gap:12px; background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px; margin-bottom:6px; cursor:pointer; transition:opacity .2s; }
+  .shop-item.checked { opacity:.35; }
+  .shop-cb { width:20px; height:20px; border-radius:4px; border:1.5px solid var(--border2); background:var(--bg); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; transition:all .15s; }
+  .shop-item.checked .shop-cb { background:var(--teal); border-color:var(--teal); color:#fff; font-size:12px; font-weight:700; }
+  .shop-item-body { flex:1; }
+  .shop-item-name { font-size:14px; font-weight:600; color:var(--text); line-height:1.3; }
+  .shop-item-detail { font-size:12px; color:var(--text3); margin-top:3px; line-height:1.45; }
+  .shop-reset { width:100%; background:transparent; border:1px solid var(--border2); border-radius:var(--radius); padding:12px; font-size:13px; font-weight:600; color:var(--text3); cursor:pointer; font-family:-apple-system,sans-serif; margin-top:12px; }
+  .shop-progress-row { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .shop-progress { flex:1; height:5px; background:var(--bg3); border-radius:3px; overflow:hidden; }
+  .shop-progress-fill { height:100%; background:var(--teal); border-radius:3px; transition:width .3s; }
+  .shop-progress-lbl { font-size:12px; color:var(--text3); white-space:nowrap; }
+
+  /* ── Pillars affirmations ── */
+  .affirmation-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:18px; margin-bottom:10px; }
+  .affirmation-text { font-size:17px; color:var(--text); line-height:1.55; letter-spacing:-.2px; font-weight:500; }
+  .affirmation-sub { font-size:13px; color:var(--text3); margin-top:6px; line-height:1.5; }
+  .affirm-section-title { font-size:12px; font-weight:700; color:var(--text3); letter-spacing:.08em; text-transform:uppercase; margin:20px 0 10px; }
+
   /* Skin */
   .skin-wrap { padding: 16px 20px; display: flex; flex-direction: column; gap: 16px; }
   .skin-section-title { font-size: 12px; font-weight: 700; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
@@ -428,10 +603,14 @@
     <span class="date" id="today-date"></span>
   </div>
   <div class="tabs">
-    <button class="tab active" onclick="showView('timeline', this)">Full day</button>
-    <button class="tab" onclick="showView('pillars', this)">Pillars</button>
+    <button class="tab active" onclick="showView('timeline', this)">My Day</button>
+    <button class="tab" onclick="showView('stretch', this)">Stretch & Breathe</button>
+    <button class="tab" onclick="showView('workout', this)">Workout</button>
     <button class="tab" onclick="showView('meals', this)">Meals</button>
+    <button class="tab" onclick="showView('nutrition', this)">Nutrition</button>
     <button class="tab" onclick="showView('skin', this)">Skin</button>
+    <button class="tab" onclick="showView('shop', this)">Shop</button>
+    <button class="tab" onclick="showView('pillars', this)">Pillars</button>
   </div>
 </div>
 
@@ -453,6 +632,41 @@
 <!-- PILLARS -->
 <div id="pillars" class="view">
   <div class="pillars-wrap">
+
+    <div class="affirm-section-title">Who you are</div>
+
+    <div class="affirmation-card">
+      <div class="affirmation-text">I have succeeded at hard things. The roles, the scale, the accomplishments — those were real. What I'm building now is the ground underneath them.</div>
+    </div>
+
+    <div class="affirmation-card">
+      <div class="affirmation-text">I am not failing at life. I am building the operating system I never had — one that lets me breathe, explore, be adventurous, laugh, and love without so much fear and angst.</div>
+    </div>
+
+    <div class="affirmation-card">
+      <div class="affirmation-text">The adventurous, laughing, loving version of me is not absent. He's just never had a nervous system regulated enough to come forward without fear running alongside him.</div>
+    </div>
+
+    <div class="affirmation-card">
+      <div class="affirmation-text">I identified my own self-sabotage pattern. That's not common. Most people never name it clearly enough to work with. I did — and I brought it to therapy.</div>
+    </div>
+
+    <div class="affirm-section-title">How I show up</div>
+
+    <div class="affirmation-card">
+      <div class="affirmation-text">Connection is not a reward for finishing the to-do list. Jason, my partner, Maddy — these go on the calendar with the same weight as work.</div>
+    </div>
+
+    <div class="affirmation-card">
+      <div class="affirmation-text">I am not a substitute for human connection, but I am worthy of it. Leaning on my support network is not weakness — it's the thing I'm actively working to allow.</div>
+    </div>
+
+    <div class="affirmation-card">
+      <div class="affirmation-text">Maddy needs consistent contact points, not crisis response. Showing up predictably matters more than what I do in the moment.</div>
+    </div>
+
+    <div class="affirm-section-title">The five pillars</div>
+
     <div class="pillar-card c-anchor">
       <div class="pillar-title">Morning anchor</div>
       <div class="pillar-sub">Non-negotiable. If only one thing survives a chaotic day, it's this.</div>
@@ -463,6 +677,7 @@
         <div class="pillar-item"><div class="pi-dot"></div>Coffee + meditation — still no scroll</div>
       </div>
     </div>
+
     <div class="pillar-card c-body">
       <div class="pillar-title">Body first</div>
       <div class="pillar-sub">The biological lever that makes everything else work. Movement before cognitive demands.</div>
@@ -473,9 +688,10 @@
         <div class="pillar-item"><div class="pi-dot"></div>Post-workout clean meal within 45 min</div>
       </div>
     </div>
+
     <div class="pillar-card c-maddy">
       <div class="pillar-title">Maddy — scaffolded, not reactive</div>
-      <div class="pillar-sub">Predictable contact points matter more than what happens in them. Consistency is the thing.</div>
+      <div class="pillar-sub">Predictable contact points matter more than what happens in them.</div>
       <div class="pillar-items">
         <div class="pillar-item"><div class="pi-dot"></div>One anchored morning touchpoint daily</div>
         <div class="pillar-item"><div class="pi-dot"></div>Afternoon float = Maddy buffer zone</div>
@@ -483,9 +699,10 @@
         <div class="pillar-item"><div class="pi-dot"></div>Shared meals when possible</div>
       </div>
     </div>
+
     <div class="pillar-card c-community">
       <div class="pillar-title">Community — scheduled, not earned</div>
-      <div class="pillar-sub">Connection is not a reward for finishing the to-do list. Same calendar weight as work.</div>
+      <div class="pillar-sub">Same calendar weight as work. Not a reward.</div>
       <div class="pillar-items">
         <div class="pillar-item"><div class="pi-dot"></div>Jason — one real contact per week minimum</div>
         <div class="pillar-item"><div class="pi-dot"></div>Partner — protected evening time, not leftover</div>
@@ -493,6 +710,7 @@
         <div class="pillar-item"><div class="pi-dot"></div>Out of Pacifica 1–2x per week</div>
       </div>
     </div>
+
     <div class="pillar-card c-close">
       <div class="pillar-title">Evening close-down</div>
       <div class="pillar-sub">The evening is the infrastructure for tomorrow morning.</div>
@@ -505,52 +723,946 @@
         <div class="pillar-item"><div class="pi-dot"></div>Phone away, blackout mask</div>
       </div>
     </div>
+
+    <div class="affirm-section-title" style="margin-top:8px">When it gets hard</div>
+
+    <div class="affirmation-card">
+      <div class="affirmation-text">The morning anchor holds. Everything else can flex. That one can't.</div>
+    </div>
+
+    <div class="affirmation-card">
+      <div class="affirmation-text">I am building the ground itself — not another impressive output. That's a fundamentally different project than anything I've tried to reset before.</div>
+    </div>
+
+    <div class="affirmation-card">
+      <div class="affirmation-text">Beach walk with Cooper. Morning anchor: held. That's enough to start.</div>
+      <div class="affirmation-sub">One good morning is proof. Stack them.</div>
+    </div>
+
   </div>
 </div>
+
 
 <!-- MEALS -->
 <div id="meals" class="view">
   <div class="meals-wrap">
-    <div>
-      <div class="meal-section-title">The core problem</div>
-      <div class="note-box">Ad hoc eating with clean-food standards means every meal requires a decision AND sourcing AND prep. Fix: batch once on Sunday, assemble the rest of the week.</div>
+
+    <div class="week-tab-row">
+      <button class="week-tab active" onclick="switchWeek('a',this)">Week A</button>
+      <button class="week-tab" onclick="switchWeek('b',this)">Week B</button>
     </div>
-    <div>
-      <div class="meal-section-title">Sunday batch — 2 to 2.5 hrs</div>
-      <div class="meal-card">
-        <div class="meal-label">Proteins — cook all at once</div>
-        <div class="meal-text">Kirkland organic chicken thighs (bulk-cook Sunday, portion and freeze) · Ground bison patties (Costco, pre-formed, fridge or freezer) · Kirkland wild-caught Alaskan salmon (sockeye/coho, frozen) · Vital Farms pasture-raised eggs (dozen hard-boiled)</div>
-        <div class="meal-label">Carbs + veg — roast together</div>
-        <div class="meal-text">Sweet potatoes or organic white rice · Sheet pan roasted veg (zucchini, broccoli, peppers) · Washed greens for quick salads</div>
-        <div class="meal-label">Fats — shelf-stable</div>
-        <div class="meal-text">Avocados staggered to ripen across the week · Organic EVOO, raw nuts, coconut aminos ready to go</div>
+
+    <div class="view-toggle">
+      <button class="view-tab active" onclick="switchMealView('plan',this)">Meal plan</button>
+      <button class="view-tab" onclick="switchMealView('sunday',this)">Sunday prep</button>
+      <button class="view-tab" onclick="switchMealView('morning',this)">Morning prep</button>
+    </div>
+
+    <!-- ===== WEEK A ===== -->
+    <div id="week-a" class="week-plan active">
+
+      <!-- MEAL PLAN -->
+      <div id="week-a-plan" class="meals-inner active" id="week-a-plan">
+        <div class="meal-section-title">Week A — Meal plan</div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Monday</div><div class="day-meal-sub">Bison bowls · Mediterranean chicken</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Post-workout</div><div class="meal-slot-content">Chicken thigh + white rice + roasted veg. Drizzle EVOO.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Midday</div><div class="meal-slot-content">Big green salad + sliced chicken + EVOO + lemon + cucumbers.</div><div class="meal-slot-note">Add avocado to your bowl — skip for David.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Bison bowls — ground bison over white rice with roasted peppers, zucchini, cumin yogurt drizzle. Simple, satisfying.</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Tuesday</div><div class="day-meal-sub">Salmon · Lemon herb chicken</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Post-workout</div><div class="meal-slot-content">Hard-boiled eggs (3) + sweet potato + handful of raw nuts.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Midday</div><div class="meal-slot-content">Chicken thigh + roasted veg + rice. Cold from the fridge — no reheating needed.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Pan-seared salmon with lemon, garlic, and capers. Steamed broccoli + white rice. 20 minutes total.</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Wednesday</div><div class="day-meal-sub">Bison lettuce wraps · Egg scramble</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Post-workout</div><div class="meal-slot-content">Chicken thigh + sweet potato + EVOO. Fast assembly from Sunday batch.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Midday</div><div class="meal-slot-content">Bison lettuce wraps — romaine leaves, ground bison, coconut aminos, shredded carrots. No cooking.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Pasture-raised egg scramble with organic spinach, peppers, and feta. Sweet potato on the side. Fast, clean, easy.</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Thursday</div><div class="day-meal-sub">Tuna · Chipotle chicken</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Post-workout</div><div class="meal-slot-content">Wild Planet tuna straight from the can + rice + roasted veg. Zero prep backup meal.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Midday</div><div class="meal-slot-content">Salad + hard-boiled eggs + EVOO + lemon. Simple.</div><div class="meal-slot-note">Add avocado to yours.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Chipotle-spiced chicken thighs (reheat from batch, add chipotle + lime) over rice with black beans and roasted corn.</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Friday</div><div class="day-meal-sub">Salmon · End-of-week clean-out</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Post-workout</div><div class="meal-slot-content">Whatever protein is left from the batch + sweet potato. End of week — use it up.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Midday</div><div class="meal-slot-content">Big salad clean-out — everything left in the fridge on greens.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Pan-seared salmon with coconut aminos, ginger, and sesame. Steamed broccoli. Simple Friday meal.</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Saturday</div><div class="day-meal-sub">Flex day · Something fun</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Daytime</div><div class="meal-slot-content">Eggs any style + sweet potato + fruit. Relaxed morning.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Flex — eat out, order in, or make something simple. You've eaten clean all week. Saturday dinner is community time, not optimization time.</div></div>
+          </div>
+        </div>
+
+        <div style="margin-top:8px">
+          <div class="meal-section-title">Week A sweet fix</div>
+          <div class="sweet-card">
+            <div class="sweet-icon">🍫</div>
+            <div><div class="sweet-title">Dark chocolate + berries</div><div class="sweet-text">2 squares 85%+ dark chocolate + a handful of organic berries. Hits the sweet tooth, anti-inflammatory, and won't wreck the nutrition goals. Keep it in the freezer for extra satisfaction.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUNDAY PREP - WEEK A -->
+      <div id="week-a-sunday" class="meals-inner">
+        <div class="meal-section-title">Week A — Sunday prep guide</div>
+        <div class="note-box" style="margin-bottom:12px">~2 hrs total. Put on a podcast, do it once, eat clean all week. Everything below is batched so daily meals are assembly only.</div>
+
+        <div class="prep-card">
+          <div class="prep-title">Proteins (60 min)</div>
+          <div class="prep-sub">All three run simultaneously — start the chicken first, then eggs, then bison.</div>
+          <div class="prep-step"><div class="prep-step-num">1</div><div class="prep-step-text"><strong>Chicken thighs (3 lbs)</strong> — coat in EVOO, garlic powder, paprika, salt. Roast at 400°F for 35 min. Cool, slice or pull apart, portion into containers.</div></div>
+          <div class="prep-step"><div class="prep-step-num">2</div><div class="prep-step-text"><strong>Hard-boiled eggs (12)</strong> — cold water, bring to boil, 10 min, ice bath. Peel all, store in container with a damp paper towel.</div></div>
+          <div class="prep-step"><div class="prep-step-num">3</div><div class="prep-step-text"><strong>Ground bison (2 lbs)</strong> — brown in skillet with cumin, garlic, salt. Break up fine. Drain any fat, cool, refrigerate in container.</div></div>
+          <div class="prep-step"><div class="prep-step-num">4</div><div class="prep-step-text"><strong>Salmon (keep raw)</strong> — don't pre-cook. Takes 8 min fresh Tuesday and Friday. Way better than reheated.</div></div>
+        </div>
+
+        <div class="prep-card">
+          <div class="prep-title">Carbs (30 min)</div>
+          <div class="prep-step"><div class="prep-step-num">1</div><div class="prep-step-text"><strong>White rice (3 cups dry)</strong> — cook per package. Yields ~6 cups cooked. Refrigerate in large container.</div></div>
+          <div class="prep-step"><div class="prep-step-num">2</div><div class="prep-step-text"><strong>Sweet potatoes (4–5 medium)</strong> — pierce, microwave 5 min each or roast at 400°F for 45 min whole. Store whole in fridge — slice when needed.</div></div>
+        </div>
+
+        <div class="prep-card">
+          <div class="prep-title">Veg (25 min)</div>
+          <div class="prep-step"><div class="prep-step-num">1</div><div class="prep-step-text"><strong>Sheet pan roasted veg</strong> — zucchini, peppers, broccoli in chunks. EVOO, salt, 425°F for 20–25 min. Roast until edges brown.</div></div>
+          <div class="prep-step"><div class="prep-step-num">2</div><div class="prep-step-text"><strong>Wash and dry greens</strong> — spin dry, store in container lined with paper towel. Ready for salads all week.</div></div>
+          <div class="prep-step"><div class="prep-step-num">3</div><div class="prep-step-text"><strong>Avocados</strong> — buy 3–4 at different ripeness stages. Don't prep — open fresh when needed. Your addition only (David allergic).</div></div>
+        </div>
+
+        <div class="prep-card">
+          <div class="prep-title">Seasoning setup (5 min)</div>
+          <div class="prep-sub">Pull these out and leave them on the counter — reduces friction all week.</div>
+          <div class="prep-step"><div class="prep-step-num">1</div><div class="prep-step-text">Coconut aminos, EVOO, and lemons on the counter.</div></div>
+          <div class="prep-step"><div class="prep-step-num">2</div><div class="prep-step-text">Garlic powder, cumin, paprika, chipotle powder, Italian seasoning — line them up.</div></div>
+          <div class="prep-step"><div class="prep-step-num">3</div><div class="prep-step-text">Dark chocolate in the freezer. Berries washed in the fridge.</div></div>
+        </div>
+      </div>
+
+      <!-- MORNING PREP - WEEK A -->
+      <div id="week-a-morning" class="meals-inner">
+        <div class="meal-section-title">Week A — Morning prep guide</div>
+        <div class="note-box" style="margin-bottom:12px">5 minutes or less. Everything was batched Sunday — this is just pulling it together for the day ahead.</div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Monday morning</div><div class="day-meal-sub">2 min</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-content">· Pull chicken thigh portion from fridge — set out to take the chill off<br>· Portion rice into container for post-workout<br>· Pack salad greens + chicken slices in a separate container for midday<br>· Note: grab avocado for your midday bowl</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Tuesday morning</div><div class="day-meal-sub">2 min</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-content">· Grab 3 hard-boiled eggs + sweet potato for post-workout<br>· Pack chicken + veg + rice in container for midday<br>· Pull salmon from freezer to fridge if frozen — needs to thaw by dinner<br>· Check lemon and capers are in the fridge for tonight</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Wednesday morning</div><div class="day-meal-sub">2 min</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-content">· Grab chicken + sweet potato for post-workout<br>· Pull romaine leaves and bison from fridge — midday wraps are ready to assemble<br>· Check eggs, spinach, peppers for tonight's scramble<br>· Sweet potato for tonight — already cooked, just needs reheating</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Thursday morning</div><div class="day-meal-sub">1 min</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-content">· Grab Wild Planet tuna can + rice for post-workout — zero prep<br>· Pack eggs + greens for midday salad<br>· Pull chicken from fridge for chipotle dinner — it reheats in 5 min in a pan with chipotle + lime</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Friday morning</div><div class="day-meal-sub">2 min</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-content">· Use up whatever protein is left — fridge clean-out day<br>· Greens + everything remaining in fridge for midday<br>· Pull second salmon portion from fridge for tonight<br>· Check ginger and sesame for the coconut aminos salmon</div></div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div>
-      <div class="meal-section-title">Daily assembly — not cooking</div>
-      <div class="meal-card">
-        <div class="meal-row">
-          <div class="meal-time">Post-workout</div>
-          <div class="meal-text">Grab pre-cooked chicken, salmon, or beef — scoop rice or sweet potato. Done in 5 min. Within 45 min of gym. Wild Planet tuna is the no-prep backup.</div>
+
+    <!-- ===== WEEK B ===== -->
+    <div id="week-b" class="week-plan">
+
+      <!-- MEAL PLAN -->
+      <div id="week-b-plan" class="meals-inner active">
+        <div class="meal-section-title">Week B — Meal plan</div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Monday</div><div class="day-meal-sub">Italian bison · Herb salmon</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Post-workout</div><div class="meal-slot-content">Chicken thigh + sweet potato + EVOO. Same reliable base, different week.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Midday</div><div class="meal-slot-content">Salad + hard-boiled eggs + roasted veg + EVOO + apple cider vinegar dressing.</div><div class="meal-slot-note">Add avocado to yours.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Italian bison — ground bison with crushed tomatoes, Italian seasoning, garlic, over zucchini noodles or rice. Hearty and different from Week A.</div></div>
+          </div>
         </div>
-        <div class="meal-row">
-          <div class="meal-time">Midday</div>
-          <div class="meal-text">Big salad + batch protein + avocado + EVOO + lemon. No cooking. Works for Maddy too.</div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Tuesday</div><div class="day-meal-sub">Asian salmon · Chicken rice bowls</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Post-workout</div><div class="meal-slot-content">Chicken + rice + roasted veg. Fast from the batch.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Midday</div><div class="meal-slot-content">Chicken rice bowl — sliced chicken over rice with roasted veg, coconut aminos drizzle.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Pan-seared salmon with ginger, coconut aminos, sesame, and scallions. Steamed broccoli + rice. Different flavor profile from Week A salmon nights.</div></div>
+          </div>
         </div>
-        <div class="meal-row">
-          <div class="meal-time">Dinner</div>
-          <div class="meal-text">One real cook of the day. Simple protein + veg. The community meal — partner or Maddy involved. Shared cooking is connection.</div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Wednesday</div><div class="day-meal-sub">Bison taco bowls · Egg fried rice</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Post-workout</div><div class="meal-slot-content">Eggs (3) + sweet potato + raw nuts. Quick and satisfying.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Midday</div><div class="meal-slot-content">Bison taco bowl — bison over rice with salsa, shredded cabbage, lime, cilantro.</div><div class="meal-slot-note">Add avocado to yours.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Clean egg fried rice — scrambled eggs + leftover rice + frozen veg + coconut aminos + sesame oil. 10 minutes, big flavor.</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Thursday</div><div class="day-meal-sub">Tuna · Greek chicken</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Post-workout</div><div class="meal-slot-content">Wild Planet tuna + sweet potato + EVOO. Easy no-think meal.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Midday</div><div class="meal-slot-content">Greek salad — greens, cucumber, tomato, olives, hard-boiled egg, EVOO + lemon.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Greek-style chicken thighs (reheat with lemon, oregano, olive oil) over rice with roasted zucchini and tomatoes.</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Friday</div><div class="day-meal-sub">Salmon · Fridge clean-out</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Post-workout</div><div class="meal-slot-content">Whatever's left in the batch. End of week — use it up.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Midday</div><div class="meal-slot-content">Big clean-out salad — everything remaining on greens.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Salmon with lemon, garlic, capers, and fresh herbs. Simple Friday treat.</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Saturday</div><div class="day-meal-sub">Flex day</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-label">Daytime</div><div class="meal-slot-content">Eggs any style + fruit + sweet potato. Easy morning.</div></div>
+            <div class="meal-slot"><div class="meal-slot-label">Dinner (shared)</div><div class="meal-slot-content">Flex. Eat out, order clean, or cook something you feel like. Saturday is community time.</div></div>
+          </div>
+        </div>
+
+        <div style="margin-top:8px">
+          <div class="meal-section-title">Week B sweet fix</div>
+          <div class="sweet-card">
+            <div class="sweet-icon">🍓</div>
+            <div><div class="sweet-title">Coconut yogurt + berries</div><div class="sweet-text">Full-fat organic coconut yogurt with organic berries and a drizzle of raw honey. Creamy, sweet, satisfying — and it counts as a snack, not a cheat. Keep it in the fridge ready to go.</div></div>
+          </div>
         </div>
       </div>
+
+      <!-- SUNDAY PREP - WEEK B -->
+      <div id="week-b-sunday" class="meals-inner">
+        <div class="meal-section-title">Week B — Sunday prep guide</div>
+        <div class="note-box" style="margin-bottom:12px">Same structure as Week A, different seasoning profiles to keep things interesting without extra complexity.</div>
+
+        <div class="prep-card">
+          <div class="prep-title">Proteins (60 min)</div>
+          <div class="prep-sub">Different seasonings than Week A — same process.</div>
+          <div class="prep-step"><div class="prep-step-num">1</div><div class="prep-step-text"><strong>Chicken thighs (3 lbs)</strong> — coat in EVOO, lemon zest, oregano, garlic. Roast 400°F for 35 min. Cool and portion. Greek profile this week.</div></div>
+          <div class="prep-step"><div class="prep-step-num">2</div><div class="prep-step-text"><strong>Hard-boiled eggs (12)</strong> — same as always. Cold water, boil 10 min, ice bath, peel, store.</div></div>
+          <div class="prep-step"><div class="prep-step-num">3</div><div class="prep-step-text"><strong>Ground bison (2 lbs)</strong> — brown with Italian seasoning, garlic, fennel seed, salt. Drain, cool, refrigerate.</div></div>
+          <div class="prep-step"><div class="prep-step-num">4</div><div class="prep-step-text"><strong>Salmon (keep raw)</strong> — thaw in fridge night before Tuesday and Friday. 8 min fresh is always better.</div></div>
+        </div>
+
+        <div class="prep-card">
+          <div class="prep-title">Carbs (30 min)</div>
+          <div class="prep-step"><div class="prep-step-num">1</div><div class="prep-step-text"><strong>White rice (3 cups dry)</strong> — cook per package. Store in large container.</div></div>
+          <div class="prep-step"><div class="prep-step-num">2</div><div class="prep-step-text"><strong>Sweet potatoes (4–5)</strong> — same as Week A. Cook whole, store whole, slice when needed.</div></div>
+        </div>
+
+        <div class="prep-card">
+          <div class="prep-title">Veg (25 min)</div>
+          <div class="prep-step"><div class="prep-step-num">1</div><div class="prep-step-text"><strong>Sheet pan roast</strong> — zucchini, cherry tomatoes, broccoli, red onion. EVOO, oregano, salt. 425°F for 22 min.</div></div>
+          <div class="prep-step"><div class="prep-step-num">2</div><div class="prep-step-text"><strong>Wash and dry greens</strong> — store with paper towel. Ready all week.</div></div>
+          <div class="prep-step"><div class="prep-step-num">3</div><div class="prep-step-text"><strong>Shred cabbage</strong> — for Wednesday taco bowls. Store in bag.</div></div>
+        </div>
+
+        <div class="prep-card">
+          <div class="prep-title">Extras (5 min)</div>
+          <div class="prep-step"><div class="prep-step-num">1</div><div class="prep-step-text">Open and rinse canned crushed tomatoes — have ready for Monday Italian bison.</div></div>
+          <div class="prep-step"><div class="prep-step-num">2</div><div class="prep-step-text">Coconut yogurt + berries in fridge — your Week B sweet fix is ready.</div></div>
+          <div class="prep-step"><div class="prep-step-num">3</div><div class="prep-step-text">Avocados at different ripeness stages on the counter. Yours only.</div></div>
+        </div>
+      </div>
+
+      <!-- MORNING PREP - WEEK B -->
+      <div id="week-b-morning" class="meals-inner">
+        <div class="meal-section-title">Week B — Morning prep guide</div>
+        <div class="note-box" style="margin-bottom:12px">5 minutes or less. Everything was batched Sunday.</div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Monday morning</div><div class="day-meal-sub">2 min</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-content">· Pull chicken + sweet potato for post-workout<br>· Pack eggs + roasted veg + greens for midday salad<br>· Check crushed tomatoes and Italian seasoning for tonight's bison<br>· Bison is already cooked — just needs reheating with tomatoes in a pan</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Tuesday morning</div><div class="day-meal-sub">2 min</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-content">· Grab chicken + rice + veg for post-workout<br>· Pack chicken rice bowl for midday — coconut aminos drizzle already on counter<br>· Check salmon is thawed for tonight<br>· Pull ginger, scallions, sesame for tonight's Asian salmon</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Wednesday morning</div><div class="day-meal-sub">2 min</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-content">· Grab eggs + sweet potato + nuts for post-workout<br>· Pack bison + rice + shredded cabbage for midday taco bowl<br>· Add avocado to your taco bowl<br>· Tonight is egg fried rice — check frozen veg, coconut aminos, sesame oil</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Thursday morning</div><div class="day-meal-sub">1 min</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-content">· Grab tuna can + sweet potato — zero prep post-workout<br>· Pack greens, cucumber, tomato, olives, egg for Greek salad<br>· Pull chicken from fridge for Greek dinner — reheats in 5 min with lemon and oregano</div></div>
+          </div>
+        </div>
+
+        <div class="day-meal-card">
+          <div class="day-meal-header" onclick="toggleDay(this)">
+            <div><div class="day-meal-title">Friday morning</div><div class="day-meal-sub">2 min</div></div>
+            <em class="chevron">▾</em>
+          </div>
+          <div class="day-meal-body">
+            <div class="meal-slot"><div class="meal-slot-content">· Use up whatever's left from batch — end of week<br>· Big clean-out salad for midday<br>· Check salmon is thawed for tonight<br>· Lemon, garlic, capers, fresh herbs for tonight's salmon</div></div>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div>
-      <div class="meal-section-title">The mess problem</div>
-      <div class="note-box">Batch day = one mess, cleaned once. Daily assembly = bowls and a fork. Same total work, restructured so it doesn't scatter across the week.</div>
+
+  </div>
+</div>
+
+
+
+<!-- STRETCH & BREATHE -->
+<div id="stretch" class="view">
+  <div class="sb-wrap">
+
+    <div class="sb-view-toggle">
+      <button class="sb-vtab active" onclick="sbView('morning',this)">Morning stretch</button>
+      <button class="sb-vtab" onclick="sbView('breathwork',this)">Breathwork</button>
+      <button class="sb-vtab" onclick="sbView('evening',this)">Evening wind-down</button>
     </div>
-    <div>
-      <div class="meal-section-title">Costco — monthly anchor</div>
-      <div class="note-box">Wild salmon · organic chicken thighs · ground bison · pasture-raised eggs · organic sweet potatoes · organic frozen veg · raw nuts · coconut aminos · organic EVOO · avocados. Calendar event, not reactive errand.</div>
+
+    <!-- MORNING STRETCH -->
+    <div id="sb-morning" class="sb-inner active">
+      <div class="note-box" style="margin-bottom:14px">~8 minutes · Outdoors with Cooper · Built for your specific body: anterior pelvic tilt, SI joint, pelvic floor tightness, shoulder repair.</div>
+      <div class="sb-progress"><div class="sb-progress-fill" id="sb-prog" style="width:0%"></div></div>
+
+      <div class="sb-card" id="sbc-1">
+        <div class="sb-hdr" onclick="sbToggle(1)">
+          <div class="sb-num m-num">1</div>
+          <div style="flex:1"><div class="sb-title">Standing Hip Flexor Lunge</div><div class="sb-sub">Anterior tilt · ED support · 45 sec each side</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbb-1">
+          <div class="sb-why">Tight hip flexors are the #1 driver of anterior pelvic tilt and compress the pelvic floor. Releasing them daily targets your tilt, SI pressure, and blood flow through the pelvic region.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Step one foot forward into a lunge. Front knee over ankle, back leg straight.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Keep torso upright and hips square to the front.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Shift forward until you feel a stretch deep in the front of the back hip.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 45 sec. Switch sides. 2 rounds each.</span></div>
+          </div>
+          <div class="sb-trow">
+            <span class="sb-ttime">⏱ 90 sec total</span>
+            <button class="sb-tbtn" onclick="sbTimer(1,90,this)">Start Timer</button>
+          </div>
+          <div class="sb-tdisp" id="sbt-1"></div>
+          <div class="sb-done" id="sbdone-1" onclick="sbDone(1)">☐ &nbsp;Mark done</div>
+        </div>
+      </div>
+
+      <div class="sb-card" id="sbc-2">
+        <div class="sb-hdr" onclick="sbToggle(2)">
+          <div class="sb-num m-num">2</div>
+          <div style="flex:1"><div class="sb-title">Standing Figure-4 (Piriformis)</div><div class="sb-sub">SI joint · ED support · 45 sec each side</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbb-2">
+          <div class="sb-why">The piriformis sits directly next to the pudendal nerve — the main nerve involved in pelvic sensation. A tight piriformis = nerve compression. Also relieves SI joint tension.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Stand near a wall or fence. Cross one ankle over the opposite knee.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Slowly sit back and down until you feel a deep stretch in the glute of the crossed leg.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Keep spine long. Breathe into the stretch.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 45 sec. Switch sides.</span></div>
+          </div>
+          <div class="sb-trow">
+            <span class="sb-ttime">⏱ 90 sec total</span>
+            <button class="sb-tbtn" onclick="sbTimer(2,90,this)">Start Timer</button>
+          </div>
+          <div class="sb-tdisp" id="sbt-2"></div>
+          <div class="sb-done" id="sbdone-2" onclick="sbDone(2)">☐ &nbsp;Mark done</div>
+        </div>
+      </div>
+
+      <div class="sb-card" id="sbc-3">
+        <div class="sb-hdr" onclick="sbToggle(3)">
+          <div class="sb-num m-num">3</div>
+          <div style="flex:1"><div class="sb-title">Standing Pelvic Tilts</div><div class="sb-sub">Anterior tilt · Low back reset · 60 sec</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbb-3">
+          <div class="sb-why">Teaches your pelvis what neutral actually feels like — critical for someone who lifts heavy. Living in anterior tilt compresses the SI joint and shortens the pelvic floor chronically.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Feet hip-width, soft knees. Hands on hip bones.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Exaggerate your low back arch (your default anterior tilt).</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Tuck tailbone under, squeeze glutes gently, flatten low back.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Rock slowly between the two, finding neutral. 15–20 reps.</span></div>
+          </div>
+          <div class="sb-trow">
+            <span class="sb-ttime">⏱ ~60 sec</span>
+            <button class="sb-tbtn" onclick="sbTimer(3,60,this)">Start Timer</button>
+          </div>
+          <div class="sb-tdisp" id="sbt-3"></div>
+          <div class="sb-done" id="sbdone-3" onclick="sbDone(3)">☐ &nbsp;Mark done</div>
+        </div>
+      </div>
+
+      <div class="sb-card" id="sbc-4">
+        <div class="sb-hdr" onclick="sbToggle(4)">
+          <div class="sb-num m-num">4</div>
+          <div style="flex:1"><div class="sb-title">Standing Side Bend</div><div class="sb-sub">Full spine · SI joint · 30 sec each side</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbb-4">
+          <div class="sb-why">Opens the quadratus lumborum — the muscle that frequently pulls the SI joint out of alignment. Decompresses the spine after sleep.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Stand tall, feet hip-width. Raise the non-surgical arm straight overhead.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Lean slowly to the side until you feel a stretch along your whole side body.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Both feet planted, hips square. Don't twist.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 30 sec each side. 2 rounds.</span></div>
+          </div>
+          <div class="sb-caution">⚠ On the surgical side, keep that arm relaxed at your side. Only raise the non-surgical arm overhead.</div>
+          <div class="sb-trow" style="margin-top:12px">
+            <span class="sb-ttime">⏱ 60 sec total</span>
+            <button class="sb-tbtn" onclick="sbTimer(4,60,this)">Start Timer</button>
+          </div>
+          <div class="sb-tdisp" id="sbt-4"></div>
+          <div class="sb-done" id="sbdone-4" onclick="sbDone(4)">☐ &nbsp;Mark done</div>
+        </div>
+      </div>
+
+      <div class="sb-card" id="sbc-5">
+        <div class="sb-hdr" onclick="sbToggle(5)">
+          <div class="sb-num m-num">5</div>
+          <div style="flex:1"><div class="sb-title">Cross-Body Shoulder Stretch</div><div class="sb-sub">Posterior capsule · Rotator cuff · 30 sec × 3</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbb-5">
+          <div class="sb-why">The posterior capsule is the most commonly tight structure after rotator cuff repair. This prevents compensatory patterns that stress the bicep tenodesis and cause impingement during lifting. Own this one forever.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Bring your surgical arm across your chest at shoulder height.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Use the other hand to support the elbow gently — don't pull, just hold.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Feel the stretch in the back of the shoulder. Keep the blade relaxed.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 30 sec. Repeat 3×.</span></div>
+          </div>
+          <div class="sb-caution">⚠ Gentle and consistent beats aggressive. No forcing, no pain.</div>
+          <div class="sb-trow" style="margin-top:12px">
+            <span class="sb-ttime">⏱ 90 sec total</span>
+            <button class="sb-tbtn" onclick="sbTimer(5,90,this)">Start Timer</button>
+          </div>
+          <div class="sb-tdisp" id="sbt-5"></div>
+          <div class="sb-done" id="sbdone-5" onclick="sbDone(5)">☐ &nbsp;Mark done</div>
+        </div>
+      </div>
+
+      <div class="sb-card" id="sbc-6">
+        <div class="sb-hdr" onclick="sbToggle(6)">
+          <div class="sb-num m-num">6</div>
+          <div style="flex:1"><div class="sb-title">Diaphragmatic Breath + Pelvic Floor Release</div><div class="sb-sub">ED support · Pelvic floor · Nervous system · ~2 min</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbb-6">
+          <div class="sb-why">Weightlifters almost universally develop a hypertonic (chronically braced) pelvic floor. Deliberate release on the inhale — not Kegels — improves blood flow and nerve signaling. This is the most important move on the list for the ED symptoms. Pair with Pulsetto.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Stand or sit. One hand on belly, one on chest.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Inhale slowly through nose for 4–5 counts. Belly rises, chest stays still.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>As you inhale, consciously let go of your pelvic floor — release downward.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Exhale slowly for 5–6 counts. 8–10 breaths total.</span></div>
+          </div>
+          <div class="sb-trow">
+            <span class="sb-ttime">⏱ ~2 min</span>
+            <button class="sb-tbtn" onclick="sbTimer(6,120,this)">Start Timer</button>
+          </div>
+          <div class="sb-tdisp" id="sbt-6"></div>
+          <div class="sb-done" id="sbdone-6" onclick="sbDone(6)">☐ &nbsp;Mark done</div>
+        </div>
+      </div>
+
+      <button class="sb-complete-btn" onclick="sbComplete()">✓ Complete Today's Stretch</button>
     </div>
+
+    <!-- BREATHWORK -->
+    <div id="sb-breathwork" class="sb-inner">
+      <div class="note-box" style="margin-bottom:14px">Start at Tier 1. Live there for 1–2 weeks before adding anything. The exhale is the master key.</div>
+
+      <div class="tier-card">
+        <div class="tier-badge">Tier 1 — Foundation · Daily</div>
+        <div class="tier-title">Diaphragmatic Reset</div>
+        <div class="tier-sub">5 minutes · Morning outdoors or before bed · Lying on your back, knees bent, feet flat. One hand on belly, one on chest.</div>
+        <div class="tier-detail">
+          Inhale through your nose for <strong>4 counts</strong> — belly rises, chest stays still.<br><br>
+          Pause at the top for <strong>1 count</strong> — don't grip, just arrive.<br><br>
+          Exhale through your nose for <strong>6–8 counts</strong> — belly softens and falls.<br><br>
+          On the inhale, invite your perineum to drop. Don't force it — just notice and allow. On the exhale, let it gently return to neutral. You're not doing a Kegel. You're removing the chronic grip.<br><br>
+          <strong>Target:</strong> 10–15 breath cycles (~5 minutes).
+        </div>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-badge">Tier 2 — Vagus Nerve · Add after 1–2 weeks</div>
+        <div class="tier-title">Extended Exhale Breathing</div>
+        <div class="tier-sub">Exhaling longer than you inhale is one of the most direct ways to activate the vagus nerve. Move through the progression as it feels comfortable.</div>
+        <div class="tier-detail">
+          <strong>Weeks 1–2:</strong> Inhale 4 · Exhale 6<br>
+          <strong>Weeks 3–4:</strong> Inhale 4 · Exhale 7<br>
+          <strong>Week 5+:</strong> Inhale 4 · Exhale 8<br><br>
+          Don't rush to the 1:2 ratio. The nervous system needs time to trust it.<br><br>
+          <strong>Position options:</strong> Lying down (best) or deep supported squat holding a doorframe — adds mechanical pelvic floor opening on top of the breathwork.
+        </div>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-badge">Tier 3 — Resonance · Add when Tier 2 feels natural</div>
+        <div class="tier-title">The 0.1 Hz Protocol</div>
+        <div class="tier-sub">Slow-paced breathing at 0.1 Hz — approximately 6 breaths per minute — amplifies heart rate variability and significantly increases cardiac vagal activity. This is the breath rate used in clinical HRV training.</div>
+        <div class="tier-detail">
+          <strong>The breath:</strong> Inhale 5 counts · Exhale 5 counts · Exactly 6 breaths per minute.<br><br>
+          <strong>Add pelvic floor coordination:</strong> Gently notice (don't grip) on the inhale — consciously release and drop on the exhale.<br><br>
+          <strong>Duration:</strong> 10 minutes. This is the dose used in clinical research to produce measurable nervous system change.
+        </div>
+      </div>
+
+      <div class="meal-section-title" style="margin-top:20px">Daily touchpoints</div>
+
+      <div class="touchpoint-card">
+        <div class="tp-title">Perineum check-in (3× daily)</div>
+        <div class="tp-text">Set 3 random phone alarms labeled "drop." When it goes off: one slow breath, consciously release the perineum and pelvic floor. That's it. Over weeks this interrupts the automatic holding pattern.</div>
+      </div>
+      <div class="touchpoint-card">
+        <div class="tp-title">Pre-lift reset</div>
+        <div class="tp-text">Before any heavy set, one full diaphragmatic breath — belly expands, pelvic floor drops on the inhale, then exhale and brace only as needed. Retrains the habitual over-brace pattern.</div>
+      </div>
+      <div class="touchpoint-card">
+        <div class="tp-title">The bathroom practice</div>
+        <div class="tp-text">Feet elevated on a stool. Slow diaphragmatic breath in, and on the exhale consciously release the perineum downward. Do not strain. Let the breath do the work.</div>
+      </div>
+      <div class="touchpoint-card">
+        <div class="tp-title">The hum (30 seconds daily)</div>
+        <div class="tp-text">Humming creates vibration in the throat that directly stimulates the vagus nerve. In the shower, in the car — it's genuine vagal toning. Do it daily.</div>
+      </div>
+    </div>
+
+    <!-- EVENING WIND-DOWN -->
+    <div id="sb-evening" class="sb-inner">
+      <div class="note-box" style="margin-bottom:14px">~8 minutes · In the bedroom or wherever you close-down. Signals the nervous system that the day is done. Pairs with your pre-sleep breathwork stack.</div>
+
+      <div class="sb-card" id="sbe-1">
+        <div class="sb-hdr" onclick="eToggle(1)">
+          <div class="sb-num e-num">1</div>
+          <div style="flex:1"><div class="sb-title">Supine Figure-4 Hip Release</div><div class="sb-sub">SI joint · Pelvic floor · 60 sec each side</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbbe-1">
+          <div class="sb-why">Same piriformis release as the morning, but lying down — gravity-assisted and deeper. Excellent for resetting SI joint tension that has built up through the day and gym.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Lie on your back, knees bent. Cross one ankle over the opposite knee.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Either stay here if you feel stretch, or gently draw both legs toward your chest.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Breathe slowly into the stretch. Let the floor hold you.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 60 sec. Switch sides. No timer needed — just breathe.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-card" id="sbe-2">
+        <div class="sb-hdr" onclick="eToggle(2)">
+          <div class="sb-num e-num">2</div>
+          <div style="flex:1"><div class="sb-title">Supine Spinal Twist</div><div class="sb-sub">Low back · SI joint · 60 sec each side</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbbe-2">
+          <div class="sb-why">Decompresses the lumbar spine, releases the SI joint, and gently massages the digestive organs. One of the most effective end-of-day resets available — and completely passive.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Lie on your back. Draw one knee to your chest.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Gently guide that knee across your body toward the floor on the opposite side.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Extend the same-side arm out at shoulder height. Look away from the knee.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 60 sec. Breathe deeply. Switch sides.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-card" id="sbe-3">
+        <div class="sb-hdr" onclick="eToggle(3)">
+          <div class="sb-num e-num">3</div>
+          <div style="flex:1"><div class="sb-title">Child's Pose (Modified)</div><div class="sb-sub">Full spine · Hip flexors · Low back · 90 sec</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbbe-3">
+          <div class="sb-why">Lengthens the entire posterior chain, decompresses the lumbar spine, and activates the parasympathetic nervous system through gentle forward folding. The modified version keeps the surgical shoulder safe.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>From kneeling, sink your hips back toward your heels.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Walk hands forward until you feel a gentle stretch through the back. Keep arms relaxed — don't actively reach.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Rest your forehead on the floor or a pillow. Soften everything.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 90 sec. Breathe deeply into your lower back.</span></div>
+          </div>
+          <div class="sb-caution">⚠ Keep both arms at a comfortable distance — no overhead reaching with the surgical shoulder.</div>
+        </div>
+      </div>
+
+      <div class="sb-card" id="sbe-4">
+        <div class="sb-hdr" onclick="eToggle(4)">
+          <div class="sb-num e-num">4</div>
+          <div style="flex:1"><div class="sb-title">Legs Up the Wall</div><div class="sb-sub">Nervous system reset · Circulation · 2–3 min</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbbe-4">
+          <div class="sb-why">This single position activates the parasympathetic nervous system, drains venous blood from the legs, reduces cortisol, and calms the racing-mind pattern that disrupts your sleep. The simplest and most powerful wind-down tool on this list.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Sit sideways against a wall, then swing your legs up as you lower your back to the floor.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Arms relaxed at your sides or hands on your belly. Close your eyes.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Breathe slowly and naturally. Let gravity do everything.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Stay 2–3 minutes or longer. Transition directly to your Tier 2 or 3 breathwork from here.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-box" style="margin-top:12px">After this sequence → Magnesium glycinate 400mg → Tier 2 or 3 breathwork in bed → blackout mask → phone away. The evening anchor holds.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WORKOUT -->
+<div id="workout" class="view">
+  <div class="wo-wrap">
+    <div class="note-box" style="margin-bottom:14px">6-day Push / Pull / Legs · Gym and home options · Built for your shoulder repair and pelvic correction needs.</div>
+    <div class="wo-day-toggle">
+      <button class="wo-dtab push active" onclick="woDay(0,this)">Push A</button>
+      <button class="wo-dtab pull" onclick="woDay(1,this)">Pull A</button>
+      <button class="wo-dtab legs" onclick="woDay(2,this)">Legs A</button>
+      <button class="wo-dtab push" onclick="woDay(3,this)">Push B</button>
+      <button class="wo-dtab pull" onclick="woDay(4,this)">Pull B</button>
+      <button class="wo-dtab legs" onclick="woDay(5,this)">Legs B</button>
+      <button class="wo-dtab rest" onclick="woDay(6,this)">Rest</button>
+    </div>
+
+    <div class="wo-day active" id="wod-0">
+      <div class="wo-day-hdr"><div class="wo-day-title">Push A — Upper Chest Focus</div><div class="wo-day-sub">Chest · Shoulders · Core · ~75 min</div></div>
+      <div class="wo-warmup">🔥 Warm-up: 5 min — arm circles, band pull-aparts, light DB press (30% weight × 15 reps)</div>
+      <div class="wo-section-lbl">Chest — Upper</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Incline DB Press (45°)</div><div class="wo-ex-muscle">Upper pec · anterior delt</div></div><div class="wo-ex-sets">4 × 10–12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Fly — Low to High</div><div class="wo-ex-muscle">Upper pec (clavicular head)</div></div><div class="wo-ex-sets">3 × 12–15</div></div>
+      <div class="wo-section-lbl">Chest — Mid & Lower</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Flat DB Press</div><div class="wo-ex-muscle">Mid pec · sternal head</div></div><div class="wo-ex-sets">4 × 10–12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Fly — High to Low</div><div class="wo-ex-muscle">Lower pec (sternal/costal head)</div></div><div class="wo-ex-sets">3 × 12–15</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Machine Chest Fly</div><div class="wo-ex-muscle">Full pec — peak contraction</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-section-lbl">Shoulders</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Seated Overhead Press</div><div class="wo-ex-muscle">Anterior + medial delt · upper traps</div></div><div class="wo-ex-sets">3 × 10–12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Lateral Raise</div><div class="wo-ex-muscle">Medial delt</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Face Pull</div><div class="wo-ex-muscle">Rear delt · rotator cuff · mid traps</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-section-lbl">Core + Pelvic Correction</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Dead Bug</div><div class="wo-ex-muscle">Transverse abdominis · deep core</div></div><div class="wo-ex-sets">3 × 10 ea</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Pallof Press</div><div class="wo-ex-muscle">Obliques · anti-rotation</div></div><div class="wo-ex-sets">3 × 12 ea</div></div>
+    </div>
+
+    <div class="wo-day" id="wod-1">
+      <div class="wo-day-hdr"><div class="wo-day-title">Pull A — Upper Back Focus</div><div class="wo-day-sub">Back · Rear delts · Core · ~75 min</div></div>
+      <div class="wo-warmup">🔥 Warm-up: 5 min — band pull-aparts, light rows, arm swings</div>
+      <div class="wo-section-lbl">Upper Back + Lats</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Single-Arm Row</div><div class="wo-ex-muscle">Rhomboids · mid traps · lats · rear delt</div></div><div class="wo-ex-sets">4 × 10–12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Seated Row — Wide Grip</div><div class="wo-ex-muscle">Upper traps · rhomboids · rear delt</div></div><div class="wo-ex-sets">4 × 10–12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Straight-Arm Pulldown</div><div class="wo-ex-muscle">Lats — isolated</div></div><div class="wo-ex-sets">3 × 12–15</div></div>
+      <div class="wo-section-lbl">Rear Delts + Upper Back Detail</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Machine Rear Delt Fly</div><div class="wo-ex-muscle">Posterior delt · mid traps · rhomboids</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Face Pull (Prone Incline)</div><div class="wo-ex-muscle">Rear delt · rotator cuff · lower traps</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-section-lbl">Core + Abs</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Woodchop — High to Low</div><div class="wo-ex-muscle">Obliques · transverse abs · rotational core</div></div><div class="wo-ex-sets">3 × 12 ea</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Plank</div><div class="wo-ex-muscle">Full anterior core · transverse abs</div></div><div class="wo-ex-sets">3 × 45 sec</div></div>
+    </div>
+
+    <div class="wo-day" id="wod-2">
+      <div class="wo-day-hdr"><div class="wo-day-title">Legs A — Quad & Glute Focus</div><div class="wo-day-sub">Quads · Glutes · Pelvic correction · ~75 min</div></div>
+      <div class="wo-warmup">🔥 Warm-up: 5 min — leg swings, bodyweight squats, hip circles</div>
+      <div class="wo-section-lbl">Quads + Glutes</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Goblet Squat</div><div class="wo-ex-muscle">Quads · glutes · core</div></div><div class="wo-ex-sets">4 × 12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Reverse Lunge</div><div class="wo-ex-muscle">Quads · glutes · hip flexors</div></div><div class="wo-ex-sets">3 × 10 ea</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Leg Extension Machine</div><div class="wo-ex-muscle">Quads — isolated</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-section-lbl">Hamstrings + Hip</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Leg Curl Machine</div><div class="wo-ex-muscle">Hamstrings — isolated</div></div><div class="wo-ex-sets">4 × 12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Hip Abductor Machine</div><div class="wo-ex-muscle">Glute med · TFL</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Hip Adductor Machine</div><div class="wo-ex-muscle">Inner thigh · groin</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Pull-Through</div><div class="wo-ex-muscle">Glutes · hamstrings · hip hinge</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-section-lbl">Pelvic Correction + Core</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Dead Bug</div><div class="wo-ex-muscle">Transverse abdominis · pelvic stabilizers</div></div><div class="wo-ex-sets">3 × 10 ea</div></div>
+    </div>
+
+    <div class="wo-day" id="wod-3">
+      <div class="wo-day-hdr"><div class="wo-day-title">Push B — Lower Chest & Shoulder Detail</div><div class="wo-day-sub">Chest · Shoulders · Rotator cuff · ~75 min</div></div>
+      <div class="wo-warmup">🔥 Warm-up: 5 min — arm circles, band pull-aparts, wall slides</div>
+      <div class="wo-section-lbl">Chest — Upper</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Decline DB Press</div><div class="wo-ex-muscle">Lower pec · sternal head</div></div><div class="wo-ex-sets">4 × 10–12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Fly — High to Low (Close)</div><div class="wo-ex-muscle">Lower pec · peak contraction</div></div><div class="wo-ex-sets">4 × 12–15</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Flat DB Fly</div><div class="wo-ex-muscle">Mid pec — stretch emphasis</div></div><div class="wo-ex-sets">3 × 12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Fly — Low to High</div><div class="wo-ex-muscle">Upper pec — finishing</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-section-lbl">Shoulder Girdle Stability</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB External Rotation (Side Lying)</div><div class="wo-ex-muscle">Infraspinatus · teres minor — rotator cuff</div></div><div class="wo-ex-sets">3 × 15 ea</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Face Pull</div><div class="wo-ex-muscle">Rear delt · rotator cuff · mid traps</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-section-lbl">Core + Pelvic Correction</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Crunch (Kneeling)</div><div class="wo-ex-muscle">Rectus abdominis</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Side Plank</div><div class="wo-ex-muscle">Obliques · quadratus lumborum</div></div><div class="wo-ex-sets">3 × 30 sec ea</div></div>
+    </div>
+
+    <div class="wo-day" id="wod-4">
+      <div class="wo-day-hdr"><div class="wo-day-title">Pull B — Lower Back & Posterior Chain</div><div class="wo-day-sub">Lower back · Posterior chain · Core · ~75 min</div></div>
+      <div class="wo-warmup">🔥 Warm-up: 5 min — cat-cow, hip hinges, light rows</div>
+      <div class="wo-section-lbl">Upper Back + Lats</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Romanian Deadlift</div><div class="wo-ex-muscle">Hamstrings · glutes · lower back</div></div><div class="wo-ex-sets">4 × 10–12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Pull-Through</div><div class="wo-ex-muscle">Glutes · hamstrings · hip hinge</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Seated Row — Narrow Grip</div><div class="wo-ex-muscle">Mid traps · rhomboids · lats</div></div><div class="wo-ex-sets">4 × 10–12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Chest-Supported Row</div><div class="wo-ex-muscle">Mid back — shoulder safe</div></div><div class="wo-ex-sets">3 × 12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Straight-Arm Pulldown</div><div class="wo-ex-muscle">Lats — isolated</div></div><div class="wo-ex-sets">3 × 12</div></div>
+      <div class="wo-section-lbl">Core + Abs</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Crunch (Kneeling)</div><div class="wo-ex-muscle">Rectus abdominis</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Woodchop — Low to High</div><div class="wo-ex-muscle">Obliques · rotational core</div></div><div class="wo-ex-sets">3 × 12 ea</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Superman Hold</div><div class="wo-ex-muscle">Erector spinae · lower traps · rear delt</div></div><div class="wo-ex-sets">3 × 12</div></div>
+    </div>
+
+    <div class="wo-day" id="wod-5">
+      <div class="wo-day-hdr"><div class="wo-day-title">Legs B — Hip, Glute & Pelvic Focus</div><div class="wo-day-sub">Glutes · Hamstrings · Pelvic correction · ~75 min</div></div>
+      <div class="wo-warmup">🔥 Warm-up: 5 min — clamshells, glute bridges, hip circles</div>
+      <div class="wo-section-lbl">Quads + Glutes</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Sumo Squat</div><div class="wo-ex-muscle">Inner quads · glutes · adductors</div></div><div class="wo-ex-sets">4 × 12</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Romanian Deadlift (Single Leg)</div><div class="wo-ex-muscle">Hamstrings · glutes · balance</div></div><div class="wo-ex-sets">3 × 10 ea</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Leg Curl Machine</div><div class="wo-ex-muscle">Hamstrings — isolated</div></div><div class="wo-ex-sets">4 × 12</div></div>
+      <div class="wo-section-lbl">Glutes + Pelvic Correction</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Hip Abductor Machine</div><div class="wo-ex-muscle">Glute med · TFL</div></div><div class="wo-ex-sets">3 × 20</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Hip Adductor Machine</div><div class="wo-ex-muscle">Inner thigh · groin</div></div><div class="wo-ex-sets">3 × 20</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Cable Kickback (Glute)</div><div class="wo-ex-muscle">Glute max — isolated</div></div><div class="wo-ex-sets">3 × 15 ea</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Leg Extension Machine</div><div class="wo-ex-muscle">Quads — finishing</div></div><div class="wo-ex-sets">3 × 15</div></div>
+      <div class="wo-section-lbl">Core</div>
+      <div class="wo-ex"><div><div class="wo-ex-name">Dead Bug</div><div class="wo-ex-muscle">Transverse abdominis · pelvic stabilizers</div></div><div class="wo-ex-sets">3 × 10 ea</div></div>
+      <div class="wo-ex"><div><div class="wo-ex-name">DB Farmers Carry</div><div class="wo-ex-muscle">Full core · grip · stabilizers</div></div><div class="wo-ex-sets">3 × 50 steps</div></div>
+    </div>
+
+    <div class="wo-day" id="wod-6">
+      <div class="wo-day-hdr"><div class="wo-day-title">Rest Day</div><div class="wo-day-sub">Active recovery · This is where the gains actually happen</div></div>
+      <div class="note-box" style="margin-top:10px">Muscle is built during rest, not during training. Today the work is recovery.<br><br>✓ Real walk with Cooper — movement, not exercise<br>✓ Morning stretch sequence — especially hip flexors and shoulder<br>✓ Breathwork — Tier 1 or 2<br>✓ Clean nutrition — protein target still matters today<br>✓ Sleep 7–8 hrs — non-negotiable on rest days<br><br>If anything is sore: gentle movement, heat, hydration. No guilt, no extra cardio to "make up" for it.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- NUTRITION -->
+<div id="nutrition" class="view">
+  <div class="nut-wrap">
+    <div class="nut-toggle">
+      <button class="nut-ttab active" onclick="nutDay('training',this)">Training day</button>
+      <button class="nut-ttab" onclick="nutDay('rest',this)">Rest day</button>
+    </div>
+
+    <div class="nut-day active" id="nut-training">
+      <div class="macro-grid">
+        <div class="macro-card m-cal"><div class="macro-num">2,400</div><div class="macro-lbl">Calories</div><div class="macro-sub">Training day target</div></div>
+        <div class="macro-card m-pro"><div class="macro-num">200g</div><div class="macro-lbl">Protein</div><div class="macro-sub">Non-negotiable daily</div></div>
+        <div class="macro-card m-carb"><div class="macro-num">220g</div><div class="macro-lbl">Carbs</div><div class="macro-sub">Fuel the work</div></div>
+        <div class="macro-card m-fat"><div class="macro-num">80g</div><div class="macro-lbl">Fat</div><div class="macro-sub">Testosterone support</div></div>
+      </div>
+      <div class="meal-section-title">Meal timing</div>
+      <div class="timing-card"><div class="timing-slot">Breakfast</div><div class="timing-content">5 pasture-raised eggs + 1 cup organic steel-cut oats + organic berries · ~550 cal · P: 38g · C: 58g · F: 20g</div></div>
+      <div class="timing-card"><div class="timing-slot">Pre-workout (60–90 min before)</div><div class="timing-content">Chicken thigh + 1 cup white rice + spinach + EVOO drizzle · ~450 cal · P: 50g · C: 48g · F: 5g</div></div>
+      <div class="timing-card"><div class="timing-slot">Post-workout (within 45 min)</div><div class="timing-content">Protein + carb — fast assembly from Sunday batch. This window matters most.</div></div>
+      <div class="timing-card"><div class="timing-slot">Lunch / Dinner</div><div class="timing-content">Wild-caught salmon or grass-fed protein + 1 cup quinoa or rice + 2 cups roasted veg + EVOO · ~550 cal · P: 48g · C: 42g · F: 22g</div></div>
+      <div class="timing-card"><div class="timing-slot">Evening snack</div><div class="timing-content">Greek yogurt or cottage cheese + berries · ~300 cal · P: 28g · C: 24g · F: 6g</div></div>
+    </div>
+
+    <div class="nut-day" id="nut-rest">
+      <div class="macro-grid">
+        <div class="macro-card m-cal"><div class="macro-num">2,000</div><div class="macro-lbl">Calories</div><div class="macro-sub">Rest day target</div></div>
+        <div class="macro-card m-pro"><div class="macro-num">200g</div><div class="macro-lbl">Protein</div><div class="macro-sub">Same — muscle repairs today</div></div>
+        <div class="macro-card m-carb"><div class="macro-num">150g</div><div class="macro-lbl">Carbs</div><div class="macro-sub">Reduced — less demand</div></div>
+        <div class="macro-card m-fat"><div class="macro-num">80g</div><div class="macro-lbl">Fat</div><div class="macro-sub">Keep it consistent</div></div>
+      </div>
+      <div class="meal-section-title">Rest day notes</div>
+      <div class="note-box">Protein target stays the same on rest days — muscle protein synthesis peaks 24–48 hours after training. Carbs drop because you're not fueling acute work. Fat stays — testosterone production requires consistent fat intake, especially important given your current goals and medication stack.<br><br>Keep meals clean, keep protein high, reduce portion sizes slightly. Don't cut calories aggressively on rest days — it blunts recovery.</div>
+      <div class="meal-section-title" style="margin-top:16px">Daily non-negotiables</div>
+      <div class="timing-card"><div class="timing-slot">Protein every meal</div><div class="timing-content">Target 40–50g per meal across 4–5 meals. Spreading protein intake maximizes muscle protein synthesis throughout the day.</div></div>
+      <div class="timing-card"><div class="timing-slot">80g fats minimum</div><div class="timing-content">Critical for testosterone production. Don't go below 70g. Prioritize omega-3s, EVOO, avocado, eggs.</div></div>
+      <div class="timing-card"><div class="timing-slot">Magnesium glycinate 400mg</div><div class="timing-content">30–60 min before bed. Supports sleep quality, muscle recovery, and BP. Every night — training or rest.</div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SHOP -->
+<div id="shop" class="view">
+  <div class="shop-wrap">
+    <div class="shop-toggle">
+      <button class="shop-ttab active" onclick="shopStore('costco',this)">Costco</button>
+      <button class="shop-ttab" onclick="shopStore('other',this)">Other</button>
+    </div>
+
+    <div id="shop-costco" class="shop-store active">
+      <div class="shop-progress-row">
+        <div class="shop-progress"><div class="shop-progress-fill" id="costco-prog" style="width:0%"></div></div>
+        <div class="shop-progress-lbl" id="costco-lbl">0 of 19</div>
+      </div>
+
+      <div class="shop-cat-title">Proteins</div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Kirkland Organic Chicken Thighs</div><div class="shop-item-detail">Bulk-cook Sunday · your preferred over breast</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Ground Bison</div><div class="shop-item-detail">Pre-form patties · fridge or freezer</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Kirkland Wild-Caught Alaskan Salmon (frozen, 3 lbs)</div><div class="shop-item-detail">Sockeye or coho · omega-3s · keep raw, cook fresh</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Wild Planet Wild-Caught Albacore Tuna (8-pack)</div><div class="shop-item-detail">Zero-prep backup protein · BPA-free cans</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Vital Farms Pasture-Raised Eggs (24-pack)</div><div class="shop-item-detail">Most bioavailable protein · 6g each</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Plain Greek Yogurt (3 lbs)</div><div class="shop-item-detail">Evening snack · high protein</div></div></div>
+
+      <div class="shop-cat-title">Carbs & Grains</div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Jasmine White Rice (10 lbs)</div><div class="shop-item-detail">Primary carb · Sunday batch</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Kirkland Organic Steel-Cut Oats (10 lbs)</div><div class="shop-item-detail">Breakfast staple · BP-friendly</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Frozen Mixed Berries (5 lbs)</div><div class="shop-item-detail">Sweet fix · antioxidants · Week A and B</div></div></div>
+
+      <div class="shop-cat-title">Healthy Fats</div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Kirkland Organic Extra Virgin Olive Oil (2L)</div><div class="shop-item-detail">Everything · BP-friendly · never run out</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Avocados (bag of 6+)</div><div class="shop-item-detail">Buy at different ripeness · yours only (David allergic)</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Raw Mixed Nuts (2.5 lbs)</div><div class="shop-item-detail">Grab-and-go fat + protein · BP-friendly</div></div></div>
+
+      <div class="shop-cat-title">Vegetables</div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Frozen Broccoli (5 lbs)</div><div class="shop-item-detail">Sheet pan staple · BP-friendly</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Baby Spinach — Fresh (2 lbs)</div><div class="shop-item-detail">Salads + eggs + sides</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Frozen Stir-Fry Vegetables (5 lbs)</div><div class="shop-item-detail">Wednesday egg fried rice · easy dinners</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic English Cucumbers (3-pack)</div><div class="shop-item-detail">Greek salads · midday bowls</div></div></div>
+
+      <div class="shop-cat-title">Supplements</div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Magnesium Glycinate 400mg (no fillers)</div><div class="shop-item-detail">Every night before bed · sleep + recovery + BP</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'costco')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Wild-Caught Fish Oil — IFOS Certified</div><div class="shop-item-detail">Nordic Naturals or similar · 2–3g EPA/DHA daily</div></div></div>
+
+      <button class="shop-reset" onclick="shopReset('costco')">Reset list</button>
+    </div>
+
+    <div id="shop-other" class="shop-store">
+      <div class="note-box" style="margin-bottom:14px">These items are cleaner or cheaper sourced outside Costco. Whole Foods, local markets, or Amazon for the specialty items.</div>
+
+      <div class="shop-progress-row">
+        <div class="shop-progress"><div class="shop-progress-fill" id="other-prog" style="width:0%"></div></div>
+        <div class="shop-progress-lbl" id="other-lbl">0 of 16</div>
+      </div>
+
+      <div class="shop-cat-title">Fresh produce (weekly)</div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Sweet Potatoes</div><div class="shop-item-detail">4–5 medium · Sunday batch · any good grocery</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Zucchini</div><div class="shop-item-detail">Sheet pan veg · both weeks</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Bell Peppers</div><div class="shop-item-detail">Roasted veg · bison bowls</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Cherry Tomatoes</div><div class="shop-item-detail">Week B sheet pan · Greek salads</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Romaine Lettuce</div><div class="shop-item-detail">Lettuce wraps Wednesday Week A</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Lemons (bag)</div><div class="shop-item-detail">Salmon, salads, chicken — essential every week</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Fresh Garlic</div><div class="shop-item-detail">Everything · buy a big head weekly</div></div></div>
+
+      <div class="shop-cat-title">Pantry (restock as needed)</div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Coconut Aminos</div><div class="shop-item-detail">Soy sauce replacement · clean · Thrive Market or Whole Foods</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Cumin, Paprika, Chipotle Powder</div><div class="shop-item-detail">Week A seasoning profile · Whole Foods bulk section</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Oregano + Italian Seasoning</div><div class="shop-item-detail">Week B seasoning profile · Greek and Italian nights</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Canned Crushed Tomatoes</div><div class="shop-item-detail">Week B Monday Italian bison · 2 cans</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Capers</div><div class="shop-item-detail">Tuesday salmon Week A + Friday Week B</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Sesame Oil (toasted)</div><div class="shop-item-detail">Asian salmon Week B + egg fried rice</div></div></div>
+
+      <div class="shop-cat-title">Skincare (Amazon)</div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Timeless 20% Vitamin C + E Ferulic Acid</div><div class="shop-item-detail">Morning serum · ~$25 · search Amazon exactly as written</div></div></div>
+
+      <div class="shop-cat-title">Sweet fix (weekly)</div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">85%+ Dark Chocolate (organic)</div><div class="shop-item-detail">Week A sweet fix · Whole Foods or Trader Joe's · keep in freezer</div></div></div>
+      <div class="shop-item" onclick="shopCheck(this,'other')"><div class="shop-cb"></div><div class="shop-item-body"><div class="shop-item-name">Organic Full-Fat Coconut Yogurt</div><div class="shop-item-detail">Week B sweet fix · Whole Foods · check no added sugar</div></div></div>
+
+      <button class="shop-reset" onclick="shopReset('other')">Reset list</button>
+    </div>
+
   </div>
 </div>
 
@@ -666,6 +1778,38 @@
     window.scrollTo(0, 0);
   }
 
+  let currentWeek = 'a';
+  let currentMealView = 'plan';
+
+  function switchWeek(week, btn) {
+    currentWeek = week;
+    document.querySelectorAll('.week-plan').forEach(w => w.classList.remove('active'));
+    document.querySelectorAll('.week-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('week-' + week).classList.add('active');
+    btn.classList.add('active');
+    updateMealView();
+  }
+
+  function switchMealView(view, btn) {
+    currentMealView = view;
+    document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    updateMealView();
+  }
+
+  function updateMealView() {
+    document.querySelectorAll('.meals-inner').forEach(el => el.classList.remove('active'));
+    const target = document.getElementById('week-' + currentWeek + '-' + currentMealView);
+    if (target) target.classList.add('active');
+  }
+
+  function toggleDay(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.chevron');
+    body.classList.toggle('open');
+    if (chevron) chevron.style.transform = body.classList.contains('open') ? 'rotate(180deg)' : '';
+  }
+
   const phases = [
     { type:'c-anchor', time:'7:00', title:'Morning anchor', badge:'~60 min',
       desc:'Meds → shower → teeth → Cooper out + stretch + Pulsetto → coffee + meditation. No phone.',
@@ -746,6 +1890,118 @@
       </div>`;
     container.appendChild(el);
   });
+
+  // Stretch & Breathe
+  function sbView(id, btn) {
+    document.querySelectorAll('.sb-inner').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.sb-vtab').forEach(b => b.classList.remove('active'));
+    document.getElementById('sb-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+  const sbDoneSet = new Set();
+  const sbTotal = 6;
+  function sbToggle(n) {
+    const body = document.getElementById('sbb-' + n);
+    const card = document.getElementById('sbc-' + n);
+    const isOpen = body.classList.contains('open');
+    document.querySelectorAll('.sb-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.sb-card .chevron').forEach(c => c.style.transform = '');
+    if (!isOpen) {
+      body.classList.add('open');
+      card.querySelector('.chevron').style.transform = 'rotate(180deg)';
+    }
+  }
+  function eToggle(n) {
+    const body = document.getElementById('sbbe-' + n);
+    const card = document.getElementById('sbe-' + n);
+    const isOpen = body.classList.contains('open');
+    document.querySelectorAll('.sb-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.sb-card .chevron').forEach(c => c.style.transform = '');
+    if (!isOpen) {
+      body.classList.add('open');
+      card.querySelector('.chevron').style.transform = 'rotate(180deg)';
+    }
+  }
+  const sbTimers = {};
+  function sbTimer(n, secs, btn) {
+    if (sbTimers[n]) clearInterval(sbTimers[n]);
+    const disp = document.getElementById('sbt-' + n);
+    disp.classList.add('vis');
+    btn.disabled = true;
+    let rem = secs;
+    disp.textContent = sbFmt(rem);
+    sbTimers[n] = setInterval(() => {
+      rem--;
+      disp.textContent = sbFmt(rem);
+      if (rem <= 0) {
+        clearInterval(sbTimers[n]);
+        disp.textContent = '✓ Done';
+        btn.textContent = 'Restart';
+        btn.disabled = false;
+        btn.onclick = () => sbTimer(n, secs, btn);
+      }
+    }, 1000);
+  }
+  function sbFmt(s) { const m = Math.floor(s/60), sec = s%60; return m+':'+(sec<10?'0':'')+sec; }
+  function sbDone(n) {
+    const el = document.getElementById('sbdone-' + n);
+    if (!sbDoneSet.has(n)) {
+      sbDoneSet.add(n);
+      el.innerHTML = '☑ &nbsp;Done';
+      el.classList.add('marked');
+      document.getElementById('sb-prog').style.width = (sbDoneSet.size/sbTotal*100)+'%';
+    }
+  }
+  function sbComplete() {
+    document.getElementById('sb-prog').style.width = '100%';
+  }
+
+  // Workout
+  function woDay(n, btn) {
+    document.querySelectorAll('.wo-day').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.wo-dtab').forEach(t => t.classList.remove('active'));
+    document.getElementById('wod-' + n).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Nutrition
+  function nutDay(type, btn) {
+    document.querySelectorAll('.nut-day').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.nut-ttab').forEach(t => t.classList.remove('active'));
+    document.getElementById('nut-' + type).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Shop
+  function shopStore(id, btn) {
+    document.querySelectorAll('.shop-store').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.shop-ttab').forEach(t => t.classList.remove('active'));
+    document.getElementById('shop-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+  function shopCheck(item, store) {
+    item.classList.toggle('checked');
+    const cb = item.querySelector('.shop-cb');
+    cb.textContent = item.classList.contains('checked') ? '✓' : '';
+    shopUpdateProgress(store);
+  }
+  function shopUpdateProgress(store) {
+    const container = document.getElementById('shop-' + store);
+    const items = container.querySelectorAll('.shop-item');
+    const checked = container.querySelectorAll('.shop-item.checked').length;
+    const total = items.length;
+    document.getElementById(store + '-prog').style.width = (checked/total*100)+'%';
+    document.getElementById(store + '-lbl').textContent = checked + ' of ' + total;
+  }
+  function shopReset(store) {
+    const container = document.getElementById('shop-' + store);
+    container.querySelectorAll('.shop-item').forEach(item => {
+      item.classList.remove('checked');
+      item.querySelector('.shop-cb').textContent = '';
+    });
+    shopUpdateProgress(store);
+  }
+
 </script>
 </body>
 </html>
