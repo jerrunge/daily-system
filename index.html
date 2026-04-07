@@ -694,6 +694,24 @@
   .reset-mvd-btn.primary { background: var(--text); color: #fff; border-color: var(--text); }
   .reset-close-btn { width: 100%; background: var(--text); color: #fff; border: none; border-radius: var(--radius); padding: 16px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: -apple-system, sans-serif; -webkit-appearance: none; }
 
+  /* ── Life Admin Launcher ── */
+  .admin-wrap { padding: 16px 20px 100px; }
+  .admin-section-title { font-size: 11px; font-weight: 700; color: var(--text3); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
+  .admin-capture-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 4px; }
+  .admin-capture-input { width: 100%; background: var(--bg3); border: 1.5px solid var(--border2); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 15px; color: var(--text); font-family: -apple-system, sans-serif; outline: none; margin-bottom: 12px; box-sizing: border-box; }
+  .admin-capture-input:focus { border-color: var(--text); background: var(--bg2); }
+  .admin-capture-cats { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 10px; }
+  .admin-capture-cat { background: var(--bg3); border: 1.5px solid var(--border2); border-radius: 99px; padding: 7px 14px; font-size: 13px; font-weight: 700; color: var(--text2); cursor: pointer; font-family: -apple-system, sans-serif; -webkit-appearance: none; transition: all .15s; }
+  .admin-capture-cat:active { background: var(--cat-color); color: #fff; border-color: var(--cat-color); }
+  .admin-capture-hint { font-size: 12px; color: var(--text3); line-height: 1.5; }
+  .admin-launcher { display: flex; align-items: center; gap: 14px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 8px; cursor: pointer; transition: background .1s; box-shadow: 0 1px 3px rgba(0,0,0,0.04); -webkit-tap-highlight-color: transparent; }
+  .admin-launcher:active { background: var(--bg3); }
+  .admin-launcher-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .admin-launcher-body { flex: 1; }
+  .admin-launcher-title { font-size: 16px; font-weight: 700; color: var(--text); letter-spacing: -.2px; }
+  .admin-launcher-sub { font-size: 12px; color: var(--text3); margin-top: 2px; line-height: 1.4; }
+  .admin-launcher-arrow { font-size: 18px; color: var(--text3); flex-shrink: 0; }
+
   /* Meds highlight in timeline */
   .item.meds-item { background: var(--bg3); border-radius: var(--radius-sm); padding: 6px 10px; margin: 2px 0; }
 </style>
@@ -714,6 +732,7 @@
     <button class="tab" onclick="showView('nutrition', this)">Nutrition</button>
     <button class="tab" onclick="showView('skin', this)">Skin</button>
     <button class="tab" onclick="showView('shop', this)">Shop</button>
+    <button class="tab" onclick="showView('admin', this)">Admin</button>
     <button class="tab" onclick="showView('meds', this)">Meds & Supps</button>
     <button class="tab" onclick="showView('pillars', this)">Pillars</button>
   </div>
@@ -768,6 +787,83 @@
   </div>
   <p class="hint">Tap any block to expand · tap ✓ to complete</p>
   <div id="phases-container"></div>
+</div>
+
+<!-- ADMIN -->
+<div id="admin" class="view">
+  <div class="admin-wrap">
+
+    <div class="note-box" style="margin-bottom:16px">
+      Tasks live in Apple Reminders — not here. Tap any category to jump there directly. One-time setup: create 5 lists in Reminders named <strong>Maddy, Medical, Financial, Career,</strong> and <strong>Life Stuff</strong>.
+    </div>
+
+    <!-- QUICK ADD -->
+    <div class="admin-section-title">Quick capture</div>
+    <div class="admin-capture-card">
+      <input class="admin-capture-input" id="admin-capture-input" type="text" placeholder="Type a task…" autocomplete="off">
+      <div class="admin-capture-cats">
+        <button class="admin-capture-cat" style="--cat-color:var(--coral)" onclick="adminCapture('maddy','Maddy')">Maddy</button>
+        <button class="admin-capture-cat" style="--cat-color:var(--blue)" onclick="adminCapture('medical','Medical')">Medical</button>
+        <button class="admin-capture-cat" style="--cat-color:var(--amber)" onclick="adminCapture('financial','Financial')">Financial</button>
+        <button class="admin-capture-cat" style="--cat-color:var(--teal)" onclick="adminCapture('career','Career')">Career</button>
+        <button class="admin-capture-cat" style="--cat-color:var(--purple)" onclick="adminCapture('life','Life Stuff')">Life Stuff</button>
+      </div>
+      <div class="admin-capture-hint" id="admin-capture-hint">Type a task, then tap the category to copy &amp; open Reminders</div>
+    </div>
+
+    <!-- LAUNCHERS -->
+    <div class="admin-section-title" style="margin-top:20px">Open in Reminders</div>
+
+    <div class="admin-launcher" onclick="adminOpen('Maddy')">
+      <div class="admin-launcher-dot" style="background:var(--coral)"></div>
+      <div class="admin-launcher-body">
+        <div class="admin-launcher-title">Maddy</div>
+        <div class="admin-launcher-sub">SSI · conservatorship · appointments · paperwork</div>
+      </div>
+      <div class="admin-launcher-arrow">→</div>
+    </div>
+
+    <div class="admin-launcher" onclick="adminOpen('Medical')">
+      <div class="admin-launcher-dot" style="background:var(--blue)"></div>
+      <div class="admin-launcher-body">
+        <div class="admin-launcher-title">Medical</div>
+        <div class="admin-launcher-sub">Appointments · follow-ups · prescriptions</div>
+      </div>
+      <div class="admin-launcher-arrow">→</div>
+    </div>
+
+    <div class="admin-launcher" onclick="adminOpen('Financial')">
+      <div class="admin-launcher-dot" style="background:var(--amber)"></div>
+      <div class="admin-launcher-body">
+        <div class="admin-launcher-title">Financial</div>
+        <div class="admin-launcher-sub">Bills · debt · accounts · anything money</div>
+      </div>
+      <div class="admin-launcher-arrow">→</div>
+    </div>
+
+    <div class="admin-launcher" onclick="adminOpen('Career')">
+      <div class="admin-launcher-dot" style="background:var(--teal)"></div>
+      <div class="admin-launcher-body">
+        <div class="admin-launcher-title">Career</div>
+        <div class="admin-launcher-sub">Applications · follow-ups · prep · networking</div>
+      </div>
+      <div class="admin-launcher-arrow">→</div>
+    </div>
+
+    <div class="admin-launcher" onclick="adminOpen('Life Stuff')">
+      <div class="admin-launcher-dot" style="background:var(--purple)"></div>
+      <div class="admin-launcher-body">
+        <div class="admin-launcher-title">Life Stuff</div>
+        <div class="admin-launcher-sub">DMV · registration · house · everything else</div>
+      </div>
+      <div class="admin-launcher-arrow">→</div>
+    </div>
+
+    <div class="note-box" style="margin-top:20px; font-size:13px">
+      <strong>How to add to home screen:</strong> In Safari, tap Share → Add to Home Screen. Then Reminders is one tap away from your daily system — same as any other app.
+    </div>
+
+  </div>
 </div>
 
 <!-- MEDS & SUPPLEMENTS -->
@@ -2475,6 +2571,31 @@
       item.querySelector('.shop-cb').textContent = '';
     });
     shopUpdateProgress(store);
+  }
+
+  // ── Life Admin Launcher ──
+  function adminOpen(listName) {
+    window.location.href = 'x-apple-reminderkit://';
+  }
+
+  function adminCapture(catId, catLabel) {
+    const input = document.getElementById('admin-capture-input');
+    const text = input.value.trim();
+    const hint = document.getElementById('admin-capture-hint');
+    if (!text) {
+      hint.textContent = 'Type a task first, then tap the category';
+      hint.style.color = 'var(--coral)';
+      setTimeout(() => { hint.textContent = 'Type a task, then tap the category to copy & open Reminders'; hint.style.color = ''; }, 2500);
+      return;
+    }
+    navigator.clipboard.writeText(text).catch(() => {});
+    hint.textContent = '✓ "' + text + '" copied — opening Reminders, paste into ' + catLabel;
+    hint.style.color = 'var(--teal)';
+    input.value = '';
+    setTimeout(() => {
+      window.location.href = 'x-apple-reminderkit://';
+    }, 400);
+    setTimeout(() => { hint.textContent = 'Type a task, then tap the category to copy & open Reminders'; hint.style.color = ''; }, 3000);
   }
 
 </script>
