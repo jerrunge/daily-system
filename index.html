@@ -565,7 +565,43 @@
   .night-badge { background: #ede7f6; color: #4527a0; }
   .body-badge { background: #e8f5e9; color: #1b5e20; }
 
-  /* Color assignments */
+  /* Meds items in timeline */
+  .item.meds-item { background: var(--bg3); border-radius: var(--radius-sm); padding: 6px 10px; margin: 2px 0; }
+
+  /* ── Meds & Supplements ── */
+  .meds-wrap { padding: 16px 20px 80px; }
+  .meds-window { margin-bottom: 20px; }
+  .meds-window-title { font-size: 11px; font-weight: 700; color: var(--text3); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
+  .meds-time-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 700; color: var(--text);
+    background: var(--bg3); border: 1px solid var(--border2);
+    border-radius: 99px; padding: 5px 12px; margin-bottom: 10px;
+  }
+  .meds-row {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 12px 14px;
+    margin-bottom: 6px; display: flex; gap: 12px; align-items: flex-start;
+  }
+  .meds-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .meds-body { flex: 1; }
+  .meds-name { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.3; }
+  .meds-note { font-size: 12px; color: var(--text3); margin-top: 3px; line-height: 1.5; }
+  .meds-rules { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-top: 4px; }
+  .meds-rules-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+  .meds-rule { display: flex; gap: 10px; font-size: 13px; color: var(--text2); line-height: 1.5; margin-bottom: 8px; align-items: flex-start; }
+  .meds-rule-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--coral); flex-shrink: 0; margin-top: 5px; }
+  .c-waking .meds-dot { background: var(--amber); }
+  .c-breakfast .meds-dot { background: var(--teal); }
+  .c-midmorning .meds-dot { background: var(--blue); }
+  .c-meal .meds-dot { background: var(--purple); }
+  .c-bed .meds-dot { background: var(--gray); }
+  .c-waking .meds-time-label { background: var(--amber-bg); color: var(--amber); border-color: var(--amber); }
+  .c-breakfast .meds-time-label { background: var(--teal-bg); color: var(--teal); border-color: var(--teal); }
+  .c-midmorning .meds-time-label { background: var(--blue-bg); color: var(--blue); border-color: var(--blue); }
+  .c-meal .meds-time-label { background: var(--purple-bg); color: var(--purple); border-color: var(--purple); }
+  .c-bed .meds-time-label { background: var(--gray-bg); color: var(--gray); border-color: var(--gray); }
+
   .c-anchor .dot, .c-anchor .item-dot, .c-anchor .pi-dot { background: var(--teal); }
   .c-anchor .badge { background: var(--teal-bg); color: var(--teal); }
   .c-anchor .pillar-title { color: var(--teal); }
@@ -592,8 +628,76 @@
   .c-close .dot, .c-close .item-dot, .c-close .pi-dot { background: var(--gray); }
   .c-close .badge { background: var(--gray-bg); color: var(--gray); }
   .c-close .pillar-title { color: var(--gray); }
+
+  /* ── Right Now Hero ── */
+  .rn-hero { margin: 14px 20px 6px; background: var(--text); border-radius: var(--radius); padding: 20px; color: #fff; }
+  .rn-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .55; margin-bottom: 5px; }
+  .rn-title { font-size: 21px; font-weight: 800; letter-spacing: -.4px; line-height: 1.2; margin-bottom: 5px; }
+  .rn-desc { font-size: 13px; opacity: .7; line-height: 1.5; margin-bottom: 10px; }
+  .rn-timebar { height: 3px; background: rgba(255,255,255,0.15); border-radius: 2px; margin-bottom: 14px; overflow: hidden; }
+  .rn-timefill { height: 100%; background: rgba(255,255,255,0.45); border-radius: 2px; transition: width 1s linear; }
+  .rn-next { font-size: 11px; opacity: .5; margin-bottom: 14px; letter-spacing: .02em; }
+  .rn-actions { display: flex; gap: 8px; align-items: center; }
+  .rn-done { flex: 1; background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.25); border-radius: 99px; padding: 10px 16px; font-size: 13px; font-weight: 700; color: #fff; cursor: pointer; font-family: -apple-system, sans-serif; transition: background .15s; text-align: center; }
+  .rn-done:active { background: rgba(255,255,255,0.22); }
+  .rn-done.ticked { background: #0a8c63; border-color: #0a8c63; }
+  .rn-mvd { background: transparent; border: 1.5px solid rgba(255,255,255,0.22); border-radius: 99px; padding: 10px 13px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,.6); cursor: pointer; font-family: -apple-system, sans-serif; white-space: nowrap; }
+
+  /* ── Day Progress ── */
+  .day-progress { margin: 0 20px 10px; display: flex; align-items: center; gap: 14px; }
+  .day-prog-ring-wrap { flex-shrink: 0; }
+  .day-prog-info { flex: 1; }
+  .day-prog-label { font-size: 14px; font-weight: 700; color: var(--text); letter-spacing: -.2px; }
+  .day-prog-sub { font-size: 12px; color: var(--text3); margin-top: 1px; }
+
+  /* ── MVD Mode ── */
+  .mvd-banner { display: none; margin: 0 20px 8px; background: var(--teal-bg); border: 1px solid var(--teal); border-radius: var(--radius-sm); padding: 10px 14px; font-size: 13px; color: var(--teal); font-weight: 600; align-items: center; justify-content: space-between; }
+  .mvd-banner.active { display: flex; }
+  .mvd-exit { font-size: 12px; cursor: pointer; padding: 2px 8px; border: 1px solid var(--teal); border-radius: 99px; font-weight: 700; }
+  body.mvd-mode #phases-container .phase { display: none; }
+  body.mvd-mode #phases-container .phase.mvd-keep { display: flex; }
+
+  /* ── Card completion ── */
+  .card-check { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border2); background: var(--bg); display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; margin-top: 20px; transition: all .15s; font-size: 14px; color: transparent; }
+  .card-check.done { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .phase.completed .card { opacity: 0.5; }
+  .phase.completed .dot { background: var(--teal) !important; }
+  .block-done-btn { width: 100%; margin-top: 14px; padding: 12px; border-radius: var(--radius-sm); border: 1.5px solid var(--border2); background: var(--bg3); font-size: 14px; font-weight: 700; color: var(--text2); cursor: pointer; font-family: -apple-system, sans-serif; text-align: center; -webkit-appearance: none; transition: all .15s; }
+  .block-done-btn.done { background: var(--teal-bg); border-color: var(--teal); color: var(--teal); }
+  .block-done-btn:active { opacity: .8; }
+
+  /* ── "Now" FAB ── */
+  .now-fab { position: fixed; bottom: 28px; right: 20px; z-index: 200; background: var(--text); border: none; border-radius: 99px; padding: 12px 20px; font-size: 14px; font-weight: 700; color: #fff; cursor: pointer; font-family: -apple-system, sans-serif; box-shadow: 0 4px 20px rgba(0,0,0,0.28); display: flex; align-items: center; gap: 7px; transition: transform .15s; -webkit-appearance: none; }
+  .now-fab:active { transform: scale(0.95); }
+  .now-fab-dot { width: 7px; height: 7px; border-radius: 50%; background: #5DCAA5; }
+
+  /* ── Reset / Overwhelm Panel ── */
+  .reset-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 299; display: none; }
+  .reset-overlay.open { display: block; }
+  .reset-panel { position: fixed; bottom: 0; left: 0; right: 0; z-index: 300; background: var(--bg2); border-radius: 24px 24px 0 0; padding: 32px 24px 52px; box-shadow: 0 -8px 40px rgba(0,0,0,0.2); transform: translateY(100%); transition: transform .32s cubic-bezier(.32,.72,0,1); max-height: 90vh; overflow-y: auto; }
+  .reset-panel.open { transform: translateY(0); }
+  .reset-handle { width: 36px; height: 4px; background: var(--border2); border-radius: 2px; margin: 0 auto 24px; }
+  .reset-title { font-size: 24px; font-weight: 800; color: var(--text); letter-spacing: -.5px; margin-bottom: 6px; }
+  .reset-sub { font-size: 15px; color: var(--text2); line-height: 1.55; margin-bottom: 22px; }
+  .reset-block { border-radius: var(--radius); padding: 16px; margin-bottom: 12px; }
+  .reset-block-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
+  .reset-block-text { font-size: 17px; font-weight: 700; color: var(--text); line-height: 1.4; }
+  .reset-block-note { font-size: 13px; color: var(--text2); margin-top: 5px; line-height: 1.5; }
+  .rb-where { background: var(--bg3); }
+  .rb-where .reset-block-label { color: var(--text3); }
+  .rb-next { background: var(--teal-bg); border: 1px solid rgba(10,140,99,0.2); }
+  .rb-next .reset-block-label { color: var(--teal); }
+  .rb-affirm { background: var(--amber-bg); border: 1px solid rgba(160,96,16,0.15); }
+  .rb-affirm .reset-block-label { color: var(--amber); }
+  .reset-mvd-row { display: flex; gap: 10px; margin-bottom: 20px; }
+  .reset-mvd-btn { flex: 1; background: var(--bg3); border: 1.5px solid var(--border2); border-radius: var(--radius); padding: 14px 10px; font-size: 13px; font-weight: 700; color: var(--text2); cursor: pointer; font-family: -apple-system, sans-serif; text-align: center; line-height: 1.4; -webkit-appearance: none; }
+  .reset-mvd-btn.primary { background: var(--text); color: #fff; border-color: var(--text); }
+  .reset-close-btn { width: 100%; background: var(--text); color: #fff; border: none; border-radius: var(--radius); padding: 16px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: -apple-system, sans-serif; -webkit-appearance: none; }
+
+  /* Meds highlight in timeline */
+  .item.meds-item { background: var(--bg3); border-radius: var(--radius-sm); padding: 6px 10px; margin: 2px 0; }
 </style>
-<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
 </head>
 <body>
 
@@ -610,12 +714,49 @@
     <button class="tab" onclick="showView('nutrition', this)">Nutrition</button>
     <button class="tab" onclick="showView('skin', this)">Skin</button>
     <button class="tab" onclick="showView('shop', this)">Shop</button>
+    <button class="tab" onclick="showView('meds', this)">Meds & Supps</button>
     <button class="tab" onclick="showView('pillars', this)">Pillars</button>
   </div>
 </div>
 
 <!-- TIMELINE -->
 <div id="timeline" class="view active">
+
+  <!-- RIGHT NOW HERO -->
+  <div class="rn-hero" id="rn-hero">
+    <div class="rn-label" id="rn-label">Right now</div>
+    <div class="rn-title" id="rn-title">Loading…</div>
+    <div class="rn-desc" id="rn-desc"></div>
+    <div class="rn-timebar"><div class="rn-timefill" id="rn-timefill" style="width:0%"></div></div>
+    <div class="rn-next" id="rn-next"></div>
+    <div class="rn-actions">
+      <button class="rn-done" id="rn-done-btn" onclick="rnMarkDone()">✓ Mark this done</button>
+      <button class="rn-mvd" onclick="activateMVD()">Just 3 things</button>
+    </div>
+  </div>
+
+  <!-- DAY PROGRESS -->
+  <div class="day-progress">
+    <div class="day-prog-ring-wrap">
+      <svg class="day-prog-ring" width="48" height="48" viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="18" fill="none" stroke="var(--bg3)" stroke-width="4"/>
+        <circle cx="24" cy="24" r="18" fill="none" stroke="var(--teal)" stroke-width="4"
+          stroke-linecap="round" stroke-dasharray="113.1" stroke-dashoffset="113.1"
+          id="prog-circle" transform="rotate(-90 24 24)" style="transition:stroke-dashoffset .5s"/>
+      </svg>
+    </div>
+    <div class="day-prog-info">
+      <div class="day-prog-label" id="prog-label">0 of 12 done today</div>
+      <div class="day-prog-sub" id="prog-sub">Tap any block to mark it complete</div>
+    </div>
+  </div>
+
+  <!-- MVD BANNER -->
+  <div class="mvd-banner" id="mvd-banner">
+    <span>Just 3 things mode — you've got this</span>
+    <span class="mvd-exit" onclick="deactivateMVD()">Show all</span>
+  </div>
+
   <div class="legend">
     <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Anchor</div>
     <div class="leg-item"><div class="leg-dot" style="background:var(--amber)"></div>Body</div>
@@ -625,8 +766,114 @@
     <div class="leg-item"><div class="leg-dot" style="background:var(--pink)"></div>Community</div>
     <div class="leg-item"><div class="leg-dot" style="background:var(--gray)"></div>Close</div>
   </div>
-  <p class="hint">Tap any block to expand</p>
+  <p class="hint">Tap any block to expand · tap ✓ to complete</p>
   <div id="phases-container"></div>
+</div>
+
+<!-- MEDS & SUPPLEMENTS -->
+<div id="meds" class="view">
+  <div class="meds-wrap">
+
+    <div class="note-box" style="margin-bottom:18px">The sequence matters. Levothyroxine always goes first, alone. Everything else falls into place after that. The rules at the bottom are the non-negotiables.</div>
+
+    <div class="meds-window c-waking">
+      <div class="meds-window-title">On waking — before food, before anything</div>
+      <div class="meds-time-label">⏰ First thing</div>
+      <div class="meds-row">
+        <div class="meds-dot"></div>
+        <div class="meds-body">
+          <div class="meds-name">Levothyroxine</div>
+          <div class="meds-note">Alone. Minimum 30–60 min before food, coffee, or other medications. Absorption is destroyed by calcium, iron, and food. This one is non-negotiable first.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meds-window c-breakfast">
+      <div class="meds-window-title">30–60 min later — with breakfast</div>
+      <div class="meds-time-label">🍳 With food</div>
+      <div class="meds-row">
+        <div class="meds-dot"></div>
+        <div class="meds-body">
+          <div class="meds-name">Wellbutrin</div>
+          <div class="meds-note">While still tapering. Take with food to reduce nausea. Morning only — avoid afternoon doses which can disrupt sleep.</div>
+        </div>
+      </div>
+      <div class="meds-row">
+        <div class="meds-dot"></div>
+        <div class="meds-body">
+          <div class="meds-name">Testosterone</div>
+          <div class="meds-note">Per your protocol. Consistent timing supports stable levels.</div>
+        </div>
+      </div>
+      <div class="meds-row">
+        <div class="meds-dot"></div>
+        <div class="meds-body">
+          <div class="meds-name">Losartan 100mg</div>
+          <div class="meds-note">Recently switched from Losartan HCTZ → Losartan only to remove the depressive effects of HCTZ. ARB class — doesn't carry the mood side effects of diuretics. Can be taken with or without food.</div>
+        </div>
+      </div>
+      <div class="meds-row">
+        <div class="meds-dot"></div>
+        <div class="meds-body">
+          <div class="meds-name">Omega-3 Fish Oil</div>
+          <div class="meds-note">With food reduces fishy aftertaste and improves absorption. 2–3g EPA/DHA target daily.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meds-window c-midmorning">
+      <div class="meds-window-title">Mid-morning — at least 1–2 hrs after levothyroxine</div>
+      <div class="meds-time-label">🌿 Empty or light stomach</div>
+      <div class="meds-row">
+        <div class="meds-dot"></div>
+        <div class="meds-body">
+          <div class="meds-name">L-Tyrosine 750mg</div>
+          <div class="meds-note">Precursor to dopamine and norepinephrine — supports focus, mood, and stress response. Best on an empty or light stomach for absorption. Do not take with levothyroxine (competes for absorption).</div>
+        </div>
+      </div>
+      <div class="meds-row">
+        <div class="meds-dot"></div>
+        <div class="meds-body">
+          <div class="meds-name">Rhodiola 100mg</div>
+          <div class="meds-note">Adaptogen — reduces cortisol and mental fatigue, supports HRV. Start with one capsule, morning only. Never take after early afternoon — it has mild stimulant properties that can disrupt sleep.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meds-window c-meal">
+      <div class="meds-window-title">With a meal — lunch or dinner</div>
+      <div class="meds-time-label">🥗 Always with food</div>
+      <div class="meds-row">
+        <div class="meds-dot"></div>
+        <div class="meds-body">
+          <div class="meds-name">Zinc 15mg</div>
+          <div class="meds-note">Always with food — zinc on an empty stomach causes significant nausea. Supports testosterone production, immune function, and wound healing. Don't exceed 15–25mg daily long-term without copper supplementation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meds-window c-bed">
+      <div class="meds-window-title">Before bed — 30–60 min before sleep</div>
+      <div class="meds-time-label">🌙 Wind-down stack</div>
+      <div class="meds-row">
+        <div class="meds-dot"></div>
+        <div class="meds-body">
+          <div class="meds-name">Magnesium Glycinate 400–500mg</div>
+          <div class="meds-note">Bedtime is the optimal window — supports sleep onset, muscle recovery, and blood pressure. Glycinate form has the best absorption and least GI impact. Pairs with your Tier 2/3 breathwork.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meds-rules">
+      <div class="meds-rules-title">The rules that matter</div>
+      <div class="meds-rule"><div class="meds-rule-dot"></div><span><strong>Levothyroxine always first, always alone.</strong> 30–60 min minimum before food, coffee, or anything else. This is the one that wrecks everything if you rush it.</span></div>
+      <div class="meds-rule"><div class="meds-rule-dot"></div><span><strong>Zinc always with food.</strong> No exceptions — the nausea is real and immediate.</span></div>
+      <div class="meds-rule"><div class="meds-rule-dot"></div><span><strong>Rhodiola never after early afternoon.</strong> It's stimulating enough to fragment sleep if taken late.</span></div>
+      <div class="meds-rule"><div class="meds-rule-dot"></div><span><strong>L-Tyrosine and levothyroxine don't mix.</strong> They compete for the same transporter — space them by at least 1–2 hours.</span></div>
+      <div class="meds-rule"><div class="meds-rule-dot"></div><span><strong>Everything else is flexible.</strong> The sequence above is optimized, not mandatory for every item.</span></div>
+    </div>
+
+  </div>
 </div>
 
 <!-- PILLARS -->
@@ -658,7 +905,7 @@
     </div>
 
     <div class="affirmation-card">
-      <div class="affirmation-text">I am not a substitute for human connection, but I am worthy of it. Leaning on my support network is not weakness — it's the thing I'm actively working to allow.</div>
+      <div class="affirmation-text">I am worthy of human connection. Leaning on my support network is not weakness — it's the thing I'm actively working to allow.</div>
     </div>
 
     <div class="affirmation-card">
@@ -762,7 +1009,7 @@
     <div id="week-a" class="week-plan active">
 
       <!-- MEAL PLAN -->
-      <div id="week-a-plan" class="meals-inner active" id="week-a-plan">
+      <div id="week-a-plan" class="meals-inner active">
         <div class="meal-section-title">Week A — Meal plan</div>
 
         <div class="day-meal-card">
@@ -1211,21 +1458,20 @@
       <div class="sb-card" id="sbc-4">
         <div class="sb-hdr" onclick="sbToggle(4)">
           <div class="sb-num m-num">4</div>
-          <div style="flex:1"><div class="sb-title">Standing Side Bend</div><div class="sb-sub">Full spine · SI joint · 30 sec each side</div></div>
+          <div style="flex:1"><div class="sb-title">Standing Side Bend</div><div class="sb-sub">Full spine · SI joint · QL · 30 sec each side</div></div>
           <em class="chevron">▾</em>
         </div>
         <div class="sb-body" id="sbb-4">
-          <div class="sb-why">Opens the quadratus lumborum — the muscle that frequently pulls the SI joint out of alignment. Decompresses the spine after sleep.</div>
+          <div class="sb-why">Opens the quadratus lumborum — the muscle that frequently pulls the SI joint out of alignment. Also decompresses the thoracic spine and stretches the lateral shoulder capsule, which tightens from heavy overhead pressing and pulling.</div>
           <div class="sb-steps">
-            <div class="sb-step"><div class="sb-dot">1</div><span>Stand tall, feet hip-width. Raise the non-surgical arm straight overhead.</span></div>
-            <div class="sb-step"><div class="sb-dot">2</div><span>Lean slowly to the side until you feel a stretch along your whole side body.</span></div>
-            <div class="sb-step"><div class="sb-dot">3</div><span>Both feet planted, hips square. Don't twist.</span></div>
-            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 30 sec each side. 2 rounds.</span></div>
+            <div class="sb-step"><div class="sb-dot">1</div><span>Stand tall, feet hip-width. Raise one arm straight overhead, palm facing in.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Lean slowly to the opposite side, reaching the overhead arm long — feel the stretch from hip all the way through the shoulder.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Both feet planted, hips square. Don't rotate or collapse forward.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 30 sec each side. 2 rounds each.</span></div>
           </div>
-          <div class="sb-caution">⚠ On the surgical side, keep that arm relaxed at your side. Only raise the non-surgical arm overhead.</div>
-          <div class="sb-trow" style="margin-top:12px">
-            <span class="sb-ttime">⏱ 60 sec total</span>
-            <button class="sb-tbtn" onclick="sbTimer(4,60,this)">Start Timer</button>
+          <div class="sb-trow">
+            <span class="sb-ttime">⏱ 120 sec total</span>
+            <button class="sb-tbtn" onclick="sbTimer(4,120,this)">Start Timer</button>
           </div>
           <div class="sb-tdisp" id="sbt-4"></div>
           <div class="sb-done" id="sbdone-4" onclick="sbDone(4)">☐ &nbsp;Mark done</div>
@@ -1235,21 +1481,20 @@
       <div class="sb-card" id="sbc-5">
         <div class="sb-hdr" onclick="sbToggle(5)">
           <div class="sb-num m-num">5</div>
-          <div style="flex:1"><div class="sb-title">Cross-Body Shoulder Stretch</div><div class="sb-sub">Posterior capsule · Rotator cuff · 30 sec × 3</div></div>
+          <div style="flex:1"><div class="sb-title">Cross-Body Posterior Shoulder Stretch</div><div class="sb-sub">Posterior capsule · Rotator cuff · 30 sec × 3 each side</div></div>
           <em class="chevron">▾</em>
         </div>
         <div class="sb-body" id="sbb-5">
-          <div class="sb-why">The posterior capsule is the most commonly tight structure after rotator cuff repair. This prevents compensatory patterns that stress the bicep tenodesis and cause impingement during lifting. Own this one forever.</div>
+          <div class="sb-why">The posterior shoulder capsule is one of the most commonly tight structures in lifters who press and row heavy. Tightness here causes internal rotation of the humerus, impingement, and compensatory forward head posture. Regular posterior capsule stretching is one of the most evidence-backed interventions for long-term shoulder health.</div>
           <div class="sb-steps">
-            <div class="sb-step"><div class="sb-dot">1</div><span>Bring your surgical arm across your chest at shoulder height.</span></div>
-            <div class="sb-step"><div class="sb-dot">2</div><span>Use the other hand to support the elbow gently — don't pull, just hold.</span></div>
-            <div class="sb-step"><div class="sb-dot">3</div><span>Feel the stretch in the back of the shoulder. Keep the blade relaxed.</span></div>
-            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 30 sec. Repeat 3×.</span></div>
+            <div class="sb-step"><div class="sb-dot">1</div><span>Bring one arm across your chest at shoulder height, parallel to the floor.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Use the opposite hand to support the elbow — apply gentle pressure inward, not downward.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Feel the stretch in the back of the shoulder. Keep the shoulder blade relaxed and down — don't let it shrug.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 30 sec. Switch sides. 3 rounds each.</span></div>
           </div>
-          <div class="sb-caution">⚠ Gentle and consistent beats aggressive. No forcing, no pain.</div>
-          <div class="sb-trow" style="margin-top:12px">
-            <span class="sb-ttime">⏱ 90 sec total</span>
-            <button class="sb-tbtn" onclick="sbTimer(5,90,this)">Start Timer</button>
+          <div class="sb-trow">
+            <span class="sb-ttime">⏱ 3 min total</span>
+            <button class="sb-tbtn" onclick="sbTimer(5,180,this)">Start Timer</button>
           </div>
           <div class="sb-tdisp" id="sbt-5"></div>
           <div class="sb-done" id="sbdone-5" onclick="sbDone(5)">☐ &nbsp;Mark done</div>
@@ -1276,6 +1521,52 @@
           </div>
           <div class="sb-tdisp" id="sbt-6"></div>
           <div class="sb-done" id="sbdone-6" onclick="sbDone(6)">☐ &nbsp;Mark done</div>
+        </div>
+      </div>
+
+      <div class="sb-card" id="sbc-7">
+        <div class="sb-hdr" onclick="sbToggle(7)">
+          <div class="sb-num m-num">7</div>
+          <div style="flex:1"><div class="sb-title">Doorway Chest Opener</div><div class="sb-sub">Pec minor/major · Anterior shoulder · 30 sec × 3</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbb-7">
+          <div class="sb-why">Heavy pressing and rowing chronically shortens the pec minor, which tilts the scapula forward and internally rotates the shoulder — the root cause of most lifter-related shoulder impingement. The doorway stretch is one of the most prescribed interventions in shoulder rehabilitation research. It directly counters the forward-shoulder posture that develops at 6'5" from years of reaching and desk work.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Stand in a doorframe. Place both forearms on the frame, elbows at 90°, upper arms parallel to the floor.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Step one foot through the doorway and shift your weight forward until you feel a stretch across the chest and front of both shoulders.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Keep your core lightly engaged and avoid arching the low back. The stretch is in the chest — not the lumbar spine.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Hold 30 sec. Rest 10 sec. Repeat 3 rounds.</span></div>
+          </div>
+          <div class="sb-trow">
+            <span class="sb-ttime">⏱ ~2 min</span>
+            <button class="sb-tbtn" onclick="sbTimer(7,120,this)">Start Timer</button>
+          </div>
+          <div class="sb-tdisp" id="sbt-7"></div>
+          <div class="sb-done" id="sbdone-7" onclick="sbDone(7)">☐ &nbsp;Mark done</div>
+        </div>
+      </div>
+
+      <div class="sb-card" id="sbc-8">
+        <div class="sb-hdr" onclick="sbToggle(8)">
+          <div class="sb-num m-num">8</div>
+          <div style="flex:1"><div class="sb-title">Standing Thoracic Extension</div><div class="sb-sub">Upper back · T-spine mobility · Shoulder overhead path · 60 sec</div></div>
+          <em class="chevron">▾</em>
+        </div>
+        <div class="sb-body" id="sbb-8">
+          <div class="sb-why">Thoracic kyphosis (rounded upper back) is the single biggest limiter of overhead pressing range and a major driver of shoulder impingement. When the T-spine can't extend, the shoulder complex compensates — often into impingement territory. This stretch has strong clinical evidence for improving overhead mobility, reducing upper back pain, and counteracting the postural effects of lifting and sitting. Doing this daily is one of the highest-value shoulder investments in this list.</div>
+          <div class="sb-steps">
+            <div class="sb-step"><div class="sb-dot">1</div><span>Stand tall, feet hip-width. Interlace your hands behind your head, elbows wide.</span></div>
+            <div class="sb-step"><div class="sb-dot">2</div><span>Gently draw your elbows back and open your chest toward the ceiling, allowing the upper back to extend. Think of the mid-back (T4–T8) as the hinge point.</span></div>
+            <div class="sb-step"><div class="sb-dot">3</div><span>Hold the extended position for 2–3 seconds, breathing into the stretch. Return to neutral. Repeat 10–12 slow reps.</span></div>
+            <div class="sb-step"><div class="sb-dot">4</div><span>Keep the low back relaxed — this is thoracic extension, not lumbar. If the low back crunches, reduce the range.</span></div>
+          </div>
+          <div class="sb-trow">
+            <span class="sb-ttime">⏱ ~60 sec</span>
+            <button class="sb-tbtn" onclick="sbTimer(8,60,this)">Start Timer</button>
+          </div>
+          <div class="sb-tdisp" id="sbt-8"></div>
+          <div class="sb-done" id="sbdone-8" onclick="sbDone(8)">☐ &nbsp;Mark done</div>
         </div>
       </div>
 
@@ -1699,8 +1990,8 @@
           <div class="skin-step">
             <div class="skin-num">3</div>
             <div class="skin-step-body">
-              <div class="skin-step-name">Brickell Daily Defense SPF 30</div>
-              <div class="skin-step-detail">Clean formula, SPF 30 mineral protection. UV is responsible for ~80% of visible facial aging. This is the single most important anti-aging step in any routine. Every day — including Pacifica's overcast days. UV penetrates cloud cover.</div>
+              <div class="skin-step-name">Brickell Daily Defense SPF 45</div>
+              <div class="skin-step-detail">All-natural, clean mineral formula — zinc oxide based, no synthetic chemicals. SPF 45 gives you meaningful extra headroom over SPF 30, especially on bright Pacifica days or when you're outdoors with Cooper. UV is responsible for ~80% of visible facial aging. This is the single most important anti-aging step in any routine. Every day — UV penetrates fog and cloud cover.</div>
               <span class="skin-badge morning-badge">Non-negotiable daily</span>
             </div>
           </div>
@@ -1764,6 +2055,38 @@
 
   </div>
 </div>
+<!-- NOW FAB -->
+<button class="now-fab" onclick="openReset()">
+  <span class="now-fab-dot"></span>Now
+</button>
+
+<!-- RESET OVERLAY + PANEL -->
+<div class="reset-overlay" id="reset-overlay" onclick="closeReset()"></div>
+<div class="reset-panel" id="reset-panel">
+  <div class="reset-handle"></div>
+  <div class="reset-title">You're here now.</div>
+  <div class="reset-sub">That's the only place the day can go forward from. Nothing is as ruined as it feels.</div>
+  <div class="reset-block rb-where">
+    <div class="reset-block-label">Where you are</div>
+    <div class="reset-block-text" id="reset-where">—</div>
+    <div class="reset-block-note" id="reset-time-note">—</div>
+  </div>
+  <div class="reset-block rb-next">
+    <div class="reset-block-label">One next thing</div>
+    <div class="reset-block-text" id="reset-next">—</div>
+    <div class="reset-block-note">Just this. Not the whole list. Just this one.</div>
+  </div>
+  <div class="reset-block rb-affirm">
+    <div class="reset-block-label">Remember</div>
+    <div class="reset-block-text" id="reset-affirm">—</div>
+  </div>
+  <div class="reset-mvd-row">
+    <button class="reset-mvd-btn primary" onclick="closeReset();activateMVD()">Switch to just 3 things</button>
+    <button class="reset-mvd-btn" onclick="closeReset()">I've got it from here</button>
+  </div>
+  <button class="reset-close-btn" onclick="closeReset()">Close</button>
+</div>
+
 <script>
   const d = new Date();
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
@@ -1811,61 +2134,187 @@
   }
 
   const phases = [
-    { type:'c-anchor', time:'7:00', title:'Morning anchor', badge:'~60 min',
-      desc:'Meds → shower → teeth → Cooper out + stretch + Pulsetto → coffee + meditation. No phone.',
+    { type:'c-anchor', time:'7:00', startHour:7, endHour:8, title:'Morning anchor', badge:'~60 min', mvd:true,
+      desc:'Levothyroxine → shower → teeth → Cooper out + stretch → coffee + meditation. No phone.',
       science:'Cortisol awakening response peaks 20–30 min after waking. Phone contact here derails the whole day.',
-      items:['Wake — phone face-down. Meds, shower, teeth.','Cooper out: 6-move stretch, Pulsetto running','5 min Tier 1 diaphragmatic breathing outdoors','Coffee + Happier app — no news, no email'] },
-    { type:'c-maddy', time:'8:00', title:'Maddy morning touchpoint', badge:'15–20 min',
+      nextAction:'Take levothyroxine. Phone face-down.',
+      items:['💊 Levothyroxine — first thing, alone, before food or coffee. 30–60 min minimum before anything else.','Wake — phone face-down. Shower, teeth.','Cooper out: 8-move stretch, Pulsetto running','5 min Tier 1 diaphragmatic breathing outdoors','💊 With breakfast: Wellbutrin · Testosterone · Losartan 100mg · Omega-3','Coffee + Happier app — no news, no email'] },
+    { type:'c-maddy', time:'8:00', startHour:8, endHour:8.5, title:'Maddy morning touchpoint', badge:'15–20 min', mvd:false,
       desc:'One consistent low-demand check-in. Not problem-solving — just contact.',
       science:'For AuDHD, predictable contact points reduce ambient anxiety even when content is minimal.',
+      nextAction:'Check in — just say good morning.',
       items:['Check in — how did she sleep, what does she need','Morning task help goes here if needed','Keep it light — not solving today\'s problems','If unavailable, note it and move on'] },
-    { type:'c-body', time:'8:30', title:'Gym / movement', badge:'~90 min',
+    { type:'c-body', time:'8:30', startHour:8.5, endHour:10.25, title:'Gym / movement', badge:'~90 min', mvd:true,
       desc:'Body before brain. The cognitive windows that follow depend on this.',
       science:'Morning exercise raises BDNF, improves executive function for 2–4 hrs after.',
+      nextAction:'Shoes on. Walk out the door.',
       items:['Pre-lift reset breath before each heavy set','Push/Pull/Legs per program','Non-gym days: genuine walk, not a stroll','Post-workout: clean protein + carb within 45 min'] },
-    { type:'c-work', time:'10:15', title:'First work window', badge:'~90 min',
+    { type:'c-work', time:'10:15', startHour:10.25, endHour:11.75, title:'First work window', badge:'~90 min', mvd:false,
       desc:'Deepest cognitive work. PwC prep, strategy, high-stakes writing.',
       science:'First ultradian peak. Alertness, working memory, verbal fluency highest here.',
-      items:['One domain only — no task-switching','Phone in another room','Perineum check-in alarm fires here','Hard stop at 90 min even when flowing'] },
-    { type:'c-white', time:'11:45', title:'Transition + ideation', badge:'~45 min',
-      desc:'Walk, lunch assembly, nothing scheduled. Ideas surface here.',
+      nextAction:'Open one doc. One domain only.',
+      items:['One domain only — no task-switching','Phone in another room','💊 L-Tyrosine 750mg + Rhodiola 100mg — empty/light stomach, 1–2 hrs after levothyroxine','Perineum check-in alarm fires here','Hard stop at 90 min even when flowing'] },
+    { type:'c-white', time:'11:45', startHour:11.75, endHour:12.5, title:'Transition + ideation', badge:'~45 min', mvd:false,
+      desc:'Walk, lunch, nothing scheduled. Ideas surface here.',
       science:'Default mode network activates during unfocused rest. This is when work integrates.',
-      items:['Walk outside — music or silence, no content','Assemble lunch from batch (5 min)','Brain dump anything that surfaced','Bathroom breathing practice fits here'] },
-    { type:'c-work', time:'12:30', title:'Second work window', badge:'~90 min',
+      nextAction:'Step outside. Even just for 5 minutes.',
+      items:['💊 L-Tyrosine 750mg + Rhodiola 100mg — empty or light stomach, at least 1–2 hrs after levothyroxine','Walk outside — music or silence, no content','Assemble lunch from batch (5 min)','💊 Zinc 15mg — always with food, never on empty stomach','Brain dump anything that surfaced','Bathroom breathing practice fits here'] },
+    { type:'c-work', time:'12:30', startHour:12.5, endHour:14, title:'Second work window', badge:'~90 min', mvd:false,
       desc:'Research, networking, outreach, applications, follow-ups.',
       science:'Second ultradian cycle. Solid for communication and relational tasks.',
+      nextAction:'Open LinkedIn or one email. Just start.',
       items:['LinkedIn, outreach, research, applications','Tactical interview prep','Schedule informational interviews here','Perineum check-in alarm #2'] },
-    { type:'c-maddy', time:'2:00', title:'Maddy buffer / afternoon float', badge:'60–90 min flex',
-      desc:'Where Maddy\'s unpredictability lands without wrecking the day. Also where you rest or nap.',
-      science:'20-min nap before 2:30 restores a full ultradian cycle. This slot absorbs Maddy AND recovery.',
+    { type:'c-maddy', time:'2:00', startHour:14, endHour:15.5, title:'Maddy buffer / afternoon float', badge:'60–90 min flex', mvd:false,
+      desc:'Where Maddy\'s unpredictability lands without wrecking the day. Also rest or nap.',
+      science:'20-min nap before 2:30 restores a full ultradian cycle.',
+      nextAction:'Check on Maddy. If all quiet — lie down, 20 min.',
       items:['Maddy needs something — this is the slot','If not: nap 20 min max before 2:30','No content if resting — that\'s not rest','Perineum check-in alarm #3'] },
-    { type:'c-community', time:'3:30', title:'Connection / community', badge:'~60 min',
+    { type:'c-community', time:'3:30', startHour:15.5, endHour:16.5, title:'Connection / community', badge:'~60 min', mvd:false,
       desc:'Jason, partner, getting out. Scheduled, not earned.',
       science:'Social connection reduces cortisol and is independently protective against depression.',
+      nextAction:'Text Jason or your partner. One message.',
       items:['Jason — one real contact per week, this is the window','Partner: protected time, not leftover','Out of Pacifica 1–2x per week','If nothing planned: walk somewhere new'] },
-    { type:'c-work', time:'4:30', title:'Light work / admin', badge:'~60 min',
+    { type:'c-work', time:'4:30', startHour:16.5, endHour:17.5, title:'Light work / admin', badge:'~60 min', mvd:false,
       desc:'Email, logistics, scheduling. Doesn\'t need peak cognition.',
       science:'Third ultradian cycle — right for admin, wrong for strategy.',
+      nextAction:'Clear your inbox to zero. Nothing new.',
       items:['Email, scheduling, tracking','Follow-ups from earlier windows','Low-stakes calls','Hard stop at 5:30'] },
-    { type:'c-close', time:'5:30', title:'Close-down ritual', badge:'20 min',
+    { type:'c-close', time:'5:30', startHour:17.5, endHour:18, title:'Close-down ritual', badge:'20 min', mvd:false,
       desc:'Brain dump, tomorrow\'s one priority, phone out of the room.',
       science:'Written close-down signals the brain the day is complete. Reduces nighttime rumination.',
+      nextAction:'Write the ONE thing tomorrow needs.',
       items:['Write the ONE thing tomorrow needs — not a list','Brain dump anything unresolved','Phone to bedroom — out of main space','No work content after this'] },
-    { type:'c-anchor', time:'Evening', title:'Dinner + evening', badge:'flexible',
-      desc:'Dinner together when possible. Shared cooking is connection and nutrition solved at once.',
+    { type:'c-anchor', time:'Evening', startHour:18, endHour:21.5, title:'Dinner + evening', badge:'flexible', mvd:false,
+      desc:'Dinner together. Connection and nutrition solved at once.',
       science:'Eating together is one of the strongest predictors of family cohesion and wellbeing.',
+      nextAction:'Start cooking or set the table.',
       items:['One real cook — simple protein + veg','Maddy or partner involved if possible','Evening check-in with Maddy','30-sec hum in shower — vagal toning'] },
-    { type:'c-close', time:'9:30', title:'Pre-sleep stack', badge:'~30 min',
-      desc:'Magnesium → breathwork → blackout mask. Tomorrow\'s morning anchor starts here.',
+    { type:'c-close', time:'9:30', startHour:21.5, endHour:25, title:'Pre-sleep stack', badge:'~30 min', mvd:true,
+      desc:'Magnesium → breathwork → blackout mask. Tomorrow\'s morning starts here.',
       science:'Light after 9pm suppresses melatonin up to 50%. Resonance breathing improves HRV overnight.',
-      items:['Magnesium glycinate 400mg — 30–60 min before lights out','10 min Tier 2 or 3 breathwork — pelvic floor release','Blackout mask on','No phone once breathwork begins'] }
+      nextAction:'Take magnesium. Put the phone down.',
+      items:['💊 Magnesium glycinate 400–500mg — right now, before breathwork','10 min Tier 2 or 3 breathwork — pelvic floor release','Blackout mask on','No phone once breathwork begins'] }
   ];
 
+  // ── Completion tracking ──
+  const TODAY = new Date().toDateString();
+  const STOR_KEY = 'myday_done_' + TODAY;
+  let doneSet = new Set(JSON.parse(localStorage.getItem(STOR_KEY) || '[]'));
+
+  function saveDone() { localStorage.setItem(STOR_KEY, JSON.stringify([...doneSet])); }
+
+  function markPhase(idx, el) {
+    if (doneSet.has(idx)) { doneSet.delete(idx); } else { doneSet.add(idx); }
+    saveDone();
+    const isDone = doneSet.has(idx);
+    // sync circle
+    const circle = document.getElementById('phase-check-' + idx);
+    if (circle) { circle.classList.toggle('done', isDone); circle.textContent = isDone ? '✓' : ''; }
+    // sync in-card button
+    const btn = document.getElementById('block-btn-' + idx);
+    if (btn) { btn.classList.toggle('done', isDone); btn.textContent = isDone ? '✓ Done' : '✓ Mark block done'; }
+    // sync phase row
+    const phase = circle ? circle.closest('.phase') : null;
+    if (phase) phase.classList.toggle('completed', isDone);
+    updateProgress();
+    updateHero();
+  }
+
+  function updateProgress() {
+    const total = phases.length;
+    const done = doneSet.size;
+    const pct = done / total;
+    const circ = 113.1;
+    document.getElementById('prog-circle').setAttribute('stroke-dashoffset', circ - pct * circ);
+    document.getElementById('prog-label').textContent = done + ' of ' + total + ' done today';
+    const subs = ['Tap any block to mark it complete','One block at a time.','You\'re moving.','More than halfway.','Almost there.','Day complete. Well done.'];
+    const si = done === total ? 5 : done > total * 0.5 ? 3 : done > 0 ? 2 : 0;
+    document.getElementById('prog-sub').textContent = subs[si];
+  }
+
+  // ── Right Now hero ──
+  const resetAffirms = [
+    'The morning anchor holds. Everything else can flex.',
+    'You\'re building the ground itself — not another impressive output.',
+    'One good move right now is enough to change the arc of the day.',
+    'You\'ve handled harder things than today. Much harder.',
+    'The gap between how bad it feels and how bad it is — that gap is ADHD. Not reality.',
+    'Progress doesn\'t require perfection. It just requires the next step.'
+  ];
+
+  function getCurrentPhase() {
+    const now = new Date();
+    const h = now.getHours() + now.getMinutes() / 60;
+    for (let i = 0; i < phases.length; i++) {
+      if (h >= phases[i].startHour && h < phases[i].endHour) return i;
+    }
+    return phases.length - 1;
+  }
+
+  function updateHero() {
+    const now = new Date();
+    const h = now.getHours() + now.getMinutes() / 60;
+    const idx = getCurrentPhase();
+    const p = phases[idx];
+    const isDone = doneSet.has(idx);
+
+    const pct = Math.min(100, ((h - p.startHour) / (p.endHour - p.startHour)) * 100);
+    document.getElementById('rn-timefill').style.width = pct + '%';
+
+    const minsLeft = Math.max(0, Math.round((p.endHour - h) * 60));
+    const timeStr = minsLeft > 60 ? Math.round(minsLeft / 60) + 'h left' : minsLeft + ' min left';
+
+    document.getElementById('rn-label').textContent = isDone ? '✓ Completed' : 'Right now · ' + timeStr;
+    document.getElementById('rn-title').textContent = p.title;
+    document.getElementById('rn-desc').textContent = p.nextAction;
+
+    const nextIdx = Math.min(idx + 1, phases.length - 1);
+    document.getElementById('rn-next').textContent = 'Up next: ' + phases[nextIdx].title;
+
+    const btn = document.getElementById('rn-done-btn');
+    btn.textContent = isDone ? '✓ Done' : '✓ Mark this done';
+    btn.classList.toggle('ticked', isDone);
+
+    // Reset panel
+    document.getElementById('reset-where').textContent = p.title;
+    document.getElementById('reset-time-note').textContent = minsLeft > 0 ? timeStr + ' remaining in this block.' : 'Moving into the next block.';
+    document.getElementById('reset-next').textContent = p.nextAction;
+    document.getElementById('reset-affirm').textContent = resetAffirms[Math.floor(Math.random() * resetAffirms.length)];
+  }
+
+  function rnMarkDone() {
+    const idx = getCurrentPhase();
+    markPhase(idx, document.getElementById('phase-check-' + idx));
+  }
+
+  // ── MVD mode ──
+  function activateMVD() {
+    document.body.classList.add('mvd-mode');
+    document.getElementById('mvd-banner').classList.add('active');
+  }
+  function deactivateMVD() {
+    document.body.classList.remove('mvd-mode');
+    document.getElementById('mvd-banner').classList.remove('active');
+  }
+
+  // ── Reset panel ──
+  function openReset() {
+    updateHero();
+    document.getElementById('reset-overlay').classList.add('open');
+    document.getElementById('reset-panel').classList.add('open');
+  }
+  function closeReset() {
+    document.getElementById('reset-overlay').classList.remove('open');
+    document.getElementById('reset-panel').classList.remove('open');
+  }
+
+  // ── Render phases ──
   const container = document.getElementById('phases-container');
   phases.forEach((p, i) => {
     const isLast = i === phases.length - 1;
+    const isDone = doneSet.has(i);
     const el = document.createElement('div');
-    el.className = `phase ${p.type}`;
+    el.className = `phase ${p.type}${p.mvd ? ' mvd-keep' : ''}${isDone ? ' completed' : ''}`;
     el.innerHTML = `
       <div class="time-col">${p.time}</div>
       <div class="line-col">
@@ -1884,12 +2333,21 @@
         <div class="expanded">
           <div class="science-note">${p.science}</div>
           <div class="items">
-            ${p.items.map(item => `<div class="item"><div class="item-dot"></div><span>${item}</span></div>`).join('')}
+            ${p.items.map(item => {
+              const isMed = item.startsWith('💊');
+              return `<div class="item${isMed ? ' meds-item' : ''}"><div class="item-dot"></div><span>${item}</span></div>`;
+            }).join('')}
           </div>
+          <button class="block-done-btn${isDone ? ' done' : ''}" id="block-btn-${i}" onclick="event.stopPropagation();markPhase(${i}, document.getElementById('phase-check-${i}'))">${isDone ? '✓ Done' : '✓ Mark block done'}</button>
         </div>
-      </div>`;
+      </div>
+      <div class="card-check${isDone ? ' done' : ''}" id="phase-check-${i}" onclick="event.stopPropagation();markPhase(${i},this)">${isDone ? '✓' : ''}</div>`;
     container.appendChild(el);
   });
+
+  updateProgress();
+  updateHero();
+  setInterval(updateHero, 60000);
 
   // Stretch & Breathe
   function sbView(id, btn) {
@@ -1899,7 +2357,7 @@
     btn.classList.add('active');
   }
   const sbDoneSet = new Set();
-  const sbTotal = 6;
+  const sbTotal = 8;
   function sbToggle(n) {
     const body = document.getElementById('sbb-' + n);
     const card = document.getElementById('sbc-' + n);
