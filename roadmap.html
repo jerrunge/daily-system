@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Jeremy Runge — Year One Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --career: #f5c432;
+  --wealth: #2ecc71;
+  --body:   #ff5c38;
+  --system: #3fbaff;
+  --people: #d966ff;
+  --white:  #ffffff;
+  --dim:    rgba(255,255,255,0.5);
+  --faint:  rgba(255,255,255,0.22);
+  --black:  #060606;
+  --track:  #101010;
+}
+
+html, body {
+  width: 17in;
+  min-height: 11in;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@page {
+  size: 17in 11in landscape;
+  margin: 0;
+}
+
+.page {
+  width: 17in;
+  min-height: 11in;
+  padding: 0.28in 0.32in 0.22in;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.ghost {
+  position: absolute;
+  right: -0.2in;
+  top: -0.5in;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5in;
+  color: rgba(255,255,255,0.016);
+  line-height: 1;
+  pointer-events: none;
+  letter-spacing: -0.1in;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  padding-bottom: 0.13in;
+  margin-bottom: 0.1in;
+  flex-shrink: 0;
+}
+
+.eyebrow {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.115in;
+  letter-spacing: 0.06in;
+  color: var(--career);
+  margin-bottom: 0.02in;
+}
+
+.h-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.62in;
+  letter-spacing: 0.02in;
+  line-height: 0.95;
+  color: var(--white);
+}
+
+.h-tag {
+  font-size: 0.115in;
+  color: var(--dim);
+  margin-top: 0.05in;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.stats { display: flex; align-items: flex-end; }
+
+.stat {
+  text-align: right;
+  padding: 0 0.22in;
+  border-right: 1px solid rgba(255,255,255,0.14);
+}
+.stat:first-child { padding-left: 0; }
+.stat:last-child { border-right: none; padding-right: 0; }
+
+.s-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.38in;
+  line-height: 1;
+  letter-spacing: 0.01in;
+  color: var(--white);
+}
+.s-n.gold { color: var(--career); }
+
+.s-l {
+  font-size: 0.085in;
+  font-weight: 600;
+  letter-spacing: 0.02in;
+  color: var(--faint);
+  text-transform: uppercase;
+  margin-top: 0.02in;
+}
+
+/* MONTH ROW */
+.mrow {
+  display: grid;
+  grid-template-columns: 1.1in repeat(12, 1fr);
+  margin-bottom: 0.07in;
+  flex-shrink: 0;
+}
+
+.mcell { text-align: center; padding: 0.02in 0; position: relative; }
+.mcell.now .mname { color: var(--career); font-weight: 600; }
+
+.now-pip {
+  position: absolute;
+  top: -0.13in;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.08in;
+  letter-spacing: 0.02in;
+  color: var(--black);
+  background: var(--career);
+  padding: 0.01in 0.05in;
+  border-radius: 0.02in;
+  white-space: nowrap;
+}
+
+.mname {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.12in;
+  letter-spacing: 0.02in;
+  color: rgba(255,255,255,0.32);
+}
+
+.qtag {
+  font-size: 0.075in;
+  letter-spacing: 0.01in;
+  color: rgba(255,255,255,0.18);
+  text-transform: uppercase;
+  margin-top: 0.01in;
+}
+
+/* BODY */
+.body { display: flex; flex: 1; gap: 0; min-height: 0; }
+
+.lcol {
+  width: 1.1in;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05in;
+  padding-right: 0.1in;
+}
+
+.lblock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.02in;
+}
+
+.l-icon { font-size: 0.15in; line-height: 1; margin-bottom: 0.02in; }
+
+.l-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.165in;
+  letter-spacing: 0.015in;
+  line-height: 1;
+}
+
+.l-sub {
+  font-size: 0.08in;
+  font-weight: 500;
+  letter-spacing: 0.008in;
+  color: rgba(255,255,255,0.32);
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* TRACKS COLUMN */
+.tcol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05in;
+  position: relative;
+  min-width: 0;
+  overflow: visible;
+}
+
+.qline {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(255,255,255,0.07);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* TRACK */
+.track {
+  flex: 1;
+  position: relative;
+  background: var(--track);
+  border-radius: 0.06in;
+  border: 1px solid rgba(255,255,255,0.09);
+  overflow: visible;
+  min-height: 0;
+}
+
+.track::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.08in; bottom: 0.08in;
+  width: 0.03in;
+  border-radius: 0.02in;
+}
+.t-career::before { background: var(--career); }
+.t-wealth::before { background: var(--wealth); }
+.t-body::before   { background: var(--body); }
+.t-system::before { background: var(--system); }
+.t-people::before { background: var(--people); }
+
+.tline {
+  position: absolute;
+  top: 50%; left: 0.08in; right: 0;
+  height: 1px;
+  transform: translateY(-50%);
+  opacity: 0.25;
+}
+.t-career .tline { background: var(--career); }
+.t-wealth .tline { background: var(--wealth); }
+.t-body   .tline { background: var(--body); }
+.t-system .tline { background: var(--system); }
+.t-people .tline { background: var(--people); }
+
+/* MILESTONE */
+.ms {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.ms-dot {
+  width: 0.11in;
+  height: 0.11in;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--black);
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+.ms-dot.filled { background: currentColor; }
+.ms-dot.big { width: 0.14in; height: 0.14in; border-width: 2.5px; }
+
+.t-career .ms-dot { border-color: var(--career); color: var(--career); }
+.t-wealth .ms-dot { border-color: var(--wealth); color: var(--wealth); }
+.t-body   .ms-dot { border-color: var(--body);   color: var(--body); }
+.t-system .ms-dot { border-color: var(--system); color: var(--system); }
+.t-people .ms-dot { border-color: var(--people); color: var(--people); }
+
+.ms-card {
+  position: absolute;
+  width: 1.06in;
+  background: #161616;
+  border-radius: 0.05in;
+  padding: 0.06in 0.07in;
+  z-index: 20;
+  border-top: 2px solid;
+}
+
+/* Above: open upward, centered on dot */
+.ms.above .ms-card {
+  bottom: calc(100% + 0.07in);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Below: open downward, centered on dot */
+.ms.below .ms-card {
+  top: calc(100% + 0.07in);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Flip: anchor to right of dot so card grows leftward — no overflow */
+.ms.above.flip .ms-card {
+  bottom: calc(100% + 0.07in);
+  left: auto;
+  right: -0.05in;
+  transform: none;
+}
+.ms.below.flip .ms-card {
+  top: calc(100% + 0.07in);
+  left: auto;
+  right: -0.05in;
+  transform: none;
+}
+
+.t-career .ms-card { border-top-color: var(--career); }
+.t-wealth .ms-card { border-top-color: var(--wealth); }
+.t-body   .ms-card { border-top-color: var(--body); }
+.t-system .ms-card { border-top-color: var(--system); }
+.t-people .ms-card { border-top-color: var(--people); }
+
+.ms-date {
+  font-size: 0.08in;
+  font-weight: 700;
+  letter-spacing: 0.015in;
+  text-transform: uppercase;
+  margin-bottom: 0.03in;
+}
+.t-career .ms-date { color: var(--career); }
+.t-wealth .ms-date { color: var(--wealth); }
+.t-body   .ms-date { color: var(--body); }
+.t-system .ms-date { color: var(--system); }
+.t-people .ms-date { color: var(--people); }
+
+.ms-text {
+  font-size: 0.094in;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.45;
+}
+
+.ms-badge {
+  display: inline-block;
+  font-size: 0.07in;
+  font-weight: 700;
+  letter-spacing: 0.01in;
+  text-transform: uppercase;
+  padding: 0.01in 0.05in;
+  border-radius: 0.02in;
+  margin-top: 0.04in;
+  color: var(--black);
+}
+.t-career .ms-badge { background: var(--career); }
+.t-wealth .ms-badge { background: var(--wealth); }
+.t-body   .ms-badge { background: var(--body); }
+.t-system .ms-badge { background: var(--system); }
+.t-people .ms-badge { background: var(--people); }
+
+/* FOOTER */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.09in;
+  padding-top: 0.08in;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+.f-id {
+  font-size: 0.082in;
+  letter-spacing: 0.025in;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+}
+
+.f-quote {
+  font-size: 0.095in;
+  color: rgba(255,255,255,0.45);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.legend { display: flex; gap: 0.16in; align-items: center; }
+
+.leg {
+  display: flex;
+  align-items: center;
+  gap: 0.05in;
+  font-size: 0.08in;
+  font-weight: 600;
+  letter-spacing: 0.01in;
+  color: rgba(255,255,255,0.38);
+  text-transform: uppercase;
+}
+
+.leg-dot { width: 0.06in; height: 0.06in; border-radius: 50%; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="ghost">2026</div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="eyebrow">The Rebuild · Year One · April 2026</div>
+      <div class="h-name">Jeremy Runge</div>
+      <div class="h-tag">Five tracks &nbsp;·&nbsp; One year &nbsp;·&nbsp; Everything changes</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="s-n gold">60</div><div class="s-l">lbs to lose</div></div>
+      <div class="stat"><div class="s-n gold">$2–5M</div><div class="s-l">revenue target</div></div>
+      <div class="stat"><div class="s-n">12</div><div class="s-l">months</div></div>
+      <div class="stat"><div class="s-n">5</div><div class="s-l">tracks</div></div>
+      <div class="stat"><div class="s-n">1</div><div class="s-l">version of you</div></div>
+    </div>
+  </div>
+
+  <!-- MONTH HEADER -->
+  <div class="mrow">
+    <div></div>
+    <div class="mcell now"><div class="now-pip">NOW</div><div class="mname">APR</div><div class="qtag">Q2 '26</div></div>
+    <div class="mcell"><div class="mname">MAY</div></div>
+    <div class="mcell"><div class="mname">JUN</div></div>
+    <div class="mcell"><div class="mname">JUL</div><div class="qtag">Q3 '26</div></div>
+    <div class="mcell"><div class="mname">AUG</div></div>
+    <div class="mcell"><div class="mname">SEP</div></div>
+    <div class="mcell"><div class="mname">OCT</div><div class="qtag">Q4 '26</div></div>
+    <div class="mcell"><div class="mname">NOV</div></div>
+    <div class="mcell"><div class="mname">DEC</div></div>
+    <div class="mcell"><div class="mname">JAN</div><div class="qtag">Q1 '27</div></div>
+    <div class="mcell"><div class="mname">FEB</div></div>
+    <div class="mcell"><div class="mname">MAR</div></div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+    <!-- Labels -->
+    <div class="lcol">
+      <div class="lblock"><div class="l-icon">🎯</div><div class="l-title" style="color:var(--career)">Career</div><div class="l-sub">Levi's · PwC</div></div>
+      <div class="lblock"><div class="l-icon">💰</div><div class="l-title" style="color:var(--wealth)">Wealth Stack</div><div class="l-sub">Content · Book · Community</div></div>
+      <div class="lblock"><div class="l-icon">💪</div><div class="l-title" style="color:var(--body)">Body</div><div class="l-sub">PPL · 60 lbs · Off BP meds</div></div>
+      <div class="lblock"><div class="l-icon">🏠</div><div class="l-title" style="color:var(--system)">Daily OS</div><div class="l-sub">My Day · Shortcuts · Maddy</div></div>
+      <div class="lblock"><div class="l-icon">❤️</div><div class="l-title" style="color:var(--people)">People</div><div class="l-sub">David · Kids · Friends</div></div>
+    </div>
+
+    <!-- Tracks -->
+    <div class="tcol">
+      <div class="qline" style="left:25%"></div>
+      <div class="qline" style="left:50%"></div>
+      <div class="qline" style="left:75%"></div>
+
+      <!-- CAREER -->
+      <div class="track t-career">
+        <div class="tline"></div>
+        <div class="ms above" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">Levi's + PwC interviews active. Best candidate in both rooms.</div><span class="ms-badge">You are here</span></div></div>
+        <div class="ms below" style="left:12.5%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">May 2026</div><div class="ms-text">Offer accepted. Role landed. The rebuild goes public.</div><span class="ms-badge">Milestone</span></div></div>
+        <div class="ms above" style="left:37.5%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Aug 2026</div><div class="ms-text">90 days in. Visible impact. Trusted voice in the room.</div></div></div>
+        <div class="ms below" style="left:70.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Dec 2026</div><div class="ms-text">Year-end review. Raise conversation. Next role scoped.</div></div></div>
+        <div class="ms above flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">One year in. From interviews to leading.</div><span class="ms-badge">Year one ✓</span></div></div>
+      </div>
+
+      <!-- WEALTH STACK -->
+      <div class="track t-wealth">
+        <div class="tline"></div>
+        <div class="ms above" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">Wealth Hour locked daily. Content filmed. Silent building begins.</div></div></div>
+        <div class="ms below" style="left:20.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jun 2026</div><div class="ms-text">First videos live. The gap between LinkedIn and life is the premise.</div><span class="ms-badge">Public</span></div></div>
+        <div class="ms above" style="left:29.17%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jul 2026</div><div class="ms-text">The Rebuild community soft launch. First paid members.</div></div></div>
+        <div class="ms below" style="left:45.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Sep 2026</div><div class="ms-text">Book proposal to agents. High-ticket coaching: 3 clients.</div></div></div>
+        <div class="ms above" style="left:62.5%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Nov 2026</div><div class="ms-text">Acquisition: first target identified. LOI submitted.</div></div></div>
+        <div class="ms below" style="left:79.17%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Jan 2027</div><div class="ms-text">$1M revenue cleared. All five streams active.</div><span class="ms-badge">$1M ✓</span></div></div>
+        <div class="ms above flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">$2–5M trajectory locked. Book deal in motion.</div><span class="ms-badge">Year one ✓</span></div></div>
+      </div>
+
+      <!-- BODY -->
+      <div class="track t-body">
+        <div class="tline"></div>
+        <div class="ms above" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">Week 1. Baseline: 270 lbs. PPL program starts. Anchor holds.</div></div></div>
+        <div class="ms below" style="left:20.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jun 2026</div><div class="ms-text">−15 lbs. Phase 1 complete. Seeing it in the mirror.</div><span class="ms-badge">−15 lbs</span></div></div>
+        <div class="ms above" style="left:37.5%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Aug 2026</div><div class="ms-text">−30 lbs. Noticeably different. Energy transformed.</div><span class="ms-badge">−30 lbs</span></div></div>
+        <div class="ms below" style="left:54.17%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Oct 2026</div><div class="ms-text">−40 lbs. Doctor opens the BP medication conversation.</div><span class="ms-badge">−40 lbs</span></div></div>
+        <div class="ms above" style="left:79.17%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Jan 2027</div><div class="ms-text">−55 lbs. Off BP meds imminent. New body, new baseline.</div><span class="ms-badge">−55 lbs</span></div></div>
+        <div class="ms below flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">−60 lbs. Off blood pressure meds. The body you always had.</div><span class="ms-badge">−60 lbs ✓</span></div></div>
+      </div>
+
+      <!-- DAILY OS -->
+      <div class="track t-system">
+        <div class="tline"></div>
+        <div class="ms above" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">Shortcuts built. Focus modes active. My Day on every screen.</div></div></div>
+        <div class="ms below" style="left:12.5%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">May 2026</div><div class="ms-text">30-day unbroken morning anchor. It's infrastructure now.</div><span class="ms-badge">Streak</span></div></div>
+        <div class="ms above" style="left:29.17%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jul 2026</div><div class="ms-text">My Day v2. Maddy's app: full payout flow live.</div></div></div>
+        <div class="ms below" style="left:54.17%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Oct 2026</div><div class="ms-text">Daily OS fully automated. Zero decision fatigue in the morning.</div></div></div>
+        <div class="ms above flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">The system runs itself. You built the ground.</div><span class="ms-badge">Year one ✓</span></div></div>
+      </div>
+
+      <!-- PEOPLE -->
+      <div class="track t-people">
+        <div class="tline"></div>
+        <div class="ms above" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">Therapy weekly. David evenings protected. Jason + Alan: scheduled.</div></div></div>
+        <div class="ms below" style="left:20.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jun 2026</div><div class="ms-text">Karston — regular SF lunches. Not waiting for him to reach out first.</div></div></div>
+        <div class="ms above" style="left:45.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Sep 2026</div><div class="ms-text">Jeremiah — weekly FaceTime. Consistent, not reactive.</div></div></div>
+        <div class="ms below" style="left:70.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Dec 2026</div><div class="ms-text">A year of real connection. No gaps. No isolation dressed as self-sufficiency.</div></div></div>
+        <div class="ms above flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">The relationships held. You leaned in. They held you back.</div><span class="ms-badge">Year one ✓</span></div></div>
+      </div>
+
+    </div><!-- end tcol -->
+  </div><!-- end body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="f-id">Jeremy Runge &nbsp;·&nbsp; Year One Roadmap &nbsp;·&nbsp; April 2026</div>
+    <div class="f-quote">"I am building the ground itself — not another impressive output."</div>
+    <div class="legend">
+      <div class="leg"><div class="leg-dot" style="background:var(--career)"></div>Career</div>
+      <div class="leg"><div class="leg-dot" style="background:var(--wealth)"></div>Wealth Stack</div>
+      <div class="leg"><div class="leg-dot" style="background:var(--body)"></div>Body</div>
+      <div class="leg"><div class="leg-dot" style="background:var(--system)"></div>Daily OS</div>
+      <div class="leg"><div class="leg-dot" style="background:var(--people)"></div>People</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
