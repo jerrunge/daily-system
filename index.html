@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -426,7 +425,6 @@
 </div>
 
 <!-- ADMIN -->
-
 <div id="admin" class="view">
   <div class="admin-wrap">
     <div class="note-box" style="margin-bottom:16px">Tasks live in Apple Reminders. Tap any category to jump there. One-time setup: create 5 lists named <strong>Maddy, Medical, Financial, Career,</strong> and <strong>Life Stuff</strong>.</div>
@@ -453,7 +451,6 @@
 </div>
 
 <!-- MEDS (FIXED: L-Tyrosine pre-gym with food, +210 reminder removed) -->
-
 <div id="meds" class="view">
   <div class="meds-wrap">
     <div class="note-box" style="margin-bottom:18px">The sequence matters. Levothyroxine and Losartan both at waking. L-Tyrosine and Rhodiola moved to pre-gym with food (Perfect Bar + banana). Testosterone injection is Friday mornings only.</div>
@@ -735,7 +732,6 @@
 </div>
 
 <!-- SHOP (original unchanged) -->
-
 <div id="shop" class="view">
   <div class="shop-wrap">
     <div class="shop-toggle">
@@ -805,7 +801,6 @@
 </div>
 
 <!-- SKIN (original unchanged) -->
-
 <div id="skin" class="view">
   <div class="skin-wrap">
     <div><div class="skin-section-title">Why this matters</div><div class="note-box">Skin is your largest organ. At 40+, collagen production drops ~1% per year and UV damage compounds. A 5-minute daily routine with the right actives is the highest-ROI investment in how you look and how your skin ages.</div></div>
@@ -838,13 +833,11 @@
 </div>
 
 <!-- NOW FAB -->
-
 <button class="now-fab" onclick="openReset()">
   <span class="now-fab-dot"></span>Now
 </button>
 
 <!-- RESET OVERLAY + PANEL -->
-
 <div class="reset-overlay" id="reset-overlay" onclick="closeReset()"></div>
 <div class="reset-panel" id="reset-panel">
   <div class="reset-handle"></div>
@@ -865,480 +858,476 @@
   const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   document.getElementById('today-date').textContent = days[d.getDay()] + ' ' + months[d.getMonth()] + ' ' + d.getDate();
 
-function showView(id, btn) {
-document.querySelectorAll(’.view’).forEach(v => v.classList.remove(‘active’));
-document.querySelectorAll(’.tab’).forEach(t => t.classList.remove(‘active’));
-document.getElementById(id).classList.add(‘active’);
-if (btn) {
-btn.classList.add(‘active’);
-} else {
-document.querySelectorAll(’.tab’).forEach(t => {
-if (t.getAttribute(‘onclick’) && t.getAttribute(‘onclick’).includes(”’” + id + “’”)) t.classList.add(‘active’);
-});
-}
-window.scrollTo(0, 0);
-}
+  function showView(id, btn) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (btn) {
+      btn.classList.add('active');
+    } else {
+      document.querySelectorAll('.tab').forEach(t => {
+        if (t.getAttribute('onclick') && t.getAttribute('onclick').includes("'" + id + "'")) t.classList.add('active');
+      });
+    }
+    window.scrollTo(0, 0);
+  }
 
-function navTo(tabId) { showView(tabId, null); }
+  function navTo(tabId) { showView(tabId, null); }
 
-// Wealth focus rotation by day of week (0=Sun)
-const wealthFocus = [
-{ day:‘Sunday’, domain:‘IG raw take + YouTube’, icon:‘🎬’,
-desc:‘Post one raw IG take – no filter, no polish. If it is a YouTube week (2x/mo), upload and schedule. Pull pieces that are Ready to post in Notion.’ },
-{ day:‘Monday’, domain:‘LinkedIn long-form + IG Reel + X Thread’, icon:‘📝’,
-desc:‘LinkedIn long-form (800-1200w) – Fortify Framework or book premise. Film IG Reel (30-60s hook). Write X Thread. Cross-post to Threads + Bluesky. Log in Notion Content Calendar.’ },
-{ day:‘Tuesday’, domain:‘Substack publish day’, icon:‘✍️’,
-desc:‘Write and publish one Substack post. Pull from the prestige essay sprint or the Fortify methodology. Log in Notion Content Calendar when done.’ },
-{ day:‘Wednesday’, domain:‘Community and coaching’, icon:‘🤝’,
-desc:‘The Rebuild community work. Coaching offer development. One real outreach to a coaching prospect. Robert Cuillard is still the top of the list. JER-6, JER-8, JER-22.’ },
-{ day:‘Thursday’, domain:‘Acquisition research’, icon:‘🔍’,
-desc:‘Distressed brand research. Criteria refinement. One prospect identified or advanced. JER-10, JER-25, JER-122.’ },
-{ day:‘Friday’, domain:‘Review and planning + LinkedIn native video’, icon:‘📊’,
-desc:‘Linear sprint reset. Weekly review. What shipped this week? LinkedIn native video + IG Reel. Text Dad a summary of the week. Set next week priorities.’ },
-{ day:‘Saturday’, domain:‘Rest or flex’, icon:‘✨’,
-desc:‘No structured wealth hour. If something is alive in you, make something. A Substack Note or one X take counts. So does nothing.’ }
-];
+  // Wealth focus rotation by day of week (0=Sun)
+  const wealthFocus = [
+    { day:'Sunday', domain:'IG raw take + YouTube', icon:'🎬',
+      desc:'Post one raw IG take -- no filter, no polish. If it is a YouTube week (2x/mo), upload and schedule. Pull pieces that are Ready to post in Notion.' },
+    { day:'Monday', domain:'LinkedIn long-form + IG Reel + X Thread', icon:'📝',
+      desc:'LinkedIn long-form (800-1200w) -- Fortify Framework or book premise. Film IG Reel (30-60s hook). Write X Thread. Cross-post to Threads + Bluesky. Log in Notion Content Calendar.' },
+    { day:'Tuesday', domain:'Substack publish day', icon:'✍️',
+      desc:'Write and publish one Substack post. Pull from the prestige essay sprint or the Fortify methodology. Log in Notion Content Calendar when done.' },
+    { day:'Wednesday', domain:'Community and coaching', icon:'🤝',
+      desc:'The Rebuild community work. Coaching offer development. One real outreach to a coaching prospect. Robert Cuillard is still the top of the list. JER-6, JER-8, JER-22.' },
+    { day:'Thursday', domain:'Acquisition research', icon:'🔍',
+      desc:'Distressed brand research. Criteria refinement. One prospect identified or advanced. JER-10, JER-25, JER-122.' },
+    { day:'Friday', domain:'Review and planning + LinkedIn native video', icon:'📊',
+      desc:'Linear sprint reset. Weekly review. What shipped this week? LinkedIn native video + IG Reel. Text Dad a summary of the week. Set next week priorities.' },
+    { day:'Saturday', domain:'Rest or flex', icon:'✨',
+      desc:'No structured wealth hour. If something is alive in you, make something. A Substack Note or one X take counts. So does nothing.' }
+  ];
 
-function getTodayFocus() { return wealthFocus[new Date().getDay()]; }
+  function getTodayFocus() { return wealthFocus[new Date().getDay()]; }
 
-// Phases array – 13 phases, corrected
-const phases = [
-{ type:‘c-anchor’, time:‘7:00’, startHour:7, endHour:8, title:‘Morning anchor’, badge:‘~60 min’, mvd:true,
-desc:‘Levothyroxine + Losartan at wake. Shower, teeth. Cooper out + stretch. Coffee + meditation. No phone.’,
-science:‘Cortisol awakening response peaks 20-30 min after waking. Phone contact here derails the whole day.’,
-nextAction:‘Take levothyroxine + Losartan. Phone face-down.’,
-navTab:‘stretch’, navLabel:‘Go to Stretch tab’,
-items:[‘Levothyroxine + Losartan 100mg – both at wake, before food. Tap Levo Taken shortcut immediately.’,
-‘Shower – teeth. Phone face-down.’,
-‘Cooper out: 8-move outdoor stretch, Pulsetto running’,
-‘5 min Tier 1 diaphragmatic breathing outdoors’,
-‘+30 min: Coffee – Due reminder fires automatically’,
-‘+45 min: Breakfast + Omega-3 – Due reminder fires automatically’,
-‘Coffee + Happier app – no news, no email’,
-‘Friday only: Testosterone injection – self-administer per protocol’] },
-{ type:‘c-maddy’, time:‘8:00’, startHour:8, endHour:8.5, title:‘Maddy morning touchpoint’, badge:‘15-20 min’, mvd:false,
-desc:‘One consistent low-demand check-in. Not problem-solving – just contact.’,
-science:‘For AuDHD, predictable contact points reduce ambient anxiety even when content is minimal.’,
-nextAction:‘Check in – just say good morning.’,
-items:[‘Check in – how did she sleep, what does she need’,
-‘Morning task help goes here if needed’,
-‘Keep it light – not solving today’s problems’] },
-{ type:‘c-body’, time:‘8:30’, startHour:8.5, endHour:10.25, title:‘Gym’, badge:‘~2h 10min’, mvd:true,
-desc:‘Body before brain. Real footprint: 20 min walk + 90 min workout + 20 min back = 2h 10min minimum.’,
-science:‘Morning exercise raises BDNF, improves executive function for 2-4 hrs after.’,
-nextAction:‘Shoes on. Walk out the door.’,
-navTab:‘workout’, navLabel:‘Go to Workout tab’,
-items:[‘Pre-gym: L-Tyrosine 750mg + Rhodiola 100mg with food (Perfect Bar + banana)’,
-‘Pre-lift reset breath before each heavy set’,
-‘Push/Pull/Legs per program’,
-‘Non-gym days: genuine walk, not a stroll’,
-‘Post-workout: clean protein + carb within 45 min’] },
-{ type:‘c-work’, time:‘10:15’, startHour:10.25, endHour:11, title:‘Deep work’, badge:‘~45 min’, mvd:false,
-desc:‘First cognitive window post-gym. PwC/Levi’s prep, strategy, high-stakes writing. Hard stop at 45 min.’,
-science:‘BDNF peak from gym is active. Peak cognitive state for strategy and complex writing.’,
-nextAction:‘Open one doc. One domain only.’,
-items:[‘One domain only – no task-switching’,
-‘Phone in another room’,
-‘Hard stop at 11:00am – Wealth Hour is non-negotiable’] },
-{ type:‘c-wealth’, time:‘11:00’, startHour:11, endHour:12, title:‘Wealth Hour’, badge:‘60 min – non-negotiable’, mvd:true,
-desc:‘One hour. One domain. The whole wealth stack runs through this block. Does not move. Ever.’,
-science:‘Consistent daily deep work on high-value projects – even 60 minutes – compounds over 12 months into everything.’,
-nextAction:‘Open Linear. Find today’s task. Start the timer.’,
-isWealthHour:true,
-items:[‘Open Linear – find today’s task’,
-‘Run the 60-min Clock timer’,
-‘One domain from the rotation – see card above’,
-‘Interruptions get written down and handled after – not during’,
-‘Text Dad when done: one sentence, what you worked on’] },
-{ type:‘c-white’, time:‘12:00’, startHour:12, endHour:12.75, title:‘Lunch + decompression’, badge:‘~45 min’, mvd:false,
-desc:‘Assemble lunch, walk, nothing scheduled.’,
-science:‘Default mode network activates during unfocused rest. This is when work integrates.’,
-nextAction:‘Step outside. Even just for 5 minutes.’,
-items:[‘Walk outside – music or silence, no content’,
-‘Assemble lunch from batch (5 min)’,
-‘Zinc 15mg – always with food, never on empty stomach’,
-‘Brain dump anything that surfaced’] },
-{ type:‘c-work’, time:‘12:45’, startHour:12.75, endHour:14.25, title:‘Second work window’, badge:‘~90 min’, mvd:false,
-desc:‘Research, networking, outreach, applications, follow-ups.’,
-science:‘Second ultradian cycle. Solid for communication and relational tasks.’,
-nextAction:‘Open LinkedIn or one email. Just start.’,
-items:[‘LinkedIn, outreach, research, applications’,
-‘Tactical interview prep’,
-‘Schedule informational interviews here’] },
-{ type:‘c-maddy’, time:‘2:15’, startHour:14.25, endHour:15.5, title:‘Maddy buffer / afternoon float’, badge:‘60-90 min flex’, mvd:false,
-desc:‘Where Maddy’s unpredictability lands without wrecking the day. Also rest or nap.’,
-science:‘20-min nap before 2:30 restores a full ultradian cycle.’,
-nextAction:‘Check on Maddy. If all quiet – lie down, 20 min.’,
-items:[‘Maddy needs something – this is the slot’,
-‘If not: nap 20 min max before 2:30’,
-‘No content if resting – that’s not rest’] },
-{ type:‘c-community’, time:‘3:30’, startHour:15.5, endHour:16.5, title:‘Connection / community’, badge:‘~60 min’, mvd:false,
-desc:‘Your people. Scheduled, not earned.’,
-science:‘Social connection reduces cortisol and is independently protective against depression.’,
-nextAction:‘Text or call one person. Make it real.’,
-items:[‘Jason and Alan – one real contact this week. A call, a meal, something that counts.’,
-‘Karston is in SF – close enough to see. Reach out, don’t wait.’,
-‘Jeremiah is in Indiana – FaceTime or call.’,
-‘David: protected time, not leftover’] },
-{ type:‘c-work’, time:‘4:30’, startHour:16.5, endHour:17.5, title:‘Light work / admin’, badge:‘~60 min’, mvd:false,
-desc:‘Email, logistics, scheduling. Doesn’t need peak cognition.’,
-science:‘Third ultradian cycle – right for admin, wrong for strategy.’,
-nextAction:‘Clear your inbox. Nothing new.’,
-items:[‘Email, scheduling, tracking’,
-‘Follow-ups from earlier windows’,
-‘Hard stop at 5:30’] },
-{ type:‘c-close’, time:‘5:30’, startHour:17.5, endHour:18, title:‘Close-down ritual’, badge:‘20 min’, mvd:false,
-desc:‘Brain dump, tomorrow’s one priority, phone out of the room.’,
-science:‘Written close-down signals the brain the day is complete. Reduces nighttime rumination.’,
-nextAction:‘Write the ONE thing tomorrow needs.’,
-items:[‘Write the ONE thing tomorrow needs – not a list’,
-‘Brain dump anything unresolved’,
-‘Phone to bedroom – out of main space’,
-‘No work content after this’] },
-{ type:‘c-anchor’, time:‘Evening’, startHour:18, endHour:21.5, title:‘Dinner + evening’, badge:‘flexible’, mvd:false,
-desc:‘David. Maddy. Dinner. Connection and nutrition solved at once.’,
-science:‘Eating together is one of the strongest predictors of family cohesion and wellbeing.’,
-nextAction:‘Start cooking or set the table.’,
-items:[‘One real cook – simple protein + veg’,
-‘Maddy or partner involved if possible’,
-‘Evening check-in with Maddy’,
-‘30-sec hum in shower – vagal toning’] },
-{ type:‘c-close’, time:‘9:30’, startHour:21.5, endHour:25, title:‘Pre-sleep stack’, badge:‘~30 min’, mvd:true,
-desc:‘Magnesium, evening stretch, breathwork, blackout mask. Tomorrow’s morning starts here.’,
-science:‘Light after 9pm suppresses melatonin up to 50%. Resonance breathing improves HRV overnight.’,
-nextAction:‘Take magnesium. Put the phone down.’,
-navTab:‘stretch’, navLabel:‘Go to Evening wind-down’,
-items:[‘Magnesium glycinate 400-500mg – right now, before breathwork’,
-‘Evening stretch: Supine Figure-4, Spinal Twist, Child’s Pose, Legs Up Wall’,
-‘10 min Tier 2 or 3 breathwork – pelvic floor release on the exhale’,
-‘Blackout mask on’,
-‘No phone once breathwork begins’] }
-];
+  // Phases array -- 13 phases, corrected
+  const phases = [
+    { type:'c-anchor', time:'7:00', startHour:7, endHour:8, title:'Morning anchor', badge:'~60 min', mvd:true,
+      desc:'Levothyroxine + Losartan at wake. Shower, teeth. Cooper out + stretch. Coffee + meditation. No phone.',
+      science:'Cortisol awakening response peaks 20-30 min after waking. Phone contact here derails the whole day.',
+      nextAction:'Take levothyroxine + Losartan. Phone face-down.',
+      navTab:'stretch', navLabel:'Go to Stretch tab',
+      items:['Levothyroxine + Losartan 100mg -- both at wake, before food. Tap Levo Taken shortcut immediately.',
+             'Shower -- teeth. Phone face-down.',
+             'Cooper out: 8-move outdoor stretch, Pulsetto running',
+             '5 min Tier 1 diaphragmatic breathing outdoors',
+             '+30 min: Coffee -- Due reminder fires automatically',
+             '+45 min: Breakfast + Omega-3 -- Due reminder fires automatically',
+             'Coffee + Happier app -- no news, no email',
+             'Friday only: Testosterone injection -- self-administer per protocol'] },
+    { type:'c-maddy', time:'8:00', startHour:8, endHour:8.5, title:'Maddy morning touchpoint', badge:'15-20 min', mvd:false,
+      desc:'One consistent low-demand check-in. Not problem-solving -- just contact.',
+      science:'For AuDHD, predictable contact points reduce ambient anxiety even when content is minimal.',
+      nextAction:'Check in -- just say good morning.',
+      items:['Check in -- how did she sleep, what does she need',
+             'Morning task help goes here if needed',
+             'Keep it light -- not solving today’s problems'] },
+    { type:'c-body', time:'8:30', startHour:8.5, endHour:10.25, title:'Gym', badge:'~2h 10min', mvd:true,
+      desc:'Body before brain. Real footprint: 20 min walk + 90 min workout + 20 min back = 2h 10min minimum.',
+      science:'Morning exercise raises BDNF, improves executive function for 2-4 hrs after.',
+      nextAction:'Shoes on. Walk out the door.',
+      navTab:'workout', navLabel:'Go to Workout tab',
+      items:['Pre-gym: L-Tyrosine 750mg + Rhodiola 100mg with food (Perfect Bar + banana)',
+             'Pre-lift reset breath before each heavy set',
+             'Push/Pull/Legs per program',
+             'Non-gym days: genuine walk, not a stroll',
+             'Post-workout: clean protein + carb within 45 min'] },
+    { type:'c-work', time:'10:15', startHour:10.25, endHour:11, title:'Deep work', badge:'~45 min', mvd:false,
+      desc:'First cognitive window post-gym. PwC/Levi’s prep, strategy, high-stakes writing. Hard stop at 45 min.',
+      science:'BDNF peak from gym is active. Peak cognitive state for strategy and complex writing.',
+      nextAction:'Open one doc. One domain only.',
+      items:['One domain only -- no task-switching',
+             'Phone in another room',
+             'Hard stop at 11:00am -- Wealth Hour is non-negotiable'] },
+    { type:'c-wealth', time:'11:00', startHour:11, endHour:12, title:'Wealth Hour', badge:'60 min -- non-negotiable', mvd:true,
+      desc:'One hour. One domain. The whole wealth stack runs through this block. Does not move. Ever.',
+      science:'Consistent daily deep work on high-value projects -- even 60 minutes -- compounds over 12 months into everything.',
+      nextAction:'Open Linear. Find today’s task. Start the timer.',
+      isWealthHour:true,
+      items:['Open Linear -- find today’s task',
+             'Run the 60-min Clock timer',
+             'One domain from the rotation -- see card above',
+             'Interruptions get written down and handled after -- not during',
+             'Text Dad when done: one sentence, what you worked on'] },
+    { type:'c-white', time:'12:00', startHour:12, endHour:12.75, title:'Lunch + decompression', badge:'~45 min', mvd:false,
+      desc:'Assemble lunch, walk, nothing scheduled.',
+      science:'Default mode network activates during unfocused rest. This is when work integrates.',
+      nextAction:'Step outside. Even just for 5 minutes.',
+      items:['Walk outside -- music or silence, no content',
+             'Assemble lunch from batch (5 min)',
+             'Zinc 15mg -- always with food, never on empty stomach',
+             'Brain dump anything that surfaced'] },
+    { type:'c-work', time:'12:45', startHour:12.75, endHour:14.25, title:'Second work window', badge:'~90 min', mvd:false,
+      desc:'Research, networking, outreach, applications, follow-ups.',
+      science:'Second ultradian cycle. Solid for communication and relational tasks.',
+      nextAction:'Open LinkedIn or one email. Just start.',
+      items:['LinkedIn, outreach, research, applications',
+             'Tactical interview prep',
+             'Schedule informational interviews here'] },
+    { type:'c-maddy', time:'2:15', startHour:14.25, endHour:15.5, title:'Maddy buffer / afternoon float', badge:'60-90 min flex', mvd:false,
+      desc:'Where Maddy’s unpredictability lands without wrecking the day. Also rest or nap.',
+      science:'20-min nap before 2:30 restores a full ultradian cycle.',
+      nextAction:'Check on Maddy. If all quiet -- lie down, 20 min.',
+      items:['Maddy needs something -- this is the slot',
+             'If not: nap 20 min max before 2:30',
+             'No content if resting -- that’s not rest'] },
+    { type:'c-community', time:'3:30', startHour:15.5, endHour:16.5, title:'Connection / community', badge:'~60 min', mvd:false,
+      desc:'Your people. Scheduled, not earned.',
+      science:'Social connection reduces cortisol and is independently protective against depression.',
+      nextAction:'Text or call one person. Make it real.',
+      items:['Jason and Alan -- one real contact this week. A call, a meal, something that counts.',
+             'Karston is in SF -- close enough to see. Reach out, don’t wait.',
+             'Jeremiah is in Indiana -- FaceTime or call.',
+             'David: protected time, not leftover'] },
+    { type:'c-work', time:'4:30', startHour:16.5, endHour:17.5, title:'Light work / admin', badge:'~60 min', mvd:false,
+      desc:'Email, logistics, scheduling. Doesn’t need peak cognition.',
+      science:'Third ultradian cycle -- right for admin, wrong for strategy.',
+      nextAction:'Clear your inbox. Nothing new.',
+      items:['Email, scheduling, tracking',
+             'Follow-ups from earlier windows',
+             'Hard stop at 5:30'] },
+    { type:'c-close', time:'5:30', startHour:17.5, endHour:18, title:'Close-down ritual', badge:'20 min', mvd:false,
+      desc:'Brain dump, tomorrow’s one priority, phone out of the room.',
+      science:'Written close-down signals the brain the day is complete. Reduces nighttime rumination.',
+      nextAction:'Write the ONE thing tomorrow needs.',
+      items:['Write the ONE thing tomorrow needs -- not a list',
+             'Brain dump anything unresolved',
+             'Phone to bedroom -- out of main space',
+             'No work content after this'] },
+    { type:'c-anchor', time:'Evening', startHour:18, endHour:21.5, title:'Dinner + evening', badge:'flexible', mvd:false,
+      desc:'David. Maddy. Dinner. Connection and nutrition solved at once.',
+      science:'Eating together is one of the strongest predictors of family cohesion and wellbeing.',
+      nextAction:'Start cooking or set the table.',
+      items:['One real cook -- simple protein + veg',
+             'Maddy or partner involved if possible',
+             'Evening check-in with Maddy',
+             '30-sec hum in shower -- vagal toning'] },
+    { type:'c-close', time:'9:30', startHour:21.5, endHour:25, title:'Pre-sleep stack', badge:'~30 min', mvd:true,
+      desc:'Magnesium, evening stretch, breathwork, blackout mask. Tomorrow’s morning starts here.',
+      science:'Light after 9pm suppresses melatonin up to 50%. Resonance breathing improves HRV overnight.',
+      nextAction:'Take magnesium. Put the phone down.',
+      navTab:'stretch', navLabel:'Go to Evening wind-down',
+      items:['Magnesium glycinate 400-500mg -- right now, before breathwork',
+             'Evening stretch: Supine Figure-4, Spinal Twist, Child’s Pose, Legs Up Wall',
+             '10 min Tier 2 or 3 breathwork -- pelvic floor release on the exhale',
+             'Blackout mask on',
+             'No phone once breathwork begins'] }
+  ];
 
-// Completion tracking
-const TODAY = new Date().toDateString();
-const STOR_KEY = ‘myday_done_’ + TODAY;
-let doneSet = new Set(JSON.parse(localStorage.getItem(STOR_KEY) || ‘[]’));
-function saveDone() { localStorage.setItem(STOR_KEY, JSON.stringify([…doneSet])); }
+  // Completion tracking
+  const TODAY = new Date().toDateString();
+  const STOR_KEY = 'myday_done_' + TODAY;
+  let doneSet = new Set(JSON.parse(localStorage.getItem(STOR_KEY) || '[]'));
+  function saveDone() { localStorage.setItem(STOR_KEY, JSON.stringify([...doneSet])); }
 
-function markPhase(idx) {
-if (doneSet.has(idx)) { doneSet.delete(idx); } else { doneSet.add(idx); }
-saveDone();
-const isDone = doneSet.has(idx);
-const circle = document.getElementById(‘phase-check-’ + idx);
-if (circle) { circle.classList.toggle(‘done’, isDone); circle.textContent = isDone ? ‘✓’ : ‘’; }
-const btn = document.getElementById(‘block-btn-’ + idx);
-if (btn) { btn.classList.toggle(‘done’, isDone); btn.textContent = isDone ? ‘✓ Done’ : ‘✓ Mark block done’; }
-const phase = circle ? circle.closest(’.phase’) : null;
-if (phase) phase.classList.toggle(‘completed’, isDone);
-updateProgress();
-updateHero();
-}
+  function markPhase(idx) {
+    if (doneSet.has(idx)) { doneSet.delete(idx); } else { doneSet.add(idx); }
+    saveDone();
+    const isDone = doneSet.has(idx);
+    const circle = document.getElementById('phase-check-' + idx);
+    if (circle) { circle.classList.toggle('done', isDone); circle.textContent = isDone ? '✓' : ''; }
+    const btn = document.getElementById('block-btn-' + idx);
+    if (btn) { btn.classList.toggle('done', isDone); btn.textContent = isDone ? '✓ Done' : '✓ Mark block done'; }
+    const phase = circle ? circle.closest('.phase') : null;
+    if (phase) phase.classList.toggle('completed', isDone);
+    updateProgress();
+    updateHero();
+  }
 
-function updateProgress() {
-const total = phases.length;
-const done = doneSet.size;
-const pct = done / total;
-const circ = 113.1;
-document.getElementById(‘prog-circle’).setAttribute(‘stroke-dashoffset’, circ - pct * circ);
-document.getElementById(‘prog-label’).textContent = done + ’ of ’ + total + ’ done today’;
-const subs = [‘Tap any block to mark it complete’,‘One block at a time.’,‘You’re moving.’,‘More than halfway.’,‘Almost there.’,‘Day complete. Well done.’];
-const si = done === total ? 5 : done > total * 0.5 ? 3 : done > 0 ? 2 : 0;
-document.getElementById(‘prog-sub’).textContent = subs[si];
-}
+  function updateProgress() {
+    const total = phases.length;
+    const done = doneSet.size;
+    const pct = done / total;
+    const circ = 113.1;
+    document.getElementById('prog-circle').setAttribute('stroke-dashoffset', circ - pct * circ);
+    document.getElementById('prog-label').textContent = done + ' of ' + total + ' done today';
+    const subs = ['Tap any block to mark it complete','One block at a time.','You’re moving.','More than halfway.','Almost there.','Day complete. Well done.'];
+    const si = done === total ? 5 : done > total * 0.5 ? 3 : done > 0 ? 2 : 0;
+    document.getElementById('prog-sub').textContent = subs[si];
+  }
 
-const resetAffirms = [
-‘The morning anchor holds. Everything else can flex.’,
-‘You’re building the ground itself – not another impressive output.’,
-‘One good move right now is enough to change the arc of the day.’,
-‘You’ve handled harder things than today. Much harder.’,
-‘The gap between how bad it feels and how bad it is – that gap is ADHD. Not reality.’,
-‘Progress doesn’t require perfection. It just requires the next step.’
-];
+  const resetAffirms = [
+    'The morning anchor holds. Everything else can flex.',
+    'You’re building the ground itself -- not another impressive output.',
+    'One good move right now is enough to change the arc of the day.',
+    'You’ve handled harder things than today. Much harder.',
+    'The gap between how bad it feels and how bad it is -- that gap is ADHD. Not reality.',
+    'Progress doesn’t require perfection. It just requires the next step.'
+  ];
 
-function getCurrentPhase() {
-const now = new Date();
-const h = now.getHours() + now.getMinutes() / 60;
-for (let i = 0; i < phases.length; i++) {
-if (h >= phases[i].startHour && h < phases[i].endHour) return i;
-}
-return phases.length - 1;
-}
+  function getCurrentPhase() {
+    const now = new Date();
+    const h = now.getHours() + now.getMinutes() / 60;
+    for (let i = 0; i < phases.length; i++) {
+      if (h >= phases[i].startHour && h < phases[i].endHour) return i;
+    }
+    return phases.length - 1;
+  }
 
-function updateHero() {
-const now = new Date();
-const h = now.getHours() + now.getMinutes() / 60;
-const idx = getCurrentPhase();
-const p = phases[idx];
-const isDone = doneSet.has(idx);
-const pct = Math.min(100, ((h - p.startHour) / (p.endHour - p.startHour)) * 100);
-document.getElementById(‘rn-timefill’).style.width = pct + ‘%’;
-const minsLeft = Math.max(0, Math.round((p.endHour - h) * 60));
-const timeStr = minsLeft > 60 ? Math.round(minsLeft / 60) + ‘h left’ : minsLeft + ’ min left’;
-document.getElementById(‘rn-label’).textContent = isDone ? ‘✓ Completed’ : ’Right now - ’ + timeStr;
-document.getElementById(‘rn-title’).textContent = p.title;
-document.getElementById(‘rn-desc’).textContent = p.nextAction;
-const nextIdx = Math.min(idx + 1, phases.length - 1);
-document.getElementById(‘rn-next’).textContent = ‘Up next: ’ + phases[nextIdx].title;
-const btn = document.getElementById(‘rn-done-btn’);
-btn.textContent = isDone ? ‘✓ Done’ : ‘✓ Mark this done’;
-btn.classList.toggle(‘ticked’, isDone);
-document.getElementById(‘reset-where’).textContent = p.title;
-document.getElementById(‘reset-time-note’).textContent = minsLeft > 0 ? timeStr + ’ remaining in this block.’ : ‘Moving into the next block.’;
-document.getElementById(‘reset-next’).textContent = p.nextAction;
-document.getElementById(‘reset-affirm’).textContent = resetAffirms[Math.floor(Math.random() * resetAffirms.length)];
-}
+  function updateHero() {
+    const now = new Date();
+    const h = now.getHours() + now.getMinutes() / 60;
+    const idx = getCurrentPhase();
+    const p = phases[idx];
+    const isDone = doneSet.has(idx);
+    const pct = Math.min(100, ((h - p.startHour) / (p.endHour - p.startHour)) * 100);
+    document.getElementById('rn-timefill').style.width = pct + '%';
+    const minsLeft = Math.max(0, Math.round((p.endHour - h) * 60));
+    const timeStr = minsLeft > 60 ? Math.round(minsLeft / 60) + 'h left' : minsLeft + ' min left';
+    document.getElementById('rn-label').textContent = isDone ? '✓ Completed' : 'Right now - ' + timeStr;
+    document.getElementById('rn-title').textContent = p.title;
+    document.getElementById('rn-desc').textContent = p.nextAction;
+    const nextIdx = Math.min(idx + 1, phases.length - 1);
+    document.getElementById('rn-next').textContent = 'Up next: ' + phases[nextIdx].title;
+    const btn = document.getElementById('rn-done-btn');
+    btn.textContent = isDone ? '✓ Done' : '✓ Mark this done';
+    btn.classList.toggle('ticked', isDone);
+    document.getElementById('reset-where').textContent = p.title;
+    document.getElementById('reset-time-note').textContent = minsLeft > 0 ? timeStr + ' remaining in this block.' : 'Moving into the next block.';
+    document.getElementById('reset-next').textContent = p.nextAction;
+    document.getElementById('reset-affirm').textContent = resetAffirms[Math.floor(Math.random() * resetAffirms.length)];
+  }
 
-function rnMarkDone() { markPhase(getCurrentPhase()); }
+  function rnMarkDone() { markPhase(getCurrentPhase()); }
 
-function activateMVD() { document.body.classList.add(‘mvd-mode’); document.getElementById(‘mvd-banner’).classList.add(‘active’); }
-function deactivateMVD() { document.body.classList.remove(‘mvd-mode’); document.getElementById(‘mvd-banner’).classList.remove(‘active’); }
-function openReset() { updateHero(); document.getElementById(‘reset-overlay’).classList.add(‘open’); document.getElementById(‘reset-panel’).classList.add(‘open’); }
-function closeReset() { document.getElementById(‘reset-overlay’).classList.remove(‘open’); document.getElementById(‘reset-panel’).classList.remove(‘open’); }
+  function activateMVD() { document.body.classList.add('mvd-mode'); document.getElementById('mvd-banner').classList.add('active'); }
+  function deactivateMVD() { document.body.classList.remove('mvd-mode'); document.getElementById('mvd-banner').classList.remove('active'); }
+  function openReset() { updateHero(); document.getElementById('reset-overlay').classList.add('open'); document.getElementById('reset-panel').classList.add('open'); }
+  function closeReset() { document.getElementById('reset-overlay').classList.remove('open'); document.getElementById('reset-panel').classList.remove('open'); }
 
-function dadText(btn) {
-var msg = encodeURIComponent(’Wealth Hour done. ’);
-window.location.href = ‘sms:&body=’ + msg;
-btn.textContent = ‘Opening Messages…’;
-btn.classList.add(‘sent’);
-}
+  function dadText(btn) {
+    var msg = encodeURIComponent('Wealth Hour done. ');
+    window.location.href = 'sms:&body=' + msg;
+    btn.textContent = 'Opening Messages...';
+    btn.classList.add('sent');
+  }
 
-// Render phases
-const container = document.getElementById(‘phases-container’);
-const todayFocus = getTodayFocus();
+  // Render phases
+  const container = document.getElementById('phases-container');
+  const todayFocus = getTodayFocus();
 
-phases.forEach(function(p, i) {
-const isLast = i === phases.length - 1;
-const isDone = doneSet.has(i);
-const el = document.createElement(‘div’);
-el.className = ‘phase ’ + p.type + (p.mvd ? ’ mvd-keep’ : ‘’) + (isDone ? ’ completed’ : ‘’);
+  phases.forEach(function(p, i) {
+    const isLast = i === phases.length - 1;
+    const isDone = doneSet.has(i);
+    const el = document.createElement('div');
+    el.className = 'phase ' + p.type + (p.mvd ? ' mvd-keep' : '') + (isDone ? ' completed' : '');
 
-```
-var wealthBlock = '';
-if (p.isWealthHour) {
-  wealthBlock = '<div class="wealth-focus-card">' +
-    '<span class="wf-icon">' + todayFocus.icon + '</span>' +
-    '<div class="wf-day-label">Today -- ' + todayFocus.day + '</div>' +
-    '<div class="wf-domain">' + todayFocus.domain + '</div>' +
-    '<div class="wf-desc">' + todayFocus.desc + '</div>' +
-    '</div>';
-}
+    var wealthBlock = '';
+    if (p.isWealthHour) {
+      wealthBlock = '<div class="wealth-focus-card">' +
+        '<span class="wf-icon">' + todayFocus.icon + '</span>' +
+        '<div class="wf-day-label">Today -- ' + todayFocus.day + '</div>' +
+        '<div class="wf-domain">' + todayFocus.domain + '</div>' +
+        '<div class="wf-desc">' + todayFocus.desc + '</div>' +
+        '</div>';
+    }
 
-var navLinkHtml = p.navTab ? '<button class="nav-link-btn" onclick="event.stopPropagation();navTo(&#39;' + p.navTab + '&#39;)">' + p.navLabel + '</button>' : '';
-var dadBtnHtml = p.isWealthHour ? '<button class="dad-btn" id="dad-btn-' + i + '" onclick="event.stopPropagation();dadText(this)">Text Dad -- Wealth Hour done</button>' : '';
+    var navLinkHtml = p.navTab ? '<button class="nav-link-btn" onclick="event.stopPropagation();navTo(&#39;' + p.navTab + '&#39;)">' + p.navLabel + '</button>' : '';
+    var dadBtnHtml = p.isWealthHour ? '<button class="dad-btn" id="dad-btn-' + i + '" onclick="event.stopPropagation();dadText(this)">Text Dad -- Wealth Hour done</button>' : '';
 
-el.innerHTML =
-  '<div class="time-col">' + p.time + '</div>' +
-  '<div class="line-col"><div class="dot"></div>' + (!isLast ? '<div class="connector"></div>' : '') + '</div>' +
-  '<div class="card" onclick="this.classList.toggle(&#39;open&#39;)">' +
-    '<div class="card-header">' +
-      '<span class="card-title">' + p.title + '</span>' +
-      '<span class="card-right"><span class="badge">' + p.badge + '</span><em class="chevron">▼</em></span>' +
-    '</div>' +
-    '<div class="card-desc">' + p.desc + '</div>' +
-    '<div class="expanded">' +
-      wealthBlock +
-      '<div class="science-note">' + p.science + '</div>' +
-      '<div class="items">' +
-        p.items.map(function(item) {
-          var isMed = item.indexOf('💊') >= 0 || item.indexOf('💉') >= 0 || item.startsWith('Levothyroxine') || item.startsWith('Magnesium') || item.startsWith('Pre-gym: L-Tyrosine') || item.indexOf('+30 min') >= 0 || item.indexOf('+45 min') >= 0 || item.indexOf('Friday only') >= 0;
-          return '<div class="item' + (isMed ? ' meds-item' : '') + '"><div class="item-dot"></div><span>' + item + '</span></div>';
-        }).join('') +
+    el.innerHTML =
+      '<div class="time-col">' + p.time + '</div>' +
+      '<div class="line-col"><div class="dot"></div>' + (!isLast ? '<div class="connector"></div>' : '') + '</div>' +
+      '<div class="card" onclick="this.classList.toggle(&#39;open&#39;)">' +
+        '<div class="card-header">' +
+          '<span class="card-title">' + p.title + '</span>' +
+          '<span class="card-right"><span class="badge">' + p.badge + '</span><em class="chevron">▼</em></span>' +
+        '</div>' +
+        '<div class="card-desc">' + p.desc + '</div>' +
+        '<div class="expanded">' +
+          wealthBlock +
+          '<div class="science-note">' + p.science + '</div>' +
+          '<div class="items">' +
+            p.items.map(function(item) {
+              var isMed = item.indexOf('💊') >= 0 || item.indexOf('💉') >= 0 || item.startsWith('Levothyroxine') || item.startsWith('Magnesium') || item.startsWith('Pre-gym: L-Tyrosine') || item.indexOf('+30 min') >= 0 || item.indexOf('+45 min') >= 0 || item.indexOf('Friday only') >= 0;
+              return '<div class="item' + (isMed ? ' meds-item' : '') + '"><div class="item-dot"></div><span>' + item + '</span></div>';
+            }).join('') +
+          '</div>' +
+          navLinkHtml +
+          dadBtnHtml +
+          '<button class="block-done-btn' + (isDone ? ' done' : '') + '" id="block-btn-' + i + '" onclick="event.stopPropagation();markPhase(' + i + ')">' + (isDone ? '✓ Done' : '✓ Mark block done') + '</button>' +
+        '</div>' +
       '</div>' +
-      navLinkHtml +
-      dadBtnHtml +
-      '<button class="block-done-btn' + (isDone ? ' done' : '') + '" id="block-btn-' + i + '" onclick="event.stopPropagation();markPhase(' + i + ')">' + (isDone ? '✓ Done' : '✓ Mark block done') + '</button>' +
-    '</div>' +
-  '</div>' +
-  '<div class="card-check' + (isDone ? ' done' : '') + '" id="phase-check-' + i + '" onclick="event.stopPropagation();markPhase(' + i + ')">' + (isDone ? '✓' : '') + '</div>';
+      '<div class="card-check' + (isDone ? ' done' : '') + '" id="phase-check-' + i + '" onclick="event.stopPropagation();markPhase(' + i + ')">' + (isDone ? '✓' : '') + '</div>';
 
-container.appendChild(el);
-```
+    container.appendChild(el);
+  });
 
-});
+  updateProgress();
+  updateHero();
+  setInterval(updateHero, 60000);
 
-updateProgress();
-updateHero();
-setInterval(updateHero, 60000);
+  // Meals
+  var currentWeek = 'a';
+  var currentMealView = 'plan';
+  function switchWeek(week, btn) {
+    currentWeek = week;
+    document.querySelectorAll('.week-plan').forEach(function(w) { w.classList.remove('active'); });
+    document.querySelectorAll('.week-tab').forEach(function(t) { t.classList.remove('active'); });
+    document.getElementById('week-' + week).classList.add('active');
+    btn.classList.add('active');
+    updateMealView();
+  }
+  function switchMealView(view, btn) {
+    currentMealView = view;
+    document.querySelectorAll('.view-tab').forEach(function(t) { t.classList.remove('active'); });
+    btn.classList.add('active');
+    updateMealView();
+  }
+  function updateMealView() {
+    document.querySelectorAll('.meals-inner').forEach(function(el) { el.classList.remove('active'); });
+    var target = document.getElementById('week-' + currentWeek + '-' + currentMealView);
+    if (target) target.classList.add('active');
+  }
+  function toggleDay(header) {
+    var body = header.nextElementSibling;
+    var chevron = header.querySelector('.chevron');
+    body.classList.toggle('open');
+    if (chevron) chevron.style.transform = body.classList.contains('open') ? 'rotate(180deg)' : '';
+  }
 
-// Meals
-var currentWeek = ‘a’;
-var currentMealView = ‘plan’;
-function switchWeek(week, btn) {
-currentWeek = week;
-document.querySelectorAll(’.week-plan’).forEach(function(w) { w.classList.remove(‘active’); });
-document.querySelectorAll(’.week-tab’).forEach(function(t) { t.classList.remove(‘active’); });
-document.getElementById(‘week-’ + week).classList.add(‘active’);
-btn.classList.add(‘active’);
-updateMealView();
-}
-function switchMealView(view, btn) {
-currentMealView = view;
-document.querySelectorAll(’.view-tab’).forEach(function(t) { t.classList.remove(‘active’); });
-btn.classList.add(‘active’);
-updateMealView();
-}
-function updateMealView() {
-document.querySelectorAll(’.meals-inner’).forEach(function(el) { el.classList.remove(‘active’); });
-var target = document.getElementById(‘week-’ + currentWeek + ‘-’ + currentMealView);
-if (target) target.classList.add(‘active’);
-}
-function toggleDay(header) {
-var body = header.nextElementSibling;
-var chevron = header.querySelector(’.chevron’);
-body.classList.toggle(‘open’);
-if (chevron) chevron.style.transform = body.classList.contains(‘open’) ? ‘rotate(180deg)’ : ‘’;
-}
+  // Stretch & Breathe
+  function sbView(id, btn) {
+    document.querySelectorAll('.sb-inner').forEach(function(el) { el.classList.remove('active'); });
+    document.querySelectorAll('.sb-vtab').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById('sb-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+  var sbDoneSet = new Set();
+  var sbTotal = 8;
+  function sbToggle(n) {
+    var body = document.getElementById('sbb-' + n);
+    var card = document.getElementById('sbc-' + n);
+    var isOpen = body.classList.contains('open');
+    document.querySelectorAll('.sb-body').forEach(function(b) { b.classList.remove('open'); });
+    document.querySelectorAll('.sb-card .chevron').forEach(function(c) { c.style.transform = ''; });
+    if (!isOpen) { body.classList.add('open'); card.querySelector('.chevron').style.transform = 'rotate(180deg)'; }
+  }
+  function eToggle(n) {
+    var body = document.getElementById('sbbe-' + n);
+    var card = document.getElementById('sbe-' + n);
+    var isOpen = body.classList.contains('open');
+    document.querySelectorAll('.sb-body').forEach(function(b) { b.classList.remove('open'); });
+    document.querySelectorAll('.sb-card .chevron').forEach(function(c) { c.style.transform = ''; });
+    if (!isOpen) { body.classList.add('open'); card.querySelector('.chevron').style.transform = 'rotate(180deg)'; }
+  }
+  var sbTimers = {};
+  function sbTimer(n, secs, btn) {
+    if (sbTimers[n]) clearInterval(sbTimers[n]);
+    var disp = document.getElementById('sbt-' + n);
+    disp.classList.add('vis');
+    btn.disabled = true;
+    var rem = secs;
+    disp.textContent = sbFmt(rem);
+    sbTimers[n] = setInterval(function() {
+      rem--;
+      disp.textContent = sbFmt(rem);
+      if (rem <= 0) {
+        clearInterval(sbTimers[n]);
+        disp.textContent = 'Done';
+        btn.textContent = 'Restart';
+        btn.disabled = false;
+        btn.onclick = function() { sbTimer(n, secs, btn); };
+      }
+    }, 1000);
+  }
+  function sbFmt(s) { var m = Math.floor(s/60), sec = s%60; return m+':'+(sec<10?'0':'')+sec; }
+  function sbDone(n) {
+    var el = document.getElementById('sbdone-' + n);
+    if (!sbDoneSet.has(n)) {
+      sbDoneSet.add(n);
+      el.innerHTML = 'Done';
+      el.classList.add('marked');
+      document.getElementById('sb-prog').style.width = (sbDoneSet.size/sbTotal*100)+'%';
+    }
+  }
+  function sbComplete() { document.getElementById('sb-prog').style.width = '100%'; }
 
-// Stretch & Breathe
-function sbView(id, btn) {
-document.querySelectorAll(’.sb-inner’).forEach(function(el) { el.classList.remove(‘active’); });
-document.querySelectorAll(’.sb-vtab’).forEach(function(b) { b.classList.remove(‘active’); });
-document.getElementById(‘sb-’ + id).classList.add(‘active’);
-btn.classList.add(‘active’);
-}
-var sbDoneSet = new Set();
-var sbTotal = 8;
-function sbToggle(n) {
-var body = document.getElementById(‘sbb-’ + n);
-var card = document.getElementById(‘sbc-’ + n);
-var isOpen = body.classList.contains(‘open’);
-document.querySelectorAll(’.sb-body’).forEach(function(b) { b.classList.remove(‘open’); });
-document.querySelectorAll(’.sb-card .chevron’).forEach(function(c) { c.style.transform = ‘’; });
-if (!isOpen) { body.classList.add(‘open’); card.querySelector(’.chevron’).style.transform = ‘rotate(180deg)’; }
-}
-function eToggle(n) {
-var body = document.getElementById(‘sbbe-’ + n);
-var card = document.getElementById(‘sbe-’ + n);
-var isOpen = body.classList.contains(‘open’);
-document.querySelectorAll(’.sb-body’).forEach(function(b) { b.classList.remove(‘open’); });
-document.querySelectorAll(’.sb-card .chevron’).forEach(function(c) { c.style.transform = ‘’; });
-if (!isOpen) { body.classList.add(‘open’); card.querySelector(’.chevron’).style.transform = ‘rotate(180deg)’; }
-}
-var sbTimers = {};
-function sbTimer(n, secs, btn) {
-if (sbTimers[n]) clearInterval(sbTimers[n]);
-var disp = document.getElementById(‘sbt-’ + n);
-disp.classList.add(‘vis’);
-btn.disabled = true;
-var rem = secs;
-disp.textContent = sbFmt(rem);
-sbTimers[n] = setInterval(function() {
-rem–;
-disp.textContent = sbFmt(rem);
-if (rem <= 0) {
-clearInterval(sbTimers[n]);
-disp.textContent = ‘Done’;
-btn.textContent = ‘Restart’;
-btn.disabled = false;
-btn.onclick = function() { sbTimer(n, secs, btn); };
-}
-}, 1000);
-}
-function sbFmt(s) { var m = Math.floor(s/60), sec = s%60; return m+’:’+(sec<10?‘0’:’’)+sec; }
-function sbDone(n) {
-var el = document.getElementById(‘sbdone-’ + n);
-if (!sbDoneSet.has(n)) {
-sbDoneSet.add(n);
-el.innerHTML = ‘Done’;
-el.classList.add(‘marked’);
-document.getElementById(‘sb-prog’).style.width = (sbDoneSet.size/sbTotal*100)+’%’;
-}
-}
-function sbComplete() { document.getElementById(‘sb-prog’).style.width = ‘100%’; }
+  // Workout
+  var currentWoLocation = 'gym';
+  function woMode(mode) {
+    var isP = mode === 'progression';
+    document.getElementById('wo-panel-program').style.display = isP ? 'none' : 'block';
+    document.getElementById('wo-panel-progression').style.display = isP ? 'block' : 'none';
+    var base = 'flex:1;padding:9px;border-radius:8px;border:1.5px solid;font-weight:700;font-size:13px;font-family:-apple-system,sans-serif;cursor:pointer;';
+    document.getElementById('wmode-program').style.cssText = base + (isP ? 'border-color:var(--border2);background:transparent;color:var(--text2);' : 'border-color:var(--text);background:var(--text);color:#fff;');
+    document.getElementById('wmode-progression').style.cssText = base + (isP ? 'border-color:var(--text);background:var(--text);color:#fff;' : 'border-color:var(--border2);background:transparent;color:var(--text2);');
+  }
+  function woLocation(loc) {
+    currentWoLocation = loc;
+    document.getElementById('gym-btn').style.background = loc === 'gym' ? 'var(--text)' : 'transparent';
+    document.getElementById('gym-btn').style.color = loc === 'gym' ? '#fff' : 'var(--text2)';
+    document.getElementById('home-btn').style.background = loc === 'home' ? 'var(--text)' : 'transparent';
+    document.getElementById('home-btn').style.color = loc === 'home' ? '#fff' : 'var(--text2)';
+    document.querySelectorAll('.wo-day:not(.wo-home-day)').forEach(function(d) { d.style.display = loc === 'gym' ? '' : 'none'; });
+    document.querySelectorAll('.wo-home-day').forEach(function(d) { d.style.display = 'none'; });
+    if (loc === 'home') {
+      var active = document.querySelector('.wo-dtab.active');
+      var dayIdx = active ? parseInt(active.getAttribute('data-day') || '0') : 0;
+      var homeEl = document.getElementById('wod-h' + dayIdx);
+      if (homeEl) homeEl.style.display = 'block';
+    }
+  }
+  function woDay(n, btn) {
+    document.querySelectorAll('.wo-day').forEach(function(d) { d.classList.remove('active'); });
+    document.querySelectorAll('.wo-dtab').forEach(function(t) { t.classList.remove('active'); t.removeAttribute('data-day'); });
+    btn.classList.add('active');
+    btn.setAttribute('data-day', n);
+    if (currentWoLocation === 'home' && n < 6) {
+      document.querySelectorAll('.wo-home-day').forEach(function(d) { d.style.display = 'none'; });
+      var homeEl = document.getElementById('wod-h' + n);
+      if (homeEl) homeEl.style.display = 'block';
+    } else {
+      document.getElementById('wod-' + n).classList.add('active');
+    }
+  }
 
-// Workout
-var currentWoLocation = ‘gym’;
-function woMode(mode) {
-var isP = mode === ‘progression’;
-document.getElementById(‘wo-panel-program’).style.display = isP ? ‘none’ : ‘block’;
-document.getElementById(‘wo-panel-progression’).style.display = isP ? ‘block’ : ‘none’;
-var base = ‘flex:1;padding:9px;border-radius:8px;border:1.5px solid;font-weight:700;font-size:13px;font-family:-apple-system,sans-serif;cursor:pointer;’;
-document.getElementById(‘wmode-program’).style.cssText = base + (isP ? ‘border-color:var(–border2);background:transparent;color:var(–text2);’ : ‘border-color:var(–text);background:var(–text);color:#fff;’);
-document.getElementById(‘wmode-progression’).style.cssText = base + (isP ? ‘border-color:var(–text);background:var(–text);color:#fff;’ : ‘border-color:var(–border2);background:transparent;color:var(–text2);’);
-}
-function woLocation(loc) {
-currentWoLocation = loc;
-document.getElementById(‘gym-btn’).style.background = loc === ‘gym’ ? ‘var(–text)’ : ‘transparent’;
-document.getElementById(‘gym-btn’).style.color = loc === ‘gym’ ? ‘#fff’ : ‘var(–text2)’;
-document.getElementById(‘home-btn’).style.background = loc === ‘home’ ? ‘var(–text)’ : ‘transparent’;
-document.getElementById(‘home-btn’).style.color = loc === ‘home’ ? ‘#fff’ : ‘var(–text2)’;
-document.querySelectorAll(’.wo-day:not(.wo-home-day)’).forEach(function(d) { d.style.display = loc === ‘gym’ ? ‘’ : ‘none’; });
-document.querySelectorAll(’.wo-home-day’).forEach(function(d) { d.style.display = ‘none’; });
-if (loc === ‘home’) {
-var active = document.querySelector(’.wo-dtab.active’);
-var dayIdx = active ? parseInt(active.getAttribute(‘data-day’) || ‘0’) : 0;
-var homeEl = document.getElementById(‘wod-h’ + dayIdx);
-if (homeEl) homeEl.style.display = ‘block’;
-}
-}
-function woDay(n, btn) {
-document.querySelectorAll(’.wo-day’).forEach(function(d) { d.classList.remove(‘active’); });
-document.querySelectorAll(’.wo-dtab’).forEach(function(t) { t.classList.remove(‘active’); t.removeAttribute(‘data-day’); });
-btn.classList.add(‘active’);
-btn.setAttribute(‘data-day’, n);
-if (currentWoLocation === ‘home’ && n < 6) {
-document.querySelectorAll(’.wo-home-day’).forEach(function(d) { d.style.display = ‘none’; });
-var homeEl = document.getElementById(‘wod-h’ + n);
-if (homeEl) homeEl.style.display = ‘block’;
-} else {
-document.getElementById(‘wod-’ + n).classList.add(‘active’);
-}
-}
+  // Nutrition
+  function nutDay(type, btn) {
+    document.querySelectorAll('.nut-day').forEach(function(d) { d.classList.remove('active'); });
+    document.querySelectorAll('.nut-ttab').forEach(function(t) { t.classList.remove('active'); });
+    document.getElementById('nut-' + type).classList.add('active');
+    btn.classList.add('active');
+  }
 
-// Nutrition
-function nutDay(type, btn) {
-document.querySelectorAll(’.nut-day’).forEach(function(d) { d.classList.remove(‘active’); });
-document.querySelectorAll(’.nut-ttab’).forEach(function(t) { t.classList.remove(‘active’); });
-document.getElementById(‘nut-’ + type).classList.add(‘active’);
-btn.classList.add(‘active’);
-}
+  // Shop
+  function shopStore(id, btn) {
+    document.querySelectorAll('.shop-store').forEach(function(s) { s.classList.remove('active'); });
+    document.querySelectorAll('.shop-ttab').forEach(function(t) { t.classList.remove('active'); });
+    document.getElementById('shop-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+  function shopCheck(item, store) {
+    item.classList.toggle('checked');
+    item.querySelector('.shop-cb').textContent = item.classList.contains('checked') ? '✓' : '';
+    shopUpdateProgress(store);
+  }
+  function shopUpdateProgress(store) {
+    var c = document.getElementById('shop-' + store);
+    var items = c.querySelectorAll('.shop-item');
+    var checked = c.querySelectorAll('.shop-item.checked').length;
+    document.getElementById(store + '-prog').style.width = (checked/items.length*100)+'%';
+    document.getElementById(store + '-lbl').textContent = checked + ' of ' + items.length;
+  }
+  function shopReset(store) {
+    var c = document.getElementById('shop-' + store);
+    c.querySelectorAll('.shop-item').forEach(function(item) { item.classList.remove('checked'); item.querySelector('.shop-cb').textContent = ''; });
+    shopUpdateProgress(store);
+  }
 
-// Shop
-function shopStore(id, btn) {
-document.querySelectorAll(’.shop-store’).forEach(function(s) { s.classList.remove(‘active’); });
-document.querySelectorAll(’.shop-ttab’).forEach(function(t) { t.classList.remove(‘active’); });
-document.getElementById(‘shop-’ + id).classList.add(‘active’);
-btn.classList.add(‘active’);
-}
-function shopCheck(item, store) {
-item.classList.toggle(‘checked’);
-item.querySelector(’.shop-cb’).textContent = item.classList.contains(‘checked’) ? ‘✓’ : ‘’;
-shopUpdateProgress(store);
-}
-function shopUpdateProgress(store) {
-var c = document.getElementById(‘shop-’ + store);
-var items = c.querySelectorAll(’.shop-item’);
-var checked = c.querySelectorAll(’.shop-item.checked’).length;
-document.getElementById(store + ‘-prog’).style.width = (checked/items.length*100)+’%’;
-document.getElementById(store + ‘-lbl’).textContent = checked + ’ of ’ + items.length;
-}
-function shopReset(store) {
-var c = document.getElementById(‘shop-’ + store);
-c.querySelectorAll(’.shop-item’).forEach(function(item) { item.classList.remove(‘checked’); item.querySelector(’.shop-cb’).textContent = ‘’; });
-shopUpdateProgress(store);
-}
-
-// Admin
-function adminOpen(listName) { window.location.href = ‘x-apple-reminderkit://’; }
-function adminCapture(catId, catLabel) {
-var input = document.getElementById(‘admin-capture-input’);
-var text = input.value.trim();
-var hint = document.getElementById(‘admin-capture-hint’);
-if (!text) {
-hint.textContent = ‘Type a task first, then tap the category’;
-hint.style.color = ‘var(–coral)’;
-setTimeout(function() { hint.textContent = ‘Type a task, then tap the category to copy & open Reminders’; hint.style.color = ‘’; }, 2500);
-return;
-}
-navigator.clipboard.writeText(text).catch(function() {});
-hint.textContent = ’Copied – opening Reminders, paste into ’ + catLabel;
-hint.style.color = ‘var(–teal)’;
-input.value = ‘’;
-setTimeout(function() { window.location.href = ‘x-apple-reminderkit://’; }, 400);
-setTimeout(function() { hint.textContent = ‘Type a task, then tap the category to copy & open Reminders’; hint.style.color = ‘’; }, 3000);
-}
+  // Admin
+  function adminOpen(listName) { window.location.href = 'x-apple-reminderkit://'; }
+  function adminCapture(catId, catLabel) {
+    var input = document.getElementById('admin-capture-input');
+    var text = input.value.trim();
+    var hint = document.getElementById('admin-capture-hint');
+    if (!text) {
+      hint.textContent = 'Type a task first, then tap the category';
+      hint.style.color = 'var(--coral)';
+      setTimeout(function() { hint.textContent = 'Type a task, then tap the category to copy & open Reminders'; hint.style.color = ''; }, 2500);
+      return;
+    }
+    navigator.clipboard.writeText(text).catch(function() {});
+    hint.textContent = 'Copied -- opening Reminders, paste into ' + catLabel;
+    hint.style.color = 'var(--teal)';
+    input.value = '';
+    setTimeout(function() { window.location.href = 'x-apple-reminderkit://'; }, 400);
+    setTimeout(function() { hint.textContent = 'Type a task, then tap the category to copy & open Reminders'; hint.style.color = ''; }, 3000);
+  }
 </script>
-
 </body>
 </html>
