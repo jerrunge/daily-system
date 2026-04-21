@@ -2,581 +2,1026 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Jeremy Runge — Master Program Plan 2026–2027</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JR — Master Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080809;--surface:#0f0f11;--surface2:#161618;--border:rgba(255,255,255,0.08);
+  --text:#f0ede8;--muted:rgba(255,255,255,0.38);--faint:rgba(255,255,255,0.14);
+  --c-career:#F5C432;--c-fortify:#FF6B6B;--c-rebuild:#3EC8A8;
+  --c-fractional:#818CF8;--c-content:#F472B6;--c-reckoning:#4ADE80;
+  --c-acq:#FB923C;--c-body:#FF5C38;--c-people:#D966FF;
+  --hinge:#FFD700;--now-red:#FF4444;--now-amber:#F5C432;
+}
+html,body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
 
-:root {
-  --career:     #F5C432;
-  --fortify:    #FF6B6B;
-  --rebuild:    #3EC8A8;
-  --fractional: #818CF8;
-  --content:    #F472B6;
-  --reckoning:  #4ADE80;
-  --acq:        #FB923C;
-  --body:       #ff5c38;
-  --people:     #d966ff;
-  --hinge:      #FFD700;
-  --white:  #ffffff;
-  --dim:    rgba(255,255,255,0.5);
-  --faint:  rgba(255,255,255,0.22);
-  --black:  #060606;
-}
+/* ── VIEWS ── */
+.view{display:none;min-height:100vh}
+.view.active{display:block}
 
-html, body {
-  width: 17in;
-  min-height: 11in;
-  background: var(--black);
-  color: var(--white);
-  font-family: 'DM Sans', -apple-system, sans-serif;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-}
+/* ══════════════════════════════════════════════
+   DASHBOARD VIEW
+══════════════════════════════════════════════ */
+#dashboard{padding:0 0 2rem}
 
-@page { size: 17in 11in landscape; margin: 0; }
+/* VISION HEADER */
+.vision-header{
+  background:linear-gradient(135deg,#0d0a00 0%,#130e00 40%,#0a0d08 100%);
+  border-bottom:1px solid rgba(245,196,50,0.2);
+  padding:1.1rem 2rem 1rem;
+  position:relative;overflow:hidden;
+}
+.vision-header::before{
+  content:'RECKONING';position:absolute;right:-1rem;top:-1.5rem;
+  font-family:'Bebas Neue',sans-serif;font-size:8rem;
+  color:rgba(245,196,50,0.03);letter-spacing:0.1em;pointer-events:none;
+  white-space:nowrap;
+}
+.vision-top{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem}
+.vision-left{}
+.vision-primary{
+  font-family:'Bebas Neue',sans-serif;font-size:2.6rem;
+  letter-spacing:0.04em;color:var(--c-career);line-height:1;
+}
+.vision-secondary{
+  font-size:0.8rem;color:rgba(255,255,255,0.55);margin-top:0.3rem;
+  font-style:italic;font-weight:300;letter-spacing:0.02em;
+}
+.vision-anchors{display:flex;gap:0.75rem;margin-top:0.7rem;flex-wrap:wrap}
+.vision-anchor{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-size:0.7rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;
+  padding:0.3rem 0.7rem;border-radius:100px;
+  border:1px solid;cursor:default;
+}
+.vision-anchor.reckoning{color:var(--c-reckoning);border-color:rgba(74,222,128,0.3);background:rgba(74,222,128,0.06)}
+.vision-anchor.rebuild{color:var(--c-rebuild);border-color:rgba(62,200,168,0.3);background:rgba(62,200,168,0.06)}
+.vision-right{text-align:right;flex-shrink:0}
+.vision-date{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+.vision-tagline{font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:0.2rem;font-style:italic}
 
-.page {
-  width: 17in;
-  min-height: 11in;
-  padding: 0.22in 0.30in 0.18in;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
+/* REVENUE METER */
+.revenue-section{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:0.85rem 2rem;
 }
-
-.ghost {
-  position: absolute;
-  right: -0.2in; top: -0.6in;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 5in;
-  color: rgba(255,255,255,0.014);
-  line-height: 1;
-  pointer-events: none;
-  letter-spacing: -0.1in;
-}
-
-/* HEADER */
-.header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  padding-bottom: 0.10in;
-  margin-bottom: 0.08in;
-  flex-shrink: 0;
-}
-.eyebrow {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.10in;
-  letter-spacing: 0.055in;
-  color: var(--career);
-  margin-bottom: 0.015in;
-}
-.h-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.52in;
-  letter-spacing: 0.02in;
-  line-height: 0.95;
-}
-.h-tag {
-  font-size: 0.090in;
-  color: var(--dim);
-  margin-top: 0.04in;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-}
-.stats { display: flex; align-items: flex-end; }
-.stat {
-  text-align: right;
-  padding: 0 0.16in;
-  border-right: 1px solid rgba(255,255,255,0.12);
-}
-.stat:first-child { padding-left: 0; }
-.stat:last-child  { border-right: none; padding-right: 0; }
-.s-n {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.30in;
-  line-height: 1;
-  letter-spacing: 0.01in;
-}
-.s-n.gold { color: var(--career); }
-.s-l {
-  font-size: 0.070in;
-  font-weight: 600;
-  letter-spacing: 0.02in;
-  color: var(--faint);
-  text-transform: uppercase;
-  margin-top: 0.015in;
+.revenue-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem}
+.revenue-label{font-family:'Bebas Neue',sans-serif;font-size:0.8rem;letter-spacing:0.08em;color:var(--muted)}
+.revenue-numbers{display:flex;gap:1.5rem;align-items:center}
+.rev-stat{text-align:right}
+.rev-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;line-height:1;letter-spacing:0.02em}
+.rev-stat-l{font-size:0.6rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-top:0.1rem}
+.rev-recognized{color:var(--c-reckoning)}
+.rev-contracted{color:var(--c-career)}
+.rev-pipeline{color:rgba(255,255,255,0.4)}
+.revenue-bar-wrap{position:relative;height:6px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden}
+.revenue-bar-fill{position:absolute;left:0;top:0;height:100%;border-radius:100px;transition:width 1s ease}
+.revenue-bar-recognized{background:var(--c-reckoning);z-index:3}
+.revenue-bar-contracted{background:var(--c-career);z-index:2}
+.revenue-bar-pipeline{background:rgba(255,255,255,0.2);z-index:1}
+.revenue-target-label{
+  position:absolute;right:0;top:50%;transform:translateY(-50%) translateX(100%);
+  font-size:0.6rem;color:var(--muted);padding-left:0.5rem;white-space:nowrap;font-family:'DM Mono',monospace;
 }
 
-/* MONTH ROW */
-.mrow {
-  display: grid;
-  grid-template-columns: 1.0in repeat(12, 1fr);
-  margin-bottom: 0.04in;
-  flex-shrink: 0;
+/* RIGHT NOW STRIP */
+.right-now{
+  padding:0.6rem 2rem;
+  background:rgba(255,68,68,0.04);
+  border-bottom:1px solid rgba(255,68,68,0.12);
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
 }
-.mcell { text-align: center; padding: 0.012in 0; position: relative; }
-.mcell.now .mname { color: var(--career); font-weight: 600; }
-.now-pip {
-  position: absolute;
-  top: -0.10in; left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.065in;
-  letter-spacing: 0.02in;
-  color: var(--black);
-  background: var(--career);
-  padding: 0.006in 0.035in;
-  border-radius: 0.012in;
-  white-space: nowrap;
+.rn-label{
+  font-family:'Bebas Neue',sans-serif;font-size:0.75rem;letter-spacing:0.1em;
+  color:var(--now-red);flex-shrink:0;
 }
-.mname {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.100in;
-  letter-spacing: 0.02in;
-  color: rgba(255,255,255,0.28);
+.rn-items{display:flex;gap:0.75rem;flex-wrap:wrap}
+.rn-item{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-size:0.72rem;font-weight:500;
+  padding:0.25rem 0.65rem;border-radius:100px;
+  border:1px solid;cursor:default;
 }
-.qtag {
-  font-size: 0.062in;
-  letter-spacing: 0.01in;
-  color: rgba(255,255,255,0.16);
-  text-transform: uppercase;
-  margin-top: 0.006in;
+.rn-item.urgent{color:var(--now-red);border-color:rgba(255,68,68,0.35);background:rgba(255,68,68,0.08)}
+.rn-item.week{color:var(--now-amber);border-color:rgba(245,196,50,0.35);background:rgba(245,196,50,0.06)}
+.rn-dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0}
+
+/* CARD GRID */
+.card-grid-wrap{padding:1.2rem 1.5rem;position:relative}
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:repeat(3,1fr);
+  gap:0.75rem;
+  position:relative;
 }
 
-/* BODY */
-.body { display: flex; flex: 1; gap: 0; min-height: 0; }
-
-.lcol {
-  width: 1.0in;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  padding-right: 0.06in;
-}
-.lblock {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0.02in 0.05in 0.02in 0;
-  border-right: 2px solid transparent;
-}
-.lblock.career     { border-color: var(--career);     }
-.lblock.fortify    { border-color: var(--fortify);    }
-.lblock.rebuild    { border-color: var(--rebuild);    }
-.lblock.fractional { border-color: var(--fractional); }
-.lblock.content    { border-color: var(--content);    }
-.lblock.reckoning  { border-color: var(--reckoning);  }
-.lblock.acq        { border-color: var(--acq);        }
-.lblock.body       { border-color: var(--body);       }
-.lblock.people     { border-color: var(--people);     }
-.lsep {
-  flex: none;
-  height: 0.12in;
-  display: flex;
-  align-items: center;
-  padding-right: 0.06in;
-}
-.lsep-label {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.066in;
-  letter-spacing: 0.04in;
-  color: rgba(255,255,255,0.18);
-}
-.l-icon  { font-size: 0.12in; line-height: 1; margin-bottom: 0.015in; }
-.l-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.13in;
-  letter-spacing: 0.01in;
-  line-height: 1;
-}
-.l-sub {
-  font-size: 0.065in;
-  color: rgba(255,255,255,0.32);
-  margin-top: 0.012in;
-  line-height: 1.2;
+/* SVG SYNC LINES */
+.sync-svg{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:5;overflow:visible;
 }
 
-/* TRACK COLUMN */
-.tcol {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+/* PILLAR CARD */
+.pillar-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:1rem 1.1rem 0.9rem;
+  cursor:pointer;
+  transition:transform 0.15s,border-color 0.15s,box-shadow 0.15s;
+  position:relative;overflow:hidden;
+  min-height:0;
 }
-.qline {
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 1px;
-  background: rgba(255,255,255,0.05);
-  z-index: 0;
-  pointer-events: none;
+.pillar-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 30px rgba(0,0,0,0.4);
 }
-.tsep {
-  flex: none;
-  height: 0.12in;
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 1;
+.pillar-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  border-radius:10px 10px 0 0;
 }
-.tsep-line { flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
-.tsep-text {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.062in;
-  letter-spacing: 0.04in;
-  color: rgba(255,255,255,0.18);
-  padding: 0 0.07in;
-  white-space: nowrap;
-}
+.pillar-card.career::before{background:var(--c-career)}
+.pillar-card.fortify::before{background:var(--c-fortify)}
+.pillar-card.rebuild::before{background:var(--c-rebuild)}
+.pillar-card.fractional::before{background:var(--c-fractional)}
+.pillar-card.content::before{background:var(--c-content)}
+.pillar-card.reckoning::before{background:var(--c-reckoning)}
+.pillar-card.acq::before{background:var(--c-acq)}
+.pillar-card.body::before{background:var(--c-body)}
+.pillar-card.people::before{background:var(--c-people)}
 
-.track { flex: 1; position: relative; min-height: 0; }
-.track:nth-child(even) { background: rgba(255,255,255,0.012); }
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.6rem}
+.card-title-group{display:flex;align-items:center;gap:0.5rem}
+.card-icon{font-size:1rem;line-height:1}
+.card-name{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.04em;line-height:1}
+.card-status{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:2px;
+}
+.status-active{background:#4ADE80;box-shadow:0 0 6px rgba(74,222,128,0.6)}
+.status-blocked{background:#FF4444;box-shadow:0 0 6px rgba(255,68,68,0.6)}
+.status-dormant{background:rgba(255,255,255,0.25)}
+.status-complete{background:#4ADE80}
 
-.tline {
-  position: absolute;
-  top: 50%; left: 0; right: 0;
-  height: 1px;
-  z-index: 1;
-  pointer-events: none;
-}
-.t-career     .tline { background: rgba(245,196,50,0.3); }
-.t-fortify    .tline { background: rgba(255,107,107,0.3); }
-.t-rebuild    .tline { background: rgba(62,200,168,0.3); }
-.t-fractional .tline { background: rgba(129,140,248,0.3); }
-.t-content    .tline { background: rgba(244,114,182,0.3); }
-.t-reckoning  .tline { background: rgba(74,222,128,0.3); }
-.t-acq        .tline { background: rgba(251,146,60,0.3); }
-.t-body       .tline { background: rgba(255,92,56,0.3); }
-.t-people     .tline { background: rgba(217,102,255,0.3); }
+.card-sub{font-size:0.65rem;color:var(--muted);margin-bottom:0.65rem;letter-spacing:0.02em}
 
-/* MILESTONES */
-.ms {
-  position: absolute;
-  top: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.ms.above { transform: translateX(-50%) translateY(-100%); padding-bottom: 0.018in; }
-.ms.below { transform: translateX(-50%); padding-top: 0.018in; }
+/* Progress bar */
+.card-progress{margin-bottom:0.6rem}
+.progress-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.25rem}
+.progress-phase{font-size:0.68rem;color:rgba(255,255,255,0.6);font-weight:500}
+.progress-pct{font-family:'DM Mono',monospace;font-size:0.65rem;font-weight:500}
+.progress-bar{height:3px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;border-radius:100px;transition:width 1s ease}
 
-.ms-dot {
-  width: 0.085in; height: 0.085in;
-  border-radius: 50%;
-  border: 0.010in solid currentColor;
-  background: var(--black);
-  position: relative;
-  flex-shrink: 0;
+/* Revenue */
+.card-revenue{
+  font-size:0.65rem;color:var(--muted);
+  display:flex;align-items:center;gap:0.3rem;margin-bottom:0.5rem;
 }
-.ms-dot.big    { width: 0.100in; height: 0.100in; }
-.ms-dot.filled { background: currentColor; }
-.ms-dot.hinge {
-  background: var(--hinge) !important;
-  border-color: var(--hinge) !important;
-  box-shadow: 0 0 0.05in rgba(255,215,0,0.7), 0 0 0.10in rgba(255,215,0,0.3);
-  width: 0.110in !important; height: 0.110in !important;
-}
-.ms-dot.hinge::after {
-  content: '\26A1';
-  position: absolute;
-  top: -0.14in; left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.085in;
-  line-height: 1;
-}
+.rev-recognized-label{color:var(--c-reckoning);font-weight:600;font-family:'DM Mono',monospace}
+.rev-slash{color:var(--faint)}
+.rev-target-label{font-family:'DM Mono',monospace}
 
-.ms-card {
-  background: rgba(8,8,10,0.97);
-  border: 0.007in solid rgba(255,255,255,0.12);
-  border-radius: 0.035in;
-  padding: 0.034in 0.048in;
-  width: 0.96in;
-  text-align: left;
-  position: relative;
-  flex-shrink: 0;
+/* Hinge */
+.card-hinge{
+  display:flex;align-items:center;gap:0.35rem;
+  font-size:0.65rem;padding:0.25rem 0.5rem;
+  border-radius:6px;background:rgba(255,215,0,0.06);
+  border:1px solid rgba(255,215,0,0.15);
 }
-.ms.above .ms-card::after {
-  content: '';
-  position: absolute;
-  bottom: -0.032in; left: 50%;
-  transform: translateX(-50%);
-  border-left: 0.020in solid transparent;
-  border-right: 0.020in solid transparent;
-  border-top: 0.026in solid rgba(255,255,255,0.12);
-}
-.ms.below .ms-card::after {
-  content: '';
-  position: absolute;
-  top: -0.032in; left: 50%;
-  transform: translateX(-50%);
-  border-left: 0.020in solid transparent;
-  border-right: 0.020in solid transparent;
-  border-bottom: 0.026in solid rgba(255,255,255,0.12);
-}
-.ms.flip .ms-card {
-  position: absolute;
-  right: 0.11in; top: 50%;
-  transform: translateY(-50%);
-  width: 1.0in;
-}
-.ms.flip .ms-card::after { display: none; }
+.hinge-bolt{color:var(--hinge);font-size:0.75rem;line-height:1}
+.hinge-label{color:rgba(255,255,255,0.7);font-weight:500;flex:1;font-size:0.62rem}
+.hinge-countdown{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--hinge);white-space:nowrap}
+.hinge-countdown.urgent{color:var(--now-red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
 
-.ms-date {
-  font-size: 0.060in;
-  font-weight: 600;
-  letter-spacing: 0.010in;
-  color: rgba(255,255,255,0.36);
-  text-transform: uppercase;
-  margin-bottom: 0.015in;
+/* SECTION LABELS IN GRID */
+.grid-section-label{
+  grid-column:1/-1;padding:0.25rem 0.1rem 0;
+  font-family:'Bebas Neue',sans-serif;font-size:0.7rem;
+  letter-spacing:0.12em;color:rgba(255,255,255,0.18);
+  display:flex;align-items:center;gap:0.75rem;
 }
-.ms-text {
-  font-size: 0.068in;
-  color: rgba(255,255,255,0.78);
-  line-height: 1.32;
-}
-.ms-badge {
-  display: inline-block;
-  font-size: 0.055in;
-  font-weight: 700;
-  letter-spacing: 0.010in;
-  text-transform: uppercase;
-  padding: 0.006in 0.032in;
-  border-radius: 0.012in;
-  margin-top: 0.024in;
-  color: var(--black);
-}
-.t-career     .ms-dot { color: var(--career);     }
-.t-fortify    .ms-dot { color: var(--fortify);    }
-.t-rebuild    .ms-dot { color: var(--rebuild);    }
-.t-fractional .ms-dot { color: var(--fractional); }
-.t-content    .ms-dot { color: var(--content);    }
-.t-reckoning  .ms-dot { color: var(--reckoning);  }
-.t-acq        .ms-dot { color: var(--acq);        }
-.t-body       .ms-dot { color: var(--body);       }
-.t-people     .ms-dot { color: var(--people);     }
+.grid-section-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07)}
 
-.t-career     .ms-badge { background: var(--career);     }
-.t-fortify    .ms-badge { background: var(--fortify);    }
-.t-rebuild    .ms-badge { background: var(--rebuild);    }
-.t-fractional .ms-badge { background: var(--fractional); }
-.t-content    .ms-badge { background: var(--content);    }
-.t-reckoning  .ms-badge { background: var(--reckoning);  }
-.t-acq        .ms-badge { background: var(--acq);        }
-.t-body       .ms-badge { background: var(--body);       }
-.t-people     .ms-badge { background: var(--people);     }
+/* ══════════════════════════════════════════════
+   PILLAR DETAIL VIEW
+══════════════════════════════════════════════ */
+#detail{padding:1.5rem 2rem 3rem;max-width:900px;margin:0 auto}
 
-/* FOOTER */
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 0.06in;
-  padding-top: 0.055in;
-  border-top: 1px solid rgba(255,255,255,0.09);
-  flex-shrink: 0;
+.back-btn{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--muted);cursor:pointer;margin-bottom:1.5rem;
+  padding:0.4rem 0.8rem;border:1px solid var(--border);border-radius:6px;
+  background:var(--surface);
+  transition:color 0.15s,border-color 0.15s;
 }
-.f-id {
-  font-size: 0.068in;
-  letter-spacing: 0.018in;
-  color: rgba(255,255,255,0.22);
-  text-transform: uppercase;
+.back-btn:hover{color:var(--text);border-color:rgba(255,255,255,0.25)}
+
+.detail-header{margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.detail-name-row{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem}
+.detail-icon{font-size:1.75rem;line-height:1}
+.detail-name{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:0.04em;line-height:1}
+.detail-sub{font-size:0.8rem;color:var(--muted)}
+
+/* Large progress arc */
+.detail-progress-section{display:flex;align-items:center;gap:2rem;margin-bottom:1.5rem}
+.arc-wrap{position:relative;width:100px;height:100px;flex-shrink:0}
+.arc-wrap svg{width:100%;height:100%}
+.arc-bg{fill:none;stroke:rgba(255,255,255,0.06);stroke-width:6}
+.arc-fill{fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 1s ease;transform:rotate(-90deg);transform-origin:50% 50%}
+.arc-pct{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.02em;text-align:center;line-height:1;
 }
-.f-quote {
-  font-size: 0.080in;
-  color: rgba(255,255,255,0.4);
-  font-style: italic;
-  font-weight: 300;
+.arc-pct-sub{font-size:0.5rem;color:var(--muted);display:block;letter-spacing:0.05em;margin-top:2px}
+
+.detail-phase-info{flex:1}
+.detail-phase-label{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem}
+.detail-phase-value{font-size:1.1rem;font-weight:600;margin-bottom:0.8rem}
+.detail-revenue-row{display:flex;gap:1.5rem}
+.detail-rev-item{text-align:left}
+.detail-rev-n{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.02em}
+.detail-rev-l{font-size:0.62rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
+
+/* Sections */
+.detail-section{margin-bottom:1.25rem}
+.detail-section-title{
+  font-family:'Bebas Neue',sans-serif;font-size:0.75rem;letter-spacing:0.12em;
+  color:var(--muted);margin-bottom:0.6rem;text-transform:uppercase;
+  display:flex;align-items:center;gap:0.5rem;
 }
-.legend { display: flex; gap: 0.11in; align-items: center; }
-.leg {
-  display: flex; align-items: center; gap: 0.035in;
-  font-size: 0.065in; font-weight: 600;
-  letter-spacing: 0.008in;
-  color: rgba(255,255,255,0.32);
-  text-transform: uppercase;
+.detail-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* Next actions */
+.action-list{display:flex;flex-direction:column;gap:0.4rem}
+.action-item{
+  display:flex;align-items:flex-start;gap:0.6rem;
+  font-size:0.78rem;padding:0.5rem 0.75rem;
+  background:var(--surface);border:1px solid var(--border);border-radius:6px;
 }
-.leg-dot { width: 0.050in; height: 0.050in; border-radius: 50%; flex-shrink: 0; }
+.action-checkbox{width:14px;height:14px;border-radius:3px;border:1.5px solid var(--border);flex-shrink:0;margin-top:1px}
+.action-jer{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);margin-left:auto;flex-shrink:0}
+
+/* Milestones */
+.milestone-list{display:flex;flex-direction:column;gap:0.35rem}
+.milestone-item{display:flex;align-items:center;gap:0.7rem;font-size:0.75rem}
+.ms-indicator{width:14px;height:14px;border-radius:50%;border:1.5px solid;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center}
+.ms-indicator.done{background:var(--c-reckoning);border-color:var(--c-reckoning)}
+.ms-indicator.done::after{content:'✓';font-size:8px;color:#000;font-weight:700}
+.ms-indicator.hinge-ms{background:var(--hinge);border-color:var(--hinge);box-shadow:0 0 8px rgba(255,215,0,0.5)}
+.ms-indicator.hinge-ms::after{content:'⚡';font-size:7px}
+.ms-indicator.pending{border-color:rgba(255,255,255,0.2)}
+.ms-indicator.blocked{border-color:var(--now-red)}
+.ms-label{color:rgba(255,255,255,0.7)}
+.ms-label.done{color:rgba(255,255,255,0.35);text-decoration:line-through}
+.ms-badge{margin-left:auto;font-size:0.58rem;color:var(--hinge);font-weight:600;letter-spacing:0.04em}
+
+/* Dependencies */
+.dep-section{display:flex;gap:1.5rem}
+.dep-group{flex:1}
+.dep-group-label{font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.4rem}
+.dep-pills{display:flex;gap:0.4rem;flex-wrap:wrap}
+.dep-pill{
+  font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:100px;
+  border:1px solid;letter-spacing:0.03em;
+}
+.dep-pill.none{color:var(--muted);border-color:var(--border)}
+
+/* Hinge detail */
+.hinge-detail{
+  display:flex;align-items:center;gap:1rem;
+  padding:0.85rem 1rem;background:rgba(255,215,0,0.05);
+  border:1px solid rgba(255,215,0,0.2);border-radius:8px;
+}
+.hinge-detail-bolt{font-size:1.5rem}
+.hinge-detail-info{flex:1}
+.hinge-detail-label{font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.85)}
+.hinge-detail-date{font-size:0.65rem;color:var(--muted);margin-top:0.1rem;font-family:'DM Mono',monospace}
+.hinge-detail-countdown{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--hinge);line-height:1;letter-spacing:0.02em}
+.hinge-detail-days{font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
+
+/* ══════════════════════════════════════════════
+   PRINT STYLES
+══════════════════════════════════════════════ */
+@media print{
+  @page{size:17in 11in landscape;margin:0.2in 0.25in}
+  body{background:#060606!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .view{display:none!important}
+  .view.active{display:block!important}
+  #dashboard{padding:0}
+  .vision-header{padding:0.4rem 0.6rem 0.35rem}
+  .vision-primary{font-size:1.4rem}
+  .vision-secondary{font-size:0.55rem}
+  .vision-anchor{font-size:0.5rem;padding:0.15rem 0.4rem}
+  .revenue-section{padding:0.35rem 0.6rem}
+  .right-now{padding:0.25rem 0.6rem}
+  .card-grid-wrap{padding:0.3rem 0.4rem}
+  .card-grid{gap:0.35rem}
+  .pillar-card{padding:0.4rem 0.5rem 0.35rem;border-radius:6px}
+  .card-name{font-size:0.75rem}
+  .card-sub{font-size:0.48rem;margin-bottom:0.3rem}
+  .card-progress{margin-bottom:0.3rem}
+  .progress-phase{font-size:0.48rem}
+  .progress-pct{font-size:0.46rem}
+  .card-revenue{font-size:0.46rem;margin-bottom:0.25rem}
+  .card-hinge{font-size:0.46rem;padding:0.15rem 0.3rem}
+  .hinge-bolt{font-size:0.55rem}
+  .hinge-label{font-size:0.44rem}
+  .hinge-countdown{font-size:0.44rem}
+  .rn-item{font-size:0.5rem;padding:0.15rem 0.4rem}
+  .back-btn{display:none!important}
+  #detail{padding:0.5rem 0.6rem}
+  .detail-name{font-size:1.8rem}
+}
 </style>
 </head>
 <body>
-<div class="page">
-  <div class="ghost">2026</div>
 
-  <div class="header">
-    <div>
-      <div class="eyebrow">Master Program Plan &middot; 7 Pillars &middot; April 2026 &ndash; March 2027</div>
-      <div class="h-name">Jeremy Runge</div>
-      <div class="h-tag">Career &nbsp;&middot;&nbsp; Fortify&#x2122; &nbsp;&middot;&nbsp; The Rebuild &nbsp;&middot;&nbsp; Fractional &nbsp;&middot;&nbsp; Content &nbsp;&middot;&nbsp; Reckoning &nbsp;&middot;&nbsp; Acquisition &nbsp;&middot;&nbsp; Body &nbsp;&middot;&nbsp; People</div>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="s-n gold">7</div><div class="s-l">pillars</div></div>
-      <div class="stat"><div class="s-n gold">$2&ndash;5M</div><div class="s-l">12-month target</div></div>
-      <div class="stat"><div class="s-n gold">7</div><div class="s-l">hinge points &#x26A1;</div></div>
-      <div class="stat"><div class="s-n">60</div><div class="s-l">lbs to lose</div></div>
-      <div class="stat"><div class="s-n">1</div><div class="s-l">version of you</div></div>
-    </div>
-  </div>
+<!-- ════════════════════════════════
+     DASHBOARD VIEW
+════════════════════════════════ -->
+<div id="dashboard" class="view active">
 
-  <div class="mrow">
-    <div></div>
-    <div class="mcell now"><div class="now-pip">NOW</div><div class="mname">APR</div><div class="qtag">Q2 '26</div></div>
-    <div class="mcell"><div class="mname">MAY</div></div>
-    <div class="mcell"><div class="mname">JUN</div></div>
-    <div class="mcell"><div class="mname">JUL</div><div class="qtag">Q3 '26</div></div>
-    <div class="mcell"><div class="mname">AUG</div></div>
-    <div class="mcell"><div class="mname">SEP</div></div>
-    <div class="mcell"><div class="mname">OCT</div><div class="qtag">Q4 '26</div></div>
-    <div class="mcell"><div class="mname">NOV</div></div>
-    <div class="mcell"><div class="mname">DEC</div></div>
-    <div class="mcell"><div class="mname">JAN</div><div class="qtag">Q1 '27</div></div>
-    <div class="mcell"><div class="mname">FEB</div></div>
-    <div class="mcell"><div class="mname">MAR</div></div>
-  </div>
-
-  <div class="body">
-    <div class="lcol">
-      <div class="lsep"><div class="lsep-label">Income &amp; Career</div></div>
-      <div class="lblock career"><div class="l-icon">&#127919;</div><div class="l-title" style="color:var(--career)">Career</div><div class="l-sub">Levi's &middot; PwC</div></div>
-      <div class="lblock fortify"><div class="l-icon">&#128737;</div><div class="l-title" style="color:var(--fortify)">Fortify&#x2122;</div><div class="l-sub">$60k coaching</div></div>
-      <div class="lblock rebuild"><div class="l-icon">&#127959;</div><div class="l-title" style="color:var(--rebuild)">The Rebuild</div><div class="l-sub">Paid community</div></div>
-      <div class="lblock fractional"><div class="l-icon">&#9881;</div><div class="l-title" style="color:var(--fractional)">Fractional</div><div class="l-sub">Catalant &middot; GoFractional</div></div>
-      <div class="lblock content"><div class="l-icon">&#128225;</div><div class="l-title" style="color:var(--content)">Content</div><div class="l-sub">Substack &middot; LinkedIn &middot; YouTube</div></div>
-      <div class="lblock reckoning"><div class="l-icon">&#128214;</div><div class="l-title" style="color:var(--reckoning)">Reckoning</div><div class="l-sub">$200&ndash;500k advance</div></div>
-      <div class="lblock acq"><div class="l-icon">&#127970;</div><div class="l-title" style="color:var(--acq)">Acquisition</div><div class="l-sub">Distressed brand</div></div>
-      <div class="lsep" style="margin-top:0.02in"><div class="lsep-label">Life Foundation</div></div>
-      <div class="lblock body"><div class="l-icon">&#128170;</div><div class="l-title" style="color:var(--body)">Body</div><div class="l-sub">PPL &middot; &minus;60 lbs &middot; Off BP meds</div></div>
-      <div class="lblock people"><div class="l-icon">&#10084;</div><div class="l-title" style="color:var(--people)">People</div><div class="l-sub">David &middot; Kids &middot; Jason &middot; Alan</div></div>
-    </div>
-
-    <div class="tcol">
-      <div class="qline" style="left:25%"></div>
-      <div class="qline" style="left:50%"></div>
-      <div class="qline" style="left:75%"></div>
-
-      <div class="tsep"><div class="tsep-line"></div><div class="tsep-text">INCOME &amp; CAREER</div><div class="tsep-line"></div></div>
-
-      <!-- CAREER -->
-      <div class="track t-career">
-        <div class="tline"></div>
-        <div class="ms above" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">Levi's + PwC interviews active. Best candidate in both rooms.</div><span class="ms-badge">You are here</span></div></div>
-        <div class="ms below" style="left:12.5%"><div class="ms-dot hinge"></div><div class="ms-card"><div class="ms-date">May 2026</div><div class="ms-text">&#x26A1; Offer accepted. Role locked. Financial pressure releases.</div><span class="ms-badge">Hinge 1</span></div></div>
-        <div class="ms above" style="left:37.5%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Aug 2026</div><div class="ms-text">90-day mark. Visible impact. Trusted voice in the room.</div></div></div>
-        <div class="ms below" style="left:70.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Dec 2026</div><div class="ms-text">Year-end review. Raise conversation. Next scope visible.</div></div></div>
-        <div class="ms above flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">One year in. From candidate to leader.</div><span class="ms-badge">Year One &#x2713;</span></div></div>
+  <div class="vision-header">
+    <div class="vision-top">
+      <div class="vision-left">
+        <div class="vision-primary">The work of being.</div>
+        <div class="vision-secondary">"The gap between your LinkedIn and your actual life is the whole point."</div>
+        <div class="vision-anchors">
+          <span class="vision-anchor reckoning">📖 Reckoning — memoir · $200–500k advance</span>
+          <span class="vision-anchor rebuild">🏗 The Rebuild — on building a life you don't have to perform.</span>
+        </div>
       </div>
-
-      <!-- FORTIFY -->
-      <div class="track t-fortify">
-        <div class="tline"></div>
-        <div class="ms below" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">4 listening convos. Legal agreement is the gate (JER-83).</div><span class="ms-badge">Gate open</span></div></div>
-        <div class="ms above" style="left:12.5%"><div class="ms-dot hinge"></div><div class="ms-card"><div class="ms-date">May 2026</div><div class="ms-text">&#x26A1; Client 1 signed &mdash; $60k. Framework proven. Everything shifts.</div><span class="ms-badge">Hinge 2</span></div></div>
-        <div class="ms below" style="left:29.17%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jul 2026</div><div class="ms-text">Client 1 midpoint. First case study drafted.</div></div></div>
-        <div class="ms above" style="left:45.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Sep 2026</div><div class="ms-text">Client 1 complete. Clients 2+3 signed. $180k run rate.</div><span class="ms-badge">$180k</span></div></div>
-        <div class="ms below flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">6+ engagements complete. Model proven. Documented. Repeatable.</div><span class="ms-badge">Proven &#x2713;</span></div></div>
+      <div class="vision-right">
+        <div class="vision-date" id="today-date"></div>
+        <div class="vision-tagline">7 pillars · April 2026 → March 2027</div>
       </div>
-
-      <!-- REBUILD -->
-      <div class="track t-rebuild">
-        <div class="tline"></div>
-        <div class="ms above" style="left:12.5%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">May 2026</div><div class="ms-text">Platform selected. Pricing + structure designed.</div></div></div>
-        <div class="ms below" style="left:20.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jun 2026</div><div class="ms-text">Founding member outreach. Warm list only. No public launch yet.</div></div></div>
-        <div class="ms above" style="left:29.17%"><div class="ms-dot hinge"></div><div class="ms-card"><div class="ms-date">Jul 2026</div><div class="ms-text">&#x26A1; Soft launch. First paid members (25&ndash;50). Flywheel starts.</div><span class="ms-badge">Hinge 6</span></div></div>
-        <div class="ms below" style="left:45.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Sep 2026</div><div class="ms-text">100 members. Community rhythm established.</div></div></div>
-        <div class="ms above" style="left:79.17%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Jan 2027</div><div class="ms-text">200+ members. Recurring revenue. Fortify lead source active.</div><span class="ms-badge">200 members</span></div></div>
-        <div class="ms below flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">Self-sustaining. Coaches Fortify waitlist from within.</div><span class="ms-badge">Year One &#x2713;</span></div></div>
-      </div>
-
-      <!-- FRACTIONAL -->
-      <div class="track t-fractional">
-        <div class="tline"></div>
-        <div class="ms below" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">4 Catalant pitches active. Go Fractional monitoring. $350+/hr.</div><span class="ms-badge">Live now</span></div></div>
-        <div class="ms above" style="left:12.5%"><div class="ms-dot hinge"></div><div class="ms-card"><div class="ms-date">May 2026</div><div class="ms-text">&#x26A1; First engagement landed. First check cleared. New income stream.</div><span class="ms-badge">Hinge 3</span></div></div>
-        <div class="ms below" style="left:45.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Sep 2026</div><div class="ms-text">2&ndash;3 concurrent engagements. $15&ndash;20k/month.</div></div></div>
-        <div class="ms above" style="left:79.17%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jan 2027</div><div class="ms-text">Established pipeline. Selective. Only projects worth the bandwidth.</div></div></div>
-        <div class="ms below flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">Consistent, high-value only. Feeds Fortify relationships.</div><span class="ms-badge">Year One &#x2713;</span></div></div>
-      </div>
-
-      <!-- CONTENT -->
-      <div class="track t-content">
-        <div class="tline"></div>
-        <div class="ms above" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">Substack live. LinkedIn first post. Instagram + YouTube seeded.</div><span class="ms-badge">All platforms</span></div></div>
-        <div class="ms below" style="left:20.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jun 2026</div><div class="ms-text">500 Substack subs. Weekly publishing rhythm locked.</div></div></div>
-        <div class="ms above" style="left:37.5%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Aug 2026</div><div class="ms-text">2k subs. YouTube live with 10+ videos. Fortify inquiries incoming.</div><span class="ms-badge">2k subs</span></div></div>
-        <div class="ms below" style="left:54.17%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Oct 2026</div><div class="ms-text">5k subs. Content driving Rebuild growth + Fortify waitlist directly.</div></div></div>
-        <div class="ms above" style="left:79.17%"><div class="ms-dot hinge"></div><div class="ms-card"><div class="ms-date">Jan 2027</div><div class="ms-text">&#x26A1; 10k subscribers. Book agent leverage unlocked. Platform is real.</div><span class="ms-badge">Hinge 4</span></div></div>
-        <div class="ms below flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">Flywheel running. Content drives every other pillar.</div><span class="ms-badge">Year One &#x2713;</span></div></div>
-      </div>
-
-      <!-- RECKONING -->
-      <div class="track t-reckoning">
-        <div class="tline"></div>
-        <div class="ms below" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">Premise written. Structural diagnosis done. 3-part split is next.</div><span class="ms-badge">In progress</span></div></div>
-        <div class="ms above" style="left:20.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jun 2026</div><div class="ms-text">Query letter + proposal outline. 20&ndash;30 agents queried.</div></div></div>
-        <div class="ms below" style="left:37.5%"><div class="ms-dot hinge"></div><div class="ms-card"><div class="ms-date">Aug 2026</div><div class="ms-text">&#x26A1; Agent signed. Advance becomes a real number. Everything sharpens.</div><span class="ms-badge">Hinge 5</span></div></div>
-        <div class="ms above" style="left:45.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Sep 2026</div><div class="ms-text">Full proposal submitted. Publisher conversations begin.</div></div></div>
-        <div class="ms above flip" style="left:95.83%"><div class="ms-dot hinge"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">&#x26A1; Advance received: $200&ndash;500k. The story closes the gap.</div><span class="ms-badge">Hinge 7</span></div></div>
-      </div>
-
-      <!-- ACQUISITION -->
-      <div class="track t-acq">
-        <div class="tline"></div>
-        <div class="ms above" style="left:29.17%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jul 2026</div><div class="ms-text">Criteria defined. Sector, distress type, price range locked.</div></div></div>
-        <div class="ms below" style="left:45.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Sep 2026</div><div class="ms-text">3&ndash;5 targets identified. Preliminary due diligence begins.</div></div></div>
-        <div class="ms above" style="left:62.5%"><div class="ms-dot hinge"></div><div class="ms-card"><div class="ms-date">Nov 2026</div><div class="ms-text">&#x26A1; First LOI submitted. Income &rarr; wealth. Trajectory changes.</div><span class="ms-badge">Hinge 7b</span></div></div>
-        <div class="ms below" style="left:87.5%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Feb 2027</div><div class="ms-text">Deal closed &mdash; or next target selected. Keep moving.</div></div></div>
-        <div class="ms above flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">Acquired asset operational. Generating revenue. Asset owner.</div><span class="ms-badge">Year One &#x2713;</span></div></div>
-      </div>
-
-      <div class="tsep"><div class="tsep-line"></div><div class="tsep-text">LIFE FOUNDATION</div><div class="tsep-line"></div></div>
-
-      <!-- BODY -->
-      <div class="track t-body">
-        <div class="tline"></div>
-        <div class="ms above" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">270 lbs. Baseline. PPL active. Anchor holds.</div></div></div>
-        <div class="ms below" style="left:20.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jun 2026</div><div class="ms-text">&minus;15 lbs. Phase 1 complete. Seeing it in the mirror.</div><span class="ms-badge">&minus;15 lbs</span></div></div>
-        <div class="ms above" style="left:37.5%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Aug 2026</div><div class="ms-text">&minus;30 lbs. Energy transformed. Lifts up significantly.</div><span class="ms-badge">&minus;30 lbs</span></div></div>
-        <div class="ms below" style="left:54.17%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Oct 2026</div><div class="ms-text">&minus;40 lbs. Doctor opens the BP meds conversation.</div><span class="ms-badge">&minus;40 lbs</span></div></div>
-        <div class="ms above" style="left:79.17%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Jan 2027</div><div class="ms-text">&minus;55 lbs. Off BP meds imminent. New body, new baseline.</div><span class="ms-badge">&minus;55 lbs</span></div></div>
-        <div class="ms below flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">&minus;60 lbs. Off blood pressure meds. The body you always had.</div><span class="ms-badge">&minus;60 lbs &#x2713;</span></div></div>
-      </div>
-
-      <!-- PEOPLE -->
-      <div class="track t-people">
-        <div class="tline"></div>
-        <div class="ms above" style="left:4.17%"><div class="ms-dot filled big"></div><div class="ms-card"><div class="ms-date">Apr 2026</div><div class="ms-text">Therapy weekly. David protected. Jason + Alan: scheduled.</div></div></div>
-        <div class="ms below" style="left:20.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Jun 2026</div><div class="ms-text">Karston &mdash; regular SF lunches. Not waiting. Showing up first.</div></div></div>
-        <div class="ms above" style="left:45.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Sep 2026</div><div class="ms-text">Jeremiah &mdash; weekly FaceTime. Consistent, not reactive.</div></div></div>
-        <div class="ms below" style="left:70.83%"><div class="ms-dot"></div><div class="ms-card"><div class="ms-date">Dec 2026</div><div class="ms-text">A year of real connection. No gaps. No isolation as strength.</div></div></div>
-        <div class="ms above flip" style="left:95.83%"><div class="ms-dot big"></div><div class="ms-card"><div class="ms-date">Mar 2027</div><div class="ms-text">The relationships held. You leaned in. They held you back.</div><span class="ms-badge">Year One &#x2713;</span></div></div>
-      </div>
-
     </div>
   </div>
 
-  <div class="footer">
-    <div class="f-id">Jeremy Runge &nbsp;&middot;&nbsp; Master Program Plan &nbsp;&middot;&nbsp; April 2026 &rarr; March 2027</div>
-    <div class="f-quote">"Previous cycles collapsed from no scaffolding, not lack of ideas. Not this time."</div>
-    <div class="legend">
-      <div class="leg"><span style="font-size:0.09in">&#x26A1;</span>&nbsp;Hinge point</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--career)"></div>Career</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--fortify)"></div>Fortify&#x2122;</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--rebuild)"></div>Rebuild</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--fractional)"></div>Fractional</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--content)"></div>Content</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--reckoning)"></div>Reckoning</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--acq)"></div>Acquisition</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--body)"></div>Body</div>
-      <div class="leg"><div class="leg-dot" style="background:var(--people)"></div>People</div>
+  <div class="revenue-section">
+    <div class="revenue-top">
+      <div class="revenue-label">Wealth Stack Revenue — $0 recognized / $2M target</div>
+      <div class="revenue-numbers">
+        <div class="rev-stat"><div class="rev-stat-n rev-recognized" id="rev-recognized-display">$0</div><div class="rev-stat-l">recognized</div></div>
+        <div class="rev-stat"><div class="rev-stat-n rev-contracted" id="rev-contracted-display">$0</div><div class="rev-stat-l">contracted</div></div>
+        <div class="rev-stat"><div class="rev-stat-n rev-pipeline" id="rev-pipeline-display">$0</div><div class="rev-stat-l">pipeline</div></div>
+        <div class="rev-stat"><div class="rev-stat-n" style="color:rgba(255,255,255,0.35)">$2M</div><div class="rev-stat-l">12-month target</div></div>
+      </div>
+    </div>
+    <div class="revenue-bar-wrap">
+      <div class="revenue-bar-fill revenue-bar-pipeline" id="bar-pipeline" style="width:0%"></div>
+      <div class="revenue-bar-fill revenue-bar-contracted" id="bar-contracted" style="width:0%"></div>
+      <div class="revenue-bar-fill revenue-bar-recognized" id="bar-recognized" style="width:0%"></div>
     </div>
   </div>
 
+  <div class="right-now">
+    <div class="rn-label">⚡ Right Now</div>
+    <div class="rn-items" id="right-now-items"></div>
+  </div>
+
+  <div class="card-grid-wrap">
+    <div class="card-grid" id="card-grid">
+      <!-- Section label: Income & Career -->
+      <div class="grid-section-label">Income &amp; Career</div>
+      <!-- Cards rendered by JS -->
+    </div>
+  </div>
+
+</div><!-- /dashboard -->
+
+<!-- ════════════════════════════════
+     PILLAR DETAIL VIEW
+════════════════════════════════ -->
+<div id="detail" class="view">
+  <div class="back-btn" onclick="showDashboard()">← All Pillars</div>
+  <div id="detail-content"></div>
 </div>
+
+<script>
+// ══════════════════════════════════════════════════════
+// DATA — Claude updates this section each session
+// Revenue: Claude asks JR when any deal is mentioned
+// Completion: Claude computes from Linear at session start
+// ══════════════════════════════════════════════════════
+const TODAY = new Date('2026-04-21');
+
+const REVENUE = {
+  // ← Claude updates these when JR mentions signed/contracted/pipeline activity
+  target: 2000000,
+  recognized: 0,    // cash received
+  contracted: 0,    // signed, not yet received
+  pipeline: 0,      // active pitches/proposals
+};
+
+const RIGHT_NOW = [
+  // ← Claude updates from Linear In Progress at session start
+  { urgency: 'urgent', text: 'X take 2 — Undoing amplification', jer: 'JER-142' },
+  { urgency: 'week',   text: 'Fortify legal agreement — gates Client 1', jer: 'JER-83' },
+  { urgency: 'week',   text: 'Levi\'s follow-up — Catherine by Apr 24', jer: 'JER-12' },
+];
+
+const PILLARS = [
+  // ─────────── INCOME & CAREER ───────────
+  {
+    id: 'career', name: 'Career', icon: '🎯', sub: "Levi's · PwC",
+    color: 'var(--c-career)', cls: 'career',
+    status: 'active',       // active | blocked | dormant | complete
+    phase: 'Interviews active',
+    completion: 20,         // ← Claude updates from Linear closed/total
+    revenue: { recognized: 0, contracted: 0, target: 250000, label: '$250k/yr' },
+    hinge: { label: 'Offer accepted', date: '2026-05-15', n: 1 },
+    actions: [
+      { text: 'Catherine Dobbs follow-up by Apr 24', jer: 'JER-12' },
+      { text: 'Process Reeve Hohlt intel — update PwC strategy', jer: 'JER-13' },
+      { text: 'PwC: Lana Raymonde outreach after Reeve debrief', jer: '' },
+    ],
+    milestones: [
+      { label: 'Interviews active', done: true },
+      { label: 'Offer accepted', hinge: true },
+      { label: 'Day 1 — in the room', done: false },
+      { label: '90-day mark', done: false },
+      { label: 'Year-end review', done: false },
+      { label: 'Year one — from candidate to leader', done: false },
+    ],
+    feedsInto: ['acq'],
+    fedBy: [],
+    sectionBreak: false,
+  },
+  {
+    id: 'fortify', name: 'Fortify™', icon: '🛡', sub: '$60k coaching engagements',
+    color: 'var(--c-fortify)', cls: 'fortify',
+    status: 'blocked',
+    phase: 'Legal gate — close JER-83',
+    completion: 25,
+    revenue: { recognized: 0, contracted: 0, target: 180000, label: '3 × $60k' },
+    hinge: { label: 'Client 1 signed', date: '2026-05-31', n: 2 },
+    actions: [
+      { text: 'Close client coaching agreement (JER-83) — BLOCKS EVERYTHING', jer: 'JER-83' },
+      { text: 'Complete 4 listening conversations', jer: 'JER-126' },
+      { text: 'Research citations page live on jeremyrunge.com', jer: 'JER-75' },
+    ],
+    milestones: [
+      { label: 'LLC + EIN + Mercury + E&O', done: true },
+      { label: 'Methodology named (Fortify™)', done: true },
+      { label: 'One-pager v4 locked at $60k', done: true },
+      { label: 'Legal agreement closed', blocked: true },
+      { label: 'Client 1 signed — $60k', hinge: true },
+      { label: 'Client 1 midpoint', done: false },
+      { label: 'Clients 2 + 3 signed — $180k run rate', done: false },
+      { label: 'Model proven + documented', done: false },
+    ],
+    feedsInto: ['reckoning', 'rebuild'],
+    fedBy: ['content', 'rebuild'],
+    sectionBreak: false,
+  },
+  {
+    id: 'rebuild', name: 'The Rebuild', icon: '🏗', sub: 'Paid community',
+    color: 'var(--c-rebuild)', cls: 'rebuild',
+    status: 'dormant',
+    phase: 'Platform decision needed',
+    completion: 5,
+    revenue: { recognized: 0, contracted: 0, target: 0, label: 'Pricing TBD' },
+    hinge: { label: 'Soft launch', date: '2026-07-15', n: 6 },
+    actions: [
+      { text: 'Select platform: Circle / Kajabi / Substack', jer: '' },
+      { text: 'Design pricing + membership structure', jer: '' },
+      { text: 'Build founding member warm list from network', jer: '' },
+    ],
+    milestones: [
+      { label: 'Named + concept locked', done: true },
+      { label: 'Platform selected', done: false },
+      { label: 'Pricing + structure designed', done: false },
+      { label: 'Founding member outreach', done: false },
+      { label: 'Soft launch (25–50 founding members)', hinge: true },
+      { label: '100 members', done: false },
+      { label: '200+ members + recurring revenue', done: false },
+      { label: 'Self-sustaining + Fortify lead source', done: false },
+    ],
+    feedsInto: ['fortify'],
+    fedBy: ['content'],
+    sectionBreak: false,
+  },
+  // ─────────── PLATFORM & INCOME ───────────
+  {
+    id: 'fractional', name: 'Fractional', icon: '⚙', sub: 'Catalant · GoFractional',
+    color: 'var(--c-fractional)', cls: 'fractional',
+    status: 'active',
+    phase: '4 pitches live',
+    completion: 33,
+    revenue: { recognized: 0, contracted: 0, target: 120000, label: '$10k/mo × 12' },
+    hinge: { label: 'First check cleared', date: '2026-06-15', n: 3 },
+    actions: [
+      { text: 'Monitor 4 active Catalant pitches', jer: 'JER-111' },
+      { text: 'GoFractional — review mid-week', jer: '' },
+      { text: 'Network outreach — 20–30 contacts', jer: 'JER-42' },
+    ],
+    milestones: [
+      { label: 'Catalant approved + rate set ($350+/hr)', done: true },
+      { label: 'Go Fractional profile live', done: true },
+      { label: '4 pitches submitted', done: true },
+      { label: 'First engagement landed', hinge: true },
+      { label: 'First check cleared', done: false },
+      { label: '2–3 concurrent engagements', done: false },
+      { label: 'Consistent pipeline + selective', done: false },
+    ],
+    feedsInto: ['acq'],
+    fedBy: [],
+    sectionBreak: true,
+    sectionLabel: 'Platform & Income',
+  },
+  {
+    id: 'content', name: 'Content', icon: '📡', sub: 'Substack · LinkedIn · YouTube',
+    color: 'var(--c-content)', cls: 'content',
+    status: 'active',
+    phase: 'All platforms live',
+    completion: 28,
+    revenue: { recognized: 0, contracted: 0, target: 0, label: 'Drives all pillars' },
+    hinge: { label: '10k subscribers', date: '2027-01-15', n: 4 },
+    actions: [
+      { text: 'X take 2 — Undoing amplification (TODAY)', jer: 'JER-142' },
+      { text: 'Weekly Substack essay — this week', jer: '' },
+      { text: 'YouTube: first video concept', jer: '' },
+    ],
+    milestones: [
+      { label: 'All platforms seeded (Substack, LI, IG, X, Bluesky)', done: true },
+      { label: 'First Substack essay published (The Undoing)', done: true },
+      { label: 'First LinkedIn post live', done: true },
+      { label: '500 Substack subscribers', done: false },
+      { label: '2k subs + YouTube launched', done: false },
+      { label: '5k subs — driving Fortify + Rebuild inquiries', done: false },
+      { label: '10k subscribers — book leverage unlocked', hinge: true },
+      { label: 'Flywheel running — content drives all pillars', done: false },
+    ],
+    feedsInto: ['fortify', 'rebuild', 'reckoning'],
+    fedBy: [],
+    sectionBreak: false,
+  },
+  {
+    id: 'reckoning', name: 'Reckoning', icon: '📖', sub: '$200–500k advance',
+    color: 'var(--c-reckoning)', cls: 'reckoning',
+    status: 'active',
+    phase: 'Premise in progress',
+    completion: 25,
+    revenue: { recognized: 0, contracted: 0, target: 350000, label: '$200–500k advance' },
+    hinge: { label: 'Agent signed', date: '2026-08-31', n: 5 },
+    actions: [
+      { text: 'Execute 3-part split on premise paragraph', jer: '' },
+      { text: 'Draft query letter outline', jer: '' },
+      { text: 'Follow up on Alyssa Edwards publication referral', jer: '' },
+    ],
+    milestones: [
+      { label: 'Premise paragraph written', done: true },
+      { label: 'Query improvements done (4 sub-issues)', done: true },
+      { label: 'Structural 3-part split executed', done: false },
+      { label: 'Query letter finalized', done: false },
+      { label: 'Agent queries sent — 20–30 agents', done: false },
+      { label: 'Agent signed', hinge: true },
+      { label: 'Full proposal submitted', done: false },
+      { label: 'Publisher conversations begin', done: false },
+      { label: 'Advance received — $200–500k', hinge: true },
+    ],
+    feedsInto: [],
+    fedBy: ['content', 'fortify'],
+    sectionBreak: false,
+  },
+  // ─────────── LIFE FOUNDATION ───────────
+  {
+    id: 'acq', name: 'Acquisition', icon: '🏢', sub: 'Distressed brand',
+    color: 'var(--c-acq)', cls: 'acq',
+    status: 'dormant',
+    phase: 'Intentionally dormant',
+    completion: 2,
+    revenue: { recognized: 0, contracted: 0, target: 0, label: 'TBD — after base' },
+    hinge: { label: 'First LOI', date: '2026-11-30', n: 7 },
+    actions: [
+      { text: 'Thu Wealth Hour: define criteria (sector, price, distress)', jer: '' },
+      { text: 'No active pursuit until career/fractional stable', jer: '' },
+    ],
+    milestones: [
+      { label: 'Criteria defined', done: false },
+      { label: 'Active deal sourcing begins', done: false },
+      { label: '3–5 targets identified', done: false },
+      { label: 'First LOI submitted', hinge: true },
+      { label: 'Deal closed', done: false },
+      { label: 'Asset operational + generating revenue', done: false },
+    ],
+    feedsInto: [],
+    fedBy: ['career', 'fractional'],
+    sectionBreak: true,
+    sectionLabel: 'Life Foundation',
+  },
+  {
+    id: 'body', name: 'Body', icon: '💪', sub: 'PPL · −60 lbs · Off BP meds',
+    color: 'var(--c-body)', cls: 'body',
+    status: 'active',
+    phase: 'Week 1 — baseline set',
+    completion: 15,
+    revenue: { recognized: 0, contracted: 0, target: 0, label: 'Off BP meds by Mar 2027' },
+    hinge: { label: 'Off BP meds', date: '2027-03-01', n: null },
+    actions: [
+      { text: 'Morning anchor: Cooper out within 30 min', jer: '' },
+      { text: 'Gym — modular window, pre-gym supps as ignition', jer: '' },
+      { text: 'Pre-sleep stack: magnesium + pelvic floor release', jer: '' },
+    ],
+    milestones: [
+      { label: 'PPL program v2 built (8 Hevy templates)', done: true },
+      { label: 'Pelvic floor PT consult done', done: true },
+      { label: '270 lbs baseline — Week 1', done: true },
+      { label: '−15 lbs', done: false },
+      { label: '−30 lbs', done: false },
+      { label: '−40 lbs + doctor BP conversation', done: false },
+      { label: '−55 lbs', done: false },
+      { label: '−60 lbs + off blood pressure meds', done: false },
+    ],
+    feedsInto: [],
+    fedBy: [],
+    sectionBreak: false,
+  },
+  {
+    id: 'people', name: 'People', icon: '❤', sub: 'David · Kids · Jason · Alan',
+    color: 'var(--c-people)', cls: 'people',
+    status: 'active',
+    phase: 'Foundation set',
+    completion: 35,
+    revenue: { recognized: 0, contracted: 0, target: 0, label: 'Not measured in $' },
+    hinge: { label: 'Year of connection', date: '2026-12-31', n: null },
+    actions: [
+      { text: 'David — protected evening tonight', jer: '' },
+      { text: 'Jason or Alan — scheduled this week (not earned)', jer: '' },
+      { text: 'Maddy — consistent contact point this week', jer: '' },
+    ],
+    milestones: [
+      { label: 'Therapy weekly — active', done: true },
+      { label: 'David evenings protected — active', done: true },
+      { label: 'Jason + Alan — scheduled, not earned', done: true },
+      { label: 'Karston — regular SF lunches', done: false },
+      { label: 'Jeremiah — weekly FaceTime', done: false },
+      { label: 'A year of connection — no isolation', done: false },
+      { label: 'Relationships held. You leaned in.', done: false },
+    ],
+    feedsInto: [],
+    fedBy: [],
+    sectionBreak: false,
+  },
+];
+
+// Synchronicity connections [fromId, toId, label]
+const SYNCS = [
+  ['content','fortify','feeds leads'],
+  ['content','rebuild','feeds audience'],
+  ['content','reckoning','feeds proof'],
+  ['rebuild','fortify','community → coaching'],
+  ['fortify','reckoning','proof → proposal'],
+  ['career','acq','financial base'],
+  ['fractional','acq','financial base'],
+];
+
+// ══════════════════════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════════════════════
+function daysFrom(dateStr) {
+  const d = new Date(dateStr);
+  const diff = Math.round((d - TODAY) / (1000 * 60 * 60 * 24));
+  return diff;
+}
+function formatDays(days) {
+  if (days < 0) return 'overdue';
+  if (days === 0) return 'TODAY';
+  if (days === 1) return '1 day';
+  return `${days} days`;
+}
+function fmtMoney(n) {
+  if (n === 0) return '$0';
+  if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+  if (n >= 1000) return '$' + Math.round(n/1000) + 'k';
+  return '$' + n;
+}
+function getPillar(id) { return PILLARS.find(p => p.id === id); }
+
+// ══════════════════════════════════════════════════════
+// RENDER DASHBOARD
+// ══════════════════════════════════════════════════════
+function renderDashboard() {
+  // Date
+  document.getElementById('today-date').textContent =
+    TODAY.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+
+  // Revenue bar
+  const target = REVENUE.target;
+  const recPct = Math.min(100, (REVENUE.recognized / target) * 100);
+  const conPct = Math.min(100, ((REVENUE.recognized + REVENUE.contracted) / target) * 100);
+  const pipPct = Math.min(100, ((REVENUE.recognized + REVENUE.contracted + REVENUE.pipeline) / target) * 100);
+  document.getElementById('bar-recognized').style.width = recPct + '%';
+  document.getElementById('bar-contracted').style.width = conPct + '%';
+  document.getElementById('bar-pipeline').style.width = pipPct + '%';
+  document.getElementById('rev-recognized-display').textContent = fmtMoney(REVENUE.recognized);
+  document.getElementById('rev-contracted-display').textContent = fmtMoney(REVENUE.contracted);
+  document.getElementById('rev-pipeline-display').textContent = fmtMoney(REVENUE.pipeline);
+
+  // Right now
+  const rni = document.getElementById('right-now-items');
+  rni.innerHTML = RIGHT_NOW.map(item => `
+    <span class="rn-item ${item.urgency}">
+      <span class="rn-dot"></span>
+      ${item.text}${item.jer ? ` <span style="opacity:0.5;font-size:0.6rem">${item.jer}</span>` : ''}
+    </span>
+  `).join('');
+
+  // Cards
+  const grid = document.getElementById('card-grid');
+  // Keep section label
+  const sectionLabel = grid.querySelector('.grid-section-label');
+  grid.innerHTML = '';
+  grid.appendChild(sectionLabel);
+
+  PILLARS.forEach((p, i) => {
+    if (p.sectionBreak && p.sectionLabel) {
+      const sep = document.createElement('div');
+      sep.className = 'grid-section-label';
+      sep.textContent = p.sectionLabel;
+      grid.appendChild(sep);
+    }
+
+    const days = daysFrom(p.hinge.date);
+    const daysStr = formatDays(days);
+    const isUrgent = days < 30;
+    const revRec = fmtMoney(p.revenue.recognized);
+    const revTarget = p.revenue.target > 0 ? fmtMoney(p.revenue.target) : null;
+
+    const card = document.createElement('div');
+    card.className = `pillar-card ${p.cls}`;
+    card.setAttribute('data-id', p.id);
+    card.onclick = () => showDetail(p.id);
+
+    card.innerHTML = `
+      <div class="card-top">
+        <div class="card-title-group">
+          <span class="card-icon">${p.icon}</span>
+          <span class="card-name" style="color:${p.color}">${p.name}</span>
+        </div>
+        <span class="card-status status-${p.status}"></span>
+      </div>
+      <div class="card-sub">${p.sub}</div>
+      <div class="card-progress">
+        <div class="progress-row">
+          <span class="progress-phase">${p.phase}</span>
+          <span class="progress-pct" style="color:${p.color}">${p.completion}%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="background:${p.color};width:${p.completion}%"></div>
+        </div>
+      </div>
+      <div class="card-revenue">
+        <span class="rev-recognized-label">${revRec}</span>
+        ${revTarget ? `<span class="rev-slash">/</span><span class="rev-target-label" style="color:${p.color};opacity:0.6">${revTarget}</span>` : ''}
+        <span style="color:var(--muted);font-size:0.58rem;margin-left:0.2rem">${p.revenue.label}</span>
+      </div>
+      <div class="card-hinge">
+        <span class="hinge-bolt">⚡</span>
+        <span class="hinge-label">${p.hinge.label}${p.hinge.n ? ` (H${p.hinge.n})` : ''}</span>
+        <span class="hinge-countdown ${isUrgent ? 'urgent' : ''}">${daysStr}</span>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Draw sync lines after layout
+  requestAnimationFrame(drawSyncLines);
+}
+
+// ══════════════════════════════════════════════════════
+// SYNC LINES (SVG)
+// ══════════════════════════════════════════════════════
+function drawSyncLines() {
+  const existing = document.querySelector('.sync-svg');
+  if (existing) existing.remove();
+
+  const grid = document.getElementById('card-grid');
+  const wrap = document.querySelector('.card-grid-wrap');
+  if (!grid || !wrap) return;
+
+  const gridRect = grid.getBoundingClientRect();
+  const wrapRect = wrap.getBoundingClientRect();
+
+  const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.classList.add('sync-svg');
+  svg.setAttribute('xmlns','http://www.w3.org/2000/svg');
+  svg.style.cssText = `
+    position:absolute;top:${gridRect.top - wrapRect.top}px;left:${gridRect.left - wrapRect.left}px;
+    width:${gridRect.width}px;height:${gridRect.height}px;pointer-events:none;z-index:5;overflow:visible;
+  `;
+
+  // Arrow marker defs
+  const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+  const colors = {
+    content:'#F472B6',rebuild:'#3EC8A8',fortify:'#FF6B6B',
+    career:'#F5C432',fractional:'#818CF8',
+  };
+  Object.entries(colors).forEach(([id, color]) => {
+    const marker = document.createElementNS('http://www.w3.org/2000/svg','marker');
+    marker.setAttribute('id',`arrow-${id}`);
+    marker.setAttribute('markerWidth','6');marker.setAttribute('markerHeight','6');
+    marker.setAttribute('refX','3');marker.setAttribute('refY','3');
+    marker.setAttribute('orient','auto');
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d','M0,0 L6,3 L0,6 Z');
+    path.setAttribute('fill',color);
+    path.setAttribute('opacity','0.6');
+    marker.appendChild(path);
+    defs.appendChild(marker);
+  });
+  svg.appendChild(defs);
+
+  // Get card centers
+  const cards = {};
+  grid.querySelectorAll('.pillar-card').forEach(card => {
+    const id = card.getAttribute('data-id');
+    const r = card.getBoundingClientRect();
+    cards[id] = {
+      x: r.left - gridRect.left + r.width/2,
+      y: r.top - gridRect.top + r.height/2,
+    };
+  });
+
+  SYNCS.forEach(([fromId, toId, label]) => {
+    const from = cards[fromId], to = cards[toId];
+    if (!from || !to) return;
+    const fromPillar = getPillar(fromId);
+    const colorKey = fromId === 'career' ? 'career' : fromId === 'fractional' ? 'fractional' :
+                     fromId === 'rebuild' ? 'rebuild' : fromId === 'fortify' ? 'fortify' : 'content';
+    const color = colors[colorKey] || '#ffffff';
+
+    // Curved line
+    const dx = to.x - from.x, dy = to.y - from.y;
+    const mx = (from.x + to.x)/2, my = (from.y + to.y)/2;
+    const cx = mx - dy*0.18, cy = my + dx*0.18;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d',`M${from.x},${from.y} Q${cx},${cy} ${to.x},${to.y}`);
+    path.setAttribute('fill','none');
+    path.setAttribute('stroke',color);
+    path.setAttribute('stroke-width','1.5');
+    path.setAttribute('opacity','0.25');
+    path.setAttribute('stroke-dasharray','4 3');
+    path.setAttribute('marker-end',`url(#arrow-${colorKey})`);
+    svg.appendChild(path);
+  });
+
+  wrap.appendChild(svg);
+}
+
+// ══════════════════════════════════════════════════════
+// RENDER DETAIL VIEW
+// ══════════════════════════════════════════════════════
+function showDetail(id) {
+  const p = getPillar(id);
+  if (!p) return;
+
+  const days = daysFrom(p.hinge.date);
+  const daysStr = formatDays(days);
+  const isUrgent = days < 30;
+
+  // Progress arc
+  const radius = 38;
+  const circ = 2 * Math.PI * radius;
+  const offset = circ * (1 - p.completion/100);
+
+  // Dependencies
+  const feedsIntoHtml = p.feedsInto.length ? p.feedsInto.map(id => {
+    const pp = getPillar(id);
+    return `<span class="dep-pill" style="color:${pp.color};border-color:${pp.color};opacity:0.8">${pp.icon} ${pp.name}</span>`;
+  }).join('') : '<span class="dep-pill none">None</span>';
+
+  const fedByHtml = p.fedBy.length ? p.fedBy.map(id => {
+    const pp = getPillar(id);
+    return `<span class="dep-pill" style="color:${pp.color};border-color:${pp.color};opacity:0.8">${pp.icon} ${pp.name}</span>`;
+  }).join('') : '<span class="dep-pill none">None</span>';
+
+  const content = `
+    <div class="detail-header">
+      <div class="detail-name-row">
+        <span class="detail-icon">${p.icon}</span>
+        <span class="detail-name" style="color:${p.color}">${p.name}</span>
+        <span class="card-status status-${p.status}" style="margin-left:0.5rem;margin-top:0.4rem"></span>
+      </div>
+      <div class="detail-sub">${p.sub}</div>
+    </div>
+
+    <div class="detail-progress-section">
+      <div class="arc-wrap">
+        <svg viewBox="0 0 100 100">
+          <circle class="arc-bg" cx="50" cy="50" r="${radius}"/>
+          <circle class="arc-fill" cx="50" cy="50" r="${radius}"
+            stroke="${p.color}"
+            stroke-dasharray="${circ}"
+            stroke-dashoffset="${offset}"/>
+        </svg>
+        <div class="arc-pct">${p.completion}%<span class="arc-pct-sub">complete</span></div>
+      </div>
+      <div class="detail-phase-info">
+        <div class="detail-phase-label">Current Phase</div>
+        <div class="detail-phase-value">${p.phase}</div>
+        <div class="detail-revenue-row">
+          <div class="detail-rev-item">
+            <div class="detail-rev-n" style="color:var(--c-reckoning)">${fmtMoney(p.revenue.recognized)}</div>
+            <div class="detail-rev-l">Recognized</div>
+          </div>
+          ${p.revenue.contracted > 0 ? `
+          <div class="detail-rev-item">
+            <div class="detail-rev-n" style="color:var(--c-career)">${fmtMoney(p.revenue.contracted)}</div>
+            <div class="detail-rev-l">Contracted</div>
+          </div>` : ''}
+          ${p.revenue.target > 0 ? `
+          <div class="detail-rev-item">
+            <div class="detail-rev-n" style="color:${p.color};opacity:0.6">${fmtMoney(p.revenue.target)}</div>
+            <div class="detail-rev-l">Target</div>
+          </div>` : ''}
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title">Next 3 Actions</div>
+      <div class="action-list">
+        ${p.actions.map(a => `
+          <div class="action-item">
+            <div class="action-checkbox"></div>
+            <span>${a.text}</span>
+            ${a.jer ? `<span class="action-jer">${a.jer}</span>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title">Milestone Map</div>
+      <div class="milestone-list">
+        ${p.milestones.map(m => {
+          const cls = m.done ? 'done' : m.hinge ? 'hinge-ms' : m.blocked ? 'blocked' : 'pending';
+          return `
+            <div class="milestone-item">
+              <div class="ms-indicator ${cls}"></div>
+              <span class="ms-label ${m.done ? 'done' : ''}">${m.label}</span>
+              ${m.hinge ? `<span class="ms-badge">HINGE${p.hinge.n ? ' H'+p.hinge.n : ''}</span>` : ''}
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title">Synchronicities</div>
+      <div class="dep-section">
+        <div class="dep-group">
+          <div class="dep-group-label">→ Feeds Into</div>
+          <div class="dep-pills">${feedsIntoHtml}</div>
+        </div>
+        <div class="dep-group">
+          <div class="dep-group-label">← Fed By</div>
+          <div class="dep-pills">${fedByHtml}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-section-title">Next Hinge Point</div>
+      <div class="hinge-detail">
+        <div class="hinge-detail-bolt">⚡</div>
+        <div class="hinge-detail-info">
+          <div class="hinge-detail-label">${p.hinge.label}${p.hinge.n ? ` — Hinge ${p.hinge.n}` : ''}</div>
+          <div class="hinge-detail-date">Target: ${p.hinge.date}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="hinge-detail-countdown ${isUrgent ? 'urgent' : ''}">${daysStr}</div>
+          <div class="hinge-detail-days">until hinge</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('detail-content').innerHTML = content;
+  document.getElementById('dashboard').classList.remove('active');
+  document.getElementById('detail').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function showDashboard() {
+  document.getElementById('detail').classList.remove('active');
+  document.getElementById('dashboard').classList.add('active');
+  requestAnimationFrame(drawSyncLines);
+}
+
+// ══════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════
+renderDashboard();
+window.addEventListener('resize', () => requestAnimationFrame(drawSyncLines));
+</script>
 </body>
 </html>
