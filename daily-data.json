@@ -1,31 +1,25 @@
 {
-  "generated": "2026-04-21T13:20:00Z",
+  "generated": "2026-04-21T20:41:51.548921Z",
   "generatedPT": "6:20 AM PT",
-  "rightNow": [
-    { "urgency": "urgent", "text": "X take 2 — Undoing amplification", "jer": "JER-142", "pillar": "Content" },
-    { "urgency": "urgent", "text": "Fortify legal agreement — gates Client 1", "jer": "JER-83", "pillar": "Fortify™" },
-    { "urgency": "week",   "text": "Levi's follow-up — Catherine by Apr 24", "jer": "JER-12", "pillar": "Career" }
-  ],
-  "contentDue": [
-    { "title": "The Undoing — X take 2 (performing without being)", "platform": "X", "status": "Ready to post", "due": "today" },
-    { "title": "Fortify™ Framework — What It Is and Why It Works", "platform": "LinkedIn", "status": "Draft", "due": "today" },
-    { "title": "The Undoing — X take 3 (quiet killer)", "platform": "X", "status": "Draft", "due": "tomorrow" },
-    { "title": "5x7 Cards → IG Carousel (repurpose)", "platform": "Instagram", "status": "Ready to post", "due": "2026-04-23" },
-    { "title": "5x7 Cards Blog Post → LinkedIn Carousel", "platform": "LinkedIn", "status": "Ready to post", "due": "2026-04-23" },
-    { "title": "Fortify™ Native Video — talking head intro", "platform": "LinkedIn", "status": "Draft", "due": "2026-04-25" }
-  ],
-  "followUpRadar": [
-    { "name": "Vanessa Trigub",    "days": 29, "why": "Network — overdue" },
-    { "name": "Rick Smith",        "days": 27, "why": "Network — overdue" },
-    { "name": "Alyssa Edwards",    "days": 25, "why": "Publications referral — Reckoning" },
-    { "name": "Perry Swanson",     "days": 25, "why": "Trusted reader — book feedback" },
-    { "name": "Eric Stewart",      "days": 26, "why": "Network — overdue" }
-  ],
+  "rightNow": [],
+  "contentDue": [],
+  "followUpRadar": [],
   "socialPulse": {
-    "substack":  { "subscribers": null, "posts": 2 },
-    "linkedin":  { "followers": 2109 },
-    "instagram": { "followers": 205 },
-    "bluesky":   { "followers": 23 },
-    "youtube":   { "subscribers": 0 }
+    "substack": {
+      "subscribers": null,
+      "posts": null
+    },
+    "linkedin": {
+      "followers": null
+    },
+    "instagram": {
+      "followers": null
+    },
+    "bluesky": {
+      "followers": null
+    },
+    "youtube": {
+      "subscribers": null
+    }
   }
 }
