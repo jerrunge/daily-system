@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JR Master Plan — Print</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --cream:#f7f5f0;--white:#ffffff;--ink:#1a1815;--ink2:#4a4640;--ink3:#8a8680;
+  --border:rgba(0,0,0,0.10);--border2:rgba(0,0,0,0.18);
+  --c-career:#c49800;--c-fortify:#cc4444;--c-rebuild:#1a9e80;
+  --c-fractional:#5555cc;--c-content:#bb3377;--c-reckoning:#1a8840;
+  --c-acq:#cc6600;--c-body:#cc3311;--c-people:#882299;
+  --hinge:#996600;
+}
+
+html,body{
+  background:var(--cream);color:var(--ink);
+  font-family:'DM Sans',-apple-system,sans-serif;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+
+@page{size:17in 11in landscape;margin:0.22in 0.28in}
+
+.page{
+  width:16.44in;min-height:10.56in;
+  display:flex;flex-direction:column;
+}
+
+/* ── HEADER ── */
+.hdr{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:2px solid var(--ink);padding-bottom:0.12in;margin-bottom:0.1in;
+  flex-shrink:0;
+}
+.hdr-left{}
+.hdr-eyebrow{
+  font-family:'Bebas Neue',sans-serif;font-size:0.09in;
+  letter-spacing:0.08in;color:var(--ink3);margin-bottom:0.02in;
+  text-transform:uppercase;
+}
+.hdr-name{
+  font-family:'Bebas Neue',sans-serif;font-size:0.48in;
+  letter-spacing:0.02in;line-height:0.95;color:var(--ink);
+}
+.hdr-sub{font-size:0.085in;color:var(--ink2);margin-top:0.035in;letter-spacing:0.01em}
+.hdr-anchors{display:flex;gap:0.12in;margin-top:0.06in}
+.hdr-anchor{
+  font-size:0.075in;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;
+  padding:0.03in 0.08in;border-radius:3px;border:1px solid;
+}
+.hdr-anchor.rec{color:var(--c-reckoning);border-color:var(--c-reckoning)}
+.hdr-anchor.reb{color:var(--c-rebuild);border-color:var(--c-rebuild)}
+.hdr-right{text-align:right}
+.hdr-date{font-family:'DM Mono',monospace;font-size:0.075in;color:var(--ink3);letter-spacing:0.05em;text-transform:uppercase}
+.hdr-stats{display:flex;gap:0.16in;margin-top:0.06in;justify-content:flex-end}
+.hdr-stat{text-align:right;padding-left:0.16in;border-left:1px solid var(--border2)}
+.hdr-stat:first-child{border-left:none;padding-left:0}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:0.28in;line-height:1;letter-spacing:0.01in;color:var(--ink)}
+.stat-n.gold{color:var(--c-career)}
+.stat-l{font-size:0.065in;color:var(--ink3);letter-spacing:0.05em;text-transform:uppercase;margin-top:0.01in}
+
+/* ── REVENUE STRIP ── */
+.rev-strip{
+  display:flex;align-items:center;gap:0.2in;
+  padding:0.06in 0.1in;background:rgba(0,0,0,0.04);
+  border-radius:4px;margin-bottom:0.08in;flex-shrink:0;
+}
+.rev-strip-label{font-size:0.068in;font-weight:700;color:var(--ink3);letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap}
+.rev-bar-wrap{flex:1;height:5px;background:rgba(0,0,0,0.08);border-radius:100px;overflow:hidden;position:relative}
+.rev-bar-fill{height:100%;border-radius:100px;position:absolute;left:0;top:0}
+.rev-recognized{background:var(--c-reckoning)}
+.rev-contracted{background:var(--c-career)}
+.rev-pipeline{background:rgba(0,0,0,0.2)}
+.rev-nums{display:flex;gap:0.14in;flex-shrink:0}
+.rev-num{text-align:right}
+.rev-num-n{font-family:'DM Mono',monospace;font-size:0.075in;font-weight:500;color:var(--ink)}
+.rev-num-l{font-size:0.058in;color:var(--ink3);letter-spacing:0.04em;text-transform:uppercase}
+
+/* ── CARD GRID ── */
+.grid{
+  flex:1;display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:repeat(3,1fr);
+  gap:0.1in;
+  position:relative;
+}
+
+/* SVG sync lines */
+.sync-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+
+/* ── CARD ── */
+.card{
+  background:var(--white);border:1px solid var(--border2);border-radius:6px;
+  padding:0.1in 0.12in 0.09in;display:flex;flex-direction:column;gap:0.04in;
+  position:relative;overflow:hidden;z-index:2;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:6px 6px 0 0;
+}
+.card.career::before{background:var(--c-career)}
+.card.fortify::before{background:var(--c-fortify)}
+.card.rebuild::before{background:var(--c-rebuild)}
+.card.fractional::before{background:var(--c-fractional)}
+.card.content::before{background:var(--c-content)}
+.card.reckoning::before{background:var(--c-reckoning)}
+.card.acq::before{background:var(--c-acq)}
+.card.body::before{background:var(--c-body)}
+.card.people::before{background:var(--c-people)}
+
+.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.025in}
+.card-title-row{display:flex;align-items:center;gap:0.05in}
+.card-icon{font-size:0.12in;line-height:1}
+.card-name{font-family:'Bebas Neue',sans-serif;font-size:0.17in;letter-spacing:0.02in;line-height:1}
+.card-status{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.status-active{background:#22aa55}
+.status-blocked{background:#cc3333}
+.status-dormant{background:#aaaaaa}
+.card-sub{font-size:0.065in;color:var(--ink3);margin-bottom:0.03in}
+
+/* Progress bar */
+.prog-row{display:flex;align-items:center;gap:0.06in;margin-bottom:0.035in}
+.prog-bar{flex:1;height:3px;background:rgba(0,0,0,0.08);border-radius:100px;overflow:hidden}
+.prog-fill{height:100%;border-radius:100px}
+.prog-pct{font-family:'DM Mono',monospace;font-size:0.062in;font-weight:500;flex-shrink:0}
+.prog-phase{font-size:0.063in;color:var(--ink2);font-weight:500}
+
+/* Revenue */
+.card-rev{
+  font-size:0.062in;color:var(--ink3);display:flex;align-items:center;gap:0.04in;
+  padding:0.025in 0.05in;background:rgba(0,0,0,0.03);border-radius:3px;
+  margin-bottom:0.03in;
+}
+.rev-rec{font-family:'DM Mono',monospace;font-weight:600}
+.rev-sep{color:var(--border2)}
+.rev-tgt{font-family:'DM Mono',monospace}
+
+/* Milestones */
+.milestones{display:flex;flex-direction:column;gap:0.024in;flex:1}
+.ms-item{display:flex;align-items:flex-start;gap:0.05in;font-size:0.063in;line-height:1.25}
+.ms-mark{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:0.045in}
+.ms-mark.done{background:var(--c-reckoning);color:#fff}
+.ms-mark.pending{border:1.5px solid var(--border2);background:transparent}
+.ms-mark.blocked{border:1.5px solid var(--c-fortify);background:transparent}
+.ms-mark.hinge{background:var(--hinge);color:#fff}
+.ms-label{color:var(--ink2)}
+.ms-label.done{color:var(--ink3);text-decoration:line-through}
+.ms-badge{margin-left:auto;font-size:0.053in;font-weight:700;color:var(--hinge);letter-spacing:0.03em;white-space:nowrap;padding-left:0.03in}
+
+/* Hinge footer */
+.card-hinge{
+  display:flex;align-items:center;gap:0.04in;margin-top:auto;padding-top:0.03in;
+  border-top:1px solid var(--border);font-size:0.062in;
+}
+.hinge-bolt{color:var(--hinge);font-size:0.08in}
+.hinge-text{flex:1;color:var(--ink2);font-weight:500}
+.hinge-days{font-family:'DM Mono',monospace;font-size:0.06in;color:var(--hinge);font-weight:600;white-space:nowrap}
+.hinge-days.urgent{color:var(--c-fortify)}
+
+/* ── FOOTER ── */
+.footer{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:0.07in;padding-top:0.06in;border-top:1px solid var(--border2);
+  flex-shrink:0;
+}
+.footer-id{font-size:0.065in;color:var(--ink3);letter-spacing:0.04em;text-transform:uppercase}
+.footer-quote{font-size:0.075in;color:var(--ink2);font-style:italic}
+.footer-legend{display:flex;gap:0.1in;align-items:center}
+.leg{display:flex;align-items:center;gap:0.03in;font-size:0.062in;font-weight:600;color:var(--ink3);letter-spacing:0.02em;text-transform:uppercase}
+.leg-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+
+/* Screen-only elements */
+@media screen{
+  body{padding:0.3in;background:#e8e5e0}
+  .page{background:var(--cream);padding:0.25in;box-shadow:0 4px 40px rgba(0,0,0,0.15);border-radius:4px;margin:0 auto}
+  .screen-nav{
+    display:flex;align-items:center;gap:12px;margin-bottom:16px;
+    font-family:'DM Sans',sans-serif;
+  }
+  .screen-nav a{
+    display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;
+    color:#4a4640;background:#fff;border:1.5px solid rgba(0,0,0,0.18);
+    border-radius:99px;padding:7px 16px;text-decoration:none;
+  }
+  .screen-nav .print-btn{
+    background:#1a1815;color:#fff;border-color:#1a1815;cursor:pointer;
+    font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;
+  }
+}
+@media print{.screen-nav{display:none!important}}
+</style>
+</head>
+<body>
+
+<div class="screen-nav">
+  <a href="roadmap.html">← Dashboard</a>
+  <a href="index.html">📱 My Day</a>
+  <button class="print-btn" onclick="window.print()">🖨 Print 11×17</button>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="hdr-eyebrow">Master Program Plan · April 2026 → March 2027</div>
+      <div class="hdr-name">Jeremy Runge</div>
+      <div class="hdr-sub">The work of being. · "The gap between your LinkedIn and your actual life is the whole point."</div>
+      <div class="hdr-anchors">
+        <span class="hdr-anchor rec">📖 Reckoning — $200–500k advance</span>
+        <span class="hdr-anchor reb">🏗 The Rebuild — on building a life you don't have to perform.</span>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="hdr-date" id="print-date"></div>
+      <div class="hdr-stats">
+        <div class="hdr-stat"><div class="stat-n gold">7</div><div class="stat-l">pillars</div></div>
+        <div class="hdr-stat"><div class="stat-n gold">$2–5M</div><div class="stat-l">target</div></div>
+        <div class="hdr-stat"><div class="stat-n gold">7</div><div class="stat-l">hinge pts ⚡</div></div>
+        <div class="hdr-stat"><div class="stat-n">60</div><div class="stat-l">lbs to lose</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVENUE STRIP -->
+  <div class="rev-strip">
+    <div class="rev-strip-label">Revenue</div>
+    <div class="rev-bar-wrap">
+      <div class="rev-bar-fill rev-pipeline" id="p-bar-pipeline" style="width:0%"></div>
+      <div class="rev-bar-fill rev-contracted" id="p-bar-contracted" style="width:0%"></div>
+      <div class="rev-bar-fill rev-recognized" id="p-bar-recognized" style="width:0%"></div>
+    </div>
+    <div class="rev-nums">
+      <div class="rev-num"><div class="rev-num-n" id="p-recognized">$0</div><div class="rev-num-l">recognized</div></div>
+      <div class="rev-num"><div class="rev-num-n" id="p-contracted">$0</div><div class="rev-num-l">contracted</div></div>
+      <div class="rev-num"><div class="rev-num-n" id="p-pipeline">$0</div><div class="rev-num-l">pipeline</div></div>
+      <div class="rev-num"><div class="rev-num-n" style="color:var(--ink3)">$2M</div><div class="rev-num-l">target</div></div>
+    </div>
+  </div>
+
+  <!-- CARD GRID -->
+  <div class="grid" id="print-grid">
+    <svg class="sync-svg" id="sync-svg"></svg>
+    <!-- cards rendered by JS -->
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-id">Jeremy Runge · Master Program Plan · <span id="footer-date"></span></div>
+    <div class="footer-quote">"Previous cycles collapsed from no scaffolding, not lack of ideas. Not this time."</div>
+    <div class="footer-legend" id="footer-legend"></div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+const TODAY = new Date('2026-04-21');
+
+const REVENUE = { target:2000000, recognized:0, contracted:0, pipeline:0 };
+
+const PILLARS = [
+  { id:'career',     name:'Career',      icon:'🎯', sub:"Levi's · PwC",                cls:'career',     color:'var(--c-career)',
+    status:'active', phase:'Interviews active', completion:20,
+    revenue:{recognized:0, contracted:0, target:250000, label:'$250k/yr'},
+    hinge:{label:'Offer accepted', date:'2026-05-15', n:1},
+    milestones:[
+      {label:'Interviews active',done:true},
+      {label:'Offer accepted',hinge:true},
+      {label:'Day 1 — in the room'},
+      {label:'90-day mark'},
+      {label:'Year-end review + raise'},
+      {label:'Year one — from candidate to leader'},
+    ]},
+  { id:'fortify',    name:'Fortify™',    icon:'🛡', sub:'$60k coaching engagements',   cls:'fortify',    color:'var(--c-fortify)',
+    status:'blocked', phase:'Legal gate — JER-83', completion:25,
+    revenue:{recognized:0, contracted:0, target:180000, label:'3 × $60k'},
+    hinge:{label:'Client 1 signed', date:'2026-05-31', n:2},
+    milestones:[
+      {label:'LLC + EIN + Mercury + E&O',done:true},
+      {label:'One-pager v4 at $60k',done:true},
+      {label:'Legal agreement closed',blocked:true},
+      {label:'Client 1 signed — $60k',hinge:true},
+      {label:'Client 1 midpoint'},
+      {label:'Clients 2 + 3 → $180k run rate'},
+      {label:'Model proven + documented'},
+    ]},
+  { id:'rebuild',    name:'The Rebuild', icon:'🏗', sub:'Paid community',              cls:'rebuild',    color:'var(--c-rebuild)',
+    status:'dormant', phase:'Platform decision needed', completion:5,
+    revenue:{recognized:0, contracted:0, target:0, label:'Pricing TBD'},
+    hinge:{label:'Soft launch', date:'2026-07-15', n:6},
+    milestones:[
+      {label:'Named + concept locked',done:true},
+      {label:'Platform selected'},
+      {label:'Pricing + structure designed'},
+      {label:'Founding member outreach'},
+      {label:'Soft launch — 25–50 members',hinge:true},
+      {label:'100 members'},
+      {label:'200+ members + recurring revenue'},
+    ]},
+  { id:'fractional', name:'Fractional',  icon:'⚙', sub:'Catalant · GoFractional',     cls:'fractional', color:'var(--c-fractional)',
+    status:'active', phase:'4 pitches live', completion:33,
+    revenue:{recognized:0, contracted:0, target:120000, label:'$10k/mo × 12'},
+    hinge:{label:'First check cleared', date:'2026-06-15', n:3},
+    milestones:[
+      {label:'Both platforms live',done:true},
+      {label:'4 pitches active',done:true},
+      {label:'First engagement landed',hinge:true},
+      {label:'First check cleared'},
+      {label:'2–3 concurrent engagements'},
+      {label:'Selective pipeline only'},
+    ]},
+  { id:'content',    name:'Content',     icon:'📡', sub:'Substack · LinkedIn · YouTube', cls:'content',  color:'var(--c-content)',
+    status:'active', phase:'All platforms live', completion:28,
+    revenue:{recognized:0, contracted:0, target:0, label:'Drives all pillars'},
+    hinge:{label:'10k subscribers', date:'2027-01-15', n:4},
+    milestones:[
+      {label:'All platforms seeded',done:true},
+      {label:'First Substack essay published',done:true},
+      {label:'First LinkedIn post live',done:true},
+      {label:'500 Substack subscribers'},
+      {label:'2k subs + YouTube launched'},
+      {label:'5k subs — driving inquiries'},
+      {label:'10k subs — book leverage',hinge:true},
+    ]},
+  { id:'reckoning',  name:'Reckoning',   icon:'📖', sub:'$200–500k advance',           cls:'reckoning',  color:'var(--c-reckoning)',
+    status:'active', phase:'Premise in progress', completion:25,
+    revenue:{recognized:0, contracted:0, target:350000, label:'$200–500k advance'},
+    hinge:{label:'Agent signed', date:'2026-08-31', n:5},
+    milestones:[
+      {label:'Premise paragraph written',done:true},
+      {label:'Query improvements done',done:true},
+      {label:'3-part structural split'},
+      {label:'Query letter finalized'},
+      {label:'Agents queried — 20–30'},
+      {label:'Agent signed',hinge:true},
+      {label:'Proposal submitted'},
+      {label:'Advance received — $200–500k',hinge:true},
+    ]},
+  { id:'acq',        name:'Acquisition', icon:'🏢', sub:'Distressed brand',            cls:'acq',        color:'var(--c-acq)',
+    status:'dormant', phase:'Intentionally dormant', completion:2,
+    revenue:{recognized:0, contracted:0, target:0, label:'TBD — after base'},
+    hinge:{label:'First LOI', date:'2026-11-30', n:7},
+    milestones:[
+      {label:'Criteria defined'},
+      {label:'Deal sourcing begins'},
+      {label:'3–5 targets identified'},
+      {label:'First LOI submitted',hinge:true},
+      {label:'Deal closed'},
+      {label:'Asset operational'},
+    ]},
+  { id:'body',       name:'Body',        icon:'💪', sub:'PPL · −60 lbs · Off BP meds', cls:'body',       color:'var(--c-body)',
+    status:'active', phase:'Week 1 — baseline set', completion:15,
+    revenue:{recognized:0, contracted:0, target:0, label:'Off BP meds → Mar 2027'},
+    hinge:{label:'Off BP meds', date:'2027-03-01', n:null},
+    milestones:[
+      {label:'PPL v2 built (8 templates)',done:true},
+      {label:'Pelvic floor PT done',done:true},
+      {label:'270 lbs baseline',done:true},
+      {label:'−15 lbs'},
+      {label:'−30 lbs'},
+      {label:'−40 lbs + BP conversation'},
+      {label:'−55 lbs'},
+      {label:'−60 lbs + off BP meds'},
+    ]},
+  { id:'people',     name:'People',      icon:'❤', sub:'David · Kids · Jason · Alan',  cls:'people',     color:'var(--c-people)',
+    status:'active', phase:'Foundation set', completion:35,
+    revenue:{recognized:0, contracted:0, target:0, label:'Not measured in $'},
+    hinge:{label:'Year of connection', date:'2026-12-31', n:null},
+    milestones:[
+      {label:'Therapy weekly — active',done:true},
+      {label:'David evenings protected',done:true},
+      {label:'Jason + Alan — scheduled',done:true},
+      {label:'Karston — regular SF lunches'},
+      {label:'Jeremiah — weekly FaceTime'},
+      {label:'Year of real connection'},
+      {label:'Relationships held'},
+    ]},
+];
+
+const SYNCS = [
+  ['content','fortify','var(--c-content)'],
+  ['content','rebuild','var(--c-content)'],
+  ['content','reckoning','var(--c-content)'],
+  ['rebuild','fortify','var(--c-rebuild)'],
+  ['fortify','reckoning','var(--c-fortify)'],
+  ['career','acq','var(--c-career)'],
+  ['fractional','acq','var(--c-fractional)'],
+];
+
+function daysFrom(ds){
+  return Math.round((new Date(ds)-TODAY)/(1000*60*60*24));
+}
+function fmtDays(d){
+  if(d<0) return 'overdue';
+  if(d===0) return 'TODAY';
+  return d+'d';
+}
+function fmtMoney(n){
+  if(!n) return '$0';
+  if(n>=1000000) return '$'+(n/1000000).toFixed(1)+'M';
+  if(n>=1000) return '$'+Math.round(n/1000)+'k';
+  return '$'+n;
+}
+
+// Date
+const dateStr = TODAY.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+document.getElementById('print-date').textContent = dateStr;
+document.getElementById('footer-date').textContent = 'April 2026';
+
+// Revenue
+const t = REVENUE.target;
+document.getElementById('p-recognized').textContent = fmtMoney(REVENUE.recognized);
+document.getElementById('p-contracted').textContent = fmtMoney(REVENUE.contracted);
+document.getElementById('p-pipeline').textContent = fmtMoney(REVENUE.pipeline);
+document.getElementById('p-bar-recognized').style.width = Math.min(100,(REVENUE.recognized/t)*100)+'%';
+document.getElementById('p-bar-contracted').style.width = Math.min(100,((REVENUE.recognized+REVENUE.contracted)/t)*100)+'%';
+document.getElementById('p-bar-pipeline').style.width = Math.min(100,((REVENUE.recognized+REVENUE.contracted+REVENUE.pipeline)/t)*100)+'%';
+
+// Cards
+const grid = document.getElementById('print-grid');
+
+PILLARS.forEach(p => {
+  const days = daysFrom(p.hinge.date);
+  const card = document.createElement('div');
+  card.className = 'card ' + p.cls;
+  card.setAttribute('data-id', p.id);
+
+  const msHtml = p.milestones.map(m => {
+    const cls = m.done ? 'done' : m.hinge ? 'hinge' : m.blocked ? 'blocked' : 'pending';
+    const tick = m.done ? '✓' : m.hinge ? '⚡' : '';
+    return `<div class="ms-item">
+      <div class="ms-mark ${cls}">${tick}</div>
+      <span class="ms-label ${m.done?'done':''}">${m.label}</span>
+      ${m.hinge && p.hinge.n ? `<span class="ms-badge">H${p.hinge.n}</span>` : ''}
+    </div>`;
+  }).join('');
+
+  const revHtml = p.revenue.target > 0
+    ? `<div class="card-rev">
+        <span class="rev-rec" style="color:${p.color}">${fmtMoney(p.revenue.recognized)}</span>
+        <span class="rev-sep">/</span>
+        <span class="rev-tgt">${fmtMoney(p.revenue.target)}</span>
+        <span style="color:var(--ink3);font-size:0.055in;margin-left:0.02in">${p.revenue.label}</span>
+       </div>`
+    : `<div class="card-rev"><span style="color:var(--ink3)">${p.revenue.label}</span></div>`;
+
+  card.innerHTML = `
+    <div class="card-top">
+      <div class="card-title-row">
+        <span class="card-icon">${p.icon}</span>
+        <span class="card-name" style="color:${p.color}">${p.name}</span>
+      </div>
+      <span class="card-status status-${p.status}"></span>
+    </div>
+    <div class="card-sub">${p.sub}</div>
+    <div class="prog-row">
+      <div class="prog-bar"><div class="prog-fill" style="background:${p.color};width:${p.completion}%"></div></div>
+      <span class="prog-pct" style="color:${p.color}">${p.completion}%</span>
+    </div>
+    <div class="prog-phase">${p.phase}</div>
+    ${revHtml}
+    <div class="milestones">${msHtml}</div>
+    <div class="card-hinge">
+      <span class="hinge-bolt">⚡</span>
+      <span class="hinge-text">${p.hinge.label}${p.hinge.n?' (H'+p.hinge.n+')':''}</span>
+      <span class="hinge-days ${days<30?'urgent':''}">${fmtDays(days)}</span>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+
+// Legend
+const legEl = document.getElementById('footer-legend');
+legEl.innerHTML = PILLARS.map(p =>
+  `<div class="leg"><div class="leg-dot" style="background:${p.color}"></div>${p.name}</div>`
+).join('');
+
+// Sync lines
+requestAnimationFrame(() => {
+  const svg = document.getElementById('sync-svg');
+  const gridRect = grid.getBoundingClientRect();
+
+  const centers = {};
+  grid.querySelectorAll('.card').forEach(c => {
+    const r = c.getBoundingClientRect();
+    centers[c.getAttribute('data-id')] = {
+      x: r.left - gridRect.left + r.width/2,
+      y: r.top  - gridRect.top  + r.height/2,
+    };
+  });
+
+  svg.setAttribute('viewBox', `0 0 ${gridRect.width} ${gridRect.height}`);
+
+  SYNCS.forEach(([from, to, color]) => {
+    const a = centers[from], b = centers[to];
+    if(!a||!b) return;
+    const mx=(a.x+b.x)/2, my=(a.y+b.y)/2;
+    const dx=b.x-a.x, dy=b.y-a.y;
+    const cx=mx-dy*0.15, cy=my+dx*0.15;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d',`M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}`);
+    path.setAttribute('fill','none');
+    path.setAttribute('stroke', color.replace('var(--c-','').replace(')',''));
+    path.setAttribute('stroke-width','1');
+    path.setAttribute('opacity','0.3');
+    path.setAttribute('stroke-dasharray','3 2');
+    svg.appendChild(path);
+  });
+});
+</script>
+</body>
+</html>
