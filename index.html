@@ -56,6 +56,36 @@
   .item-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
   /* Nav interstitial link */
   .nav-link-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; background: var(--bg3); border: 1.5px solid var(--border2); border-radius: 99px; padding: 8px 16px; font-size: 13px; font-weight: 700; color: var(--text2); cursor: pointer; font-family: -apple-system, sans-serif; -webkit-appearance: none; transition: all .15s; }
+
+  /* ── BRIEF TAB ── */
+  .brief-wrap { padding: 0 0 100px; }
+  .brief-morning { background: linear-gradient(135deg,#111009 0%,#1c1a0e 60%,#0d110d 100%); padding: 22px 20px 18px; }
+  .brief-greeting { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.4px; margin-bottom: 3px; }
+  .brief-subline { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+  .brief-updated { font-size: 12px; color: rgba(255,255,255,0.3); font-style: italic; }
+  .brief-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 20px; }
+  .brief-section-title { font-size: 11px; font-weight: 800; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .brief-items { display: flex; flex-direction: column; gap: 8px; }
+  .brief-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; display: flex; align-items: flex-start; gap: 10px; }
+  .brief-item-bar { width: 3px; border-radius: 2px; flex-shrink: 0; margin-top: 2px; align-self: stretch; min-height: 20px; }
+  .brief-item-bar.urgent { background: #ff4444; }
+  .brief-item-bar.week   { background: #a06010; }
+  .brief-item-bar.ready  { background: var(--teal); }
+  .brief-item-bar.draft  { background: var(--blue); }
+  .brief-item-content { flex: 1; min-width: 0; }
+  .brief-item-text { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.3; margin-bottom: 3px; }
+  .brief-item-sub  { font-size: 13px; color: var(--text3); line-height: 1.3; }
+  .brief-item-jer  { font-size: 11px; font-weight: 700; color: var(--text3); background: var(--bg3); border-radius: 4px; padding: 1px 6px; white-space: nowrap; align-self: flex-start; margin-top: 1px; flex-shrink: 0; }
+  .brief-social-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .brief-social-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .brief-social-n { font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+  .brief-social-l { font-size: 10px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 3px; }
+  .brief-loading { color: var(--text3); font-size: 14px; font-style: italic; }
+  .brief-empty { color: var(--text3); font-size: 14px; }
+  .brief-dash-btn { width: 100%; padding: 14px 16px; background: #111009; border: 1.5px solid rgba(255,255,255,0.12); border-radius: 12px; font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.8); cursor: pointer; font-family: -apple-system, sans-serif; -webkit-appearance: none; display: flex; align-items: center; justify-content: space-between; }
+  .brief-dash-btn:active { opacity: 0.8; }
+  /* Dashboard nav button in header */
+  .header-nav-btn { font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 99px; border: 1.5px solid var(--border2); background: var(--bg2); color: var(--text2); cursor: pointer; font-family: -apple-system, sans-serif; -webkit-appearance: none; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
   .nav-link-btn:active { background: var(--border2); }
   /* Wealth Hour card */
   .wealth-focus-card { background: var(--gold-bg); border: 1.5px solid rgba(139,105,20,0.25); border-radius: var(--radius-sm); padding: 14px 16px; margin-bottom: 14px; }
@@ -367,9 +397,10 @@
 </head>
 <body>
 <div class="header">
-  <div class="header-top"><h1>My Day!</h1><span class="date" id="today-date"></span></div>
+  <div class="header-top"><h1>My Day!</h1><span class="date" id="today-date"></span><a class="header-nav-btn" href="roadmap.html">🗺 Dashboard</a></div>
   <div class="tabs">
-    <button class="tab active" onclick="showView('timeline', this)">My Day</button>
+    <button class="tab active" onclick="showView('brief', this)">📡 Brief</button>
+    <button class="tab" onclick="showView('timeline', this)">My Day</button>
     <button class="tab" onclick="showView('stretch', this)">Stretch &amp; Breathe</button>
     <button class="tab" onclick="showView('workout', this)">Workout</button>
     <button class="tab" onclick="showView('meals', this)">Meals</button>
@@ -382,7 +413,44 @@
   </div>
 </div>
 
-<div id="timeline" class="view active">
+<div id="brief" class="view active">
+  <div class="brief-wrap">
+    <div class="brief-morning">
+      <div class="brief-greeting">Good morning, J.</div>
+      <div class="brief-subline" id="brief-date-line"></div>
+      <div class="brief-updated" id="brief-updated-line">Loading…</div>
+    </div>
+    <div class="brief-body">
+
+      <div class="brief-section">
+        <div class="brief-section-title">⚡ Right Now</div>
+        <div class="brief-items" id="brief-right-now"><div class="brief-loading">Loading…</div></div>
+      </div>
+
+      <div class="brief-section">
+        <div class="brief-section-title">📡 Content Due</div>
+        <div class="brief-items" id="brief-content-due"><div class="brief-loading">Loading…</div></div>
+      </div>
+
+      <div class="brief-section">
+        <div class="brief-section-title">🤝 Follow-Up Radar</div>
+        <div class="brief-items" id="brief-follow-up"><div class="brief-loading">Loading…</div></div>
+      </div>
+
+      <div class="brief-section">
+        <div class="brief-section-title">📊 Social Pulse</div>
+        <div id="brief-social"><div class="brief-loading">Loading…</div></div>
+      </div>
+
+      <button class="brief-dash-btn" onclick="window.location.href='roadmap.html'">
+        <span>🗺 Open Master Dashboard</span>
+        <span style="opacity:0.5">→</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="timeline" class="view">
   <div class="rn-hero" id="rn-hero">
     <div class="rn-label" id="rn-label">Right now</div>
     <div class="rn-title" id="rn-title">Loading…</div>
@@ -1324,6 +1392,74 @@
     c.querySelectorAll('.shop-item').forEach(function(item) { item.classList.remove('checked'); item.querySelector('.shop-cb').textContent = ''; });
     shopUpdateProgress(store);
   }
+
+  // ── DAILY BRIEF ─────────────────────────────────────────────
+  function fmtBriefDate(d) {
+    return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  }
+  function renderBrief(data) {
+    var now = new Date();
+    document.getElementById('brief-date-line').textContent = fmtBriefDate(now);
+    if (data.generated) {
+      var g = new Date(data.generated);
+      var gStr = g.toLocaleString('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',hour12:true}) + ' PT';
+      document.getElementById('brief-updated-line').textContent = 'Brief updated at ' + gStr;
+    } else {
+      document.getElementById('brief-updated-line').textContent = '';
+    }
+    var rnEl = document.getElementById('brief-right-now');
+    if (data.rightNow && data.rightNow.length) {
+      rnEl.innerHTML = data.rightNow.map(function(item) {
+        return '<div class="brief-item"><div class="brief-item-bar ' + item.urgency + '"></div><div class="brief-item-content"><div class="brief-item-text">' + item.text + '</div><div class="brief-item-sub">' + (item.pillar||'') + '</div></div>' + (item.jer ? '<div class="brief-item-jer">' + item.jer + '</div>' : '') + '</div>';
+      }).join('');
+    } else {
+      rnEl.innerHTML = '<div class="brief-empty">Nothing urgent. ✓</div>';
+    }
+    var cdEl = document.getElementById('brief-content-due');
+    if (data.contentDue && data.contentDue.length) {
+      cdEl.innerHTML = data.contentDue.map(function(item) {
+        var bc = item.status === 'Ready to post' ? 'ready' : 'draft';
+        return '<div class="brief-item"><div class="brief-item-bar ' + bc + '"></div><div class="brief-item-content"><div class="brief-item-text">' + item.title + '</div><div class="brief-item-sub">' + (item.platform||'') + (item.due ? ' · ' + item.due : '') + (item.status ? ' · ' + item.status : '') + '</div></div></div>';
+      }).join('');
+    } else {
+      cdEl.innerHTML = '<div class="brief-empty">No content due this week.</div>';
+    }
+    var fuEl = document.getElementById('brief-follow-up');
+    if (data.followUpRadar && data.followUpRadar.length) {
+      fuEl.innerHTML = data.followUpRadar.map(function(item) {
+        var urg = item.days > 20 ? 'urgent' : 'week';
+        return '<div class="brief-item"><div class="brief-item-bar ' + urg + '"></div><div class="brief-item-content"><div class="brief-item-text">' + item.name + '</div><div class="brief-item-sub">' + item.days + 'd since contact' + (item.why ? ' · ' + item.why : '') + '</div></div></div>';
+      }).join('');
+    } else {
+      fuEl.innerHTML = '<div class="brief-empty">No overdue follow-ups. ✓</div>';
+    }
+    var sp = data.socialPulse || {};
+    var spEl = document.getElementById('brief-social');
+    spEl.innerHTML = '<div class="brief-social-grid">' + [
+      ['Substack',  sp.substack  && sp.substack.subscribers  != null ? sp.substack.subscribers  : (sp.substack && sp.substack.posts ? sp.substack.posts + ' posts' : '—')],
+      ['LinkedIn',  sp.linkedin  && sp.linkedin.followers   != null ? sp.linkedin.followers.toLocaleString()   : '—'],
+      ['Instagram', sp.instagram && sp.instagram.followers  != null ? sp.instagram.followers.toLocaleString()  : '—'],
+      ['Bluesky',   sp.bluesky   && sp.bluesky.followers    != null ? sp.bluesky.followers.toLocaleString()    : '—'],
+      ['YouTube',   sp.youtube   && sp.youtube.subscribers  != null ? sp.youtube.subscribers.toLocaleString()  : '—'],
+    ].map(function(p){return '<div class="brief-social-card"><div class="brief-social-n">'+p[1]+'</div><div class="brief-social-l">'+p[0]+'</div></div>';}).join('') + '</div>';
+  }
+  function loadBrief() {
+    if (document.getElementById('brief-date-line')) {
+      document.getElementById('brief-date-line').textContent = fmtBriefDate(new Date());
+    }
+    fetch('./daily-data.json?t=' + Date.now())
+      .then(function(r){ return r.ok ? r.json() : Promise.reject('not found'); })
+      .then(function(data){ renderBrief(data); })
+      .catch(function(){
+        document.getElementById('brief-updated-line').textContent = 'Brief unavailable — check connection';
+        document.getElementById('brief-right-now').innerHTML = '<div class="brief-empty">Open Linear for today’s priorities.</div>';
+        document.getElementById('brief-content-due').innerHTML = '<div class="brief-empty">Open Notion Content Calendar.</div>';
+        document.getElementById('brief-follow-up').innerHTML = '<div class="brief-empty">Open Notion Connections.</div>';
+        document.getElementById('brief-social').innerHTML = '';
+      });
+  }
+  loadBrief();
+
 
   // Admin
   function adminOpen(listName) { window.location.href = 'x-apple-reminderkit://'; }
