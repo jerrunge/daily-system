@@ -1,56 +1,25 @@
 {
-  "generated": "2026-04-22T16:00:00.000000Z",
-  "generatedPT": "9:00 AM PT",
-  "rightNow": [
-    {
-      "urgency": "urgent",
-      "text": "Levi\u2019s — Catherine Dobbs follow-up",
-      "jer": "JER-12",
-      "pillar": "Career"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Robert Cuillard — follow-up by April 24 (no pitch)",
-      "jer": "JER-126",
-      "pillar": "Wealth Stack"
-    },
-    {
-      "urgency": "urgent",
-      "text": "X take 3: \u201cquiet killer\u201d + subscribe ask",
-      "jer": "JER-142",
-      "pillar": "Wealth Stack"
-    }
-  ],
-  "contentDue": [
-    {
-      "title": "Friday X Thread \u2014 insight from the week",
-      "platform": "X",
-      "status": "Draft",
-      "due": "2026-04-25"
-    }
-  ],
-  "followUpRadar": [
-    {
-      "name": "Gabe Salinas",
-      "days": 26,
-      "why": "Meet at Soul Grind \u2014 follow up, this note is stale."
-    },
-    {
-      "name": "Robert Cuillard",
-      "days": 5,
-      "why": "Listening conversation done April 17. Follow-up April 24. Coaching pipeline."
-    },
-    {
-      "name": "John Terrana (JT)",
-      "days": 1,
-      "why": "Texted 4/21. Assistant coordinating time to connect next week. GoPuff alum."
-    }
-  ],
+  "generated": "2026-04-22T16:13:11.813919Z",
+  "generatedPT": "9:13 AM PT",
+  "rightNow": [],
+  "contentDue": [],
+  "followUpRadar": [],
   "socialPulse": {
-    "substack":  {"subscribers": null, "posts": null},
-    "linkedin":  {"followers": null},
-    "instagram": {"followers": null},
-    "bluesky":   {"followers": null},
-    "youtube":   {"subscribers": null}
+    "substack": {
+      "subscribers": null,
+      "posts": null
+    },
+    "linkedin": {
+      "followers": null
+    },
+    "instagram": {
+      "followers": null
+    },
+    "bluesky": {
+      "followers": null
+    },
+    "youtube": {
+      "subscribers": null
+    }
   }
 }
