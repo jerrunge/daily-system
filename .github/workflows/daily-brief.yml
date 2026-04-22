@@ -5,11 +5,17 @@ on:
     - cron: '20 13 * * *'   # 6:20am PT (13:20 UTC). Notion auto-updates at 6am PT; 20-min buffer.
   workflow_dispatch:          # Manual trigger: Actions → Run workflow
 
+permissions:
+  contents: write             # Required for git push
+
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pip install requests --quiet
 
       - name: Generate daily-data.json
         env:
@@ -29,16 +35,23 @@ jobs:
           today_str = today.isoformat()
           now_utc   = datetime.datetime.utcnow().isoformat() + 'Z'
 
+          # Dynamic PT timestamp
+          now_pt_hour = (datetime.datetime.utcnow().hour - 7) % 24
+          now_pt_min  = datetime.datetime.utcnow().minute
+          ampm        = 'AM' if now_pt_hour < 12 else 'PM'
+          hr12        = now_pt_hour % 12 or 12
+          generated_pt = f'{hr12}:{now_pt_min:02d} {ampm} PT'
+
           notion_h = {
             'Authorization': f'Bearer {NOTION_TOKEN}',
             'Notion-Version': '2022-06-28',
             'Content-Type': 'application/json'
           }
 
-          # ── 1. LINEAR: In Progress issues ──────────────────────────────
+          # -- 1. LINEAR: In Progress issues
           right_now = []
           if LINEAR_KEY:
-            q = '''{ issues(filter:{state:{type:{in:["started"]}},team:{name:{eq:"Jerrunge"}}},first:30,orderBy:updatedAt){nodes{identifier title priority dueDate state{name type} labels{nodes{name}} project{name}}}}'''
+            q = '{ issues(filter:{state:{type:{in:["started"]}},team:{name:{eq:"Jerrunge"}}},first:30,orderBy:updatedAt){nodes{identifier title priority dueDate state{name type} labels{nodes{name}} project{name}}}}'
             try:
               r = requests.post('https://api.linear.app/graphql',
                 json={'query': q},
@@ -52,12 +65,12 @@ jobs:
                 dd = issue.get('dueDate','') or ''
                 if dd and dd <= today_str: urgency = 'urgent'
                 proj = (issue.get('project') or {}).get('name','')
-                proj = proj.replace('💰 ','').replace('💼 ','').replace('⚙️ ','')
+                proj = proj.replace('\U0001f4b0 ','').replace('\U0001f4bc ','').replace('\u2699\ufe0f ','')
                 right_now.append({'urgency':urgency,'text':issue['title'],'jer':issue['identifier'],'pillar':proj})
             except Exception as e:
               print(f'Linear error: {e}', file=sys.stderr)
 
-          # ── 2. NOTION: Content due this week ───────────────────────────
+          # -- 2. NOTION: Content due this week
           content_due = []
           if NOTION_TOKEN:
             try:
@@ -75,7 +88,6 @@ jobs:
                 due = date_obj.get('start','')[:10] if date_obj else ''
                 plat_sel = props.get('Platform',{}).get('select') or {}
                 platform = plat_sel.get('name','')
-                # Status can be select or status type
                 stat_obj = props.get('Status',{})
                 stat_sel = stat_obj.get('status') or stat_obj.get('select') or {}
                 status = stat_sel.get('name','') if isinstance(stat_sel,dict) else ''
@@ -85,7 +97,7 @@ jobs:
             except Exception as e:
               print(f'Notion content error: {e}', file=sys.stderr)
 
-          # ── 3. NOTION: Follow-up radar ─────────────────────────────────
+          # -- 3. NOTION: Follow-up radar
           follow_up = []
           if NOTION_TOKEN:
             try:
@@ -106,10 +118,10 @@ jobs:
             except Exception as e:
               print(f'Notion connections error: {e}', file=sys.stderr)
 
-          # ── 4. Write JSON ───────────────────────────────────────────────
+          # -- 4. Write JSON
           output = {
             'generated': now_utc,
-            'generatedPT': '6:20 AM PT',
+            'generatedPT': generated_pt,
             'rightNow': right_now,
             'contentDue': content_due,
             'followUpRadar': follow_up,
