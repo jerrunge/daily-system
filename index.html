@@ -57,7 +57,7 @@
   /* Nav interstitial link */
   .nav-link-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; background: var(--bg3); border: 1.5px solid var(--border2); border-radius: 99px; padding: 8px 16px; font-size: 13px; font-weight: 700; color: var(--text2); cursor: pointer; font-family: -apple-system, sans-serif; -webkit-appearance: none; transition: all .15s; }
 
-  /* ── BRIEF TAB ── */
+  /* ââ BRIEF TAB ââ */
   .brief-wrap { padding: 0 0 100px; }
   .brief-morning { background: linear-gradient(135deg,#111009 0%,#1c1a0e 60%,#0d110d 100%); padding: 22px 20px 18px; }
   .brief-greeting { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.4px; margin-bottom: 3px; }
@@ -397,9 +397,9 @@
 </head>
 <body>
 <div class="header">
-  <div class="header-top"><h1>My Day!</h1><span class="date" id="today-date"></span><a class="header-nav-btn" href="roadmap.html">🗺 Dashboard</a></div>
+  <div class="header-top"><h1>My Day!</h1><span class="date" id="today-date"></span><a class="header-nav-btn" href="roadmap.html">ðº Dashboard</a></div>
   <div class="tabs">
-    <button class="tab active" onclick="showView('brief', this)">📡 Brief</button>
+    <button class="tab active" onclick="showView('brief', this)">ð¡ Brief</button>
     <button class="tab" onclick="showView('timeline', this)">My Day</button>
     <button class="tab" onclick="showView('stretch', this)">Stretch &amp; Breathe</button>
     <button class="tab" onclick="showView('workout', this)">Workout</button>
@@ -418,33 +418,33 @@
     <div class="brief-morning">
       <div class="brief-greeting">Good morning, J.</div>
       <div class="brief-subline" id="brief-date-line"></div>
-      <div class="brief-updated" id="brief-updated-line">Loading…</div>
+      <div class="brief-updated" id="brief-updated-line">Loadingâ¦</div>
     </div>
     <div class="brief-body">
 
       <div class="brief-section">
-        <div class="brief-section-title">⚡ Right Now</div>
-        <div class="brief-items" id="brief-right-now"><div class="brief-loading">Loading…</div></div>
+        <div class="brief-section-title">â¡ Right Now</div>
+        <div class="brief-items" id="brief-right-now"><div class="brief-loading">Loadingâ¦</div></div>
       </div>
 
       <div class="brief-section">
-        <div class="brief-section-title">📡 Content Due</div>
-        <div class="brief-items" id="brief-content-due"><div class="brief-loading">Loading…</div></div>
+        <div class="brief-section-title">ð¡ Content Due</div>
+        <div class="brief-items" id="brief-content-due"><div class="brief-loading">Loadingâ¦</div></div>
       </div>
 
       <div class="brief-section">
-        <div class="brief-section-title">🤝 Follow-Up Radar</div>
-        <div class="brief-items" id="brief-follow-up"><div class="brief-loading">Loading…</div></div>
+        <div class="brief-section-title">ð¤ Follow-Up Radar</div>
+        <div class="brief-items" id="brief-follow-up"><div class="brief-loading">Loadingâ¦</div></div>
       </div>
 
       <div class="brief-section">
-        <div class="brief-section-title">📊 Social Pulse</div>
-        <div id="brief-social"><div class="brief-loading">Loading…</div></div>
+        <div class="brief-section-title">ð Social Pulse</div>
+        <div id="brief-social"><div class="brief-loading">Loadingâ¦</div></div>
       </div>
 
       <button class="brief-dash-btn" onclick="window.location.href='roadmap.html'">
-        <span>🗺 Open Master Dashboard</span>
-        <span style="opacity:0.5">→</span>
+        <span>ðº Open Master Dashboard</span>
+        <span style="opacity:0.5">â</span>
       </button>
     </div>
   </div>
@@ -453,12 +453,12 @@
 <div id="timeline" class="view">
   <div class="rn-hero" id="rn-hero">
     <div class="rn-label" id="rn-label">Right now</div>
-    <div class="rn-title" id="rn-title">Loading…</div>
+    <div class="rn-title" id="rn-title">Loadingâ¦</div>
     <div class="rn-desc" id="rn-desc"></div>
     <div class="rn-timebar"><div class="rn-timefill" id="rn-timefill" style="width:0%"></div></div>
     <div class="rn-next" id="rn-next"></div>
     <div class="rn-actions">
-      <button class="rn-done" id="rn-done-btn" onclick="rnMarkDone()">✓ Mark this done</button>
+      <button class="rn-done" id="rn-done-btn" onclick="rnMarkDone()">â Mark this done</button>
       <button class="rn-mvd" onclick="activateMVD()">Just 3 things</button>
     </div>
   </div>
@@ -477,7 +477,7 @@
     </div>
   </div>
   <div class="mvd-banner" id="mvd-banner">
-    <span>Just 3 things mode — you’ve got this</span>
+    <span>Just 3 things mode â youâve got this</span>
     <span class="mvd-exit" onclick="deactivateMVD()">Show all</span>
   </div>
   <div class="legend">
@@ -490,7 +490,7 @@
     <div class="leg-item"><div class="leg-dot" style="background:var(--pink)"></div>Community</div>
     <div class="leg-item"><div class="leg-dot" style="background:var(--gray)"></div>Close</div>
   </div>
-  <p class="hint">Tap any block to expand · tap ✓ to complete</p>
+  <p class="hint">Tap any block to expand Â· tap â to complete</p>
   <div id="phases-container"></div>
 </div>
 
@@ -511,12 +511,12 @@
       <div class="admin-capture-hint" id="admin-capture-hint">Type a task, then tap the category to copy &amp; open Reminders</div>
     </div>
     <div class="admin-section-title" style="margin-top:20px">Open in Reminders</div>
-    <div class="admin-launcher" onclick="adminOpen('Maddy')"><div class="admin-launcher-dot" style="background:var(--coral)"></div><div class="admin-launcher-body"><div class="admin-launcher-title">Maddy</div><div class="admin-launcher-sub">SSI - conservatorship - appointments - paperwork</div></div><div class="admin-launcher-arrow">→</div></div>
-    <div class="admin-launcher" onclick="adminOpen('Medical')"><div class="admin-launcher-dot" style="background:var(--blue)"></div><div class="admin-launcher-body"><div class="admin-launcher-title">Medical</div><div class="admin-launcher-sub">Appointments - follow-ups - prescriptions</div></div><div class="admin-launcher-arrow">→</div></div>
-    <div class="admin-launcher" onclick="adminOpen('Financial')"><div class="admin-launcher-dot" style="background:var(--amber)"></div><div class="admin-launcher-body"><div class="admin-launcher-title">Financial</div><div class="admin-launcher-sub">Bills - debt - accounts - anything money</div></div><div class="admin-launcher-arrow">→</div></div>
-    <div class="admin-launcher" onclick="adminOpen('Career')"><div class="admin-launcher-dot" style="background:var(--teal)"></div><div class="admin-launcher-body"><div class="admin-launcher-title">Career</div><div class="admin-launcher-sub">Applications - follow-ups - prep - networking</div></div><div class="admin-launcher-arrow">→</div></div>
-    <div class="admin-launcher" onclick="adminOpen('Life Stuff')"><div class="admin-launcher-dot" style="background:var(--purple)"></div><div class="admin-launcher-body"><div class="admin-launcher-title">Life Stuff</div><div class="admin-launcher-sub">DMV - registration - house - everything else</div></div><div class="admin-launcher-arrow">→</div></div>
-    <div class="note-box" style="margin-top:20px; font-size:13px"><strong>How to add to home screen:</strong> In Safari, tap Share → Add to Home Screen.</div>
+    <div class="admin-launcher" onclick="adminOpen('Maddy')"><div class="admin-launcher-dot" style="background:var(--coral)"></div><div class="admin-launcher-body"><div class="admin-launcher-title">Maddy</div><div class="admin-launcher-sub">SSI - conservatorship - appointments - paperwork</div></div><div class="admin-launcher-arrow">â</div></div>
+    <div class="admin-launcher" onclick="adminOpen('Medical')"><div class="admin-launcher-dot" style="background:var(--blue)"></div><div class="admin-launcher-body"><div class="admin-launcher-title">Medical</div><div class="admin-launcher-sub">Appointments - follow-ups - prescriptions</div></div><div class="admin-launcher-arrow">â</div></div>
+    <div class="admin-launcher" onclick="adminOpen('Financial')"><div class="admin-launcher-dot" style="background:var(--amber)"></div><div class="admin-launcher-body"><div class="admin-launcher-title">Financial</div><div class="admin-launcher-sub">Bills - debt - accounts - anything money</div></div><div class="admin-launcher-arrow">â</div></div>
+    <div class="admin-launcher" onclick="adminOpen('Career')"><div class="admin-launcher-dot" style="background:var(--teal)"></div><div class="admin-launcher-body"><div class="admin-launcher-title">Career</div><div class="admin-launcher-sub">Applications - follow-ups - prep - networking</div></div><div class="admin-launcher-arrow">â</div></div>
+    <div class="admin-launcher" onclick="adminOpen('Life Stuff')"><div class="admin-launcher-dot" style="background:var(--purple)"></div><div class="admin-launcher-body"><div class="admin-launcher-title">Life Stuff</div><div class="admin-launcher-sub">DMV - registration - house - everything else</div></div><div class="admin-launcher-arrow">â</div></div>
+    <div class="note-box" style="margin-top:20px; font-size:13px"><strong>How to add to home screen:</strong> In Safari, tap Share â Add to Home Screen.</div>
   </div>
 </div>
 
@@ -710,7 +710,7 @@
 <!-- WORKOUT (original unchanged) -->
 <div id="workout" class="view">
   <div class="wo-wrap">
-    <div class="note-box" style="margin-bottom:14px">6-day Push / Pull / Legs — 8 Hevy templates (Smith + No Smith alternates Mon/Wed/Fri). Shoulder cleared — barbell and Smith now in rotation. Main compounds: 4x6-8 near failure. Accessories: 3x10-15. Supersets by station only — no gym-crossing. Log unilateral reps doubled. Log cable bilateral as combined stack weight. Updated April 18, 2026.</div>
+    <div class="note-box" style="margin-bottom:14px">6-day Push / Pull / Legs â 8 Hevy templates (Smith + No Smith alternates Mon/Wed/Fri). Shoulder cleared â barbell and Smith now in rotation. Main compounds: 4x6-8 near failure. Accessories: 3x10-15. Supersets by station only â no gym-crossing. Log unilateral reps doubled. Log cable bilateral as combined stack weight. Updated April 18, 2026.</div>
     <div style="display:flex;gap:6px;margin-bottom:12px;">
       <button id="wmode-program" style="flex:1;padding:9px;border-radius:8px;border:1.5px solid var(--text);background:var(--text);color:#fff;font-weight:700;font-size:13px;font-family:-apple-system,sans-serif;cursor:pointer;" onclick="woMode('program')">Program</button>
       <button id="wmode-progression" style="flex:1;padding:9px;border-radius:8px;border:1.5px solid var(--border2);background:transparent;color:var(--text2);font-weight:700;font-size:13px;font-family:-apple-system,sans-serif;cursor:pointer;" onclick="woMode('progression')">Progression</button>
@@ -729,12 +729,12 @@
       <button class="wo-dtab legs" onclick="woDay(5,this)">Legs B</button>
       <button class="wo-dtab rest" onclick="woDay(6,this)">Rest</button>
     </div>
-    <div class="wo-day active" id="wod-0"><div class="wo-day-hdr"><div class="wo-day-title">Monday — Push A (Smith / No Smith)</div><div class="wo-day-sub">Chest - Shoulders - Core - ~58 min — Hevy: "Monday - Push A (Smith)" or "(No Smith)"</div></div><div class="wo-warmup">Station 1 — Smith Machine (or Chest Press Machine solo)</div><div class="wo-section-lbl">Main Compound — Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Smith Machine Bench Press</div><div class="wo-ex-muscle">Mid/upper pec — 1x10 warmup @ 90lbs, then 4x6-8 @ 135lbs</div></div><div class="wo-ex-sets">4 x 6-8</div></div><div class="wo-section-lbl">Station 2 — DB Bench Area (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Incline DB Press → Rotator Cuff External Rotation</div><div class="wo-ex-muscle">Upper pec + shoulder health. 45lbs / 7.5lbs. Never skip the ER.</div></div><div class="wo-ex-sets">3 x 10-12 / 2 x 15</div></div><div class="wo-section-lbl">Station 3 — Chest/Delt Fly Machine (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Chest Fly Machine → Rear Delt Fly Machine</div><div class="wo-ex-muscle">Full pec peak contraction + posterior delt. 100lbs / 90lbs.</div></div><div class="wo-ex-sets">3 x 12-15 / 3 x 15</div></div><div class="wo-section-lbl">Station 4 — Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Fly Crossovers → Low Cable Fly Crossovers</div><div class="wo-ex-muscle">Mid pec + lower pec. Log TOTAL combined stacks. 60lbs / 40lbs combined.</div></div><div class="wo-ex-sets">3 x 12-15 each</div></div><div class="wo-section-lbl">Station 5 — Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Face Pull → Cable Lateral Raise</div><div class="wo-ex-muscle">Rear delt + medial delt. 25lbs / 40lbs combined. Log combined for laterals.</div></div><div class="wo-ex-sets">3 x 15 each</div></div><div class="wo-section-lbl">Station 6 — Cable</div><div class="wo-ex"><div><div class="wo-ex-name">Pallof Press</div><div class="wo-ex-muscle">Anti-rotation core. 40lbs. 12 each side = 24 reps logged per set.</div></div><div class="wo-ex-sets">3 x 24</div></div></div>
-    <div class="wo-day" id="wod-1"><div class="wo-day-hdr"><div class="wo-day-title">Tuesday — Pull A</div><div class="wo-day-sub">Back - Biceps - Core - ~60 min — Hevy: "Tuesday - Pull A"</div></div><div class="wo-warmup">Station 1 — Assisted Pull-Up Machine</div><div class="wo-section-lbl">Main Compound — Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Assisted Pull-Ups</div><div class="wo-ex-muscle">Vertical pull — set assistance so last 2 reps are hard. Work toward less assistance over time.</div></div><div class="wo-ex-sets">4 x 6-8</div></div><div class="wo-section-lbl">Station 2 — DB Area (Tri-Set)</div><div class="wo-ex"><div><div class="wo-ex-name">DB Row → Chest Supported Incline Row → Kelso Shrugs</div><div class="wo-ex-muscle">Horizontal pull from 3 angles. 75lbs / 40lbs / 40lbs. Stay in DB area — flat bench, incline bench, flat bench.</div></div><div class="wo-ex-sets">4x8-10 / 3x12 / 3x12</div></div><div class="wo-section-lbl">Station 3 — Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Wide Grip Cable Row → Straight Arm Lat Pulldown</div><div class="wo-ex-muscle">Upper back + lat isolation. 140lbs / 50lbs. Same cable station.</div></div><div class="wo-ex-sets">3 x 10-12 / 3 x 15</div></div><div class="wo-section-lbl">Station 4 — Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Twist Up-to-Down → Cable Twist Down-to-Up</div><div class="wo-ex-muscle">Rotational core. 25lbs / 12.5lbs. 12 each side = 24 reps logged per set.</div></div><div class="wo-ex-sets">3 x 24 each</div></div><div class="wo-section-lbl">Station 5 — Back Extension + Ab Curl Rack (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Back Extension → Crunch Machine</div><div class="wo-ex-muscle">Lower back + anterior core. Bodyweight / 90lbs. Adjacent racks.</div></div><div class="wo-ex-sets">3 x 12 / 3 x 15</div></div></div>
-    <div class="wo-day" id="wod-2"><div class="wo-day-hdr"><div class="wo-day-title">Friday — Legs A (Smith / No Smith)</div><div class="wo-day-sub">Quads - Hamstrings - Core - ~57 min — Hevy: "Friday - Legs A (Smith)" or "(No Smith)"</div></div><div class="wo-warmup">Station 1 — Smith Machine (or Sled Leg Press solo — go heavy as anchor)</div><div class="wo-section-lbl">Main Compound — Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Smith Machine Squat</div><div class="wo-ex-muscle">Quads - glutes - core. 1x10 warmup @ 90lbs, then 4x6-8 @ 135lbs. Feet shoulder-width, sit back into it.</div></div><div class="wo-ex-sets">4 x 6-8</div></div><div class="wo-section-lbl">Station 2 — Sled Leg Press (Straight Sets)</div><div class="wo-ex"><div><div class="wo-ex-name">Sled Leg Press (45-plate style)</div><div class="wo-ex-muscle">Quad + glute volume. 200lbs. Full range, don't lock out knees.</div></div><div class="wo-ex-sets">3 x 8-10</div></div><div class="wo-section-lbl">Station 3 — Leg Extension + Leg Curl (Superset — Adjacent)</div><div class="wo-ex"><div><div class="wo-ex-name">Leg Extension → Seated Leg Curl</div><div class="wo-ex-muscle">Quad isolation + hamstring isolation. 160lbs each.</div></div><div class="wo-ex-sets">3 x 12-15 each</div></div><div class="wo-section-lbl">Station 4 — Hip Machine (Superset — Same Machine)</div><div class="wo-ex"><div><div class="wo-ex-name">Hip Abduction → Hip Adduction</div><div class="wo-ex-muscle">Glute med + inner thigh. 120lbs each. Flip the setting.</div></div><div class="wo-ex-sets">3 x 20 each</div></div><div class="wo-section-lbl">Station 5 — Back Extension + Ab Curl Rack (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Back Extension → Crunch Machine</div><div class="wo-ex-muscle">Lower back + anterior core. Bodyweight / 90lbs.</div></div><div class="wo-ex-sets">3 x 12 / 3 x 15</div></div></div>
-    <div class="wo-day" id="wod-3"><div class="wo-day-hdr"><div class="wo-day-title">Wednesday — Push B (Smith / No Smith)</div><div class="wo-day-sub">Shoulders - Chest - Core - ~57 min — Hevy: "Wednesday - Push B (Smith)" or "(No Smith)"</div></div><div class="wo-warmup">Station 1 — Smith Machine (or Shoulder Press Machine solo)</div><div class="wo-section-lbl">Main Compound — Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Smith Machine OHP</div><div class="wo-ex-muscle">Anterior + medial delt. 1x10 warmup @ 65lbs, then 4x6-8 @ 90lbs.</div></div><div class="wo-ex-sets">4 x 6-8</div></div><div class="wo-section-lbl">Station 2 — Decline Bench Area (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Decline DB Press → Rotator Cuff External Rotation</div><div class="wo-ex-muscle">Lower pec + shoulder health. 40lbs / 7.5lbs. Never skip the ER.</div></div><div class="wo-ex-sets">3 x 8-10 / 2 x 15</div></div><div class="wo-section-lbl">Station 3 — Assisted Dips Machine (Straight Sets)</div><div class="wo-ex"><div><div class="wo-ex-name">Assisted Dips</div><div class="wo-ex-muscle">Lower chest + tricep compound. Adjust assistance so last 2 reps are hard.</div></div><div class="wo-ex-sets">3 x 8-10</div></div><div class="wo-section-lbl">Station 4 — Chest/Delt Fly Machine (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Chest Fly Machine → Rear Delt Fly Machine</div><div class="wo-ex-muscle">Full pec + posterior delt. 100lbs / 90lbs.</div></div><div class="wo-ex-sets">3 x 12-15 / 3 x 15</div></div><div class="wo-section-lbl">Station 5 — Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Face Pull → Cable Lateral Raise</div><div class="wo-ex-muscle">Rear delt + medial delt. 25lbs / 40lbs combined.</div></div><div class="wo-ex-sets">3 x 15 each</div></div><div class="wo-section-lbl">Station 6 — Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Fly Crossovers → Low Cable Fly Crossovers</div><div class="wo-ex-muscle">Mid pec + lower pec. 60lbs / 40lbs combined.</div></div><div class="wo-ex-sets">3 x 12-15 each</div></div><div class="wo-section-lbl">Station 7 — Cable</div><div class="wo-ex"><div><div class="wo-ex-name">Pallof Press</div><div class="wo-ex-muscle">Anti-rotation core. 40lbs. 12 each side = 24 reps logged.</div></div><div class="wo-ex-sets">3 x 24</div></div></div>
-    <div class="wo-day" id="wod-4"><div class="wo-day-hdr"><div class="wo-day-title">Thursday — Pull B</div><div class="wo-day-sub">Back - Posterior Chain - Core - ~58 min — Hevy: "Thursday - Pull B"</div></div><div class="wo-warmup">Station 1 — Barbell Rack</div><div class="wo-section-lbl">Main Compound — Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Barbell Romanian Deadlift</div><div class="wo-ex-muscle">Hamstrings - glutes - lower back. 1x8 warmup @ 90lbs, then 4x6-8 @ 135lbs. Hinge hips, soft knee, bar close to legs.</div></div><div class="wo-ex-sets">4 x 6-8</div></div><div class="wo-section-lbl">Station 2 — DB Incline Bench Area (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Chest Supported Incline Row → Kelso Shrugs</div><div class="wo-ex-muscle">Mid back + mid/lower trap. 40lbs each. Same incline bench station.</div></div><div class="wo-ex-sets">3 x 12 each</div></div><div class="wo-section-lbl">Station 3 — Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Wide Grip Cable Row → Straight Arm Lat Pulldown</div><div class="wo-ex-muscle">Upper back + lat isolation. 140lbs / 50lbs. Same cable station.</div></div><div class="wo-ex-sets">3 x 10-12 / 3 x 15</div></div><div class="wo-section-lbl">Station 4 — Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Pull Through → Cable Crunch</div><div class="wo-ex-muscle">Glute/hamstring hip hinge + rectus abs. 32.5lbs each. Same cable station.</div></div><div class="wo-ex-sets">3 x 15 each</div></div><div class="wo-section-lbl">Station 5 — Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Twist Up-to-Down → Cable Twist Down-to-Up</div><div class="wo-ex-muscle">Rotational core. 25lbs / 12.5lbs. 12 each side = 24 reps logged.</div></div><div class="wo-ex-sets">3 x 24 each</div></div><div class="wo-section-lbl">Station 6 — Back Extension + Ab Curl Rack (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Back Extension → Crunch Machine</div><div class="wo-ex-muscle">Lower back + anterior core. Bodyweight / 90lbs.</div></div><div class="wo-ex-sets">3 x 12 / 3 x 15</div></div></div>
-    <div class="wo-day" id="wod-5"><div class="wo-day-hdr"><div class="wo-day-title">Saturday — Legs B</div><div class="wo-day-sub">Glutes - Posterior Chain - Core - ~58 min — Hevy: "Saturday - Legs B"</div></div><div class="wo-warmup">Station 1 — Glute Bridge Rack (adjacent to Sled Leg Press)</div><div class="wo-section-lbl">Main Compound — Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Barbell Hip Thrust</div><div class="wo-ex-muscle">Glute max — highest glute EMG of any exercise. 1x10 warmup @ 90lbs, then 4x8-10 @ 135lbs. Drive through heels, squeeze at top.</div></div><div class="wo-ex-sets">4 x 8-10</div></div><div class="wo-section-lbl">Station 2 — Sled Leg Press (Straight Sets)</div><div class="wo-ex"><div><div class="wo-ex-name">Sled Leg Press</div><div class="wo-ex-muscle">Quad + glute volume. 200lbs. Adjacent to glute bridge rack.</div></div><div class="wo-ex-sets">3 x 10-12</div></div><div class="wo-section-lbl">Station 3 — DB Area (Straight Sets)</div><div class="wo-ex"><div><div class="wo-ex-name">Single Leg Romanian Deadlift</div><div class="wo-ex-muscle">Glutes + hamstrings + balance. 40lbs. 10 each side = 20 reps logged per set.</div></div><div class="wo-ex-sets">3 x 20</div></div><div class="wo-section-lbl">Station 4 — Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Pull Through → Cable Glute Kickback</div><div class="wo-ex-muscle">Hip hinge + glute isolation. 32.5lbs / 10lbs. 15 each side = 30 reps logged for kickback.</div></div><div class="wo-ex-sets">3 x 15 / 3 x 30</div></div><div class="wo-section-lbl">Station 5 — Leg Extension + Leg Curl (Superset — Adjacent)</div><div class="wo-ex"><div><div class="wo-ex-name">Seated Leg Curl → Leg Extension</div><div class="wo-ex-muscle">Hamstring + quad isolation. 160lbs each.</div></div><div class="wo-ex-sets">3 x 15 each</div></div><div class="wo-section-lbl">Station 6 — Back Extension + Open Floor (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Reverse Lunge → Back Extension</div><div class="wo-ex-muscle">Quads/glutes + lower back. Bodyweight. 10 each side = 20 reps logged for lunge.</div></div><div class="wo-ex-sets">3 x 20 / 3 x 12</div></div><div class="wo-section-lbl">Station 7 — Open Floor (Finisher)</div><div class="wo-ex"><div><div class="wo-ex-name">Farmer's Walk</div><div class="wo-ex-muscle">Full body — grip, core, stabilizers. 88lbs each hand. 3 lengths.</div></div><div class="wo-ex-sets">3 x 50ft</div></div></div>
+    <div class="wo-day active" id="wod-0"><div class="wo-day-hdr"><div class="wo-day-title">Monday â Push A (Smith / No Smith)</div><div class="wo-day-sub">Chest - Shoulders - Core - ~58 min â Hevy: "Monday - Push A (Smith)" or "(No Smith)"</div></div><div class="wo-warmup">Station 1 â Smith Machine (or Chest Press Machine solo)</div><div class="wo-section-lbl">Main Compound â Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Smith Machine Bench Press</div><div class="wo-ex-muscle">Mid/upper pec â 1x10 warmup @ 90lbs, then 4x6-8 @ 135lbs</div></div><div class="wo-ex-sets">4 x 6-8</div></div><div class="wo-section-lbl">Station 2 â DB Bench Area (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Incline DB Press â Rotator Cuff External Rotation</div><div class="wo-ex-muscle">Upper pec + shoulder health. 45lbs / 7.5lbs. Never skip the ER.</div></div><div class="wo-ex-sets">3 x 10-12 / 2 x 15</div></div><div class="wo-section-lbl">Station 3 â Chest/Delt Fly Machine (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Chest Fly Machine â Rear Delt Fly Machine</div><div class="wo-ex-muscle">Full pec peak contraction + posterior delt. 100lbs / 90lbs.</div></div><div class="wo-ex-sets">3 x 12-15 / 3 x 15</div></div><div class="wo-section-lbl">Station 4 â Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Fly Crossovers â Low Cable Fly Crossovers</div><div class="wo-ex-muscle">Mid pec + lower pec. Log TOTAL combined stacks. 60lbs / 40lbs combined.</div></div><div class="wo-ex-sets">3 x 12-15 each</div></div><div class="wo-section-lbl">Station 5 â Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Face Pull â Cable Lateral Raise</div><div class="wo-ex-muscle">Rear delt + medial delt. 25lbs / 40lbs combined. Log combined for laterals.</div></div><div class="wo-ex-sets">3 x 15 each</div></div><div class="wo-section-lbl">Station 6 â Cable</div><div class="wo-ex"><div><div class="wo-ex-name">Pallof Press</div><div class="wo-ex-muscle">Anti-rotation core. 40lbs. 12 each side = 24 reps logged per set.</div></div><div class="wo-ex-sets">3 x 24</div></div></div>
+    <div class="wo-day" id="wod-1"><div class="wo-day-hdr"><div class="wo-day-title">Tuesday â Pull A</div><div class="wo-day-sub">Back - Biceps - Core - ~60 min â Hevy: "Tuesday - Pull A"</div></div><div class="wo-warmup">Station 1 â Assisted Pull-Up Machine</div><div class="wo-section-lbl">Main Compound â Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Assisted Pull-Ups</div><div class="wo-ex-muscle">Vertical pull â set assistance so last 2 reps are hard. Work toward less assistance over time.</div></div><div class="wo-ex-sets">4 x 6-8</div></div><div class="wo-section-lbl">Station 2 â DB Area (Tri-Set)</div><div class="wo-ex"><div><div class="wo-ex-name">DB Row â Chest Supported Incline Row â Kelso Shrugs</div><div class="wo-ex-muscle">Horizontal pull from 3 angles. 75lbs / 40lbs / 40lbs. Stay in DB area â flat bench, incline bench, flat bench.</div></div><div class="wo-ex-sets">4x8-10 / 3x12 / 3x12</div></div><div class="wo-section-lbl">Station 3 â Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Wide Grip Cable Row â Straight Arm Lat Pulldown</div><div class="wo-ex-muscle">Upper back + lat isolation. 140lbs / 50lbs. Same cable station.</div></div><div class="wo-ex-sets">3 x 10-12 / 3 x 15</div></div><div class="wo-section-lbl">Station 4 â Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Twist Up-to-Down â Cable Twist Down-to-Up</div><div class="wo-ex-muscle">Rotational core. 25lbs / 12.5lbs. 12 each side = 24 reps logged per set.</div></div><div class="wo-ex-sets">3 x 24 each</div></div><div class="wo-section-lbl">Station 5 â Back Extension + Ab Curl Rack (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Back Extension â Crunch Machine</div><div class="wo-ex-muscle">Lower back + anterior core. Bodyweight / 90lbs. Adjacent racks.</div></div><div class="wo-ex-sets">3 x 12 / 3 x 15</div></div></div>
+    <div class="wo-day" id="wod-2"><div class="wo-day-hdr"><div class="wo-day-title">Friday â Legs A (Smith / No Smith)</div><div class="wo-day-sub">Quads - Hamstrings - Core - ~57 min â Hevy: "Friday - Legs A (Smith)" or "(No Smith)"</div></div><div class="wo-warmup">Station 1 â Smith Machine (or Sled Leg Press solo â go heavy as anchor)</div><div class="wo-section-lbl">Main Compound â Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Smith Machine Squat</div><div class="wo-ex-muscle">Quads - glutes - core. 1x10 warmup @ 90lbs, then 4x6-8 @ 135lbs. Feet shoulder-width, sit back into it.</div></div><div class="wo-ex-sets">4 x 6-8</div></div><div class="wo-section-lbl">Station 2 â Sled Leg Press (Straight Sets)</div><div class="wo-ex"><div><div class="wo-ex-name">Sled Leg Press (45-plate style)</div><div class="wo-ex-muscle">Quad + glute volume. 200lbs. Full range, don't lock out knees.</div></div><div class="wo-ex-sets">3 x 8-10</div></div><div class="wo-section-lbl">Station 3 â Leg Extension + Leg Curl (Superset â Adjacent)</div><div class="wo-ex"><div><div class="wo-ex-name">Leg Extension â Seated Leg Curl</div><div class="wo-ex-muscle">Quad isolation + hamstring isolation. 160lbs each.</div></div><div class="wo-ex-sets">3 x 12-15 each</div></div><div class="wo-section-lbl">Station 4 â Hip Machine (Superset â Same Machine)</div><div class="wo-ex"><div><div class="wo-ex-name">Hip Abduction â Hip Adduction</div><div class="wo-ex-muscle">Glute med + inner thigh. 120lbs each. Flip the setting.</div></div><div class="wo-ex-sets">3 x 20 each</div></div><div class="wo-section-lbl">Station 5 â Back Extension + Ab Curl Rack (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Back Extension â Crunch Machine</div><div class="wo-ex-muscle">Lower back + anterior core. Bodyweight / 90lbs.</div></div><div class="wo-ex-sets">3 x 12 / 3 x 15</div></div></div>
+    <div class="wo-day" id="wod-3"><div class="wo-day-hdr"><div class="wo-day-title">Wednesday â Push B (Smith / No Smith)</div><div class="wo-day-sub">Shoulders - Chest - Core - ~57 min â Hevy: "Wednesday - Push B (Smith)" or "(No Smith)"</div></div><div class="wo-warmup">Station 1 â Smith Machine (or Shoulder Press Machine solo)</div><div class="wo-section-lbl">Main Compound â Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Smith Machine OHP</div><div class="wo-ex-muscle">Anterior + medial delt. 1x10 warmup @ 65lbs, then 4x6-8 @ 90lbs.</div></div><div class="wo-ex-sets">4 x 6-8</div></div><div class="wo-section-lbl">Station 2 â Decline Bench Area (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Decline DB Press â Rotator Cuff External Rotation</div><div class="wo-ex-muscle">Lower pec + shoulder health. 40lbs / 7.5lbs. Never skip the ER.</div></div><div class="wo-ex-sets">3 x 8-10 / 2 x 15</div></div><div class="wo-section-lbl">Station 3 â Assisted Dips Machine (Straight Sets)</div><div class="wo-ex"><div><div class="wo-ex-name">Assisted Dips</div><div class="wo-ex-muscle">Lower chest + tricep compound. Adjust assistance so last 2 reps are hard.</div></div><div class="wo-ex-sets">3 x 8-10</div></div><div class="wo-section-lbl">Station 4 â Chest/Delt Fly Machine (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Chest Fly Machine â Rear Delt Fly Machine</div><div class="wo-ex-muscle">Full pec + posterior delt. 100lbs / 90lbs.</div></div><div class="wo-ex-sets">3 x 12-15 / 3 x 15</div></div><div class="wo-section-lbl">Station 5 â Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Face Pull â Cable Lateral Raise</div><div class="wo-ex-muscle">Rear delt + medial delt. 25lbs / 40lbs combined.</div></div><div class="wo-ex-sets">3 x 15 each</div></div><div class="wo-section-lbl">Station 6 â Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Fly Crossovers â Low Cable Fly Crossovers</div><div class="wo-ex-muscle">Mid pec + lower pec. 60lbs / 40lbs combined.</div></div><div class="wo-ex-sets">3 x 12-15 each</div></div><div class="wo-section-lbl">Station 7 â Cable</div><div class="wo-ex"><div><div class="wo-ex-name">Pallof Press</div><div class="wo-ex-muscle">Anti-rotation core. 40lbs. 12 each side = 24 reps logged.</div></div><div class="wo-ex-sets">3 x 24</div></div></div>
+    <div class="wo-day" id="wod-4"><div class="wo-day-hdr"><div class="wo-day-title">Thursday â Pull B</div><div class="wo-day-sub">Back - Posterior Chain - Core - ~58 min â Hevy: "Thursday - Pull B"</div></div><div class="wo-warmup">Station 1 â Barbell Rack</div><div class="wo-section-lbl">Main Compound â Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Barbell Romanian Deadlift</div><div class="wo-ex-muscle">Hamstrings - glutes - lower back. 1x8 warmup @ 90lbs, then 4x6-8 @ 135lbs. Hinge hips, soft knee, bar close to legs.</div></div><div class="wo-ex-sets">4 x 6-8</div></div><div class="wo-section-lbl">Station 2 â DB Incline Bench Area (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Chest Supported Incline Row â Kelso Shrugs</div><div class="wo-ex-muscle">Mid back + mid/lower trap. 40lbs each. Same incline bench station.</div></div><div class="wo-ex-sets">3 x 12 each</div></div><div class="wo-section-lbl">Station 3 â Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Wide Grip Cable Row â Straight Arm Lat Pulldown</div><div class="wo-ex-muscle">Upper back + lat isolation. 140lbs / 50lbs. Same cable station.</div></div><div class="wo-ex-sets">3 x 10-12 / 3 x 15</div></div><div class="wo-section-lbl">Station 4 â Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Pull Through â Cable Crunch</div><div class="wo-ex-muscle">Glute/hamstring hip hinge + rectus abs. 32.5lbs each. Same cable station.</div></div><div class="wo-ex-sets">3 x 15 each</div></div><div class="wo-section-lbl">Station 5 â Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Twist Up-to-Down â Cable Twist Down-to-Up</div><div class="wo-ex-muscle">Rotational core. 25lbs / 12.5lbs. 12 each side = 24 reps logged.</div></div><div class="wo-ex-sets">3 x 24 each</div></div><div class="wo-section-lbl">Station 6 â Back Extension + Ab Curl Rack (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Back Extension â Crunch Machine</div><div class="wo-ex-muscle">Lower back + anterior core. Bodyweight / 90lbs.</div></div><div class="wo-ex-sets">3 x 12 / 3 x 15</div></div></div>
+    <div class="wo-day" id="wod-5"><div class="wo-day-hdr"><div class="wo-day-title">Saturday â Legs B</div><div class="wo-day-sub">Glutes - Posterior Chain - Core - ~58 min â Hevy: "Saturday - Legs B"</div></div><div class="wo-warmup">Station 1 â Glute Bridge Rack (adjacent to Sled Leg Press)</div><div class="wo-section-lbl">Main Compound â Straight Sets</div><div class="wo-ex"><div><div class="wo-ex-name">Barbell Hip Thrust</div><div class="wo-ex-muscle">Glute max â highest glute EMG of any exercise. 1x10 warmup @ 90lbs, then 4x8-10 @ 135lbs. Drive through heels, squeeze at top.</div></div><div class="wo-ex-sets">4 x 8-10</div></div><div class="wo-section-lbl">Station 2 â Sled Leg Press (Straight Sets)</div><div class="wo-ex"><div><div class="wo-ex-name">Sled Leg Press</div><div class="wo-ex-muscle">Quad + glute volume. 200lbs. Adjacent to glute bridge rack.</div></div><div class="wo-ex-sets">3 x 10-12</div></div><div class="wo-section-lbl">Station 3 â DB Area (Straight Sets)</div><div class="wo-ex"><div><div class="wo-ex-name">Single Leg Romanian Deadlift</div><div class="wo-ex-muscle">Glutes + hamstrings + balance. 40lbs. 10 each side = 20 reps logged per set.</div></div><div class="wo-ex-sets">3 x 20</div></div><div class="wo-section-lbl">Station 4 â Cable (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Cable Pull Through â Cable Glute Kickback</div><div class="wo-ex-muscle">Hip hinge + glute isolation. 32.5lbs / 10lbs. 15 each side = 30 reps logged for kickback.</div></div><div class="wo-ex-sets">3 x 15 / 3 x 30</div></div><div class="wo-section-lbl">Station 5 â Leg Extension + Leg Curl (Superset â Adjacent)</div><div class="wo-ex"><div><div class="wo-ex-name">Seated Leg Curl â Leg Extension</div><div class="wo-ex-muscle">Hamstring + quad isolation. 160lbs each.</div></div><div class="wo-ex-sets">3 x 15 each</div></div><div class="wo-section-lbl">Station 6 â Back Extension + Open Floor (Superset)</div><div class="wo-ex"><div><div class="wo-ex-name">Reverse Lunge â Back Extension</div><div class="wo-ex-muscle">Quads/glutes + lower back. Bodyweight. 10 each side = 20 reps logged for lunge.</div></div><div class="wo-ex-sets">3 x 20 / 3 x 12</div></div><div class="wo-section-lbl">Station 7 â Open Floor (Finisher)</div><div class="wo-ex"><div><div class="wo-ex-name">Farmer's Walk</div><div class="wo-ex-muscle">Full body â grip, core, stabilizers. 88lbs each hand. 3 lengths.</div></div><div class="wo-ex-sets">3 x 50ft</div></div></div>
     <div class="wo-day" id="wod-6"><div class="wo-day-hdr"><div class="wo-day-title">Rest Day</div><div class="wo-day-sub">Active recovery - This is where the gains actually happen</div></div><div class="note-box" style="margin-top:10px">Muscle is built during rest, not during training. Today the work is recovery.<br><br>Real walk with Cooper -- movement, not exercise<br>Morning stretch sequence -- especially hip flexors and shoulder<br>Breathwork -- Tier 1 or 2<br>Clean nutrition -- protein target still matters today<br>Sleep 7-8 hrs -- non-negotiable on rest days</div></div>
     <!-- HOME DAYS -->
     <div class="wo-day wo-home-day" id="wod-h0" style="display:none"><div class="wo-day-hdr"><div class="wo-day-title">Push A -- Home</div><div class="wo-day-sub">Chest - Shoulders - Core - ~60 min</div></div><div class="wo-warmup">Warm-up: 5 min -- arm circles, wall push-ups x15, shoulder rolls</div><div class="wo-section-lbl">Chest</div><div class="wo-ex"><div><div class="wo-ex-name">Push-Up (Standard)</div><div class="wo-ex-muscle">Chest - anterior delt - triceps</div></div><div class="wo-ex-sets">4 x max reps</div></div><div class="wo-ex"><div><div class="wo-ex-name">Decline Push-Up (feet elevated)</div><div class="wo-ex-muscle">Upper pec</div></div><div class="wo-ex-sets">3 x max reps</div></div><div class="wo-ex"><div><div class="wo-ex-name">Incline Push-Up (hands on surface)</div><div class="wo-ex-muscle">Lower pec - shoulder safe</div></div><div class="wo-ex-sets">3 x max reps</div></div><div class="wo-section-lbl">Shoulders</div><div class="wo-ex"><div><div class="wo-ex-name">Pike Push-Up</div><div class="wo-ex-muscle">Anterior delt</div></div><div class="wo-ex-sets">3 x max reps</div></div><div class="wo-ex"><div><div class="wo-ex-name">Lateral Raise (water bottles)</div><div class="wo-ex-muscle">Medial delt</div></div><div class="wo-ex-sets">3 x 20</div></div><div class="wo-section-lbl">Core</div><div class="wo-ex"><div><div class="wo-ex-name">Dead Bug</div><div class="wo-ex-muscle">Transverse abdominis</div></div><div class="wo-ex-sets">3 x 10 ea</div></div><div class="wo-ex"><div><div class="wo-ex-name">Side Plank</div><div class="wo-ex-muscle">Obliques - QL</div></div><div class="wo-ex-sets">3 x 30 sec ea</div></div></div>
@@ -745,7 +745,7 @@
     <div class="wo-day wo-home-day" id="wod-h5" style="display:none"><div class="wo-day-hdr"><div class="wo-day-title">Legs B -- Home</div><div class="wo-day-sub">Glutes - Hamstrings - ~60 min</div></div><div class="wo-warmup">Warm-up: 5 min -- clamshells, glute bridges, hip circles</div><div class="wo-section-lbl">Glutes + Hamstrings</div><div class="wo-ex"><div><div class="wo-ex-name">Sumo Squat (bodyweight)</div><div class="wo-ex-muscle">Glutes - adductors - inner quad</div></div><div class="wo-ex-sets">4 x 20</div></div><div class="wo-ex"><div><div class="wo-ex-name">Glute Bridge (loaded backpack on hips)</div><div class="wo-ex-muscle">Glute max</div></div><div class="wo-ex-sets">4 x 20 (2-sec hold)</div></div><div class="wo-ex"><div><div class="wo-ex-name">Single-Leg Deadlift (bodyweight)</div><div class="wo-ex-muscle">Glutes - hamstrings - balance</div></div><div class="wo-ex-sets">3 x 12 ea</div></div><div class="wo-section-lbl">Core</div><div class="wo-ex"><div><div class="wo-ex-name">Dead Bug</div><div class="wo-ex-muscle">Transverse abdominis</div></div><div class="wo-ex-sets">3 x 10 ea</div></div><div class="wo-ex"><div><div class="wo-ex-name">Side Plank</div><div class="wo-ex-muscle">Obliques - QL</div></div><div class="wo-ex-sets">3 x 30 sec ea</div></div></div>
     </div><!-- end wo-panel-program -->
     <div id="wo-panel-progression" style="display:none">
-      <div class="note-box" style="margin-bottom:12px"><strong>Main compounds go heavy (6-8 reps near failure).</strong> Accessories stay 10-15. Double progression on accessories — add reps first, then weight. On compounds — add weight when all 4 sets hit the top of the range clean.</div>
+      <div class="note-box" style="margin-bottom:12px"><strong>Main compounds go heavy (6-8 reps near failure).</strong> Accessories stay 10-15. Double progression on accessories â add reps first, then weight. On compounds â add weight when all 4 sets hit the top of the range clean.</div>
       <div class="meal-section-title">The rule</div>
       <div class="timing-card"><div class="timing-slot">Double Progression</div><div class="timing-content">Week 1: Incline DB Press 4 x 10 @ 50 lbs. Keep 50 lbs until you can do 4 x 12 with good form. Then move to 55 lbs and start back at 4 x 10.</div></div>
       <div class="timing-card"><div class="timing-slot">Minimum effective dose</div><div class="timing-content">Log every set in Hevy. Every session. Not tracking is not knowing.</div></div>
@@ -881,7 +881,7 @@
         <div class="skin-steps">
           <div class="skin-step"><div class="skin-num">1</div><div class="skin-step-body"><div class="skin-step-name">Cetaphil Cleanser</div><div class="skin-step-detail">Gentle, pH-balanced. Removes overnight sebum without stripping moisture barrier.</div><span class="skin-badge morning-badge">Already owned</span></div></div>
           <div class="skin-step"><div class="skin-num">2</div><div class="skin-step-body"><div class="skin-step-name">Vitamin C Serum</div><div class="skin-step-detail">Apply, let absorb 60 seconds. Most evidence-backed antioxidant in skincare. Neutralizes free radicals, stimulates collagen synthesis.</div><span class="skin-badge morning-badge">60 sec absorption</span></div></div>
-          <div class="skin-step"><div class="skin-num">3</div><div class="skin-step-body"><div class="skin-step-name">Brickell Restoring Eye Cream</div><div class="skin-step-detail">Apply after serum, before SPF. Wash hands first -- the eye area is the thinnest skin on your face and highly susceptible to bacteria. Ring finger only. Warm a small amount on the pad, then tap (never rub) along the orbital bone from outer corner inward. Never touch the eyelid itself.</div><span class="skin-badge morning-badge">Wash hands · ring finger · tap only</span></div></div>
+          <div class="skin-step"><div class="skin-num">3</div><div class="skin-step-body"><div class="skin-step-name">Brickell Restoring Eye Cream</div><div class="skin-step-detail">Apply after serum, before SPF. Wash hands first -- the eye area is the thinnest skin on your face and highly susceptible to bacteria. Ring finger only. Warm a small amount on the pad, then tap (never rub) along the orbital bone from outer corner inward. Never touch the eyelid itself.</div><span class="skin-badge morning-badge">Wash hands Â· ring finger Â· tap only</span></div></div>
           <div class="skin-step"><div class="skin-num">4</div><div class="skin-step-body"><div class="skin-step-name">Brickell Daily Defense SPF 45</div><div class="skin-step-detail">All-natural mineral formula. UV is responsible for ~80% of visible facial aging. Every day -- UV penetrates fog and cloud cover.</div><span class="skin-badge morning-badge">Non-negotiable daily</span></div></div>
           <div class="skin-step"><div class="skin-num">5</div><div class="skin-step-body"><div class="skin-step-name">Aveeno Body Lotion</div><div class="skin-step-detail">Apply while skin is still damp -- within 3 minutes of the shower. Moisture absorption is dramatically higher when the skin barrier is open.</div><span class="skin-badge morning-badge">Already owned - damp skin only</span></div></div>
         </div>
@@ -895,7 +895,7 @@
           <div class="skin-step"><div class="skin-num">1</div><div class="skin-step-body"><div class="skin-step-name">Cetaphil Cleanser</div><div class="skin-step-detail">Remove the day -- sunscreen, sebum, environmental particulates.</div><span class="skin-badge night-badge">Already owned</span></div></div>
           <div class="skin-step"><div class="skin-num">2</div><div class="skin-step-body"><div class="skin-step-name">Niacinamide Serum</div><div class="skin-step-detail">Apply, let absorb 60 seconds. Vitamin B3. Strengthens the skin barrier, reduces pore appearance, buffers retinol irritation.</div><span class="skin-badge night-badge">60 sec absorption</span></div></div>
           <div class="skin-step"><div class="skin-num">3</div><div class="skin-step-body"><div class="skin-step-name">CeraVe Resurfacing Retinol Serum</div><div class="skin-step-detail">Gold standard of anti-aging actives. Accelerates cell turnover, stimulates collagen, reduces fine lines. Give it 4-6 weeks.</div><span class="skin-badge night-badge">The heavy lifter</span></div></div>
-          <div class="skin-step"><div class="skin-num">4</div><div class="skin-step-body"><div class="skin-step-name">Brickell Restoring Eye Cream</div><div class="skin-step-detail">Apply after retinol, before moisturizer. Wash hands first. Ring finger only -- warm on the pad, tap along the orbital bone from outer corner inward. The eye area can't tolerate retinol directly, so the cream goes on top as a barrier and still delivers peptides overnight.</div><span class="skin-badge night-badge">Wash hands · ring finger · tap only</span></div></div>
+          <div class="skin-step"><div class="skin-num">4</div><div class="skin-step-body"><div class="skin-step-name">Brickell Restoring Eye Cream</div><div class="skin-step-detail">Apply after retinol, before moisturizer. Wash hands first. Ring finger only -- warm on the pad, tap along the orbital bone from outer corner inward. The eye area can't tolerate retinol directly, so the cream goes on top as a barrier and still delivers peptides overnight.</div><span class="skin-badge night-badge">Wash hands Â· ring finger Â· tap only</span></div></div>
           <div class="skin-step"><div class="skin-num">5</div><div class="skin-step-body"><div class="skin-step-name">Cetaphil Lotion</div><div class="skin-step-detail">Lock in moisture after retinol. Seals the skin barrier, reduces dryness or flaking.</div><span class="skin-badge night-badge">Already owned</span></div></div>
         </div>
       </div>
@@ -905,8 +905,8 @@
       <div class="skin-card c-weekly">
         <div class="skin-card-sub">These two don't live in the daily loop -- they go on top of it. Pick a morning for the scrub and an evening for the mask. Sunday prep time works well for both.</div>
         <div class="skin-steps">
-          <div class="skin-step"><div class="skin-num">A</div><div class="skin-step-body"><div class="skin-step-name">Brickell Renewing Face Scrub</div><div class="skin-step-detail">1-2x per week -- morning only. Use in place of Cetaphil on those days. Volcanic ash and pumice physically clear dead skin cells and prep the surface for better Vitamin C absorption. Don't use on the same morning as retinol night -- give your skin 24 hours of buffer.</div><span class="skin-badge weekly-badge">Replaces cleanser · AM only</span></div></div>
-          <div class="skin-step"><div class="skin-num">B</div><div class="skin-step-body"><div class="skin-step-name">evanhealy Rosehip Cleansing Milk Clay Mask</div><div class="skin-step-detail">Once a week -- evening, before your night routine. Apply to nose and pore-congested areas, leave 10-15 minutes while doing something else, rinse. Kaolin clay draws out impurities and excess sebum without stripping. After rinsing, run your normal night routine as usual.</div><span class="skin-badge weekly-badge">10-15 min · PM before routine</span></div></div>
+          <div class="skin-step"><div class="skin-num">A</div><div class="skin-step-body"><div class="skin-step-name">Brickell Renewing Face Scrub</div><div class="skin-step-detail">1-2x per week -- morning only. Use in place of Cetaphil on those days. Volcanic ash and pumice physically clear dead skin cells and prep the surface for better Vitamin C absorption. Don't use on the same morning as retinol night -- give your skin 24 hours of buffer.</div><span class="skin-badge weekly-badge">Replaces cleanser Â· AM only</span></div></div>
+          <div class="skin-step"><div class="skin-num">B</div><div class="skin-step-body"><div class="skin-step-name">evanhealy Rosehip Cleansing Milk Clay Mask</div><div class="skin-step-detail">Once a week -- evening, before your night routine. Apply to nose and pore-congested areas, leave 10-15 minutes while doing something else, rinse. Kaolin clay draws out impurities and excess sebum without stripping. After rinsing, run your normal night routine as usual.</div><span class="skin-badge weekly-badge">10-15 min Â· PM before routine</span></div></div>
         </div>
       </div>
     </div>
@@ -958,19 +958,19 @@
 
   // Wealth focus rotation by day of week (0=Sun)
   const wealthFocus = [
-    { day:'Sunday', domain:'IG raw take + YouTube', icon:'🎬',
+    { day:'Sunday', domain:'IG raw take + YouTube', icon:'ð¬',
       desc:'Post one raw IG take -- no filter, no polish. If it is a YouTube week (2x/mo), upload and schedule. Pull pieces that are Ready to post in Notion.' },
-    { day:'Monday', domain:'LinkedIn long-form + IG Reel + X Thread', icon:'📝',
+    { day:'Monday', domain:'LinkedIn long-form + IG Reel + X Thread', icon:'ð',
       desc:'LinkedIn long-form (800-1200w) -- Fortify Framework or book premise. Film IG Reel (30-60s hook). Write X Thread. Cross-post to Threads + Bluesky. Log in Notion Content Calendar.' },
-    { day:'Tuesday', domain:'Substack publish day', icon:'✍️',
+    { day:'Tuesday', domain:'Substack publish day', icon:'âï¸',
       desc:'Write and publish one Substack post. Pull from the prestige essay sprint or the Fortify methodology. Log in Notion Content Calendar when done.' },
-    { day:'Wednesday', domain:'Community and coaching', icon:'🤝',
+    { day:'Wednesday', domain:'Community and coaching', icon:'ð¤',
       desc:'The Rebuild community work. Coaching offer development. One real outreach to a coaching prospect. Robert Cuillard is still the top of the list. JER-6, JER-8, JER-22.' },
-    { day:'Thursday', domain:'Acquisition research', icon:'🔍',
+    { day:'Thursday', domain:'Acquisition research', icon:'ð',
       desc:'Distressed brand research. Criteria refinement. One prospect identified or advanced. JER-10, JER-25, JER-122.' },
-    { day:'Friday', domain:'Review and planning + LinkedIn native video', icon:'📊',
+    { day:'Friday', domain:'Review and planning + LinkedIn native video', icon:'ð',
       desc:'Linear sprint reset. Weekly review. What shipped this week? LinkedIn native video + IG Reel. Text Dad a summary of the week. Set next week priorities.' },
-    { day:'Saturday', domain:'Rest or flex', icon:'✨',
+    { day:'Saturday', domain:'Rest or flex', icon:'â¨',
       desc:'No structured wealth hour. If something is alive in you, make something. A Substack Note or one X take counts. So does nothing.' }
   ];
 
@@ -998,7 +998,7 @@
       nextAction:'Check in -- just say good morning.',
       items:['Check in -- how did she sleep, what does she need',
              'Morning task help goes here if needed',
-             'Keep it light -- not solving today’s problems'] },
+             'Keep it light -- not solving todayâs problems'] },
     { type:'c-body', time:'8:30', startHour:8.5, endHour:10.25, title:'Gym', badge:'~2h 10min', mvd:true,
       desc:'Body before brain. Real footprint: 20 min walk + 90 min workout + 20 min back = 2h 10min minimum.',
       science:'Morning exercise raises BDNF, improves executive function for 2-4 hrs after.',
@@ -1010,7 +1010,7 @@
              'Non-gym days: genuine walk, not a stroll',
              'Post-workout: clean protein + carb within 45 min'] },
     { type:'c-work', time:'10:15', startHour:10.25, endHour:11, title:'Deep work', badge:'~45 min', mvd:false,
-      desc:'First cognitive window post-gym. PwC/Levi’s prep, strategy, high-stakes writing. Hard stop at 45 min.',
+      desc:'First cognitive window post-gym. PwC/Leviâs prep, strategy, high-stakes writing. Hard stop at 45 min.',
       science:'BDNF peak from gym is active. Peak cognitive state for strategy and complex writing.',
       nextAction:'Open one doc. One domain only.',
       items:['One domain only -- no task-switching',
@@ -1019,9 +1019,9 @@
     { type:'c-wealth', time:'11:00', startHour:11, endHour:12, title:'Wealth Hour', badge:'60 min -- non-negotiable', mvd:true,
       desc:'One hour. One domain. The whole wealth stack runs through this block. Does not move. Ever.',
       science:'Consistent daily deep work on high-value projects -- even 60 minutes -- compounds over 12 months into everything.',
-      nextAction:'Open Linear. Find today’s task. Start the timer.',
+      nextAction:'Open Linear. Find todayâs task. Start the timer.',
       isWealthHour:true,
-      items:['Open Linear -- find today’s task',
+      items:['Open Linear -- find todayâs task',
              'Run the 60-min Clock timer',
              'One domain from the rotation -- see card above',
              'Interruptions get written down and handled after -- not during',
@@ -1042,29 +1042,29 @@
              'Tactical interview prep',
              'Schedule informational interviews here'] },
     { type:'c-maddy', time:'2:15', startHour:14.25, endHour:15.5, title:'Maddy buffer / afternoon float', badge:'60-90 min flex', mvd:false,
-      desc:'Where Maddy’s unpredictability lands without wrecking the day. Also rest or nap.',
+      desc:'Where Maddyâs unpredictability lands without wrecking the day. Also rest or nap.',
       science:'20-min nap before 2:30 restores a full ultradian cycle.',
       nextAction:'Check on Maddy. If all quiet -- lie down, 20 min.',
       items:['Maddy needs something -- this is the slot',
              'If not: nap 20 min max before 2:30',
-             'No content if resting -- that’s not rest'] },
+             'No content if resting -- thatâs not rest'] },
     { type:'c-community', time:'3:30', startHour:15.5, endHour:16.5, title:'Connection / community', badge:'~60 min', mvd:false,
       desc:'Your people. Scheduled, not earned.',
       science:'Social connection reduces cortisol and is independently protective against depression.',
       nextAction:'Text or call one person. Make it real.',
       items:['Jason and Alan -- one real contact this week. A call, a meal, something that counts.',
-             'Karston is in SF -- close enough to see. Reach out, don’t wait.',
+             'Karston is in SF -- close enough to see. Reach out, donât wait.',
              'Jeremiah is in Indiana -- FaceTime or call.',
              'David: protected time, not leftover'] },
     { type:'c-work', time:'4:30', startHour:16.5, endHour:17.5, title:'Light work / admin', badge:'~60 min', mvd:false,
-      desc:'Email, logistics, scheduling. Doesn’t need peak cognition.',
+      desc:'Email, logistics, scheduling. Doesnât need peak cognition.',
       science:'Third ultradian cycle -- right for admin, wrong for strategy.',
       nextAction:'Clear your inbox. Nothing new.',
       items:['Email, scheduling, tracking',
              'Follow-ups from earlier windows',
              'Hard stop at 5:30'] },
     { type:'c-close', time:'5:30', startHour:17.5, endHour:18, title:'Close-down ritual', badge:'20 min', mvd:false,
-      desc:'Brain dump, tomorrow’s one priority, phone out of the room.',
+      desc:'Brain dump, tomorrowâs one priority, phone out of the room.',
       science:'Written close-down signals the brain the day is complete. Reduces nighttime rumination.',
       nextAction:'Write the ONE thing tomorrow needs.',
       items:['Write the ONE thing tomorrow needs -- not a list',
@@ -1080,12 +1080,12 @@
              'Evening check-in with Maddy',
              '30-sec hum in shower -- vagal toning'] },
     { type:'c-close', time:'9:30', startHour:21.5, endHour:25, title:'Pre-sleep stack', badge:'~30 min', mvd:true,
-      desc:'Magnesium, evening stretch, breathwork, blackout mask. Tomorrow’s morning starts here.',
+      desc:'Magnesium, evening stretch, breathwork, blackout mask. Tomorrowâs morning starts here.',
       science:'Light after 9pm suppresses melatonin up to 50%. Resonance breathing improves HRV overnight.',
       nextAction:'Take magnesium. Put the phone down.',
       navTab:'stretch', navLabel:'Go to Evening wind-down',
       items:['Magnesium glycinate 400-500mg -- right now, before breathwork',
-             'Evening stretch: Supine Figure-4, Spinal Twist, Child’s Pose, Legs Up Wall',
+             'Evening stretch: Supine Figure-4, Spinal Twist, Childâs Pose, Legs Up Wall',
              'Read: 10-20 pages -- Frighten the Horses (Reckoning comp). Kindle. Transition into breathwork.',
              '10 min Tier 2 or 3 breathwork -- pelvic floor release on the exhale',
              'Blackout mask on',
@@ -1101,11 +1101,17 @@
   function markPhase(idx) {
     if (doneSet.has(idx)) { doneSet.delete(idx); } else { doneSet.add(idx); }
     saveDone();
+    // Background sync to Supabase — silent fail, localStorage is source of truth
+    fetch('https://dsjnvwhyevjzsmuawkcs.supabase.co/functions/v1/log-completion', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-app-key': 'fortify-jr-2026' },
+      body: JSON.stringify({ phaseIndex: idx, phaseTitle: phases[idx].title, completed: doneSet.has(idx), date: TODAY })
+    }).catch(function() {});
     const isDone = doneSet.has(idx);
     const circle = document.getElementById('phase-check-' + idx);
-    if (circle) { circle.classList.toggle('done', isDone); circle.textContent = isDone ? '✓' : ''; }
+    if (circle) { circle.classList.toggle('done', isDone); circle.textContent = isDone ? 'â' : ''; }
     const btn = document.getElementById('block-btn-' + idx);
-    if (btn) { btn.classList.toggle('done', isDone); btn.textContent = isDone ? '✓ Done' : '✓ Mark block done'; }
+    if (btn) { btn.classList.toggle('done', isDone); btn.textContent = isDone ? 'â Done' : 'â Mark block done'; }
     const phase = circle ? circle.closest('.phase') : null;
     if (phase) phase.classList.toggle('completed', isDone);
     updateProgress();
@@ -1119,18 +1125,18 @@
     const circ = 113.1;
     document.getElementById('prog-circle').setAttribute('stroke-dashoffset', circ - pct * circ);
     document.getElementById('prog-label').textContent = done + ' of ' + total + ' done today';
-    const subs = ['Tap any block to mark it complete','One block at a time.','You’re moving.','More than halfway.','Almost there.','Day complete. Well done.'];
+    const subs = ['Tap any block to mark it complete','One block at a time.','Youâre moving.','More than halfway.','Almost there.','Day complete. Well done.'];
     const si = done === total ? 5 : done > total * 0.5 ? 3 : done > 0 ? 2 : 0;
     document.getElementById('prog-sub').textContent = subs[si];
   }
 
   const resetAffirms = [
     'The morning anchor holds. Everything else can flex.',
-    'You’re building the ground itself -- not another impressive output.',
+    'Youâre building the ground itself -- not another impressive output.',
     'One good move right now is enough to change the arc of the day.',
-    'You’ve handled harder things than today. Much harder.',
+    'Youâve handled harder things than today. Much harder.',
     'The gap between how bad it feels and how bad it is -- that gap is ADHD. Not reality.',
-    'Progress doesn’t require perfection. It just requires the next step.'
+    'Progress doesnât require perfection. It just requires the next step.'
   ];
 
   function getCurrentPhase() {
@@ -1152,13 +1158,13 @@
     document.getElementById('rn-timefill').style.width = pct + '%';
     const minsLeft = Math.max(0, Math.round((p.endHour - h) * 60));
     const timeStr = minsLeft > 60 ? Math.round(minsLeft / 60) + 'h left' : minsLeft + ' min left';
-    document.getElementById('rn-label').textContent = isDone ? '✓ Completed' : 'Right now - ' + timeStr;
+    document.getElementById('rn-label').textContent = isDone ? 'â Completed' : 'Right now - ' + timeStr;
     document.getElementById('rn-title').textContent = p.title;
     document.getElementById('rn-desc').textContent = p.nextAction;
     const nextIdx = Math.min(idx + 1, phases.length - 1);
     document.getElementById('rn-next').textContent = 'Up next: ' + phases[nextIdx].title;
     const btn = document.getElementById('rn-done-btn');
-    btn.textContent = isDone ? '✓ Done' : '✓ Mark this done';
+    btn.textContent = isDone ? 'â Done' : 'â Mark this done';
     btn.classList.toggle('ticked', isDone);
     document.getElementById('reset-where').textContent = p.title;
     document.getElementById('reset-time-note').textContent = minsLeft > 0 ? timeStr + ' remaining in this block.' : 'Moving into the next block.';
@@ -1209,7 +1215,7 @@
       '<div class="card" onclick="this.classList.toggle(&#39;open&#39;)">' +
         '<div class="card-header">' +
           '<span class="card-title">' + p.title + '</span>' +
-          '<span class="card-right"><span class="badge">' + p.badge + '</span><em class="chevron">▼</em></span>' +
+          '<span class="card-right"><span class="badge">' + p.badge + '</span><em class="chevron">â¼</em></span>' +
         '</div>' +
         '<div class="card-desc">' + p.desc + '</div>' +
         '<div class="expanded">' +
@@ -1217,16 +1223,16 @@
           '<div class="science-note">' + p.science + '</div>' +
           '<div class="items">' +
             p.items.map(function(item) {
-              var isMed = item.indexOf('💊') >= 0 || item.indexOf('💉') >= 0 || item.startsWith('Levothyroxine') || item.startsWith('Magnesium') || item.startsWith('Pre-gym: L-Tyrosine') || item.indexOf('+30 min') >= 0 || item.indexOf('+45 min') >= 0 || item.indexOf('Friday only') >= 0;
+              var isMed = item.indexOf('ð') >= 0 || item.indexOf('ð') >= 0 || item.startsWith('Levothyroxine') || item.startsWith('Magnesium') || item.startsWith('Pre-gym: L-Tyrosine') || item.indexOf('+30 min') >= 0 || item.indexOf('+45 min') >= 0 || item.indexOf('Friday only') >= 0;
               return '<div class="item' + (isMed ? ' meds-item' : '') + '"><div class="item-dot"></div><span>' + item + '</span></div>';
             }).join('') +
           '</div>' +
           navLinkHtml +
           dadBtnHtml +
-          '<button class="block-done-btn' + (isDone ? ' done' : '') + '" id="block-btn-' + i + '" onclick="event.stopPropagation();markPhase(' + i + ')">' + (isDone ? '✓ Done' : '✓ Mark block done') + '</button>' +
+          '<button class="block-done-btn' + (isDone ? ' done' : '') + '" id="block-btn-' + i + '" onclick="event.stopPropagation();markPhase(' + i + ')">' + (isDone ? 'â Done' : 'â Mark block done') + '</button>' +
         '</div>' +
       '</div>' +
-      '<div class="card-check' + (isDone ? ' done' : '') + '" id="phase-check-' + i + '" onclick="event.stopPropagation();markPhase(' + i + ')">' + (isDone ? '✓' : '') + '</div>';
+      '<div class="card-check' + (isDone ? ' done' : '') + '" id="phase-check-' + i + '" onclick="event.stopPropagation();markPhase(' + i + ')">' + (isDone ? 'â' : '') + '</div>';
 
     container.appendChild(el);
   });
@@ -1377,7 +1383,7 @@
   }
   function shopCheck(item, store) {
     item.classList.toggle('checked');
-    item.querySelector('.shop-cb').textContent = item.classList.contains('checked') ? '✓' : '';
+    item.querySelector('.shop-cb').textContent = item.classList.contains('checked') ? 'â' : '';
     shopUpdateProgress(store);
   }
   function shopUpdateProgress(store) {
@@ -1393,7 +1399,7 @@
     shopUpdateProgress(store);
   }
 
-  // ── DAILY BRIEF ─────────────────────────────────────────────
+  // ââ DAILY BRIEF âââââââââââââââââââââââââââââââââââââââââââââ
   function fmtBriefDate(d) {
     return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
   }
@@ -1413,13 +1419,13 @@
         return '<div class="brief-item"><div class="brief-item-bar ' + item.urgency + '"></div><div class="brief-item-content"><div class="brief-item-text">' + item.text + '</div><div class="brief-item-sub">' + (item.pillar||'') + '</div></div>' + (item.jer ? '<div class="brief-item-jer">' + item.jer + '</div>' : '') + '</div>';
       }).join('');
     } else {
-      rnEl.innerHTML = '<div class="brief-empty">Nothing urgent. ✓</div>';
+      rnEl.innerHTML = '<div class="brief-empty">Nothing urgent. â</div>';
     }
     var cdEl = document.getElementById('brief-content-due');
     if (data.contentDue && data.contentDue.length) {
       cdEl.innerHTML = data.contentDue.map(function(item) {
         var bc = item.status === 'Ready to post' ? 'ready' : 'draft';
-        return '<div class="brief-item"><div class="brief-item-bar ' + bc + '"></div><div class="brief-item-content"><div class="brief-item-text">' + item.title + '</div><div class="brief-item-sub">' + (item.platform||'') + (item.due ? ' · ' + item.due : '') + (item.status ? ' · ' + item.status : '') + '</div></div></div>';
+        return '<div class="brief-item"><div class="brief-item-bar ' + bc + '"></div><div class="brief-item-content"><div class="brief-item-text">' + item.title + '</div><div class="brief-item-sub">' + (item.platform||'') + (item.due ? ' Â· ' + item.due : '') + (item.status ? ' Â· ' + item.status : '') + '</div></div></div>';
       }).join('');
     } else {
       cdEl.innerHTML = '<div class="brief-empty">No content due this week.</div>';
@@ -1428,31 +1434,33 @@
     if (data.followUpRadar && data.followUpRadar.length) {
       fuEl.innerHTML = data.followUpRadar.map(function(item) {
         var urg = item.days > 20 ? 'urgent' : 'week';
-        return '<div class="brief-item"><div class="brief-item-bar ' + urg + '"></div><div class="brief-item-content"><div class="brief-item-text">' + item.name + '</div><div class="brief-item-sub">' + item.days + 'd since contact' + (item.why ? ' · ' + item.why : '') + '</div></div></div>';
+        return '<div class="brief-item"><div class="brief-item-bar ' + urg + '"></div><div class="brief-item-content"><div class="brief-item-text">' + item.name + '</div><div class="brief-item-sub">' + item.days + 'd since contact' + (item.why ? ' Â· ' + item.why : '') + '</div></div></div>';
       }).join('');
     } else {
-      fuEl.innerHTML = '<div class="brief-empty">No overdue follow-ups. ✓</div>';
+      fuEl.innerHTML = '<div class="brief-empty">No overdue follow-ups. â</div>';
     }
     var sp = data.socialPulse || {};
     var spEl = document.getElementById('brief-social');
     spEl.innerHTML = '<div class="brief-social-grid">' + [
-      ['Substack',  sp.substack  && sp.substack.subscribers  != null ? sp.substack.subscribers  : (sp.substack && sp.substack.posts ? sp.substack.posts + ' posts' : '—')],
-      ['LinkedIn',  sp.linkedin  && sp.linkedin.followers   != null ? sp.linkedin.followers.toLocaleString()   : '—'],
-      ['Instagram', sp.instagram && sp.instagram.followers  != null ? sp.instagram.followers.toLocaleString()  : '—'],
-      ['Bluesky',   sp.bluesky   && sp.bluesky.followers    != null ? sp.bluesky.followers.toLocaleString()    : '—'],
-      ['YouTube',   sp.youtube   && sp.youtube.subscribers  != null ? sp.youtube.subscribers.toLocaleString()  : '—'],
+      ['Substack',  sp.substack  && sp.substack.subscribers  != null ? sp.substack.subscribers  : (sp.substack && sp.substack.posts ? sp.substack.posts + ' posts' : 'â')],
+      ['LinkedIn',  sp.linkedin  && sp.linkedin.followers   != null ? sp.linkedin.followers.toLocaleString()   : 'â'],
+      ['Instagram', sp.instagram && sp.instagram.followers  != null ? sp.instagram.followers.toLocaleString()  : 'â'],
+      ['Bluesky',   sp.bluesky   && sp.bluesky.followers    != null ? sp.bluesky.followers.toLocaleString()    : 'â'],
+      ['YouTube',   sp.youtube   && sp.youtube.subscribers  != null ? sp.youtube.subscribers.toLocaleString()  : 'â'],
     ].map(function(p){return '<div class="brief-social-card"><div class="brief-social-n">'+p[1]+'</div><div class="brief-social-l">'+p[0]+'</div></div>';}).join('') + '</div>';
   }
   function loadBrief() {
     if (document.getElementById('brief-date-line')) {
       document.getElementById('brief-date-line').textContent = fmtBriefDate(new Date());
     }
-    fetch('./daily-data.json?t=' + Date.now())
+    fetch('https://dsjnvwhyevjzsmuawkcs.supabase.co/functions/v1/daily-brief', {
+        headers: { 'x-app-key': 'fortify-jr-2026' }
+      })
       .then(function(r){ return r.ok ? r.json() : Promise.reject('not found'); })
       .then(function(data){ renderBrief(data); })
       .catch(function(){
-        document.getElementById('brief-updated-line').textContent = 'Brief unavailable — check connection';
-        document.getElementById('brief-right-now').innerHTML = '<div class="brief-empty">Open Linear for today’s priorities.</div>';
+        document.getElementById('brief-updated-line').textContent = 'Brief unavailable â check connection';
+        document.getElementById('brief-right-now').innerHTML = '<div class="brief-empty">Open Linear for todayâs priorities.</div>';
         document.getElementById('brief-content-due').innerHTML = '<div class="brief-empty">Open Notion Content Calendar.</div>';
         document.getElementById('brief-follow-up').innerHTML = '<div class="brief-empty">Open Notion Connections.</div>';
         document.getElementById('brief-social').innerHTML = '';
