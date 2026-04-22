@@ -77,7 +77,7 @@ if NOTION_TOKEN:
                     {'property': 'Publish Date', 'date': {'on_or_after': today_str}},
                     {'property': 'Publish Date', 'date': {'on_or_before': week_end}}
                 ]},
-                'sorts': [{'property': 'Date', 'direction': 'ascending'}]
+                'sorts': [{'property': 'Publish Date', 'direction': 'ascending'}]
             },
             timeout=15
         )
@@ -86,13 +86,12 @@ if NOTION_TOKEN:
             print(f'Notion content error: {r.text[:300]}')
         for page in r.json().get('results', [])[:10]:
             props = page.get('properties', {})
-            title = ''.join(t.get('plain_text', '') for t in props.get('Name', props.get('Title', {})).get('title', []))
+            title = ''.join(t.get('plain_text', '') for t in props.get('Title', {}).get('title', []))
             date_obj = (props.get('Publish Date', {}).get('date') or {})
             due = date_obj.get('start', '')[:10] if date_obj else ''
-            plat_sel = props.get('Platform', {}).get('select') or {}
-            platform = plat_sel.get('name', '')
-            stat_obj = props.get('Status', {})
-            stat_sel = stat_obj.get('status') or stat_obj.get('select') or {}
+            platforms = [p.get('name', '') for p in props.get('Platform', {}).get('multi_select', [])]
+            platform = ', '.join(p for p in platforms if p)
+            stat_sel = props.get('Status', {}).get('select') or {}
             status = stat_sel.get('name', '') if isinstance(stat_sel, dict) else ''
             due_label = 'today' if due == today_str else (
                 'tomorrow' if due == (today + datetime.timedelta(days=1)).isoformat() else due)
