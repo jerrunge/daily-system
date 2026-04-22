@@ -1433,8 +1433,10 @@
     var fuEl = document.getElementById('brief-follow-up');
     if (data.followUpRadar && data.followUpRadar.length) {
       fuEl.innerHTML = data.followUpRadar.map(function(item) {
-        var urg = item.days > 20 ? 'urgent' : 'week';
-        return '<div class="brief-item"><div class="brief-item-bar ' + urg + '"></div><div class="brief-item-content"><div class="brief-item-text">' + item.name + '</div><div class="brief-item-sub">' + item.days + 'd since contact' + (item.why ? ' Â· ' + item.why : '') + '</div></div></div>';
+        var daysNum = item.days === 'Never' ? 999 : parseInt(item.days, 10);
+        var urg = daysNum > 20 ? 'urgent' : 'week';
+        var daysText = item.days === 'Never' ? 'Never contacted' : item.days + 'd since contact';
+        return '<div class="brief-item"><div class="brief-item-bar ' + urg + '"></div><div class="brief-item-content"><div class="brief-item-text">' + item.name + '</div><div class="brief-item-sub">' + daysText + (item.why ? ' Â· ' + item.why : '') + '</div></div></div>';
       }).join('');
     } else {
       fuEl.innerHTML = '<div class="brief-empty">No overdue follow-ups. â</div>';
