@@ -36,7 +36,7 @@ if LINEAR_KEY:
         r = requests.post(
             'https://api.linear.app/graphql',
             json={'query': q},
-            headers={'Authorization': f'Bearer {LINEAR_KEY}', 'Content-Type': 'application/json'},
+            headers={'Authorization': LINEAR_KEY, 'Content-Type': 'application/json'},
             timeout=15
         )
         print(f'Linear status: {r.status_code}')
