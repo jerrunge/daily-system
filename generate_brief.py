@@ -2,8 +2,8 @@ import json, requests, datetime, os, sys
 
 LINEAR_KEY   = os.environ.get('LINEAR_API_KEY', '')
 NOTION_TOKEN = os.environ.get('NOTION_TOKEN', '')
-CONTENT_DB   = 'a3261061-28fc-4e70-a90b-32d8a7ce90d1'
-CONNECT_DB   = '4a522bf8-3e10-4768-a846-5005e4e46f23'
+CONTENT_DB   = 'd2989a02-799a-4c3c-9608-0864d72e3fb3'
+CONNECT_DB   = '83bb203f-2c3b-42a5-a326-cfeb341a112b'
 
 today     = datetime.date.today()
 week_end  = (today + datetime.timedelta(days=7)).isoformat()
