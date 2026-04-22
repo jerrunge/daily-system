@@ -1,9 +1,59 @@
 {
-  "generated": "2026-04-22T16:13:11.813919Z",
-  "generatedPT": "9:13 AM PT",
-  "rightNow": [],
+  "generated": "2026-04-22T16:22:56.157545Z",
+  "generatedPT": "9:22 AM PT",
+  "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "Build + maintain Pavilion engagement rhythm",
+      "jer": "JER-151",
+      "pillar": "Wealth Stack"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Identify 3-5 Pavilion channels to own beyond CAF",
+      "jer": "JER-152",
+      "pillar": "Wealth Stack"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Attend Pavilion New Member Orientation",
+      "jer": "JER-121",
+      "pillar": "Wealth Stack"
+    }
+  ],
   "contentDue": [],
-  "followUpRadar": [],
+  "followUpRadar": [
+    {
+      "name": "Jennifer Rendon",
+      "days": 0,
+      "why": ""
+    },
+    {
+      "name": "Mike Ryan",
+      "days": 0,
+      "why": ""
+    },
+    {
+      "name": "Corey Simpson",
+      "days": 0,
+      "why": ""
+    },
+    {
+      "name": "Perry Swanson",
+      "days": 26,
+      "why": ""
+    },
+    {
+      "name": "Adam Kohn",
+      "days": 27,
+      "why": ""
+    },
+    {
+      "name": "Eric Stewart",
+      "days": 27,
+      "why": ""
+    }
+  ],
   "socialPulse": {
     "substack": {
       "subscribers": null,
