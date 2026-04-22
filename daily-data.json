@@ -1,56 +1,56 @@
 {
-  "generated": "2026-04-22T15:30:00Z",
-  "generatedPT": "8:30 AM PT",
+  "generated": "2026-04-22T16:00:00.000000Z",
+  "generatedPT": "9:00 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
-      "text": "Robert Cuillard follow-up \u2014 listening, no pitch",
-      "jer": "JER-126",
-      "pillar": "Wealth Stack"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Levi\u2019s \u2014 Head of Retail Ops: follow through to close",
+      "text": "Levi\u2019s — Catherine Dobbs follow-up",
       "jer": "JER-12",
       "pillar": "Career"
     },
     {
       "urgency": "urgent",
-      "text": "Content: Amplify \u201cThe Undoing\u201d \u2014 X take 3 (quiet killer + subscribe ask)",
+      "text": "Robert Cuillard — follow-up by April 24 (no pitch)",
+      "jer": "JER-126",
+      "pillar": "Wealth Stack"
+    },
+    {
+      "urgency": "urgent",
+      "text": "X take 3: \u201cquiet killer\u201d + subscribe ask",
       "jer": "JER-142",
       "pillar": "Wealth Stack"
     }
   ],
   "contentDue": [
     {
-      "title": "X take 3 \u2014 \u201cquiet killer\u201d + subscribe ask",
+      "title": "Friday X Thread \u2014 insight from the week",
       "platform": "X",
-      "status": "In Progress",
-      "due": "today"
+      "status": "Draft",
+      "due": "2026-04-25"
     }
   ],
   "followUpRadar": [
     {
+      "name": "Gabe Salinas",
+      "days": 26,
+      "why": "Meet at Soul Grind \u2014 follow up, this note is stale."
+    },
+    {
       "name": "Robert Cuillard",
-      "days": 7,
-      "why": "Coaching conversation \u2014 follow up by April 24"
+      "days": 5,
+      "why": "Listening conversation done April 17. Follow-up April 24. Coaching pipeline."
     },
     {
-      "name": "Max Crowley",
-      "days": 5,
-      "why": "Call April 24 at 4:30 PM ET"
-    },
-    {
-      "name": "Catherine Dobbs",
-      "days": 5,
-      "why": "Levi\u2019s recruiter \u2014 warm nudge due by April 24"
+      "name": "John Terrana (JT)",
+      "days": 1,
+      "why": "Texted 4/21. Assistant coordinating time to connect next week. GoPuff alum."
     }
   ],
   "socialPulse": {
-    "substack": {"subscribers": null, "posts": null},
-    "linkedin": {"followers": null},
+    "substack":  {"subscribers": null, "posts": null},
+    "linkedin":  {"followers": null},
     "instagram": {"followers": null},
-    "bluesky": {"followers": null},
-    "youtube": {"subscribers": null}
+    "bluesky":   {"followers": null},
+    "youtube":   {"subscribers": null}
   }
 }

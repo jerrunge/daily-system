@@ -3,7 +3,7 @@ import json, requests, datetime, os, sys
 LINEAR_KEY   = os.environ.get('LINEAR_API_KEY', '')
 NOTION_TOKEN = os.environ.get('NOTION_TOKEN', '')
 CONTENT_DB   = 'a3261061-28fc-4e70-a90b-32d8a7ce90d1'
-CONNECT_DB   = '34025289d480802ba683de48f00e7c1c'
+CONNECT_DB   = '4a522bf8-3e10-4768-a846-5005e4e46f23'
 
 today     = datetime.date.today()
 week_end  = (today + datetime.timedelta(days=7)).isoformat()
@@ -72,8 +72,8 @@ if NOTION_TOKEN:
             headers=notion_h,
             json={
                 'filter': {'and': [
-                    {'property': 'Date', 'date': {'on_or_after': today_str}},
-                    {'property': 'Date', 'date': {'on_or_before': week_end}}
+                    {'property': 'Publish Date', 'date': {'on_or_after': today_str}},
+                    {'property': 'Publish Date', 'date': {'on_or_before': week_end}}
                 ]},
                 'sorts': [{'property': 'Date', 'direction': 'ascending'}]
             },
@@ -83,7 +83,7 @@ if NOTION_TOKEN:
         for page in r.json().get('results', [])[:10]:
             props = page.get('properties', {})
             title = ''.join(t.get('plain_text', '') for t in props.get('Name', props.get('Title', {})).get('title', []))
-            date_obj = (props.get('Date', {}).get('date') or {})
+            date_obj = (props.get('Publish Date', {}).get('date') or {})
             due = date_obj.get('start', '')[:10] if date_obj else ''
             plat_sel = props.get('Platform', {}).get('select') or {}
             platform = plat_sel.get('name', '')
