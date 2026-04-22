@@ -40,6 +40,8 @@ if LINEAR_KEY:
             timeout=15
         )
         print(f'Linear status: {r.status_code}')
+        if r.status_code != 200:
+            print(f'Linear error body: {r.text[:500]}')
         issues = r.json().get('data', {}).get('issues', {}).get('nodes', [])
         print(f'Linear issues found: {len(issues)}')
         p_map = {1: 'urgent', 2: 'urgent', 3: 'week', 4: 'week', 0: 'week'}
@@ -80,6 +82,8 @@ if NOTION_TOKEN:
             timeout=15
         )
         print(f'Notion content status: {r.status_code}')
+        if r.status_code != 200:
+            print(f'Notion content error: {r.text[:300]}')
         for page in r.json().get('results', [])[:10]:
             props = page.get('properties', {})
             title = ''.join(t.get('plain_text', '') for t in props.get('Name', props.get('Title', {})).get('title', []))
@@ -115,6 +119,8 @@ if NOTION_TOKEN:
             timeout=15
         )
         print(f'Notion connections status: {r.status_code}')
+        if r.status_code != 200:
+            print(f'Notion connections error: {r.text[:300]}')
         for page in r.json().get('results', [])[:6]:
             props = page.get('properties', {})
             name = ''.join(t.get('plain_text', '') for t in props.get('Name', {}).get('title', []))
