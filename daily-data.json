@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-22T16:22:56.157545Z",
-  "generatedPT": "9:22 AM PT",
+  "generated": "2026-04-22T16:26:13.530667Z",
+  "generatedPT": "9:26 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -21,7 +21,68 @@
       "pillar": "Wealth Stack"
     }
   ],
-  "contentDue": [],
+  "contentDue": [
+    {
+      "title": "The Undoing \u2014 X take 3 (quiet killer)",
+      "platform": "X",
+      "status": "Draft",
+      "due": "today"
+    },
+    {
+      "title": "Performing vs. Pretending \u2014 first Substack essay",
+      "platform": "Substack",
+      "status": "Hold gated",
+      "due": "today"
+    },
+    {
+      "title": "5x7 Cards \u2192 IG Carousel (repurpose)",
+      "platform": "Instagram",
+      "status": "Ready to post",
+      "due": "tomorrow"
+    },
+    {
+      "title": "5x7 Cards Blog Post \u2192 LinkedIn Carousel",
+      "platform": "LinkedIn",
+      "status": "Ready to post",
+      "due": "tomorrow"
+    },
+    {
+      "title": "Fortify\u2122 Native Video \u2014 talking head intro",
+      "platform": "LinkedIn",
+      "status": "Draft",
+      "due": "2026-04-25"
+    },
+    {
+      "title": "Friday X Thread \u2014 insight from the week",
+      "platform": "X",
+      "status": "Draft",
+      "due": "2026-04-25"
+    },
+    {
+      "title": "Friday Reel \u2014 Leadership insight",
+      "platform": "Instagram",
+      "status": "Draft",
+      "due": "2026-04-25"
+    },
+    {
+      "title": "Sunday IG Raw Take",
+      "platform": "Instagram",
+      "status": "Draft",
+      "due": "2026-04-27"
+    },
+    {
+      "title": "Note to Self \u2014 Keep the joy, buddy",
+      "platform": "X, Instagram, Substack, LinkedIn",
+      "status": "Draft",
+      "due": "2026-04-28"
+    },
+    {
+      "title": "What the Fortify Framework Actually Does",
+      "platform": "LinkedIn",
+      "status": "Draft",
+      "due": "2026-04-28"
+    }
+  ],
   "followUpRadar": [
     {
       "name": "Jennifer Rendon",
