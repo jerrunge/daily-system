@@ -1,7 +1,13 @@
 {
-  "generated": "2026-04-23T03:19:43.380161Z",
-  "generatedPT": "8:19 PM PT",
+  "generated": "2026-04-23T17:57:45.802855Z",
+  "generatedPT": "10:57 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "Content: Amplify \"The Undoing\" \u2014 LinkedIn, X, Instagram",
+      "jer": "JER-142",
+      "pillar": "Wealth Stack"
+    },
     {
       "urgency": "urgent",
       "text": "Build + maintain Pavilion engagement rhythm",
@@ -12,12 +18,6 @@
       "urgency": "urgent",
       "text": "Identify 3-5 Pavilion channels to own beyond CAF",
       "jer": "JER-152",
-      "pillar": "Wealth Stack"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Attend Pavilion New Member Orientation",
-      "jer": "JER-121",
       "pillar": "Wealth Stack"
     }
   ],
