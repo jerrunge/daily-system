@@ -1463,9 +1463,7 @@
     if (document.getElementById('brief-date-line')) {
       document.getElementById('brief-date-line').textContent = fmtBriefDate(new Date());
     }
-    fetch('https://dsjnvwhyevjzsmuawkcs.supabase.co/functions/v1/daily-brief', {
-        headers: { 'x-app-key': 'fortify-jr-2026' }
-      })
+    fetch('./daily-data.json?t=' + Date.now())
       .then(function(r){ return r.ok ? r.json() : Promise.reject('not found'); })
       .then(function(data){ renderBrief(data); })
       .catch(function(){
