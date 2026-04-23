@@ -1442,13 +1442,22 @@
     }
     var sp = data.socialPulse || {};
     var spEl = document.getElementById('brief-social');
-    spEl.innerHTML = '<div class="brief-social-grid">' + [
-      ['Substack',  sp.substack  && sp.substack.subscribers  != null ? sp.substack.subscribers  : (sp.substack && sp.substack.posts ? sp.substack.posts + ' posts' : '—')],
-      ['LinkedIn',  sp.linkedin  && sp.linkedin.followers   != null ? sp.linkedin.followers.toLocaleString()   : '—'],
-      ['Instagram', sp.instagram && sp.instagram.followers  != null ? sp.instagram.followers.toLocaleString()  : '—'],
-      ['Bluesky',   sp.bluesky   && sp.bluesky.followers    != null ? sp.bluesky.followers.toLocaleString()    : '—'],
-      ['YouTube',   sp.youtube   && sp.youtube.subscribers  != null ? sp.youtube.subscribers.toLocaleString()  : '—'],
-    ].map(function(p){return '<div class="brief-social-card"><div class="brief-social-n">'+p[1]+'</div><div class="brief-social-l">'+p[0]+'</div></div>';}).join('') + '</div>';
+    var spPlatforms = [
+      ['Substack', sp.substack],
+      ['LinkedIn', sp.linkedin],
+      ['Instagram', sp.instagram],
+      ['Bluesky', sp.bluesky],
+      ['YouTube', sp.youtube],
+    ];
+    spEl.innerHTML = '<div class="brief-social-grid">' + spPlatforms.map(function(p) {
+      var platform = p[0], d = p[1];
+      var val = d && d.subscribers != null ? d.subscribers.toLocaleString() :
+                d && d.followers != null ? d.followers.toLocaleString() : null;
+      var isConnected = d && d.connected !== false;
+      var display = val != null ? val : (isConnected ? '—' : '––');
+      var sub = val != null ? '' : (isConnected ? '' : '<div style="font-size:9px;color:var(--text3);margin-top:2px;letter-spacing:.04em">NOT CONNECTED</div>');
+      return '<div class="brief-social-card"><div class="brief-social-n">' + display + '</div><div class="brief-social-l">' + platform + '</div>' + sub + '</div>';
+    }).join('') + '</div>';
   }
   function loadBrief() {
     if (document.getElementById('brief-date-line')) {
