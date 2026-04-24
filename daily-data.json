@@ -1,56 +1,44 @@
 {
-  "generated": "2026-04-23T17:57:45.802855Z",
-  "generatedPT": "10:57 AM PT",
+  "generated": "2026-04-24T16:39:16.000966Z",
+  "generatedPT": "9:39 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
-      "text": "Content: Amplify \"The Undoing\" \u2014 LinkedIn, X, Instagram",
-      "jer": "JER-142",
+      "text": "Calendaring System \u2014 source of truth, scheduling, wellbeing defense",
+      "jer": "JER-170",
+      "pillar": "Personal Systems"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Coaching \u2014 4 listening conversations + Robert follow-up (no pitch)",
+      "jer": "JER-126",
       "pillar": "Wealth Stack"
     },
     {
       "urgency": "urgent",
-      "text": "Build + maintain Pavilion engagement rhythm",
-      "jer": "JER-151",
-      "pillar": "Wealth Stack"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Identify 3-5 Pavilion channels to own beyond CAF",
-      "jer": "JER-152",
+      "text": "Attend Pavilion New Member Orientation",
+      "jer": "JER-121",
       "pillar": "Wealth Stack"
     }
   ],
   "contentDue": [
     {
-      "title": "5x7 Cards \u2192 IG Carousel (repurpose)",
-      "platform": "Instagram",
-      "status": "Ready to post",
-      "due": "today"
-    },
-    {
-      "title": "5x7 Cards Blog Post \u2192 LinkedIn Carousel",
-      "platform": "LinkedIn",
-      "status": "Ready to post",
-      "due": "today"
-    },
-    {
       "title": "Fortify\u2122 Native Video \u2014 talking head intro",
       "platform": "LinkedIn",
       "status": "Draft",
-      "due": "2026-04-25"
+      "due": "tomorrow"
     },
     {
       "title": "Friday X Thread \u2014 insight from the week",
       "platform": "X",
       "status": "Draft",
-      "due": "2026-04-25"
+      "due": "tomorrow"
     },
     {
       "title": "Friday Reel \u2014 Leadership insight",
       "platform": "Instagram",
       "status": "Draft",
-      "due": "2026-04-25"
+      "due": "tomorrow"
     },
     {
       "title": "Sunday IG Raw Take",
@@ -81,6 +69,12 @@
       "platform": "LinkedIn",
       "status": "Draft",
       "due": "2026-04-30"
+    },
+    {
+      "title": "IG Carousel W2 \u2014 WE domain",
+      "platform": "Instagram",
+      "status": "Draft",
+      "due": "2026-04-30"
     }
   ],
   "followUpRadar": [
@@ -101,17 +95,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 27,
+      "days": 28,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 28,
+      "days": 29,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 28,
+      "days": 29,
       "why": ""
     }
   ],
