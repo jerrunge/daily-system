@@ -4,3 +4,440 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Writing — Jeremy Runge</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:  #F6F1E8;
+  --cream2: #EDE7D9;
+  --ink:    #1A140A;
+  --dark:   #0E0C07;
+  --body:   #3D3528;
+  --accent: #B8924A;
+  --muted:  #7A6A52;
+  --rule:   #D6C9B0;
+  --rule-dk:rgba(246,241,232,.1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream); font-family:'DM Sans',sans-serif; color:var(--ink); }
+
+/* NAV */
+nav {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 56px; height:60px;
+  border-bottom:0.5px solid var(--rule);
+  background:var(--cream);
+  position:sticky; top:0; z-index:100;
+}
+.nav-name {
+  font-family:'Playfair Display',serif;
+  font-size:16px; font-weight:600; color:var(--ink);
+}
+.nav-links { display:flex; gap:36px; }
+.nav-links span {
+  font-size:11px; color:var(--muted);
+  letter-spacing:.08em; text-transform:uppercase;
+  cursor:pointer;
+}
+.nav-links span.active { color:var(--ink); }
+
+/* DARK HEADER */
+.dark-header {
+  background:var(--dark);
+  padding:72px 56px 64px;
+}
+.dark-header-eyebrow {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:16px;
+  display:flex; align-items:center; gap:14px;
+}
+.dark-header-eyebrow::before {
+  content:''; width:28px; height:1px; background:var(--accent);
+}
+.dark-header-title {
+  font-family:'Playfair Display',serif;
+  font-size:52px; font-weight:400; font-style:italic;
+  color:var(--cream); line-height:1.1; letter-spacing:-.02em;
+  margin-bottom:20px;
+}
+.dark-header-sub {
+  font-size:15px; font-weight:300; color:rgba(246,241,232,.5);
+  line-height:1.7; max-width:520px;
+}
+
+/* PINNED — 3 featured */
+.pinned {
+  background:var(--dark);
+  padding:0 56px 56px;
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  border-bottom:0.5px solid var(--rule-dk);
+}
+.pin-card {
+  background:rgba(246,241,232,.04);
+  border:0.5px solid var(--rule-dk);
+  border-radius:4px;
+  padding:28px 24px;
+  cursor:pointer;
+  transition:background .2s;
+}
+.pin-card:hover { background:rgba(246,241,232,.07); }
+.pin-label {
+  font-size:10px; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:12px;
+  display:flex; align-items:center; gap:8px;
+}
+.pin-title {
+  font-family:'Playfair Display',serif;
+  font-size:20px; font-weight:400; font-style:normal;
+  color:var(--cream); line-height:1.35; letter-spacing:-.01em;
+  margin-bottom:10px;
+}
+.pin-date {
+  font-size:11px; color:rgba(246,241,232,.3);
+  letter-spacing:.04em;
+}
+
+/* CREAM ARCHIVE */
+
+/* FILTER BAR */
+.filter-bar {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  padding: 28px 0 0;
+  border-bottom: 0.5px solid var(--rule);
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+.filter-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border: 0.5px solid var(--rule);
+  border-radius: 2px;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all .15s;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(156,123,78,.08); }
+.archive-row.hidden { display: none; }
+
+.archive {
+  background:var(--cream);
+  padding:0 56px;
+}
+.archive-header {
+  display:flex; align-items:baseline; justify-content:space-between;
+  padding:48px 0 20px;
+  border-bottom:0.5px solid var(--rule);
+  margin-bottom:0;
+}
+.archive-label {
+  font-size:12px; font-weight:500; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--muted);
+}
+.archive-count {
+  font-size:12px; color:var(--muted);
+}
+
+/* ARCHIVE ROWS */
+.archive-row {
+  display:flex; align-items:baseline; justify-content:space-between;
+  padding:20px 0;
+  border-bottom:0.5px solid var(--rule);
+  cursor:pointer;
+  transition:opacity .15s;
+  gap:24px;
+}
+.archive-row:hover { opacity:.7; }
+.archive-row-left { display:flex; align-items:baseline; gap:16px; flex:1; min-width:0; }
+.archive-row-label {
+  font-size:9px; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent);
+  white-space:nowrap; flex-shrink:0;
+}
+.archive-row-title {
+  font-family:'Playfair Display',serif;
+  font-size:17px; font-weight:400;
+  color:var(--ink); line-height:1.3;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.archive-row-date {
+  font-size:11px; color:var(--muted);
+  white-space:nowrap; flex-shrink:0;
+  letter-spacing:.02em;
+}
+
+/* FOOTER */
+footer {
+  background:var(--cream);
+  border-top:0.5px solid var(--rule);
+  padding:28px 56px;
+  display:flex; align-items:center; justify-content:space-between;
+  margin-top:48px;
+}
+.footer-name {
+  font-family:'Playfair Display',serif;
+  font-size:14px; color:var(--ink);
+}
+.footer-tagline {
+  font-family:'Playfair Display',serif;
+  font-size:13px; font-style:italic; color:var(--muted);
+}
+.footer-links { display:flex; gap:24px; }
+.footer-links span {
+  font-size:11px; color:var(--muted);
+  letter-spacing:.06em; text-transform:uppercase;
+}
+
+.fade { opacity:0; transform:translateY(16px); transition:opacity .7s ease,transform .7s ease; }
+.fade.in { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Jeremy Runge</div>
+  <div class="nav-links">
+    <span class="active">Writing</span>
+    <span>Fortify</span>
+    <span>Rebuild</span>
+    <span>About</span>
+    <span>Connect</span>
+  </div>
+</nav>
+
+<!-- DARK HEADER -->
+<div class="dark-header fade">
+  <div class="dark-header-eyebrow">jeremyrunge.com</div>
+  <div class="dark-header-title">Writing</div>
+  <p class="dark-header-sub">On leadership, reinvention, and the harder work of being. Written from inside the rebuild — not from the other side of it.</p>
+</div>
+
+<!-- PINNED 3 -->
+<div class="pinned fade">
+  <div class="pin-card">
+    <div class="pin-label">Work of Being →</div>
+    <div class="pin-title">The Undoing</div>
+    <div class="pin-date">April 19, 2026</div>
+  </div>
+  <div class="pin-card">
+    <div class="pin-label">Foundation First →</div>
+    <div class="pin-title">F'IT to Begin</div>
+    <div class="pin-date">April 13, 2026</div>
+  </div>
+  <div class="pin-card">
+    <div class="pin-label">Real Leadership →</div>
+    <div class="pin-title">The power was the empathy</div>
+    <div class="pin-date">April 8, 2026</div>
+  </div>
+</div>
+
+<!-- CREAM ARCHIVE -->
+<div class="archive fade">
+  
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterCat('All')">All</button>
+    <button class="filter-btn" onclick="filterCat('Work of Being')">Work of Being</button>
+    <button class="filter-btn" onclick="filterCat('Foundation First')">Foundation First</button>
+    <button class="filter-btn" onclick="filterCat('Real Leadership')">Real Leadership</button>
+    <button class="filter-btn" onclick="filterCat('On Healing')">On Healing</button>
+    <button class="filter-btn" onclick="filterCat('On Love')">On Love</button>
+    <button class="filter-btn" onclick="filterCat('On Nature')">On Nature</button>
+    <button class="filter-btn" onclick="filterCat('On Joy')">On Joy</button>
+    <button class="filter-btn" onclick="filterCat('On People')">On People</button>
+    <button class="filter-btn" onclick="filterCat('Change it Up')">Change it Up</button>
+  </div>
+  <div class="archive-header">
+    <div class="archive-label">All Writing</div>
+    <div class="archive-count">21 pieces</div>
+  </div>
+
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">Work of Being</span>
+      <span class="archive-row-title">The Undoing</span>
+    </div>
+    <div class="archive-row-date">Apr 19, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">Foundation First</span>
+      <span class="archive-row-title">F'IT to Begin</span>
+    </div>
+    <div class="archive-row-date">Apr 13, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">Change it Up</span>
+      <span class="archive-row-title">Letter-size paper is the 40-hour work week</span>
+    </div>
+    <div class="archive-row-date">Apr 14, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">Real Leadership</span>
+      <span class="archive-row-title">Team not performing? More metrics.</span>
+    </div>
+    <div class="archive-row-date">Apr 10, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">Real Leadership</span>
+      <span class="archive-row-title">The power was the empathy</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">Change it Up</span>
+      <span class="archive-row-title">Remove the layers</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Healing</span>
+      <span class="archive-row-title">Each circle leads to the next</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Nature</span>
+      <span class="archive-row-title">Yosemite's glory remains</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Nature</span>
+      <span class="archive-row-title">The Grand Canyon, Ooh Aah</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Love</span>
+      <span class="archive-row-title">Own your natural beautiful</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Joy</span>
+      <span class="archive-row-title">Queenstown goofiness</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">Work of Being</span>
+      <span class="archive-row-title">Learning is a gift</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Nature</span>
+      <span class="archive-row-title">The grandeur of the canyon</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Love</span>
+      <span class="archive-row-title">Love prevails</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Love</span>
+      <span class="archive-row-title">Love in every season</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Healing</span>
+      <span class="archive-row-title">Let the voices in</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On People</span>
+      <span class="archive-row-title">Enable and choose</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Love</span>
+      <span class="archive-row-title">Love, oh Love</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Healing</span>
+      <span class="archive-row-title">Keep the joy, buddy</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">On Healing</span>
+      <span class="archive-row-title">Walk together into the beautiful unknown</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+  <div class="archive-row" data-cat="Work of Being">
+    <div class="archive-row-left">
+      <span class="archive-row-label">Change it Up</span>
+      <span class="archive-row-title">Love and discomfort</span>
+    </div>
+    <div class="archive-row-date">Apr 8, 2026</div>
+  </div>
+</div>
+
+<footer class="fade">
+  <div class="footer-name">Jeremy Runge</div>
+  <div class="footer-tagline">The work of being.</div>
+  <div class="footer-links">
+    <span>Substack</span>
+    <span>LinkedIn</span>
+    <span>Bluesky</span>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold:0.06 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+function filterCat(cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent === cat);
+  });
+  document.querySelectorAll('.archive-row').forEach(row => {
+    if (cat === 'All' || row.dataset.cat === cat) {
+      row.classList.remove('hidden');
+    } else {
+      row.classList.add('hidden');
+    }
+  });
+  // update count
+  const visible = document.querySelectorAll('.archive-row:not(.hidden)').length;
+  document.querySelector('.archive-count').textContent = visible + ' pieces';
+}
+
+</script>
+</body>
+</html>

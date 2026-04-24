@@ -4,3 +4,373 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fortify™   Jeremy Runge</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:  #F6F1E8;
+  --cream2: #EDE7D9;
+  --ink:    #1A140A;
+  --dark:   #0E0C07;
+  --body:   #3D3528;
+  --accent: #B8924A;
+  --muted:  #7A6A52;
+  --rule:   #D6C9B0;
+  --rule-dk:rgba(246,241,232,.1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--cream); font-family:'DM Sans',sans-serif; color:var(--ink); }
+
+nav {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 56px; height:60px;
+  border-bottom:0.5px solid var(--rule);
+  background:var(--cream);
+  position:sticky; top:0; z-index:100;
+}
+.nav-name { font-family:'Playfair Display',serif; font-size:16px; font-weight:600; color:var(--ink); }
+.nav-links { display:flex; gap:36px; }
+.nav-links span { font-size:11px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; cursor:pointer; }
+.nav-links span.active { color:var(--ink); }
+
+/* HERO */
+.hero { padding:80px 56px 0; max-width:860px; }
+.hero-eyebrow {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:28px;
+  display:flex; align-items:center; gap:14px;
+}
+.hero-eyebrow::before { content:''; width:28px; height:1px; background:var(--accent); }
+.hero-headline {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,4vw,54px); font-weight:400; font-style:normal;
+  color:var(--ink); line-height:1.2; letter-spacing:-.02em;
+  margin-bottom:28px;
+}
+.hero-sub {
+  font-size:17px; font-weight:300; line-height:1.85;
+  color:var(--body); max-width:600px;
+  border-left:2px solid var(--rule); padding-left:20px;
+  margin-bottom:72px;
+}
+
+/* WHO */
+.who { padding:0 56px 72px; max-width:680px; }
+.who-label {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:28px; padding-bottom:16px;
+  border-bottom:0.5px solid var(--rule);
+  display:flex; align-items:center; gap:14px;
+}
+.who-label::before { content:''; display:block; width:28px; height:1px; background:var(--muted); flex-shrink:0; }
+.who-lines { display:flex; flex-direction:column; gap:0; }
+.who-line {
+  font-family:'Playfair Display',serif;
+  font-size:21px; font-weight:400; font-style:italic;
+  color:var(--ink); line-height:1.7;
+}
+
+/* DARK SECTION */
+.dark { background:var(--dark); padding:80px 56px; }
+.dark-inner { max-width:1080px; margin:0 auto; }
+
+.dark-label {
+  font-size:16px; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent);
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:48px; padding-bottom:20px;
+  border-bottom:0.5px solid var(--rule-dk);
+}
+.dark-label::before { content:''; width:28px; height:1px; background:var(--accent); flex-shrink:0; }
+
+/* OUTCOME */
+.outcome { margin-bottom:64px; }
+.outcome-lines { margin-bottom:24px; }
+.outcome-line {
+  font-family:'Playfair Display',serif;
+  font-size:22px; font-weight:400; font-style:italic;
+  color:var(--cream); line-height:1.65;
+}
+.outcome-evidence {
+  font-size:12px; font-weight:300;
+  color:rgba(246,241,232,.3); letter-spacing:.06em;
+}
+.outcome-evidence a {
+  color:var(--accent); text-decoration:none; border-bottom:0.5px solid var(--accent);
+}
+
+/* STEPS */
+.steps {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:2px; margin-top:56px;
+}
+.step {
+  background:rgba(246,241,232,.04);
+  border:0.5px solid var(--rule-dk);
+  padding:28px 22px;
+}
+.step-num {
+  font-family:'Playfair Display',serif;
+  font-size:40px; font-weight:700;
+  color:rgba(246,241,232,.15); line-height:1;
+  margin-bottom:14px;
+}
+.step-name {
+  font-size:10px; font-weight:500; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:10px;
+}
+.step-desc {
+  font-size:13px; font-weight:300;
+  color:rgba(246,241,232,.5); line-height:1.75;
+}
+
+/* INVEST */
+.invest-wrap { background:var(--cream); padding:80px 56px; }
+.invest-inner { max-width:1080px; margin:0 auto; }
+.invest-label {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:48px; padding-bottom:16px;
+  border-bottom:0.5px solid var(--rule);
+  display:flex; align-items:center; gap:14px;
+}
+.invest-label::before { content:''; width:28px; height:1px; background:var(--muted); flex-shrink:0; }
+
+.invest-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; margin-bottom:40px;
+}
+.invest-period {
+  font-family:'Playfair Display',serif;
+  font-size:32px; font-weight:400; font-style:italic;
+  color:var(--ink); line-height:1.2; margin-bottom:10px;
+}
+.invest-amount {
+  font-size:15px; font-weight:300;
+  color:var(--muted); margin-bottom:32px;
+}
+.invest-list { list-style:none; }
+.invest-list li {
+  font-size:15px; font-weight:300; color:var(--body);
+  padding:13px 0; border-bottom:0.5px solid var(--rule);
+  display:flex; gap:14px; align-items:baseline; line-height:1.5;
+}
+.invest-list li::before {
+  content:''; display:inline-block;
+  width:4px; height:4px; border-radius:50%;
+  background:var(--accent); flex-shrink:0; margin-top:9px;
+}
+.invest-right { padding-top:12px; }
+.invest-quote {
+  font-family:'Playfair Display',serif;
+  font-size:21px; font-weight:400; font-style:italic;
+  color:var(--ink); line-height:1.6; margin-bottom:28px;
+}
+.invest-desc {
+  font-size:14px; font-weight:300; color:var(--muted);
+  line-height:1.8; margin-bottom:36px;
+}
+.cta-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:16px 32px;
+  background:var(--ink); color:var(--cream);
+  font-size:11px; font-weight:500; letter-spacing:.1em;
+  text-transform:uppercase; cursor:pointer; border:none;
+  transition:background .2s;
+}
+.cta-btn:hover { background:var(--body); }
+
+.dedicated-nod {
+  font-size:13px; font-weight:300; color:var(--muted);
+  font-style:italic; line-height:1.7;
+  padding-top:32px; border-top:0.5px solid var(--rule);
+  max-width:520px;
+}
+
+/* PROOF */
+.proof-wrap {
+  background:var(--cream2);
+  border-top:0.5px solid var(--rule);
+  border-bottom:0.5px solid var(--rule);
+  padding:72px 56px;
+}
+.proof-inner { max-width:1080px; margin:0 auto; }
+.proof-label {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:40px; text-align:center;
+}
+.proof-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.proof-card {
+  background:var(--cream); border:0.5px solid var(--rule); padding:28px 24px;
+}
+.proof-quote {
+  font-family:'DM Sans',sans-serif;
+  font-size:15px; font-style:normal; font-weight:300;
+  color:var(--body); line-height:1.75; margin-bottom:20px;
+}
+.proof-name {
+  font-size:11px; font-weight:500; color:var(--muted); letter-spacing:.04em;
+}
+
+footer {
+  background:var(--cream); border-top:0.5px solid var(--rule);
+  padding:28px 56px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.footer-name { font-family:'Playfair Display',serif; font-size:14px; color:var(--ink); }
+.footer-tagline { font-family:'Playfair Display',serif; font-size:13px; font-style:italic; color:var(--muted); }
+.footer-links { display:flex; gap:24px; }
+.footer-links span { font-size:11px; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; }
+
+.fade { opacity:0; transform:translateY(14px); transition:opacity .7s ease,transform .7s ease; }
+.fade.in { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Jeremy Runge</div>
+  <div class="nav-links">
+    <span>Writing</span>
+    <span class="active">Fortify</span>
+    <span>Rebuild</span>
+    <span>About</span>
+    <span>Connect</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero fade">
+  <div class="hero-eyebrow">Fortify™ Coaching</div>
+  <h1 class="hero-headline">You've led well.<br>You've delivered.<br><em>Yet you know there's more.</em></h1>
+  <p class="hero-sub">Fortify is built for the leader-in-reckoning who is ready to perform with everything they've got and is ready for a partner in the process.</p>
+</div>
+
+<!-- WHO -->
+<div class="who fade">
+  <div class="who-label">This is you.</div>
+  <div class="who-lines">
+    <span class="who-line">High performer in any craft.</span>
+    <span class="who-line">Successful, yet yearning.</span>
+    <span class="who-line">Tired, or even exhausted.</span>
+    <span class="who-line">Want to own the room, not try to fit in it.</span>
+    <span class="who-line">Identity and background not just welcome, expected.</span>
+  </div>
+</div>
+
+<!-- DARK   OUTCOME + METHODOLOGY -->
+<div class="dark">
+  <div class="dark-inner">
+
+    <div class="dark-label fade">The other side of it</div>
+
+    <div class="outcome fade">
+      <div class="outcome-lines">
+        <p class="outcome-line">You wake up wanting the day, not scared of it.</p>
+        <p class="outcome-line">Brain back to building, not escaping.</p>
+        <p class="outcome-line">Relationships become your fortress, not your necessity.</p>
+        <p class="outcome-line">And most of all, you look in the mirror and see all of you. And you love what you see.</p>
+      </div>
+      <p class="outcome-evidence">Fortify™ is built on 183 randomized controlled trials across 10 domains of human flourishing. <a href="/research">Full research foundation →</a></p>
+    </div>
+
+    <div class="steps fade">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-name">Align</div>
+        <div class="step-desc">Look in the mirror, together. Map it. Find where small shifts can move everything.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-name">Investigate</div>
+        <div class="step-desc">Go where the map points. The places that have been managed, not addressed.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-name">Strengthen</div>
+        <div class="step-desc">Fortify your foundation. Identity, capacity, relationships, from the bedrock up.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-name">Move Forward</div>
+        <div class="step-desc">Leave experiencing a reckoning that was worth it. Arrive real, full, ready.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- INVESTMENT -->
+<div class="invest-wrap">
+  <div class="invest-inner">
+
+    <div class="invest-label fade">The investment</div>
+
+    <div class="invest-grid fade">
+      <div class="invest-left">
+        <div class="invest-period">Six months. You, finally.</div>
+        <div class="invest-amount">$60,000 investment</div>
+        <ul class="invest-list">
+          <li>Weekly sessions with Jeremy</li>
+          <li>Full Fortify™ domain assessment</li>
+          <li>Keystone identification and work plan</li>
+          <li>Async access between sessions</li>
+          <li>Jeremy works alongside you   not from a distance</li>
+          <li>Small roster by design. You will not get lost.</li>
+        </ul>
+      </div>
+      <div class="invest-right">
+        <p class="invest-quote">The performance you're after doesn't come from optimizing harder. It comes from leading from the full version of yourself   not the edited one.</p>
+        <p class="invest-desc">Jeremy works with a small number of clients at any given time. Not as a limitation   as a commitment. The conversation to start determines fit. There's no pitch. If it's right, you'll both know.</p>
+        <button class="cta-btn">Start a conversation →</button>
+      </div>
+    </div>
+
+    <p class="dedicated-nod fade">There is another way to work with Jeremy, more directly and completely dedicated. You'll know if it's for you. <a href="/connect" style="color:var(--accent);text-decoration:none;border-bottom:0.5px solid var(--accent);">Reach out directly to learn more.</a></p>
+
+  </div>
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="proof-wrap">
+  <div class="proof-inner">
+    <div class="proof-label">What people say</div>
+    <div class="proof-grid fade">
+      <div class="proof-card">
+        <p class="proof-quote">"Jeremy has a unique ability to understand the whole person and challenge others to bring their full, authentic selves forward... Jeremy is someone you want on your team. I recommend him without hesitation."</p>
+        <div class="proof-name">Robert Cuillard   CEO / GM</div>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">"Jeremy is an innovative and deeply people-centered leader. His thoughtful coaching style, collaborative approach, and patient leadership have made a lasting impact... He leads with authenticity and genuine care for the human experience."</p>
+        <div class="proof-name">Alyssa Edwards   Multi-Site Operations Executive</div>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">"He has this rare ability to understand the whole person   not just the role or the performance   and he challenges leaders to bring every truth of themselves forward... Any organization would be fortunate to have a leader with his depth, heart, honesty, and strategic horsepower."</p>
+        <div class="proof-name">Teaubrian Clark   Vision, People &amp; Culture Leader</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="fade">
+  <div class="footer-name">Jeremy Runge</div>
+  <div class="footer-tagline">The work of being.</div>
+  <div class="footer-links">
+    <span>Substack</span><span>LinkedIn</span><span>Bluesky</span>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, {threshold:0.06});
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
