@@ -1,7 +1,13 @@
 {
-  "generated": "2026-04-24T16:39:16.000966Z",
-  "generatedPT": "9:39 AM PT",
+  "generated": "2026-04-25T15:28:02.628199Z",
+  "generatedPT": "8:28 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "Reconnect with Patrick \u2014 executive coach from Spring",
+      "jer": "JER-44",
+      "pillar": "Career"
+    },
     {
       "urgency": "urgent",
       "text": "Calendaring System \u2014 source of truth, scheduling, wellbeing defense",
@@ -13,12 +19,6 @@
       "text": "Coaching \u2014 4 listening conversations + Robert follow-up (no pitch)",
       "jer": "JER-126",
       "pillar": "Wealth Stack"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Attend Pavilion New Member Orientation",
-      "jer": "JER-121",
-      "pillar": "Wealth Stack"
     }
   ],
   "contentDue": [
@@ -26,19 +26,19 @@
       "title": "Fortify\u2122 Native Video \u2014 talking head intro",
       "platform": "LinkedIn",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "Friday X Thread \u2014 insight from the week",
       "platform": "X",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "Friday Reel \u2014 Leadership insight",
       "platform": "Instagram",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "Sunday IG Raw Take",
@@ -75,6 +75,12 @@
       "platform": "Instagram",
       "status": "Draft",
       "due": "2026-04-30"
+    },
+    {
+      "title": "Friday native video W2 \u2014 storytelling",
+      "platform": "LinkedIn",
+      "status": "Draft",
+      "due": "2026-05-02"
     }
   ],
   "followUpRadar": [
@@ -95,17 +101,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 28,
+      "days": 29,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 29,
+      "days": 30,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 29,
+      "days": 30,
       "why": ""
     }
   ],
