@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-26T15:30:56.986356Z",
-  "generatedPT": "8:30 AM PT",
+  "generated": "2026-04-27T17:51:26.839954Z",
+  "generatedPT": "10:51 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -26,19 +26,19 @@
       "title": "Sunday IG Raw Take",
       "platform": "Instagram",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "Note to Self \u2014 Keep the joy, buddy",
       "platform": "X, Instagram, Substack, LinkedIn",
       "status": "Draft",
-      "due": "2026-04-28"
+      "due": "tomorrow"
     },
     {
       "title": "What the Fortify Framework Actually Does",
       "platform": "LinkedIn",
       "status": "Draft",
-      "due": "2026-04-28"
+      "due": "tomorrow"
     },
     {
       "title": "Week 2 Substack \u2014 book chapter in public (premise)",
@@ -63,6 +63,12 @@
       "platform": "LinkedIn",
       "status": "Draft",
       "due": "2026-05-02"
+    },
+    {
+      "title": "Sunday IG Raw Take W2",
+      "platform": "Instagram",
+      "status": "Draft",
+      "due": "2026-05-04"
     }
   ],
   "followUpRadar": [
@@ -83,17 +89,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 30,
+      "days": 31,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 31,
+      "days": 32,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 31,
+      "days": 32,
       "why": ""
     }
   ],
