@@ -33,7 +33,7 @@ nav {
 .nav-links span.active { color:var(--ink); }
 
 /* HERO */
-.hero { padding:80px 56px 0; max-width:860px; }
+.hero { padding:88px 56px 8px; max-width:960px; }
 .hero-eyebrow {
   font-size:10px; font-weight:500; letter-spacing:.2em;
   text-transform:uppercase; color:var(--accent);
@@ -43,9 +43,9 @@ nav {
 .hero-eyebrow::before { content:''; width:28px; height:1px; background:var(--accent); }
 .hero-headline {
   font-family:'Playfair Display',serif;
-  font-size:clamp(34px,4vw,54px); font-weight:400; font-style:normal;
-  color:var(--ink); line-height:1.2; letter-spacing:-.02em;
-  margin-bottom:28px;
+  font-size:clamp(42px,5.5vw,72px); font-weight:400; font-style:normal;
+  color:var(--ink); line-height:1.1; letter-spacing:-.03em;
+  margin-bottom:32px;
 }
 .hero-sub {
   font-size:17px; font-weight:300; line-height:1.85;
@@ -55,15 +55,15 @@ nav {
 }
 
 /* WHO */
-.who { padding:0 56px 72px; max-width:680px; }
+.who { padding:72px 56px 72px; max-width:680px; }
 .who-label {
-  font-size:10px; font-weight:500; letter-spacing:.2em;
-  text-transform:uppercase; color:var(--muted);
-  margin-bottom:28px; padding-bottom:16px;
+  font-size:16px; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:32px; padding-bottom:20px;
   border-bottom:0.5px solid var(--rule);
   display:flex; align-items:center; gap:14px;
 }
-.who-label::before { content:''; display:block; width:28px; height:1px; background:var(--muted); flex-shrink:0; }
+.who-label::before { content:''; display:block; width:28px; height:1px; background:var(--accent); flex-shrink:0; }
 .who-lines { display:flex; flex-direction:column; gap:0; }
 .who-line {
   font-family:'Playfair Display',serif;
@@ -247,9 +247,8 @@ footer {
 
 <!-- HERO -->
 <div class="hero fade">
-  <div class="hero-eyebrow">Fortify™ Coaching</div>
-  <h1 class="hero-headline">You've led well.<br>You've delivered.<br><em>Yet you know there's more.</em></h1>
-  <p class="hero-sub">Fortify is built for the leader-in-reckoning who is ready to perform with everything they've got and is ready for a partner in the process.</p>
+  <h1 class="hero-headline">You've led well.<br>You've delivered.<br>You know there's more.</h1>
+  <p class="hero-sub">Fortify™ Coaching is built for the leader-in-reckoning who is ready to perform with everything they've got and is ready for a partner in the process.</p>
 </div>
 
 <!-- WHO -->

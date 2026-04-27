@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Research — Fortify™</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:  #F6F1E8;
+  --cream2: #EDE7D9;
+  --ink:    #1A140A;
+  --dark:   #0E0C07;
+  --body:   #3D3528;
+  --accent: #B8924A;
+  --muted:  #7A6A52;
+  --rule:   #D6C9B0;
+  --rule-dk:rgba(246,241,232,.1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--cream); font-family:'DM Sans',sans-serif; color:var(--ink); }
+
+nav {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 56px; height:60px;
+  border-bottom:0.5px solid var(--rule);
+  background:var(--cream);
+  position:sticky; top:0; z-index:100;
+}
+.nav-name { font-family:'Playfair Display',serif; font-size:16px; font-weight:600; color:var(--ink); }
+.nav-links { display:flex; gap:36px; }
+.nav-links span { font-size:11px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; cursor:pointer; }
+
+/* HERO */
+.hero {
+  background:var(--dark);
+  padding:72px 56px 64px;
+}
+.hero-eyebrow {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:24px;
+  display:flex; align-items:center; gap:14px;
+}
+.hero-eyebrow::before { content:''; width:28px; height:1px; background:var(--accent); }
+.hero-headline {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,3.2vw,44px); font-weight:400; font-style:normal;
+  color:var(--cream); line-height:1.2; letter-spacing:-.02em;
+  margin-bottom:28px; max-width:680px;
+}
+.hero-headline em {
+  font-style:italic;
+}
+.hero-sub {
+  font-size:17px; font-weight:300; color:rgba(246,241,232,.7);
+  line-height:1.85; max-width:600px;
+  border-left:2px solid rgba(246,241,232,.2);
+  padding-left:20px;
+}
+
+/* SIGNAL STATS */
+.signal {
+  background:var(--dark);
+  padding:0 56px 64px;
+  border-bottom:0.5px solid var(--rule-dk);
+}
+.signal-inner {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:2px;
+}
+.stat {
+  background:rgba(246,241,232,.04);
+  border:0.5px solid var(--rule-dk);
+  padding:28px 24px;
+}
+.stat-num {
+  font-family:'Playfair Display',serif;
+  font-size:36px; font-weight:700;
+  color:var(--accent); line-height:1;
+  margin-bottom:8px;
+}
+.stat-label {
+  font-size:12px; font-weight:300;
+  color:rgba(246,241,232,.5); line-height:1.6;
+}
+
+/* PREMISE */
+.premise {
+  padding:72px 56px;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; max-width:1100px;
+  border-bottom:0.5px solid var(--rule);
+}
+.premise-left {}
+.premise-label {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:20px;
+}
+.premise-headline {
+  font-family:'Playfair Display',serif;
+  font-size:28px; font-weight:400; font-style:normal;
+  color:var(--ink); line-height:1.35;
+  margin-bottom:24px;
+}
+.premise-body {
+  font-size:15px; font-weight:300; color:var(--body);
+  line-height:1.85;
+}
+.premise-right {
+  padding-top:48px;
+}
+.finding {
+  padding:20px 0;
+  border-bottom:0.5px solid var(--rule);
+}
+.finding:first-child { border-top:0.5px solid var(--rule); }
+.finding-num {
+  font-family:'Playfair Display',serif;
+  font-size:11px; font-weight:700;
+  color:var(--accent); margin-bottom:6px;
+}
+.finding-text {
+  font-size:13px; font-weight:300; color:var(--body);
+  line-height:1.7;
+}
+
+/* DOMAINS */
+.domains-section {
+  background:var(--cream2);
+  padding:72px 56px;
+  border-top:0.5px solid var(--rule);
+  border-bottom:0.5px solid var(--rule);
+}
+.section-label {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:8px;
+  display:flex; align-items:center; gap:14px;
+}
+.section-label::after { content:''; flex:1; height:0.5px; background:var(--rule); }
+.section-headline {
+  font-family:'Playfair Display',serif;
+  font-size:24px; font-weight:400; font-style:normal;
+  color:var(--ink); margin-bottom:40px;
+}
+.domains-grid {
+  display:grid; grid-template-columns:repeat(5,1fr);
+  gap:2px; margin-bottom:32px;
+}
+.domain-card {
+  background:var(--cream); border:0.5px solid var(--rule);
+  padding:20px 18px;
+}
+.domain-code {
+  font-size:9px; font-weight:500; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:8px;
+}
+.domain-name {
+  font-family:'Playfair Display',serif;
+  font-size:15px; font-weight:400; font-style:normal;
+  color:var(--ink); margin-bottom:6px;
+}
+.domain-finding {
+  font-size:11px; font-weight:300; color:var(--muted);
+  line-height:1.55;
+}
+
+/* WHAT OTHERS MISS */
+.gaps-section {
+  padding:72px 56px;
+  border-bottom:0.5px solid var(--rule);
+}
+.gaps-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:24px; max-width:1100px; margin-top:40px;
+}
+.gap-card {
+  border:0.5px solid var(--rule);
+  padding:24px 22px;
+  background:var(--cream);
+}
+.gap-miss {
+  font-size:10px; font-weight:500; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:10px;
+  padding-bottom:10px; border-bottom:0.5px solid var(--rule);
+}
+.gap-title {
+  font-family:'Playfair Display',serif;
+  font-size:16px; font-weight:400; font-style:normal;
+  color:var(--ink); margin-bottom:8px;
+}
+.gap-desc {
+  font-size:12px; font-weight:300; color:var(--body);
+  line-height:1.65;
+}
+.gap-evidence {
+  font-size:10px; color:var(--accent);
+  margin-top:10px; font-weight:500;
+}
+
+/* CONNECTIONS */
+.connections-section {
+  background:var(--dark);
+  padding:72px 56px;
+}
+.connections-inner { max-width:1100px; margin:0 auto; }
+.conn-label {
+  font-size:16px; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent);
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:48px; padding-bottom:20px;
+  border-bottom:0.5px solid var(--rule-dk);
+}
+.conn-label::before { content:''; width:28px; height:1px; background:var(--accent); flex-shrink:0; }
+.conn-grid {
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:2px;
+}
+.conn-card {
+  background:rgba(246,241,232,.04);
+  border:0.5px solid var(--rule-dk);
+  padding:28px 24px;
+}
+.conn-tag {
+  font-size:9px; font-weight:500; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:12px;
+}
+.conn-title {
+  font-family:'Playfair Display',serif;
+  font-size:18px; font-weight:400; font-style:normal;
+  color:var(--cream); line-height:1.3;
+  margin-bottom:12px;
+}
+.conn-body {
+  font-size:13px; font-weight:300;
+  color:rgba(246,241,232,.55); line-height:1.75;
+}
+
+/* CTA */
+.cta-section {
+  padding:72px 56px;
+  border-top:0.5px solid var(--rule);
+  display:flex; align-items:center; justify-content:space-between;
+  gap:80px;
+}
+.cta-left {}
+.cta-label {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:16px;
+}
+.cta-headline {
+  font-family:'Playfair Display',serif;
+  font-size:28px; font-weight:400; font-style:normal;
+  color:var(--ink); line-height:1.3; max-width:480px;
+}
+.cta-right { flex-shrink:0; }
+.cta-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:16px 32px;
+  background:var(--ink); color:var(--cream);
+  font-size:11px; font-weight:500; letter-spacing:.1em;
+  text-transform:uppercase; cursor:pointer; border:none;
+  transition:background .2s;
+}
+.cta-btn:hover { background:var(--body); }
+.cta-note {
+  font-size:12px; font-weight:300; color:var(--muted);
+  margin-top:12px; line-height:1.6;
+}
+
+/* FOOTER */
+footer {
+  background:var(--cream); border-top:0.5px solid var(--rule);
+  padding:28px 56px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.footer-name { font-family:'Playfair Display',serif; font-size:14px; color:var(--ink); }
+.footer-tagline { font-family:'Playfair Display',serif; font-size:13px; font-style:italic; color:var(--muted); }
+.footer-copy { font-size:11px; color:var(--muted); }
+
+.fade { opacity:0; transform:translateY(14px); transition:opacity .75s ease,transform .75s ease; }
+.fade.in { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Jeremy Runge</div>
+  <div class="nav-links">
+    <span>Writing</span>
+    <span>Fortify</span>
+    <span>Rebuild</span>
+    <span>About</span>
+    <span>Connect</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero fade">
+  <div class="hero-eyebrow">Fortify™ — The Research Foundation</div>
+  <h1 class="hero-headline">This is not a philosophy.<br>It is the strongest evidence signal<br><em>in wellbeing science.</em></h1>
+  <p class="hero-sub">Fortify™ is built on a 2026 network meta-analysis of 183 randomized controlled trials and 22,811 participants. The central finding: combined physical and psychological interventions produce nearly double the wellbeing effect of either alone. Every domain in the framework is grounded in peer-reviewed research. This page is the proof layer.</p>
+</div>
+
+<!-- SIGNAL STATS -->
+<div class="signal fade">
+  <div class="signal-inner">
+    <div class="stat">
+      <div class="stat-num">183</div>
+      <div class="stat-label">Randomized controlled trials in the 2026 network meta-analysis</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">22,811</div>
+      <div class="stat-label">Participants across the landmark wellbeing intervention study</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0.73</div>
+      <div class="stat-label">SMD for combined physical + psychological interventions — highest effect of any approach measured</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">22</div>
+      <div class="stat-label">Documented evidence-weighted connections between the ten domains</div>
+    </div>
+  </div>
+</div>
+
+<!-- PREMISE -->
+<div class="premise fade">
+  <div class="premise-left">
+    <div class="premise-label">The central premise</div>
+    <div class="premise-headline">Every part of you affects every other part. Almost no framework is built on that premise.</div>
+    <p class="premise-body">When an executive is struggling — with performance, relationships, health, or identity — the problem rarely lives in a single domain. It lives in the cascade effects between them. Fortify™ maps that architecture: ten interconnected domains, three layers that organize them from biological prerequisites to professional expression, and the most consequential documented connections between them. Treating body and mind as separate coaching domains is not a philosophical disagreement. It is a category error with measurable consequences.</p>
+  </div>
+  <div class="premise-right">
+    <div class="finding">
+      <div class="finding-num">Combined intervention effect</div>
+      <div class="finding-text">Physical + psychological interventions together produce SMD = 0.73 versus approximately 0.45 for either alone. That gap is not incremental. It is the difference between coaching that works and coaching that feels good but doesn't move the needle.</div>
+    </div>
+    <div class="finding">
+      <div class="finding-num">Executive flourishing</div>
+      <div class="finding-text">Only 17.2% of adults are flourishing. 12.1% are languishing. The rest — 70% — are somewhere in between. High performance and deep struggle are not opposites. Keyes' two-continua model established this with MIDUS study data. Fortify is built on it.</div>
+    </div>
+    <div class="finding">
+      <div class="finding-num">Executive coaching efficacy</div>
+      <div class="finding-text">Psychologically-informed executive coaching shows a g = 0.59 effect size across 37 RCTs — a meaningful, replicable result. The operative word is psychologically-informed. Generic coaching shows much weaker effects.</div>
+    </div>
+    <div class="finding">
+      <div class="finding-num">Leadership contagion</div>
+      <div class="finding-text">Where executives model transparency about their own wellbeing, 72% of employees report above-average wellbeing. Where they don't: 57%. Leader wellbeing is not a private matter. It is an organizational variable.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TEN DOMAINS -->
+<div class="domains-section fade">
+  <div class="section-label">Ten domains</div>
+  <div class="section-headline">The architecture of a whole human life.</div>
+  <div class="domains-grid">
+    <div class="domain-card">
+      <div class="domain-code">PH · Physical</div>
+      <div class="domain-name">Health & Vitality</div>
+      <div class="domain-finding">VO₂ max is the strongest single predictor of all-cause mortality. Combined physical + psychological: SMD = 0.73 (183 RCTs, 22,811 participants).</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-code">ME · Mental</div>
+      <div class="domain-name">Emotional Wellbeing</div>
+      <div class="domain-finding">26% of executives report depression symptoms vs. 18% in general workforce — often while fully functional. Keyes MIDUS: only 17.2% flourishing.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-code">CG · Cognitive</div>
+      <div class="domain-name">Brain & Focus</div>
+      <div class="domain-finding">Chronic stress causes measurable prefrontal cortex dendritic atrophy after just 7 days. Largely reversible with recovery, exercise, and mindfulness. (Arnsten, Yale)</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-code">SX · Sexual</div>
+      <div class="domain-name">Intimacy & Desire</div>
+      <div class="domain-finding">Absent from every major wellbeing framework. 46.79% of high-stress workers show sexual dysfunction. Partners show 71.8% difficulty rates vs. 38.1% in unaffected couples.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-code">RL · Relational</div>
+      <div class="domain-name">Partnerships</div>
+      <div class="domain-finding">Attachment insecurity correlates r = .42 with negative mental health (224 studies, 79,722 participants). Partner attachment style affects your cortisol reactivity and immune function.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-code">SC · Social</div>
+      <div class="domain-name">Community</div>
+      <div class="domain-finding">Loneliness carries equivalent mortality risk to smoking 15 cigarettes per day. 50% of CEOs report loneliness in role. Structured peer groups: 71% improved company performance.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-code">FI · Financial</div>
+      <div class="domain-name">Security & Identity</div>
+      <div class="domain-finding">For executives, compensation becomes identity. Adults with under $5K in assets have 2× the odds of depression. Financial stress drives 67% toward job changes regardless of other factors.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-code">EN · Environmental</div>
+      <div class="domain-name">Space & Nature</div>
+      <div class="domain-finding">120 minutes per week in nature produces measurable wellbeing improvement (White et al., 2019). Biophilic design improves cognitive performance 20% and job satisfaction 33%.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-code">SP · Spiritual</div>
+      <div class="domain-name">Meaning & Purpose</div>
+      <div class="domain-finding">VanderWeele's Global Flourishing Study (Harvard, 22 countries): spiritual engagement is among the strongest predictors of flourishing across cultures. Purpose in Life is the strongest predictor in Ryff's model.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-code">ID · Identity</div>
+      <div class="domain-name">Self-Concept & Values</div>
+      <div class="domain-finding">67% of C-suite executives "cover" core aspects of identity at work (Deloitte). 60% report emotional drain as a direct result. Identity change happens through action, not reflection alone. (Ibarra)</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT OTHERS MISS -->
+<div class="gaps-section fade">
+  <div class="section-label">What existing frameworks miss</div>
+  <div class="section-headline" style="margin-top:8px;font-family:'Playfair Display',serif;font-size:24px;font-weight:400;font-style:normal;color:var(--ink)">Seven gaps. All evidence-documented. All in Fortify™.</div>
+  <div class="gaps-grid">
+    <div class="gap-card">
+      <div class="gap-miss">Missed by 12 of 12 major frameworks</div>
+      <div class="gap-title">Sexual health</div>
+      <div class="gap-desc">The most systematically avoided domain in coaching. The cortisol-testosterone cascade is not a character flaw — it is a physiological consequence of sustained stress. Fortify names it directly and builds around it.</div>
+      <div class="gap-evidence">WHO · Natsal-SW · MDPI 2025</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-miss">Missed by most frameworks</div>
+      <div class="gap-title">Financial identity fusion</div>
+      <div class="gap-desc">For executives, compensation and self-concept fuse at a neurological level. Job loss is not a professional setback — it is an identity crisis. The FI domain maps this and the bidirectional cascade it creates.</div>
+      <div class="gap-evidence">CFPB scale · Killingsworth-Kahneman 2023</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-miss">Treated as separate by most</div>
+      <div class="gap-title">Body-mind integration</div>
+      <div class="gap-desc">Most coaching frameworks treat physical and psychological health as parallel tracks. The 183-RCT network meta-analysis proves this is wrong. Combined interventions produce nearly double the effect. Separation is a category error.</div>
+      <div class="gap-evidence">NMA 183 RCTs · SMD 0.73</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-miss">Siloed in most models</div>
+      <div class="gap-title">Personal-professional integration</div>
+      <div class="gap-desc">The spillover is real and bidirectional. Work stress affects home life; relationship quality affects performance. Three-layer unified architecture maps this explicitly — not as theory, but as a coaching structure.</div>
+      <div class="gap-evidence">Spillover theory · 2024 research</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-miss">Background only in most models</div>
+      <div class="gap-title">Trauma as structural context</div>
+      <div class="gap-desc">The ACE Study (17,337 participants) established a dose-response relationship between childhood adversity and adult health. Fortify treats trauma awareness as a Foundation Layer prerequisite — not an optional add-on.</div>
+      <div class="gap-evidence">ACE Study · 17,337 participants</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-miss">Absent from major frameworks</div>
+      <div class="gap-title">Environmental domain</div>
+      <div class="gap-desc">Physical environment shapes nervous system regulation without conscious awareness. Clutter, hostile spaces, and nature deprivation are chronic low-grade stressors with measurable cognitive consequences.</div>
+      <div class="gap-evidence">ART · White et al. 2019</div>
+    </div>
+  </div>
+</div>
+
+<!-- KEYSTONE CONNECTIONS -->
+<div class="connections-section">
+  <div class="connections-inner">
+    <div class="conn-label fade">Four keystone connections</div>
+    <div class="conn-grid fade">
+      <div class="conn-card">
+        <div class="conn-tag">Identity Fusion · Financial ↔ Identity</div>
+        <div class="conn-title">Why executive job loss is psychologically violent</div>
+        <div class="conn-body">For executives, financial position and self-concept become so fused they cannot be cleanly separated. Job loss triggers identity crisis at a neurological level — not a professional setback, an existential one. Financial anxiety degrades self-concept. Fragile identity drives desperate financial decisions. This cascade runs in both directions and rarely gets named.</div>
+      </div>
+      <div class="conn-card">
+        <div class="conn-tag">Hormonal Cascade · Physical ↔ Sexual</div>
+        <div class="conn-title">Chronic stress is not an excuse. It is a mechanism.</div>
+        <div class="conn-body">Sustained cortisol from overwork directly suppresses the HPG axis, reducing testosterone. One week of sleep restriction reduces testosterone up to 15%. The result is experienced as mysterious and shameful rather than understood as a physiological cascade. It is not a character flaw. It is a measurable consequence of how executives are asked to live.</div>
+      </div>
+      <div class="conn-card">
+        <div class="conn-tag">Mind-Body Unity · Physical ↔ Mental</div>
+        <div class="conn-title">The strongest evidence signal we have</div>
+        <div class="conn-body">SMD = 0.73 for combined physical + psychological interventions versus approximately 0.45 for either alone. Exercise changes brain structure — reduces amygdala reactivity, increases BDNF, restores prefrontal function. Treating body and mind as separate coaching domains produces results that are real but half as strong as they could be.</div>
+      </div>
+      <div class="conn-card">
+        <div class="conn-tag">Intimacy Spillover · Sexual ↔ Relational</div>
+        <div class="conn-title">Withdrawal reads as rejection, not stress</div>
+        <div class="conn-body">Partners of men with sexual dysfunction show 71.8% rates of sexual difficulty versus 38.1% in unaffected couples. Withdrawal that is the product of stress reads to partners as rejection. The relational damage deepens the original dysfunction and the isolation simultaneously. The cycle compounds unless the mechanism is named and addressed directly.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section fade">
+  <div class="cta-left">
+    <div class="cta-label">Ready to go deeper</div>
+    <div class="cta-headline">The research is the foundation. The work is what happens next.</div>
+    <p class="cta-note" style="margin-top:16px;font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;max-width:480px">Fortify™ is a six-month engagement built on this evidence base. If the framework resonates and you're wondering if it's the right fit, the conversation starts here.</p>
+  </div>
+  <div class="cta-right">
+    <button class="cta-btn">Start a conversation →</button>
+    <p class="cta-note">Or return to <a href="/fortify" style="color:var(--accent);text-decoration:none;border-bottom:0.5px solid var(--accent)">the Fortify page →</a></p>
+  </div>
+</div>
+
+<footer class="fade">
+  <div class="footer-name">Jeremy Runge</div>
+  <div class="footer-tagline">The work of being.</div>
+  <div class="footer-copy">© 2026 Fortify™. All rights reserved.</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, {threshold:0.06});
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
