@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start the Conversation — Fortify™</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:  #F6F1E8;
+  --cream2: #EDE7D9;
+  --ink:    #1A140A;
+  --dark:   #0E0C07;
+  --body:   #3D3528;
+  --accent: #B8924A;
+  --muted:  #7A6A52;
+  --rule:   #D6C9B0;
+  --rule-dk:rgba(246,241,232,.1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--cream); font-family:'DM Sans',sans-serif; color:var(--ink); }
+
+nav {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 56px; height:60px;
+  border-bottom:0.5px solid var(--rule);
+  background:var(--cream);
+  position:sticky; top:0; z-index:100;
+}
+.nav-name { font-family:'Playfair Display',serif; font-size:16px; font-weight:600; color:var(--ink); }
+.nav-back {
+  font-size:11px; font-weight:500; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted);
+  text-decoration:none;
+  display:flex; align-items:center; gap:8px;
+}
+.nav-back:hover { color:var(--ink); }
+
+/* CONTEXT SECTION */
+.context {
+  padding:80px 56px 72px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  border-bottom:0.5px solid var(--rule);
+  max-width:1100px;
+}
+.context-left {}
+.eyebrow {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:24px;
+  display:flex; align-items:center; gap:14px;
+}
+.eyebrow::before { content:''; width:28px; height:1px; background:var(--accent); }
+.headline {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4vw,48px); font-weight:400; font-style:normal;
+  color:var(--ink); line-height:1.15; letter-spacing:-.02em;
+  margin-bottom:28px;
+}
+.headline em { font-style:italic; }
+.context-body {
+  font-size:15px; font-weight:300; color:var(--body);
+  line-height:1.9;
+  border-left:2px solid var(--rule); padding-left:20px;
+}
+
+.context-right {
+  padding-top:8px;
+}
+.what-happens {
+  margin-bottom:40px;
+}
+.what-label {
+  font-size:9px; font-weight:500; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:16px;
+}
+.what-item {
+  display:flex; gap:16px;
+  padding:14px 0;
+  border-bottom:0.5px solid var(--rule);
+  align-items:baseline;
+}
+.what-item:first-of-type { border-top:0.5px solid var(--rule); }
+.what-num {
+  font-family:'Playfair Display',serif;
+  font-size:13px; font-weight:400;
+  color:rgba(26,20,10,.2); flex-shrink:0; width:20px;
+}
+.what-text {
+  font-size:13px; font-weight:300; color:var(--body); line-height:1.6;
+}
+
+.investment-note {
+  background:var(--cream2);
+  border:0.5px solid var(--rule);
+  padding:20px 22px;
+}
+.investment-note-label {
+  font-size:9px; font-weight:500; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:8px;
+}
+.investment-note-text {
+  font-size:13px; font-weight:300; color:var(--body); line-height:1.6;
+}
+
+/* CALENDLY SECTION */
+.booking {
+  padding:72px 56px 80px;
+}
+.booking-label {
+  font-size:10px; font-weight:500; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:40px;
+  display:flex; align-items:center; gap:14px;
+}
+.booking-label::after { content:''; flex:1; height:0.5px; background:var(--rule); }
+
+/* Calendly embed placeholder — replace with actual embed during Webflow build */
+.calendly-placeholder {
+  background:var(--cream2);
+  border:0.5px solid var(--rule);
+  min-height:600px;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:16px;
+}
+.calendly-placeholder-text {
+  font-family:'Playfair Display',serif;
+  font-size:20px; font-weight:400; font-style:italic;
+  color:var(--muted);
+}
+.calendly-placeholder-sub {
+  font-size:12px; font-weight:300; color:var(--muted);
+  letter-spacing:.06em; text-transform:uppercase;
+}
+
+/* Actual Calendly embed styles */
+.calendly-inline-widget {
+  min-width:320px;
+  height:700px;
+}
+
+footer {
+  background:var(--cream); border-top:0.5px solid var(--rule);
+  padding:28px 56px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.footer-name { font-family:'Playfair Display',serif; font-size:14px; color:var(--ink); }
+.footer-tagline { font-family:'Playfair Display',serif; font-size:13px; font-style:italic; color:var(--muted); }
+
+.fade { opacity:0; transform:translateY(14px); transition:opacity .75s ease,transform .75s ease; }
+.fade.in { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Jeremy Runge</div>
+  <a href="/fortify" class="nav-back">← Back to Fortify</a>
+</nav>
+
+<!-- CONTEXT -->
+<div class="context fade">
+  <div class="context-left">
+    <div class="eyebrow">Fortify™ Coaching</div>
+    <h1 class="headline">A first conversation.<br><em>No pitch, no pressure.</em></h1>
+    <p class="context-body">This is a 30-minute call to see if Fortify is the right fit for where you are right now. I read every intake response before the call. Come as you are.</p>
+  </div>
+
+  <div class="context-right">
+    <div class="what-happens">
+      <div class="what-label">What happens next</div>
+      <div class="what-item">
+        <span class="what-num">1</span>
+        <span class="what-text">Pick a time that works. You'll get a confirmation immediately.</span>
+      </div>
+      <div class="what-item">
+        <span class="what-num">2</span>
+        <span class="what-text">Answer three short questions. I read them before the call — no surprises on either end.</span>
+      </div>
+      <div class="what-item">
+        <span class="what-num">3</span>
+        <span class="what-text">Show up. That's it. If it's the right fit, you'll both know.</span>
+      </div>
+    </div>
+
+    <div class="investment-note">
+      <div class="investment-note-label">About Fortify</div>
+      <div class="investment-note-text">Fortify is a six-month, $60,000 engagement. This call is not a sales call. It is a real conversation to see if the work makes sense for where you are. Small roster. No pressure. If it is not the right fit, I will say so.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDLY EMBED -->
+<div class="booking fade">
+  <div class="booking-label">Choose a time</div>
+
+  <!-- REPLACE THIS WITH ACTUAL CALENDLY EMBED DURING WEBFLOW BUILD -->
+  <!-- Embed code: Settings > Integrations > Embed > Inline Widget > Discovery event type -->
+  <!-- Custom CSS: match Palette B (cream background, Playfair Display, gold accent #B8924A) -->
+  <div class="calendly-placeholder">
+    <div class="calendly-placeholder-text">Calendly embed goes here</div>
+    <div class="calendly-placeholder-sub">book.jeremyrunge.com/discovery</div>
+  </div>
+
+  <!-- ACTUAL EMBED (uncomment and replace URL during build):
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <div class="calendly-inline-widget" data-url="https://calendly.com/jeremy-reckthefort/discovery?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=B8924A&background_color=F6F1E8&text_color=1A140A"></div>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  -->
+</div>
+
+<footer class="fade">
+  <div class="footer-name">Jeremy Runge</div>
+  <div class="footer-tagline">The work of being.</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, {threshold:0.05});
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
