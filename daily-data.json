@@ -1,50 +1,44 @@
 {
-  "generated": "2026-04-27T17:51:26.839954Z",
-  "generatedPT": "10:51 AM PT",
+  "generated": "2026-04-28T18:10:43.171488Z",
+  "generatedPT": "11:10 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
-      "text": "Coaching \u2014 4 listening conversations + Robert follow-up (no pitch)",
-      "jer": "JER-126",
-      "pillar": "Wealth Stack"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Build Fortify\u2122 research citations page",
-      "jer": "JER-75",
+      "text": "Build and activate full multi-platform social strategy",
+      "jer": "JER-117",
       "pillar": ""
     },
     {
       "urgency": "urgent",
-      "text": "Content backlog \u2014 reconcile Notion Content Calendar to Linear/Things",
-      "jer": "JER-180",
+      "text": "Content: The Performance Flywheel (LinkedIn long-form)",
+      "jer": "JER-186",
       "pillar": "Wealth Stack"
+    },
+    {
+      "urgency": "urgent",
+      "text": "mymaddy.app \u2014 April 30 launch site tracker",
+      "jer": "JER-168",
+      "pillar": ""
     }
   ],
   "contentDue": [
     {
-      "title": "Sunday IG Raw Take",
-      "platform": "Instagram",
-      "status": "Draft",
-      "due": "today"
-    },
-    {
       "title": "Note to Self \u2014 Keep the joy, buddy",
       "platform": "X, Instagram, Substack, LinkedIn",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "What the Fortify Framework Actually Does",
       "platform": "LinkedIn",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "Week 2 Substack \u2014 book chapter in public (premise)",
       "platform": "Substack",
       "status": "Hold gated",
-      "due": "2026-04-29"
+      "due": "tomorrow"
     },
     {
       "title": "Fortify\u2122 WE Domain Carousel",
@@ -69,6 +63,24 @@
       "platform": "Instagram",
       "status": "Draft",
       "due": "2026-05-04"
+    },
+    {
+      "title": "Note to Self \u2014 Remove the layers",
+      "platform": "X, Instagram, Substack, LinkedIn",
+      "status": "Draft",
+      "due": "2026-05-05"
+    },
+    {
+      "title": "F'IT \u2192 Fortify\u2122 bridge post (LinkedIn)",
+      "platform": "LinkedIn",
+      "status": "Draft",
+      "due": "2026-05-05"
+    },
+    {
+      "title": "Beach video \u2014 full upload",
+      "platform": "YouTube",
+      "status": "Hold gated",
+      "due": "2026-05-05"
     }
   ],
   "followUpRadar": [
@@ -89,17 +101,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 31,
+      "days": 32,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 32,
+      "days": 33,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 32,
+      "days": 33,
       "why": ""
     }
   ],
