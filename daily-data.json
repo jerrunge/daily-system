@@ -1,56 +1,44 @@
 {
-  "generated": "2026-04-28T18:10:43.171488Z",
-  "generatedPT": "11:10 AM PT",
+  "generated": "2026-04-29T18:05:16.302891Z",
+  "generatedPT": "11:05 AM PT",
   "rightNow": [
-    {
-      "urgency": "urgent",
-      "text": "Build and activate full multi-platform social strategy",
-      "jer": "JER-117",
-      "pillar": ""
-    },
-    {
-      "urgency": "urgent",
-      "text": "Content: The Performance Flywheel (LinkedIn long-form)",
-      "jer": "JER-186",
-      "pillar": "Wealth Stack"
-    },
     {
       "urgency": "urgent",
       "text": "mymaddy.app \u2014 April 30 launch site tracker",
       "jer": "JER-168",
       "pillar": ""
+    },
+    {
+      "urgency": "urgent",
+      "text": "Content: Whole, Best Self at Work (LinkedIn long-form)",
+      "jer": "JER-186",
+      "pillar": "Wealth Stack"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Content backlog \u2014 reconcile Notion Content Calendar to Linear/Things",
+      "jer": "JER-180",
+      "pillar": "Wealth Stack"
     }
   ],
   "contentDue": [
     {
-      "title": "Note to Self \u2014 Keep the joy, buddy",
-      "platform": "X, Instagram, Substack, LinkedIn",
-      "status": "Draft",
-      "due": "today"
-    },
-    {
-      "title": "What the Fortify Framework Actually Does",
-      "platform": "LinkedIn",
-      "status": "Draft",
-      "due": "today"
-    },
-    {
       "title": "Week 2 Substack \u2014 book chapter in public (premise)",
       "platform": "Substack",
       "status": "Hold gated",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "Fortify\u2122 WE Domain Carousel",
       "platform": "LinkedIn",
       "status": "Draft",
-      "due": "2026-04-30"
+      "due": "tomorrow"
     },
     {
       "title": "IG Carousel W2 \u2014 WE domain",
       "platform": "Instagram",
       "status": "Draft",
-      "due": "2026-04-30"
+      "due": "tomorrow"
     },
     {
       "title": "Friday native video W2 \u2014 storytelling",
@@ -81,6 +69,12 @@
       "platform": "YouTube",
       "status": "Hold gated",
       "due": "2026-05-05"
+    },
+    {
+      "title": "Week 3 Substack \u2014 Fortify\u2122 domain deep dive",
+      "platform": "Substack",
+      "status": "Hold gated",
+      "due": "2026-05-06"
     }
   ],
   "followUpRadar": [
@@ -101,17 +95,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 32,
+      "days": 33,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 33,
+      "days": 34,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 33,
+      "days": 34,
       "why": ""
     }
   ],
