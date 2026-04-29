@@ -1,0 +1,29 @@
+{
+  "fetched_at": "2026-04-29T09:30:00-07:00",
+  "total_count": 21,
+  "expected_count_per_handoff": 22,
+  "missing_from_wix": ["The Undoing"],
+  "posts": [
+    {"order": 1, "wix_id": "2aeaa3e0-5954-4c82-bca4-8db150d0fbaa", "title": "Letter-size paper is the 40-hour work week. Everyone uses it. Nobody chose it.", "wix_slug": "letter-size-paper-is-the-40-hour-work-week-everyone-uses-it-nobody-chose-it", "first_published": "2026-04-14T22:17:58.988Z", "category_per_handoff": "Change it Up"},
+    {"order": 2, "wix_id": "e836c546-c1f6-4a46-885d-0aa780ce3c43", "title": "F'IT to Begin: Vision to reckoning, and building something that lasts.", "wix_slug": "f-it-to-begin-vision-to-reckoning-and-building-something-that-lasts", "first_published": "2026-04-13T15:50:42.616Z", "category_per_handoff": "Foundation First", "pin_position": 2},
+    {"order": 3, "wix_id": "bccaf68a-505a-4ca4-91d0-67a159f5fce0", "title": "Team not performing? More metrics.", "wix_slug": "team-not-performing-more-metrics", "first_published": "2026-04-10T22:02:29.767Z", "category_per_handoff": "Real Leadership"},
+    {"order": 4, "wix_id": "6c5114a3-4b3f-4965-9727-02d7a7c29047", "title": "All you built now rubble? Perfect. Rebuild your best yet.", "wix_slug": "all-you-built-now-rubble-perfect-rebuild-your-best-yet", "first_published": "2026-04-08T22:54:51.468Z", "category_per_handoff": "Foundation First"},
+    {"order": 5, "wix_id": "8d945338-6e92-4a7d-84b3-0b4e291639a4", "title": "Note to self — Remove the layers", "wix_slug": "note-to-self-remove-the-layers", "first_published": "2026-04-08T22:54:29.016Z", "category_per_handoff": "Change it Up"},
+    {"order": 6, "wix_id": "43c6c433-055e-4c1e-aeea-b697618ddfeb", "title": "Note to self — Each circle leads to the next", "wix_slug": "note-to-self-each-circle-leads-to-the-next", "first_published": "2026-04-08T22:54:13.222Z", "category_per_handoff": "On Healing"},
+    {"order": 7, "wix_id": "1b2c03a5-11f3-47ed-b0ad-a31ed3ee0353", "title": "Note to self — Yosemite's glory remains", "wix_slug": "note-to-self-yosemite-s-glory-remains", "first_published": "2026-04-08T22:53:59.908Z", "category_per_handoff": "On Nature"},
+    {"order": 8, "wix_id": "3e2b05c8-dcb9-4ade-afd1-9f271dc70095", "title": "Note to self — The Grand Canyon, Ooh Aah", "wix_slug": "note-to-self-the-grand-canyon-ooh-aah", "first_published": "2026-04-08T22:53:45.613Z", "category_per_handoff": "On Nature"},
+    {"order": 9, "wix_id": "d9dc3671-d853-4a4a-8529-884611ced226", "title": "Note to self — Own your natural beautiful", "wix_slug": "note-to-self-own-your-natural-beautiful", "first_published": "2026-04-08T22:53:31.988Z", "category_per_handoff": "On Love"},
+    {"order": 10, "wix_id": "02251e3e-ecb3-4dcc-99ed-ceab918b2638", "title": "Note to self — Queenstown goofiness", "wix_slug": "note-to-self-queenstown-goofiness", "first_published": "2026-04-08T22:53:19.047Z", "category_per_handoff": "On Joy"},
+    {"order": 11, "wix_id": "bb69c949-f126-4fd4-8cb5-52a407318bd2", "title": "Note to self — Learning is a gift", "wix_slug": "note-to-self-learning-is-a-gift", "first_published": "2026-04-08T22:53:05.994Z", "category_per_handoff": "Work of Being"},
+    {"order": 12, "wix_id": "e0d9840a-f103-497e-a02c-0ed4f474872b", "title": "Note to self — The grandeur of the canyon", "wix_slug": "note-to-self-the-grandeur-of-the-canyon", "first_published": "2026-04-08T22:50:23.754Z", "category_per_handoff": "On Nature"},
+    {"order": 13, "wix_id": "7af19579-2bf1-4035-be08-c15b83cd05fa", "title": "Note to self — Love prevails", "wix_slug": "note-to-self-love-prevails", "first_published": "2026-04-08T22:50:08.782Z", "category_per_handoff": "On Love"},
+    {"order": 14, "wix_id": "8144bdf1-c27b-41b4-bcf5-7914111a34ea", "title": "Note to self — Love in every season", "wix_slug": "note-to-self-love-in-every-season", "first_published": "2026-04-08T22:49:54.445Z", "category_per_handoff": "On Love"},
+    {"order": 15, "wix_id": "9ba595a9-2b9c-42d1-9e5f-44cfdc1364b3", "title": "Let the voices in", "wix_slug": "let-the-voices-in", "first_published": "2026-04-08T22:49:41.106Z", "category_per_handoff": "On Healing"},
+    {"order": 16, "wix_id": "afb2d5d5-2fd7-481b-8218-7883d55cb186", "title": "Enable and choose", "wix_slug": "enable-and-choose", "first_published": "2026-04-08T22:49:25.763Z", "category_per_handoff": "On People"},
+    {"order": 17, "wix_id": "c58047da-774e-4b39-bf2a-53822221d6f2", "title": "Note to self — Love, oh Love", "wix_slug": "note-to-self-love-oh-love", "first_published": "2026-04-08T22:49:12.103Z", "category_per_handoff": "On Love"},
+    {"order": 18, "wix_id": "c565b470-dd24-4117-96d2-a71d7f84efa8", "title": "Note to self — Keep the joy, buddy", "wix_slug": "note-to-self-keep-the-joy-buddy", "first_published": "2026-04-08T22:48:53.679Z", "category_per_handoff": "On Healing"},
+    {"order": 19, "wix_id": "1269b29d-21c7-45a3-ba4a-580b84ad68c1", "title": "Walk together into the beautiful unknown", "wix_slug": "walk-together-into-the-beautiful-unknown", "first_published": "2026-04-08T22:48:34.212Z", "category_per_handoff": "On Healing"},
+    {"order": 20, "wix_id": "4ec38052-33ff-4c86-9b5b-18cdce3c97e9", "title": "The power was the empathy", "wix_slug": "the-power-was-the-empathy", "first_published": "2026-04-08T22:48:15.033Z", "category_per_handoff": "Real Leadership", "pin_position": 3},
+    {"order": 21, "wix_id": "93c8bd1c-1211-40d1-8a6f-adcbe2483bc7", "title": "Love and discomfort", "wix_slug": "love-and-discomfort", "first_published": "2026-04-08T22:47:58.094Z", "category_per_handoff": "Change it Up"}
+  ]
+}
