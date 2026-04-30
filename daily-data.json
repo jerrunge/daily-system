@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-29T18:05:16.302891Z",
-  "generatedPT": "11:05 AM PT",
+  "generated": "2026-04-30T17:54:08.607114Z",
+  "generatedPT": "10:54 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -10,35 +10,29 @@
     },
     {
       "urgency": "urgent",
-      "text": "Content: Whole, Best Self at Work (LinkedIn long-form)",
-      "jer": "JER-186",
+      "text": "Content series \u2014 men's physical health, performance + whole self (Fortify SX/PH)",
+      "jer": "JER-148",
       "pillar": "Wealth Stack"
     },
     {
       "urgency": "urgent",
-      "text": "Content backlog \u2014 reconcile Notion Content Calendar to Linear/Things",
-      "jer": "JER-180",
-      "pillar": "Wealth Stack"
+      "text": "Maddy \u2014 entity + admin setup for App Store publishing",
+      "jer": "JER-159",
+      "pillar": "\ud83d\udcf1 Maddy's App"
     }
   ],
   "contentDue": [
     {
-      "title": "Week 2 Substack \u2014 book chapter in public (premise)",
-      "platform": "Substack",
-      "status": "Hold gated",
-      "due": "today"
-    },
-    {
       "title": "Fortify\u2122 WE Domain Carousel",
       "platform": "LinkedIn",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "IG Carousel W2 \u2014 WE domain",
       "platform": "Instagram",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "Friday native video W2 \u2014 storytelling",
@@ -75,6 +69,12 @@
       "platform": "Substack",
       "status": "Hold gated",
       "due": "2026-05-06"
+    },
+    {
+      "title": "CG Domain Carousel \u2014 career and growth",
+      "platform": "LinkedIn",
+      "status": "Draft",
+      "due": "2026-05-07"
     }
   ],
   "followUpRadar": [
@@ -95,17 +95,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 33,
+      "days": 34,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 34,
+      "days": 35,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 34,
+      "days": 35,
       "why": ""
     }
   ],
