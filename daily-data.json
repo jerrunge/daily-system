@@ -1,18 +1,18 @@
 {
-  "generated": "2026-05-01T16:38:21.778521Z",
-  "generatedPT": "9:38 AM PT",
+  "generated": "2026-05-02T16:02:05.803519Z",
+  "generatedPT": "9:02 AM PT",
   "rightNow": [
-    {
-      "urgency": "urgent",
-      "text": "Content series \u2014 men's physical health, performance + whole self (Fortify SX/PH)",
-      "jer": "JER-148",
-      "pillar": "Wealth Stack"
-    },
     {
       "urgency": "urgent",
       "text": "jeremyrunge.com Phase 2 \u2014 Webflow Build",
       "jer": "JER-169",
       "pillar": ""
+    },
+    {
+      "urgency": "urgent",
+      "text": "Content series \u2014 men's physical health, performance + whole self (Fortify SX/PH)",
+      "jer": "JER-148",
+      "pillar": "Wealth Stack"
     },
     {
       "urgency": "urgent",
@@ -26,7 +26,7 @@
       "title": "Friday native video W2 \u2014 storytelling",
       "platform": "LinkedIn",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "Sunday IG Raw Take W2",
@@ -83,17 +83,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 35,
+      "days": 36,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 36,
+      "days": 37,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 36,
+      "days": 37,
       "why": ""
     }
   ],
