@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-02T16:02:05.803519Z",
+  "generated": "2026-05-03T16:02:28.372761Z",
   "generatedPT": "9:02 AM PT",
   "rightNow": [
     {
@@ -10,29 +10,23 @@
     },
     {
       "urgency": "urgent",
-      "text": "Content series \u2014 men's physical health, performance + whole self (Fortify SX/PH)",
-      "jer": "JER-148",
-      "pillar": "Wealth Stack"
+      "text": "Calendaring System \u2014 source of truth, scheduling, wellbeing defense",
+      "jer": "JER-170",
+      "pillar": "Personal Systems"
     },
     {
       "urgency": "urgent",
-      "text": "mymaddy.app \u2014 April 30 launch site tracker",
-      "jer": "JER-168",
-      "pillar": ""
+      "text": "Content backlog \u2014 reconcile Notion Content Calendar to Linear/Things",
+      "jer": "JER-180",
+      "pillar": "Wealth Stack"
     }
   ],
   "contentDue": [
     {
-      "title": "Friday native video W2 \u2014 storytelling",
-      "platform": "LinkedIn",
-      "status": "Draft",
-      "due": "today"
-    },
-    {
       "title": "Sunday IG Raw Take W2",
       "platform": "Instagram",
       "status": "Draft",
-      "due": "2026-05-04"
+      "due": "tomorrow"
     },
     {
       "title": "Note to Self \u2014 Remove the layers",
@@ -83,17 +77,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 36,
+      "days": 37,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 37,
+      "days": 38,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 37,
+      "days": 38,
       "why": ""
     }
   ],
