@@ -1,18 +1,18 @@
 {
-  "generated": "2026-05-03T16:02:28.372761Z",
-  "generatedPT": "9:02 AM PT",
+  "generated": "2026-05-04T18:06:21.736008Z",
+  "generatedPT": "11:06 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
-      "text": "jeremyrunge.com Phase 2 \u2014 Webflow Build",
-      "jer": "JER-169",
-      "pillar": ""
+      "text": "Maddy \u2014 entity + admin setup for App Store publishing",
+      "jer": "JER-159",
+      "pillar": "\ud83d\udcf1 Maddy's App"
     },
     {
       "urgency": "urgent",
-      "text": "Calendaring System \u2014 source of truth, scheduling, wellbeing defense",
-      "jer": "JER-170",
-      "pillar": "Personal Systems"
+      "text": "mymaddy.app \u2014 April 30 launch site tracker",
+      "jer": "JER-168",
+      "pillar": ""
     },
     {
       "urgency": "urgent",
@@ -26,25 +26,25 @@
       "title": "Sunday IG Raw Take W2",
       "platform": "Instagram",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "Note to Self \u2014 Remove the layers",
       "platform": "X, Instagram, Substack, LinkedIn",
       "status": "Draft",
-      "due": "2026-05-05"
+      "due": "tomorrow"
     },
     {
       "title": "F'IT \u2192 Fortify\u2122 bridge post (LinkedIn)",
       "platform": "LinkedIn",
       "status": "Draft",
-      "due": "2026-05-05"
+      "due": "tomorrow"
     },
     {
       "title": "Beach video \u2014 full upload",
       "platform": "YouTube",
       "status": "Hold gated",
-      "due": "2026-05-05"
+      "due": "tomorrow"
     },
     {
       "title": "Week 3 Substack \u2014 Fortify\u2122 domain deep dive",
@@ -77,17 +77,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 37,
+      "days": 38,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 38,
+      "days": 39,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 38,
+      "days": 39,
       "why": ""
     }
   ],
