@@ -1465,18 +1465,17 @@
     if (document.getElementById('brief-date-line')) {
       document.getElementById('brief-date-line').textContent = fmtBriefDate(new Date());
     }
-    fetch('https://dsjnvwhyevjzsmuawkcs.supabase.co/functions/v1/daily-brief', {
-        headers: { 'x-app-key': 'fortify-jr-2026' }
-      })
-      .then(function(r){ return r.ok ? r.json() : Promise.reject('not found'); })
-      .then(function(data){ renderBrief(data); })
-      .catch(function(){
-        document.getElementById('brief-updated-line').textContent = 'Brief unavailable — check connection';
-        document.getElementById('brief-right-now').innerHTML = '<div class="brief-empty">Open Linear for today’s priorities.</div>';
-        document.getElementById('brief-content-due').innerHTML = '<div class="brief-empty">Open Notion Content Calendar.</div>';
-        document.getElementById('brief-follow-up').innerHTML = '<div class="brief-empty">Open Notion Connections.</div>';
-        document.getElementById('brief-social').innerHTML = '';
-      });
+    // JER-334 (Wed May 6 2026): legacy `daily-brief` Edge Function reader retired.
+    // Brief surfacing has moved to the DO Board (do.jeremyrunge.com) per JER-333 α —
+    // standalone metrics zone reading content_metrics_history directly. The fetch
+    // call against fortify-life-os/functions/v1/daily-brief was the only live caller
+    // of that Edge Function; removing it takes the function to zero invocations.
+    // Brief tab UI retained as a static fallback for legacy My Day visitors.
+    document.getElementById('brief-updated-line').textContent = 'Brief retired — see DO Board at do.jeremyrunge.com';
+    document.getElementById('brief-right-now').innerHTML = '<div class="brief-empty"><a href="https://do.jeremyrunge.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Open DO Board</a> for today’s priorities.</div>';
+    document.getElementById('brief-content-due').innerHTML = '<div class="brief-empty">Open Notion Content Calendar.</div>';
+    document.getElementById('brief-follow-up').innerHTML = '<div class="brief-empty">Open Notion Connections.</div>';
+    document.getElementById('brief-social').innerHTML = '';
   }
   loadBrief();
 
