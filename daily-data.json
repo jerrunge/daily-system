@@ -1,62 +1,44 @@
 {
-  "generated": "2026-05-04T18:06:21.736008Z",
-  "generatedPT": "11:06 AM PT",
+  "generated": "2026-05-06T15:37:22.586802Z",
+  "generatedPT": "8:37 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "DO Board: Tap-to-expand each commit row with priority + estimate + parent + description preview",
+      "jer": "JER-304",
+      "pillar": ""
+    },
+    {
+      "urgency": "urgent",
+      "text": "Build + maintain Pavilion engagement rhythm",
+      "jer": "JER-151",
+      "pillar": "Wealth Stack"
+    },
     {
       "urgency": "urgent",
       "text": "Maddy \u2014 entity + admin setup for App Store publishing",
       "jer": "JER-159",
       "pillar": "\ud83d\udcf1 Maddy's App"
-    },
-    {
-      "urgency": "urgent",
-      "text": "mymaddy.app \u2014 April 30 launch site tracker",
-      "jer": "JER-168",
-      "pillar": ""
-    },
-    {
-      "urgency": "urgent",
-      "text": "Content backlog \u2014 reconcile Notion Content Calendar to Linear/Things",
-      "jer": "JER-180",
-      "pillar": "Wealth Stack"
     }
   ],
   "contentDue": [
     {
-      "title": "Sunday IG Raw Take W2",
-      "platform": "Instagram",
-      "status": "Draft",
-      "due": "today"
-    },
-    {
-      "title": "Note to Self \u2014 Remove the layers",
-      "platform": "X, Instagram, Substack, LinkedIn",
-      "status": "Draft",
-      "due": "tomorrow"
-    },
-    {
-      "title": "F'IT \u2192 Fortify\u2122 bridge post (LinkedIn)",
-      "platform": "LinkedIn",
-      "status": "Draft",
-      "due": "tomorrow"
-    },
-    {
-      "title": "Beach video \u2014 full upload",
-      "platform": "YouTube",
-      "status": "Hold gated",
-      "due": "tomorrow"
-    },
-    {
       "title": "Week 3 Substack \u2014 Fortify\u2122 domain deep dive",
       "platform": "Substack",
       "status": "Hold gated",
-      "due": "2026-05-06"
+      "due": "today"
     },
     {
       "title": "CG Domain Carousel \u2014 career and growth",
       "platform": "LinkedIn",
       "status": "Draft",
-      "due": "2026-05-07"
+      "due": "tomorrow"
+    },
+    {
+      "title": "Note to Self \u2014 Own your natural beautiful",
+      "platform": "X, Instagram, Substack",
+      "status": "Draft",
+      "due": "2026-05-12"
     }
   ],
   "followUpRadar": [
@@ -77,17 +59,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 38,
+      "days": 40,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 39,
+      "days": 41,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 39,
+      "days": 41,
       "why": ""
     }
   ],
