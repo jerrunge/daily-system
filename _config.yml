@@ -1,0 +1,10 @@
+# GitHub Pages / Jekyll config for jerrunge.github.io/daily-system
+#
+# `exclude` keeps the listed paths out of the deployed site without
+# moving them in the repo. Files stay under git for archival purposes
+# but are not copied to the served Pages output.
+#
+# JER-312: archive/ holds the pre-DO-Board roadmap.html prototypes
+# (JER-308). They should not be reachable at /daily-system/archive/...
+exclude:
+  - archive
