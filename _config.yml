@@ -6,5 +6,15 @@
 #
 # JER-312: archive/ holds the pre-DO-Board roadmap.html prototypes
 # (JER-308). They should not be reachable at /daily-system/archive/...
+#
+# JER-318: phase2-migration/, phase2-mockups/, and generate_brief.py
+# were unintentionally exposed at jerrunge.github.io/daily-system/...
+# Audit (May 6, 2026) found no hardcoded secrets — generate_brief.py
+# is env-var driven (LINEAR_API_KEY, NOTION_TOKEN) and the migration
+# folders contain internal notes/mockups only. Excluded from Pages
+# output to remove the public-surface footprint.
 exclude:
   - archive
+  - phase2-migration
+  - phase2-mockups
+  - generate_brief.py
