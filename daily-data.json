@@ -1,38 +1,32 @@
 {
-  "generated": "2026-05-06T15:37:22.586802Z",
-  "generatedPT": "8:37 AM PT",
+  "generated": "2026-05-07T15:39:28.226870Z",
+  "generatedPT": "8:39 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
-      "text": "DO Board: Tap-to-expand each commit row with priority + estimate + parent + description preview",
-      "jer": "JER-304",
+      "text": "HAE n8n parser: cumulative-daily fields (steps / active_energy_kcal / exercise_minutes) reading single sample, not daily sum",
+      "jer": "JER-357",
+      "pillar": "Personal Systems"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Bulk migrate Notion contact roster to Supabase `people` table",
+      "jer": "JER-341",
       "pillar": ""
     },
     {
-      "urgency": "urgent",
-      "text": "Build + maintain Pavilion engagement rhythm",
-      "jer": "JER-151",
-      "pillar": "Wealth Stack"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Maddy \u2014 entity + admin setup for App Store publishing",
-      "jer": "JER-159",
-      "pillar": "\ud83d\udcf1 Maddy's App"
+      "urgency": "week",
+      "text": "Daily Brief cron reliability: hosted-runner delays + failures",
+      "jer": "JER-326",
+      "pillar": "Personal Systems"
     }
   ],
   "contentDue": [
     {
-      "title": "Week 3 Substack \u2014 Fortify\u2122 domain deep dive",
-      "platform": "Substack",
-      "status": "Hold gated",
-      "due": "today"
-    },
-    {
       "title": "CG Domain Carousel \u2014 career and growth",
       "platform": "LinkedIn",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
     },
     {
       "title": "Note to Self \u2014 Own your natural beautiful",
@@ -59,17 +53,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 40,
+      "days": 41,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 41,
+      "days": 42,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 41,
+      "days": 42,
       "why": ""
     }
   ],
