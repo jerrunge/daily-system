@@ -1,33 +1,27 @@
 {
-  "generated": "2026-05-07T15:39:28.226870Z",
-  "generatedPT": "8:39 AM PT",
+  "generated": "2026-05-08T15:03:25.599728Z",
+  "generatedPT": "8:03 AM PT",
   "rightNow": [
     {
-      "urgency": "urgent",
-      "text": "HAE n8n parser: cumulative-daily fields (steps / active_energy_kcal / exercise_minutes) reading single sample, not daily sum",
-      "jer": "JER-357",
+      "urgency": "week",
+      "text": "Daily Brief cron reliability: hosted-runner delays + failures",
+      "jer": "JER-326",
       "pillar": "Personal Systems"
+    },
+    {
+      "urgency": "urgent",
+      "text": "mymaddy.app \u2014 April 30 launch site tracker",
+      "jer": "JER-168",
+      "pillar": ""
     },
     {
       "urgency": "urgent",
       "text": "Bulk migrate Notion contact roster to Supabase `people` table",
       "jer": "JER-341",
       "pillar": ""
-    },
-    {
-      "urgency": "week",
-      "text": "Daily Brief cron reliability: hosted-runner delays + failures",
-      "jer": "JER-326",
-      "pillar": "Personal Systems"
     }
   ],
   "contentDue": [
-    {
-      "title": "CG Domain Carousel \u2014 career and growth",
-      "platform": "LinkedIn",
-      "status": "Draft",
-      "due": "today"
-    },
     {
       "title": "Note to Self \u2014 Own your natural beautiful",
       "platform": "X, Instagram, Substack",
@@ -53,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 41,
+      "days": 42,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 42,
+      "days": 43,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 42,
+      "days": 43,
       "why": ""
     }
   ],
