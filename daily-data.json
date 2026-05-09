@@ -1,12 +1,12 @@
 {
-  "generated": "2026-05-08T15:03:25.599728Z",
-  "generatedPT": "8:03 AM PT",
+  "generated": "2026-05-09T14:31:54.394710Z",
+  "generatedPT": "7:31 AM PT",
   "rightNow": [
     {
-      "urgency": "week",
-      "text": "Daily Brief cron reliability: hosted-runner delays + failures",
-      "jer": "JER-326",
-      "pillar": "Personal Systems"
+      "urgency": "urgent",
+      "text": "Decision 1 reframe: year-1-roadmap structural pass (5 items, replaces canceled JER-373)",
+      "jer": "JER-379",
+      "pillar": ""
     },
     {
       "urgency": "urgent",
@@ -16,9 +16,9 @@
     },
     {
       "urgency": "urgent",
-      "text": "Bulk migrate Notion contact roster to Supabase `people` table",
-      "jer": "JER-341",
-      "pillar": ""
+      "text": "Maddy \u2014 entity + admin setup for App Store publishing",
+      "jer": "JER-159",
+      "pillar": "\ud83d\udcf1 Maddy's App"
     }
   ],
   "contentDue": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 42,
+      "days": 43,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 43,
+      "days": 44,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 43,
+      "days": 44,
       "why": ""
     }
   ],
