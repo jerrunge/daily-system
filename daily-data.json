@@ -1,7 +1,13 @@
 {
-  "generated": "2026-05-10T14:33:20.375449Z",
-  "generatedPT": "7:33 AM PT",
+  "generated": "2026-05-11T16:12:49.971875Z",
+  "generatedPT": "9:12 AM PT",
   "rightNow": [
+    {
+      "urgency": "week",
+      "text": "Daily Brief cron reliability: hosted-runner delays + failures",
+      "jer": "JER-326",
+      "pillar": "Personal Systems"
+    },
     {
       "urgency": "urgent",
       "text": "Cycle 1 critical path: DO Board v3.3 ship by Wed May 6 (revised from Mon May 4)",
@@ -13,12 +19,6 @@
       "text": "Things\u2194Linear bidirectional daemon \u2014 Mac Mini, Q6 implementation (Wknd 02)",
       "jer": "JER-291",
       "pillar": "Personal Systems"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Decision 1 reframe: year-1-roadmap structural pass (5 items, replaces canceled JER-373)",
-      "jer": "JER-379",
-      "pillar": ""
     }
   ],
   "contentDue": [
@@ -26,7 +26,7 @@
       "title": "Note to Self \u2014 Own your natural beautiful",
       "platform": "X, Instagram, Substack",
       "status": "Draft",
-      "due": "2026-05-12"
+      "due": "tomorrow"
     }
   ],
   "followUpRadar": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 44,
+      "days": 45,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 45,
+      "days": 46,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 45,
+      "days": 46,
       "why": ""
     }
   ],
