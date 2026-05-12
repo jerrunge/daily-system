@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-11T16:12:49.971875Z",
-  "generatedPT": "9:12 AM PT",
+  "generated": "2026-05-12T15:46:58.718566Z",
+  "generatedPT": "8:46 AM PT",
   "rightNow": [
     {
       "urgency": "week",
@@ -26,7 +26,13 @@
       "title": "Note to Self \u2014 Own your natural beautiful",
       "platform": "X, Instagram, Substack",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
+    },
+    {
+      "title": "Note to Self \u2014 Queenstown goofiness",
+      "platform": "X, Instagram, Substack",
+      "status": "Draft",
+      "due": "2026-05-19"
     }
   ],
   "followUpRadar": [
@@ -47,17 +53,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 45,
+      "days": 46,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 46,
+      "days": 47,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 46,
+      "days": 47,
       "why": ""
     }
   ],
