@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-12T15:46:58.718566Z",
-  "generatedPT": "8:46 AM PT",
+  "generated": "2026-05-13T15:59:32.181630Z",
+  "generatedPT": "8:59 AM PT",
   "rightNow": [
     {
       "urgency": "week",
@@ -10,24 +10,18 @@
     },
     {
       "urgency": "urgent",
-      "text": "Cycle 1 critical path: DO Board v3.3 ship by Wed May 6 (revised from Mon May 4)",
-      "jer": "JER-251",
-      "pillar": "Personal Systems"
+      "text": "Maddy \u2014 entity + admin setup for App Store publishing",
+      "jer": "JER-159",
+      "pillar": "\ud83d\udcf1 Maddy's App"
     },
     {
       "urgency": "urgent",
-      "text": "Things\u2194Linear bidirectional daemon \u2014 Mac Mini, Q6 implementation (Wknd 02)",
-      "jer": "JER-291",
-      "pillar": "Personal Systems"
+      "text": "mymaddy.app \u2014 April 30 launch site tracker",
+      "jer": "JER-168",
+      "pillar": ""
     }
   ],
   "contentDue": [
-    {
-      "title": "Note to Self \u2014 Own your natural beautiful",
-      "platform": "X, Instagram, Substack",
-      "status": "Draft",
-      "due": "today"
-    },
     {
       "title": "Note to Self \u2014 Queenstown goofiness",
       "platform": "X, Instagram, Substack",
@@ -53,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 46,
+      "days": 47,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 47,
+      "days": 48,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 47,
+      "days": 48,
       "why": ""
     }
   ],
