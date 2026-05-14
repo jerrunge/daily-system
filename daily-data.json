@@ -1,24 +1,24 @@
 {
-  "generated": "2026-05-13T15:59:32.181630Z",
-  "generatedPT": "8:59 AM PT",
+  "generated": "2026-05-14T15:36:05.735277Z",
+  "generatedPT": "8:36 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
+      "jer": "JER-115",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
+    {
+      "urgency": "urgent",
+      "text": "OT one-pager: draft + ND-affirming OT pre-publish review (600-800 words)",
+      "jer": "JER-466",
+      "pillar": ""
+    },
     {
       "urgency": "week",
       "text": "Daily Brief cron reliability: hosted-runner delays + failures",
       "jer": "JER-326",
       "pillar": "Personal Systems"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Maddy \u2014 entity + admin setup for App Store publishing",
-      "jer": "JER-159",
-      "pillar": "\ud83d\udcf1 Maddy's App"
-    },
-    {
-      "urgency": "urgent",
-      "text": "mymaddy.app \u2014 April 30 launch site tracker",
-      "jer": "JER-168",
-      "pillar": ""
     }
   ],
   "contentDue": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 47,
+      "days": 48,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 48,
+      "days": 49,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 48,
+      "days": 49,
       "why": ""
     }
   ],
