@@ -1,18 +1,18 @@
 {
-  "generated": "2026-05-15T15:31:45.518220Z",
-  "generatedPT": "8:31 AM PT",
+  "generated": "2026-05-16T14:36:54.735764Z",
+  "generatedPT": "7:36 AM PT",
   "rightNow": [
-    {
-      "urgency": "urgent",
-      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
-      "jer": "JER-115",
-      "pillar": "\ud83d\udcf1 Maddy's App"
-    },
     {
       "urgency": "week",
       "text": "Daily Brief cron reliability: hosted-runner delays + failures",
       "jer": "JER-326",
       "pillar": "Personal Systems"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
+      "jer": "JER-115",
+      "pillar": "\ud83d\udcf1 Maddy's App"
     },
     {
       "urgency": "urgent",
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 49,
+      "days": 50,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 50,
+      "days": 51,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 50,
+      "days": 51,
       "why": ""
     }
   ],
