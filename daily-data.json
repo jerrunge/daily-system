@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-18T16:34:25.451746Z",
-  "generatedPT": "9:34 AM PT",
+  "generated": "2026-05-19T16:32:15.661860Z",
+  "generatedPT": "9:32 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -26,7 +26,13 @@
       "title": "Note to Self \u2014 Queenstown goofiness",
       "platform": "X, Instagram, Substack",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
+    },
+    {
+      "title": "Note to Self \u2014 Learning is a gift",
+      "platform": "X, Instagram, Substack, LinkedIn",
+      "status": "Draft",
+      "due": "2026-05-26"
     }
   ],
   "followUpRadar": [
@@ -47,17 +53,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 52,
+      "days": 53,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 53,
+      "days": 54,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 53,
+      "days": 54,
       "why": ""
     }
   ],
