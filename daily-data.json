@@ -1,33 +1,27 @@
 {
-  "generated": "2026-05-19T16:32:15.661860Z",
-  "generatedPT": "9:32 AM PT",
+  "generated": "2026-05-20T16:33:33.526818Z",
+  "generatedPT": "9:33 AM PT",
   "rightNow": [
     {
-      "urgency": "urgent",
-      "text": "Build + maintain Pavilion engagement rhythm",
-      "jer": "JER-151",
-      "pillar": "Wealth Stack"
+      "urgency": "week",
+      "text": "Lane C: Body zone refactor + Side panel + Ranking fix ship",
+      "jer": "JER-524",
+      "pillar": ""
     },
     {
       "urgency": "urgent",
-      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
-      "jer": "JER-115",
-      "pillar": "\ud83d\udcf1 Maddy's App"
+      "text": "Go-forward plan rebuild: full system architecture + OS + marketing + DO Board (Cycle 2 Day 3)",
+      "jer": "JER-488",
+      "pillar": "Personal Systems"
     },
     {
       "urgency": "urgent",
-      "text": "Content backlog \u2014 reconcile Notion Content Calendar to Linear/Things",
-      "jer": "JER-180",
-      "pillar": "Wealth Stack"
+      "text": "Marketing measurement panel sub-parent: 8-card Marketing Surface Health (DO Board Tab 2)",
+      "jer": "JER-413",
+      "pillar": ""
     }
   ],
   "contentDue": [
-    {
-      "title": "Note to Self \u2014 Queenstown goofiness",
-      "platform": "X, Instagram, Substack",
-      "status": "Draft",
-      "due": "today"
-    },
     {
       "title": "Note to Self \u2014 Learning is a gift",
       "platform": "X, Instagram, Substack, LinkedIn",
@@ -53,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 53,
+      "days": 54,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 54,
+      "days": 55,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 54,
+      "days": 55,
       "why": ""
     }
   ],
