@@ -1,24 +1,24 @@
 {
-  "generated": "2026-05-21T16:23:51.825273Z",
-  "generatedPT": "9:23 AM PT",
+  "generated": "2026-05-22T15:58:52.869275Z",
+  "generatedPT": "8:58 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
+      "jer": "JER-115",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
+    {
+      "urgency": "week",
+      "text": "feat(maddy): waitlist confirmation sender \u2192 hello@mymaddy.app",
+      "jer": "JER-528",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
     {
       "urgency": "urgent",
       "text": "Go-forward plan rebuild: full system architecture + OS + marketing + DO Board (Cycle 2 Day 3)",
       "jer": "JER-488",
       "pillar": "Personal Systems"
-    },
-    {
-      "urgency": "week",
-      "text": "Lane C: Body zone refactor + Side panel + Ranking fix ship",
-      "jer": "JER-524",
-      "pillar": ""
-    },
-    {
-      "urgency": "urgent",
-      "text": "Marketing measurement panel sub-parent: 8-card Marketing Surface Health (DO Board Tab 2)",
-      "jer": "JER-413",
-      "pillar": ""
     }
   ],
   "contentDue": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 55,
+      "days": 56,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 56,
+      "days": 57,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 56,
+      "days": 57,
       "why": ""
     }
   ],
