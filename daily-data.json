@@ -1,24 +1,24 @@
 {
-  "generated": "2026-05-22T15:58:52.869275Z",
-  "generatedPT": "8:58 AM PT",
+  "generated": "2026-05-23T14:44:09.102446Z",
+  "generatedPT": "7:44 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
-      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
-      "jer": "JER-115",
-      "pillar": "\ud83d\udcf1 Maddy's App"
+      "text": "Maddy IG carousel: Built by Maddy and her dad (Set C) \u2014 co-design story + ADHD-dad disclosure ratification",
+      "jer": "JER-540",
+      "pillar": ""
     },
     {
       "urgency": "week",
-      "text": "feat(maddy): waitlist confirmation sender \u2192 hello@mymaddy.app",
-      "jer": "JER-528",
-      "pillar": "\ud83d\udcf1 Maddy's App"
+      "text": "Maddy IG carousel: research-backed (Set B) \u2014 mechanism-level claims across ADHD, trauma, EF populations",
+      "jer": "JER-539",
+      "pillar": ""
     },
     {
       "urgency": "urgent",
-      "text": "Go-forward plan rebuild: full system architecture + OS + marketing + DO Board (Cycle 2 Day 3)",
-      "jer": "JER-488",
-      "pillar": "Personal Systems"
+      "text": "Maddy IG follow-up post: \"Something I should have said louder\" \u2014 capability/performance reframe",
+      "jer": "JER-537",
+      "pillar": ""
     }
   ],
   "contentDue": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 56,
+      "days": 57,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 57,
+      "days": 58,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 57,
+      "days": 58,
       "why": ""
     }
   ],
