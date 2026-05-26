@@ -1,7 +1,13 @@
 {
-  "generated": "2026-05-25T16:04:13.468256Z",
-  "generatedPT": "9:04 AM PT",
+  "generated": "2026-05-26T16:54:00.197414Z",
+  "generatedPT": "9:54 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "v1.5: Responsive multi-form-factor refactor (breakpoint primitives + per-screen adaptation)",
+      "jer": "JER-515",
+      "pillar": ""
+    },
     {
       "urgency": "urgent",
       "text": "Design The Rebuild \\u2014 product structure, pricing, membership, landing page",
@@ -13,12 +19,6 @@
       "text": "Maddy IG carousel: research-backed (Set B) \u2014 mechanism-level claims across ADHD, trauma, EF populations",
       "jer": "JER-539",
       "pillar": ""
-    },
-    {
-      "urgency": "urgent",
-      "text": "Maddy IG carousel: Built by Maddy and her dad (Set C) \u2014 co-design story + ADHD-dad disclosure ratification",
-      "jer": "JER-540",
-      "pillar": ""
     }
   ],
   "contentDue": [
@@ -26,7 +26,13 @@
       "title": "Note to Self \u2014 Learning is a gift",
       "platform": "X, Instagram, Substack, LinkedIn",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
+    },
+    {
+      "title": "Note to Self \u2014 Each circle leads to the next",
+      "platform": "X, Instagram, Substack",
+      "status": "Draft",
+      "due": "2026-06-02"
     }
   ],
   "followUpRadar": [
@@ -47,17 +53,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 59,
+      "days": 60,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 60,
+      "days": 61,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 60,
+      "days": 61,
       "why": ""
     }
   ],
