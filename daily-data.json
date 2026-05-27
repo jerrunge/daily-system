@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-26T16:54:00.197414Z",
-  "generatedPT": "9:54 AM PT",
+  "generated": "2026-05-27T16:47:11.303371Z",
+  "generatedPT": "9:47 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
-      "text": "v1.5: Responsive multi-form-factor refactor (breakpoint primitives + per-screen adaptation)",
-      "jer": "JER-515",
+      "text": "Maddy IG carousel: Built by Maddy and her dad (Set C) \u2014 co-design story + ADHD-dad disclosure ratification",
+      "jer": "JER-540",
       "pillar": ""
     },
     {
@@ -22,12 +22,6 @@
     }
   ],
   "contentDue": [
-    {
-      "title": "Note to Self \u2014 Learning is a gift",
-      "platform": "X, Instagram, Substack, LinkedIn",
-      "status": "Draft",
-      "due": "today"
-    },
     {
       "title": "Note to Self \u2014 Each circle leads to the next",
       "platform": "X, Instagram, Substack",
@@ -53,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 60,
+      "days": 61,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 61,
+      "days": 62,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 61,
+      "days": 62,
       "why": ""
     }
   ],
