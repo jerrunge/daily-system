@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-30T14:48:39.900860Z",
-  "generatedPT": "7:48 AM PT",
+  "generated": "2026-05-31T14:57:04.098123Z",
+  "generatedPT": "7:57 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -9,16 +9,16 @@
       "pillar": ""
     },
     {
-      "urgency": "week",
-      "text": "Maddy IG carousel: research-backed (Set B) \u2014 mechanism-level claims across ADHD, trauma, EF populations",
-      "jer": "JER-539",
-      "pillar": ""
-    },
-    {
       "urgency": "urgent",
       "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
       "jer": "JER-115",
       "pillar": "\ud83d\udcf1 Maddy's App"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Build + maintain Pavilion engagement rhythm",
+      "jer": "JER-151",
+      "pillar": "Wealth Stack"
     }
   ],
   "contentDue": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 64,
+      "days": 65,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 65,
+      "days": 66,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 65,
+      "days": 66,
       "why": ""
     }
   ],
