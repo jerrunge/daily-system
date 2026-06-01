@@ -1,18 +1,18 @@
 {
-  "generated": "2026-05-31T14:57:04.098123Z",
-  "generatedPT": "7:57 AM PT",
+  "generated": "2026-06-01T19:00:21.479495Z",
+  "generatedPT": "12:00 PM PT",
   "rightNow": [
-    {
-      "urgency": "urgent",
-      "text": "Design The Rebuild \\u2014 product structure, pricing, membership, landing page",
-      "jer": "JER-163",
-      "pillar": ""
-    },
     {
       "urgency": "urgent",
       "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
       "jer": "JER-115",
       "pillar": "\ud83d\udcf1 Maddy's App"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Design The Rebuild \\u2014 product structure, pricing, membership, landing page",
+      "jer": "JER-163",
+      "pillar": ""
     },
     {
       "urgency": "urgent",
@@ -26,7 +26,7 @@
       "title": "Note to Self \u2014 Each circle leads to the next",
       "platform": "X, Instagram, Substack",
       "status": "Draft",
-      "due": "2026-06-02"
+      "due": "tomorrow"
     }
   ],
   "followUpRadar": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 65,
+      "days": 66,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 66,
+      "days": 67,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 66,
+      "days": 67,
       "why": ""
     }
   ],
