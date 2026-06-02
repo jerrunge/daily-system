@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-01T19:00:21.479495Z",
-  "generatedPT": "12:00 PM PT",
+  "generated": "2026-06-02T17:50:15.934075Z",
+  "generatedPT": "10:50 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -26,7 +26,13 @@
       "title": "Note to Self \u2014 Each circle leads to the next",
       "platform": "X, Instagram, Substack",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
+    },
+    {
+      "title": "Note to Self \u2014 Love prevails",
+      "platform": "X, Instagram, Substack, LinkedIn",
+      "status": "Draft",
+      "due": "2026-06-09"
     }
   ],
   "followUpRadar": [
@@ -47,17 +53,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 66,
+      "days": 67,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 67,
+      "days": 68,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 67,
+      "days": 68,
       "why": ""
     }
   ],
