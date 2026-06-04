@@ -1,7 +1,13 @@
 {
-  "generated": "2026-06-03T18:04:53.857436Z",
-  "generatedPT": "11:04 AM PT",
+  "generated": "2026-06-04T16:29:32.600939Z",
+  "generatedPT": "9:29 AM PT",
   "rightNow": [
+    {
+      "urgency": "week",
+      "text": "Subject task ownership \u2014 own/edit/delete + ask-the-caregiver (graduation rung 1)",
+      "jer": "JER-571",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
     {
       "urgency": "urgent",
       "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
@@ -9,16 +15,10 @@
       "pillar": "\ud83d\udcf1 Maddy's App"
     },
     {
-      "urgency": "urgent",
-      "text": "Design The Rebuild \\u2014 product structure, pricing, membership, landing page",
-      "jer": "JER-163",
-      "pillar": ""
-    },
-    {
-      "urgency": "urgent",
-      "text": "Build + maintain Pavilion engagement rhythm",
-      "jer": "JER-151",
-      "pillar": "Wealth Stack"
+      "urgency": "week",
+      "text": "Tasks: specific \"Due by\" time (minutes), not just whole hours",
+      "jer": "JER-570",
+      "pillar": "\ud83d\udcf1 Maddy's App"
     }
   ],
   "contentDue": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 68,
+      "days": 69,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 69,
+      "days": 70,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 69,
+      "days": 70,
       "why": ""
     }
   ],
