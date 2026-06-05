@@ -9,55 +9,59 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --night:#14152a; --night2:#1d1f3a; --ink:#eceaf6; --soft:#a6a3c8;
+    --night:#14152a; --ink:#eceaf6; --soft:#a6a3c8;
     --amber:#f5b942; --amber2:#e8902a; --blue:#5aa8e8; --pink:#f06aa0; --purple:#9a82e8; --green:#43c98a;
     --line:rgba(255,255,255,.08); --card:rgba(255,255,255,.035);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:'Lexend',sans-serif; color:var(--ink); line-height:1.55;
+  body{font-family:'Lexend',sans-serif;color:var(--ink);line-height:1.55;
     background:
       radial-gradient(900px 500px at 50% -8%, rgba(245,185,66,.16), transparent 60%),
-      radial-gradient(700px 500px at 90% 20%, rgba(154,130,232,.10), transparent 55%),
+      radial-gradient(700px 500px at 92% 18%, rgba(154,130,232,.10), transparent 55%),
       var(--night);
-    min-height:100vh; padding:0 16px 80px; -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:680px;margin:0 auto}
-  header{padding:30px 4px 14px;text-align:center}
+    min-height:100vh;padding:0 16px 90px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:700px;margin:0 auto}
+  header{padding:30px 4px 8px;text-align:center}
   .glow{width:46px;height:46px;margin:0 auto 12px;border-radius:50%;
     background:radial-gradient(circle at 50% 45%, #fff6e0, var(--amber) 38%, rgba(245,185,66,0) 72%);
     box-shadow:0 0 28px 6px rgba(245,185,66,.35)}
   h1{font-family:'Baloo 2',cursive;font-weight:700;font-size:27px;letter-spacing:.2px}
   h1 span{color:var(--amber)}
   .sub{color:var(--soft);font-size:13.5px;margin-top:4px}
+  .creed{color:var(--soft);font-size:12.5px;margin:10px auto 0;max-width:560px;line-height:1.6;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0}
+  .creed b{color:var(--ink);font-weight:600}
   .bar-wrap{position:sticky;top:0;z-index:10;padding:12px 0 10px;
-    background:linear-gradient(var(--night) 70%, rgba(20,21,42,0));margin-top:8px}
+    background:linear-gradient(var(--night) 72%, rgba(20,21,42,0));margin-top:10px}
   .bar{height:9px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
   .fill{height:100%;width:0;border-radius:99px;transition:width .45s cubic-bezier(.2,.8,.2,1);
     background:linear-gradient(90deg,var(--amber2),var(--amber))}
   .bar-label{display:flex;justify-content:space-between;font-size:12px;color:var(--soft);margin-bottom:6px}
   .bar-label b{color:var(--ink);font-weight:600}
   section{background:var(--card);border:1px solid var(--line);border-radius:16px;
-    padding:16px 16px 8px;margin:14px 0;opacity:0;transform:translateY(8px);
-    animation:rise .5s ease forwards}
+    padding:14px 16px 8px;margin:14px 0;opacity:0;transform:translateY(8px);animation:rise .5s ease forwards}
   @keyframes rise{to{opacity:1;transform:none}}
-  .s-head{display:flex;align-items:center;gap:9px;font-family:'Baloo 2',cursive;
-    font-weight:600;font-size:16px;margin-bottom:8px}
+  .s-head{display:flex;align-items:center;gap:9px;font-family:'Baloo 2',cursive;font-weight:600;font-size:16px}
+  .pill{font-family:'Lexend';font-size:10.5px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;
+    padding:3px 9px;border-radius:99px;color:var(--night)}
+  .s-note{color:var(--soft);font-size:12px;margin:3px 0 4px;padding-left:1px}
   .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
-  .tag{margin-left:auto;font-family:'Lexend';font-size:11px;color:var(--soft);font-weight:400}
-  label.item{display:flex;gap:12px;align-items:flex-start;padding:10px 4px;
-    border-top:1px solid var(--line);cursor:pointer;user-select:none}
-  .s-head + label.item{border-top:none}
+  label.item{display:flex;gap:12px;align-items:flex-start;padding:11px 4px;border-top:1px solid var(--line);cursor:pointer;user-select:none}
+  .s-head + label.item,.s-note + label.item{border-top:none}
   .box{flex:0 0 auto;width:22px;height:22px;border-radius:7px;border:2px solid rgba(255,255,255,.22);
     margin-top:1px;display:grid;place-items:center;transition:.2s;background:rgba(255,255,255,.02)}
   .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:.2s}
   input{position:absolute;opacity:0;width:0;height:0}
   .txt{font-size:14.5px;transition:.2s}
+  .txt small{display:block;color:var(--soft);font-size:12.5px;margin-top:2px;line-height:1.45}
   input:checked + .box{border-color:var(--amber);background:var(--amber);box-shadow:0 0 14px rgba(245,185,66,.5)}
   input:checked + .box svg{opacity:1;transform:scale(1)}
   input:checked ~ .txt{color:var(--soft);text-decoration:line-through;text-decoration-color:rgba(245,185,66,.5)}
+  input:checked ~ .txt small{text-decoration:none}
   label.locked{opacity:.85;cursor:default}
   label.locked .box{border-color:var(--green);background:var(--green);box-shadow:0 0 12px rgba(67,201,138,.4)}
+  .drawer{background:rgba(240,106,160,.07);border:1px dashed rgba(240,106,160,.4);border-radius:14px;padding:13px 15px;margin:14px 0;font-size:13px;color:var(--soft)}
+  .drawer b{color:var(--pink);font-family:'Baloo 2',cursive;font-weight:600;font-size:14px}
   details{margin:14px 0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:4px 16px}
   summary{font-family:'Baloo 2',cursive;font-weight:600;font-size:16px;padding:13px 0;cursor:pointer;list-style:none;display:flex;align-items:center;gap:9px}
   summary::-webkit-details-marker{display:none}
@@ -72,8 +76,7 @@
   .cbtn:active{transform:scale(.96)}
   .cbtn.done{background:var(--green)}
   .foot{text-align:center;color:var(--soft);font-size:12px;margin-top:22px;line-height:1.7}
-  .reset{background:none;border:1px solid var(--line);color:var(--soft);border-radius:9px;
-    padding:7px 16px;font-family:'Lexend';font-size:12.5px;cursor:pointer;margin-top:12px}
+  .reset{background:none;border:1px solid var(--line);color:var(--soft);border-radius:9px;padding:7px 16px;font-family:'Lexend';font-size:12.5px;cursor:pointer;margin-top:12px}
   .reset:active{transform:scale(.97)}
 </style>
 </head>
@@ -82,7 +85,11 @@
   <header>
     <div class="glow"></div>
     <h1>Maddy <span>Weekend</span> Command Center</h1>
-    <div class="sub">Sat Jun 6 to Sun Jun 7 &middot; up to $100/day &middot; tap to check off</div>
+    <div class="sub">Hit the numbers &middot; leverage-first &middot; every lever, maxed</div>
+    <div class="creed">
+      <b>Followers + waitlist are reach problems</b>, won by concentrated paid and one creator share.
+      <b>Testers is a conversion problem</b>, won by the Circle loop. Work top to bottom.
+    </div>
   </header>
 
   <div class="bar-wrap">
@@ -90,29 +97,79 @@
     <div class="bar"><div class="fill" id="fill"></div></div>
   </div>
 
-  <section style="animation-delay:.05s">
+  <section style="animation-delay:.04s">
     <div class="s-head"><span class="dot" style="background:var(--green)"></span>Already done</div>
     <label class="item locked"><span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#14152a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Consent logged on JER-384</span></label>
-    <label class="item locked"><span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#14152a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Invite email sent to all 45 (replies to hello@mymaddy.app)</span></label>
+    <label class="item locked"><span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#14152a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">Invite email sent to all 45 <small>Replies go to hello@mymaddy.app</small></span></label>
   </section>
 
-  <section style="animation-delay:.12s">
-    <div class="s-head"><span class="dot" style="background:var(--amber)"></span>Paid &middot; up to $100/day<span class="tag">TikTok first</span></div>
-    <div id="paid"></div>
+  <section style="animation-delay:.10s">
+    <div class="s-head"><span class="pill" style="background:var(--amber)">Tier 1</span>Breakout levers &middot; do these first</div>
+    <div class="s-note">Highest leverage. These are what actually move followers and waitlist. Start here before posting.</div>
+    <div id="t1"></div>
   </section>
 
-  <section style="animation-delay:.19s">
-    <div class="s-head"><span class="dot" style="background:var(--blue)"></span>Saturday</div>
-    <div id="sat"></div>
+  <section style="animation-delay:.16s">
+    <div class="s-head"><span class="pill" style="background:var(--blue)">Tier 2</span>Reach surfaces &middot; feed the machine</div>
+    <div class="s-note">One concept = one post. Get every asset onto every surface.</div>
+    <div id="t2"></div>
   </section>
 
-  <section style="animation-delay:.26s">
-    <div class="s-head"><span class="dot" style="background:var(--purple)"></span>Sunday</div>
-    <div id="sun"></div>
+  <section style="animation-delay:.22s">
+    <div class="s-head"><span class="pill" style="background:var(--purple)">Tier 3</span>Engagement &middot; continuous</div>
+    <div class="s-note">Cheap and compounding. Do these between everything else, all weekend.</div>
+    <div id="t3"></div>
   </section>
 
-  <details style="animation-delay:.33s">
-    <summary><span class="dot" style="background:var(--pink)"></span>Copy bank<span class="chev">&#9654;</span></summary>
+  <section style="animation-delay:.28s">
+    <div class="s-head"><span class="dot" style="background:var(--green)"></span>Funnel &middot; testers (the winnable one)</div>
+    <div id="fn"></div>
+  </section>
+
+  <div class="drawer" style="animation-delay:.32s">
+    <b>Drawer &middot; do NOT post</b><br>
+    flagship-cta, plain proof (no card), reach-cta, codesign-cta, the recruitment duplicate, and all 4K masters. They are options and pins, not feed posts. Posting them next to their twins is what made the feed look redundant.
+  </div>
+
+  <details style="animation-delay:.36s">
+    <summary><span class="dot" style="background:var(--pink)"></span>Copy bank &middot; paste-ready<span class="chev">&#9654;</span></summary>
+
+    <div class="copy">
+      <h4>Caption &middot; proof-cta (distinct from flagship)</h4>
+      <pre id="cap1">The hardest part is starting, and the worst part is doing it alone.
+
+So we built the opposite of another nagging app. This is your Circle: the people who already love you, in one place, cheering the small wins. That's Nana, telling you she's proud.
+
+Built with my AuDHD daughter, named after her. Come build yours: join the beta and bring your people. Link in bio.
+
+#AuDHD #ADHD #autism #ActuallyAutistic #neurodivergent #executivefunction</pre>
+      <button class="cbtn" data-c="cap1">Copy caption</button>
+    </div>
+
+    <div class="copy">
+      <h4>Caption &middot; reach</h4>
+      <pre id="cap2">The towel's still on the floor.
+
+Not because you're lazy. Starting it was the hard part, and nobody built for that.
+
+We're building Maddy for AuDHD brains, with my AuDHD daughter who co-designs it. The beta's open and still rough, which is exactly why I want you in it. Join and bring your people. Link in bio.
+
+#AuDHD #ADHD #autism #ActuallyAutistic #neurodivergent</pre>
+      <button class="cbtn" data-c="cap2">Copy caption</button>
+    </div>
+
+    <div class="copy">
+      <h4>Caption &middot; recruitment</h4>
+      <pre id="cap3">Every routine app we tried was built for a brain that wasn't ours.
+
+So we're building the one that fits, and we want you in early. Founding testers wanted: AuDHDers, and the people who show up for them.
+
+Join the beta and bring your Circle. Link in bio.
+
+#AuDHD #ADHD #autism #ActuallyAutistic #neurodivergent #executivefunction</pre>
+      <button class="cbtn" data-c="cap3">Copy caption</button>
+    </div>
+
     <div class="copy">
       <h4>Reddit Post A &middot; r/AuDHD, r/neurodiversity</h4>
       <pre id="ca">Title: I'm a dad with ADHD. My autistic and ADHD daughter and I built the routine app we couldn't find.
@@ -124,8 +181,9 @@ I have ADHD too, so I stopped looking and started building. She co-designs it wi
 It's in TestFlight now, still rough in places. I'm not here to sell anything. I genuinely want this community's read on whether it feels built by someone who gets it. Happy to share the link in a comment if that's allowed here.</pre>
       <button class="cbtn" data-c="ca">Copy Post A</button>
     </div>
+
     <div class="copy">
-      <h4>Reddit Post B &middot; r/SideProject, r/IndieHackers</h4>
+      <h4>Reddit Post B &middot; r/SideProject, r/IndieHackers, r/EntrepreneurRideAlong</h4>
       <pre id="cb">Title: I built a daily-living app with my AuDHD daughter as co-designer. TestFlight's open, looking for brutal feedback.
 
 I'm a solo founder and a dad with ADHD. My daughter is autistic and ADHD, and we couldn't find a routine app that fit how her brain works, so we built one. She co-designs it, it's named after her.
@@ -135,6 +193,7 @@ The bet that makes it different: instead of a solo checklist with guilt-trip str
 It's in TestFlight now and rough in spots: testflight.apple.com/join/Ez1Msh5G (waitlist at mymaddy.app). What would you poke at first?</pre>
       <button class="cbtn" data-c="cb">Copy Post B</button>
     </div>
+
     <div class="copy">
       <h4>Creator DM &middot; personalize the brackets</h4>
       <pre id="cc">Hi [name], I'm Jeremy, a dad with ADHD building a daily-living app with my autistic and ADHD daughter (named after her, she co-designs it). Your [what they post about] is exactly the perspective we built it around. It's in beta now, and I'd love to give you a founding-tester spot and hear your honest take. No ask to post anything, I just want it in the hands of people who actually live this. Either way, thank you for what you put out.</pre>
@@ -144,53 +203,57 @@ It's in TestFlight now and rough in spots: testflight.apple.com/join/Ez1Msh5G (w
 
   <div class="foot">
     Audio: calm trending sound in-app on every reel, low under the text. No voiceover. Carousel needs none.<br>
+    Keep flagship up (102 views). Reddit from u/jeremyrunge, never the brand handle.<br>
     <button class="reset" id="reset">Reset checklist</button>
   </div>
 </div>
 
 <script>
-  const PAID=[
-    ["p1","In-app Promote on the proof reel (~$50/day, optimize More followers)"],
-    ["p2","Traffic Spark Ad to mymaddy.app (~$50/day) in Ads Manager"],
-    ["p3","Targeting: ADHD, autism, neurodiversity, parenting, self-improvement; 18 to 45; US or US+CA+UK+AU"],
-    ["p4","Sat midday: kill the worst performer, move its budget to the best"],
+  const T1=[
+    ["a1","Post the 3 contenders, then concentrate budget","Post proof-cta, reach, recruitment. Watch 2 to 4 hours, then put the WHOLE ~$100/day behind the single best (watch-through + likes). Never split $25 across four."],
+    ["a2","Run two objectives on the winner","Spark Ads Followers objective for followers, plus a parallel small Traffic push to mymaddy.app for waitlist."],
+    ["a3","Refresh the winner","As one reel wins, cut 2 more variants of that exact hook and keep feeding budget to the best. Repeat all weekend."],
+    ["a4","Build a creator list of 30 to 50","Search TikTok/IG: AuDHD, audhd, actuallyautistic, adhdtok, neurodivergent. 10k to 100k followers, posting about executive function, routines, or parenting ND kids."],
+    ["a5","DM every creator on the list","Use the personalized DM in the copy bank. One share is the only realistic path to four-digit followers by Sunday. Follow up once if no reply."],
+    ["a6","Wire the Circle loop into everything","Put 'join the beta and bring your people' in every caption, every reel end-card, the pinned post, and your bio. This is the tester engine."],
   ];
-  const SAT=[
-    ["sa1","Set bio link to mymaddy.app on all profiles"],
-    ["sa2","Post proof reel (hero) to TikTok + IG, add trending-calm audio"],
-    ["sa3","Post Circle carousel to IG + FB"],
-    ["sa4","Set 'The Circle' Stories Highlight"],
-    ["sa5","Post broll-circle as a short"],
-    ["sa6","Post broll-checkin as a Story"],
-    ["sa7","Post Reddit Post A to r/AuDHD, pin a comment with the link"],
-    ["sa8","DM 5 ND creators"],
-    ["sa9","Reply to every comment within the hour"],
+  const T2=[
+    ["b1","Post proof-cta, then PIN it","One post, not two. Post it, then tap the 3 dots and Pin. Cover = the 'Your circle' / Nana screen, distinct hook so it is not a flagship rerun."],
+    ["b2","Post reach","The towel hook. Cold reach. Caption in the copy bank."],
+    ["b3","Post recruitment","The tester ask. Caption in the copy bank."],
+    ["b4","Post the Circle carousel to IG + FB","Then set it as 'The Circle' Stories Highlight."],
+    ["b5","Post B-roll","broll-checkin as a Story today; broll-circle also works as a standalone short. Rotate the rest through Stories daily."],
+    ["b6","Reddit Post A","r/AuDHD and r/neurodiversity now. Tailor the opener for r/AutismParenting. Link in a comment, not the body."],
+    ["b7","Reddit Post B","r/SideProject, r/IndieHackers, r/EntrepreneurRideAlong. Link is allowed in these."],
+    ["b8","Cross-post every reel to IG + FB","Same asset, trending-calm audio in-app on each."],
+    ["b9","Build in public on Threads + X","The co-design story, pointing to the waitlist."],
+    ["b10","Share into groups + Discords","AuDHD adult and parent communities where sharing is allowed. Contribute first."],
   ];
-  const SUN=[
-    ["su1","Post the fixed reach reel"],
-    ["su2","Splice day-low + day-strong into an adaptation short, post it"],
-    ["su3","Pin proof-cta to profile"],
-    ["su4","Post codesign-cta to IG + FB"],
-    ["su5","Reminder nudge to the 45"],
-    ["su6","Post broll-showingup short"],
-    ["su7","Post broll-rest Story"],
-    ["su8","Post Reddit Post B to r/SideProject + r/IndieHackers"],
-    ["su9","DM 5 more creators"],
-    ["su10","Re-cut the best performer twice, pour budget behind the winner"],
-    ["su11","Tally against the targets"],
+  const T3=[
+    ["c1","Reply to every comment within the hour","All weekend. This is the single biggest free distribution multiplier."],
+    ["c2","Pin a top comment with the link","Waitlist + TestFlight, on every post."],
+    ["c3","Stitch or duet trending AuDHD creators","Add Maddy's point of view."],
+    ["c4","Comment on others' AuDHD posts","Seed reach by showing up in the community, not just broadcasting."],
+    ["c5","Go Live briefly","A short Live lifts the whole account's distribution."],
+    ["c6","Re-cut whatever is winning","Fresh hooks off the best performer, feed them back into the budget."],
   ];
-  const KEY="maddy_weekend_v1";
+  const FN=[
+    ["f1","Set the bio link","mymaddy.app, swap to TestFlight on tester-push posts."],
+    ["f2","Welcome every new tester personally","Reply to each, thank them, and ask them to add their Circle. That is the compounding."],
+    ["f3","Nudge the 45 again","A light reminder mid-weekend to anyone who has not opened TestFlight."],
+  ];
+  const KEY="maddy_weekend_v2";
   const saved=JSON.parse(localStorage.getItem(KEY)||"{}");
-  const CHECK='<svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#14152a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const CHK='<svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#14152a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   function render(id,items){
-    document.getElementById(id).innerHTML=items.map(([k,t])=>
-      `<label class="item"><input type="checkbox" data-k="${k}" ${saved[k]?"checked":""}><span class="box">${CHECK}</span><span class="txt">${t}</span></label>`).join("");
+    document.getElementById(id).innerHTML=items.map(([k,t,s])=>
+      `<label class="item"><input type="checkbox" data-k="${k}" ${saved[k]?"checked":""}><span class="box">${CHK}</span><span class="txt">${t}${s?`<small>${s}</small>`:""}</span></label>`).join("");
   }
-  render("paid",PAID);render("sat",SAT);render("sun",SUN);
+  render("t1",T1);render("t2",T2);render("t3",T3);render("fn",FN);
   const boxes=[...document.querySelectorAll('input[type=checkbox]')];
   function update(){
     let done=0;boxes.forEach(b=>{if(b.checked)done++});
-    const tot=boxes.length;const pct=tot?Math.round(done/tot*100):0;
+    const tot=boxes.length,pct=tot?Math.round(done/tot*100):0;
     document.getElementById("fill").style.width=pct+"%";
     document.getElementById("pct").textContent=pct;
     document.getElementById("cnt").textContent=done+"/"+tot;
@@ -205,8 +268,7 @@ It's in TestFlight now and rough in spots: testflight.apple.com/join/Ez1Msh5G (w
       setTimeout(()=>{btn.textContent=o;btn.classList.remove("done")},1400);}catch(e){}
   }));
   document.getElementById("reset").addEventListener("click",()=>{
-    if(confirm("Clear all checkmarks?")){localStorage.removeItem(KEY);
-      boxes.forEach(b=>b.checked=false);update();}
+    if(confirm("Clear all checkmarks?")){localStorage.removeItem(KEY);boxes.forEach(b=>b.checked=false);update();}
   });
 </script>
 </body>
