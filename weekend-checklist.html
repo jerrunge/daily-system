@@ -67,6 +67,12 @@
   summary::-webkit-details-marker{display:none}
   summary .chev{margin-left:auto;color:var(--soft);transition:.2s}
   details[open] summary .chev{transform:rotate(90deg)}
+  .setup h4{font-family:'Baloo 2',cursive;font-weight:600;font-size:14.5px;color:var(--amber);margin:16px 0 4px}
+  .setup .lead{font-size:13px;color:var(--soft);margin:2px 0 6px;line-height:1.5}
+  .setup ol{margin:0 0 8px 20px;padding:0}
+  .setup li{font-size:13.5px;color:var(--ink);margin:8px 0;line-height:1.55}
+  .setup li b{color:var(--ink)}
+  .setup .note{display:block;font-size:12px;color:var(--soft);margin:6px 0 2px;padding-left:2px}
   .copy{margin:6px 0 16px}
   .copy h4{font-size:12px;color:var(--soft);font-weight:500;margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px}
   .copy pre{white-space:pre-wrap;font-family:'Lexend';font-size:13px;color:var(--ink);
@@ -108,6 +114,60 @@
     <div class="s-note">Highest leverage. These are what actually move followers and waitlist. Start here before posting.</div>
     <div id="t1"></div>
   </section>
+
+  <details style="animation-delay:.13s">
+    <summary><span class="dot" style="background:var(--amber)"></span>TikTok promotion: exact setup (every box)<span class="chev">&#9654;</span></summary>
+    <div class="setup">
+      <p class="lead">Two pushes. A = in-app Promote for followers and views. B = Ads Manager Spark Ad sending clicks to mymaddy.app. Run the three reels first, watch 2 to 4 hours, then put the bulk of the budget behind the single best performer.</p>
+
+      <h4>A. In-app Promote (followers + views)</h4>
+      <ol>
+        <li>Open the video. Tap the <b>"..."</b> on the right, then <b>"Promote"</b> (fire icon). Or Profile menu, <b>"Creator tools"</b> or <b>"Business suite"</b>, then <b>"Promote."</b></li>
+        <li>If it is your first time, accept the Promote terms (one time only).</li>
+        <li><b>Goal:</b> choose <b>"More followers"</b> for the follower push. For the views push, run a second Promote on your best reel and choose <b>"More video views."</b></li>
+        <li><b>Audience:</b> choose <b>"Custom"</b> (not Automatic). Gender = <b>All</b>. Age = <b>18 to 45</b>. Location = <b>United States</b> (add Canada, UK, Australia to widen). Interests = pick the closest available (Education, Health, Family and Parenting, Daily Life). Promote's interest list is coarse; if it feels too narrow, switch to <b>"Automatic"</b> and let TikTok optimize.</li>
+        <li><b>Budget and duration:</b> two sliders. For roughly $50/day across two Promotes, set about <b>$25/day each</b>. Set the number of days (max 7). Watch the estimated reach update.</li>
+        <li>Review the summary (goal, audience, budget, duration, estimated views), then tap <b>"Start Promotion"</b> and pay.</li>
+        <li>Repeat for the second goal/video if you are running views too.</li>
+      </ol>
+      <span class="note">Promote runs up to 7 days per campaign. Approval can take up to a few hours.</span>
+
+      <h4>B. Ads Manager Spark Ad (clicks to mymaddy.app)</h4>
+      <p class="lead">Step 1, authorize the post (in the TikTok app on your phone):</p>
+      <ol>
+        <li>Open the post. Tap <b>"..."</b>, then <b>"Ad settings."</b></li>
+        <li>Toggle <b>"Ad authorization"</b> ON.</li>
+        <li>Set the duration to <b>30 days</b> (covers the weekend plus a buffer).</li>
+        <li>Tap <b>"Generate code,"</b> then <b>"Copy code."</b> Keep it handy.</li>
+      </ol>
+      <p class="lead">Step 2, build the campaign at ads.tiktok.com (desktop):</p>
+      <ol>
+        <li>Go to <b>"Campaign"</b>, click <b>"Create."</b> Choose <b>"Custom mode"</b> at the top, not Simplified.</li>
+        <li><b>Objective:</b> select <b>"Traffic."</b> Continue.</li>
+        <li>Name the campaign. Leave <b>Campaign Budget Optimization OFF</b> (you will set budget at the ad group). Continue.</li>
+      </ol>
+      <p class="lead">Step 3, ad group:</p>
+      <ol>
+        <li><b>Optimization location:</b> <b>"Website."</b></li>
+        <li><b>Placement:</b> choose <b>"Select placement"</b> (manual), tick <b>"TikTok"</b> only, untick Pangle and the rest. Leave the interaction toggles (comment, share, download) ON so it stays native.</li>
+        <li><b>Targeting.</b> Location = <b>United States</b> (add CA/UK/AU to widen). Languages = <b>English</b>. Age = <b>18-24, 25-34, 35-44</b>. Gender = <b>All</b>.</li>
+        <li><b>Interests and behaviors:</b> add the closest interest categories (Education, Parenting and Family, Health and Wellness, Books). Keep it fairly broad and let the system optimize.</li>
+        <li><b>Budget and schedule:</b> <b>Daily budget = $50</b> (ad-group minimum is $20). Set the weekend start and end dates.</li>
+        <li><b>Bidding:</b> Optimization goal = <b>"Click"</b> (or "Landing page view" for higher-quality traffic). Bid strategy = <b>"Maximum delivery"</b>, leave the bid field blank for auto.</li>
+      </ol>
+      <p class="lead">Step 4, the ad (Spark):</p>
+      <ol>
+        <li>Turn ON <b>"Use TikTok account to deliver Spark Ads creative."</b></li>
+        <li>Ad format = <b>Single video</b>.</li>
+        <li>In Ad details, click <b>"+ Add existing"</b>, open the <b>"TikTok posts"</b> tab, select your authorized post. If it is not listed, click <b>"+ Authorize TikTok post,"</b> paste the code from Step 1, Confirm.</li>
+        <li><b>CTA:</b> <b>"Sign up"</b> (or "Learn more").</li>
+        <li><b>Destination URL:</b> <b>https://mymaddy.app</b></li>
+        <li><b>Tracking:</b> select your TikTok Pixel (the one already on mymaddy.app) so you can see CompleteRegistration events. Optimization stays on clicks for now; once there is volume you can switch to a Website Conversions campaign optimizing the CompleteRegistration event.</li>
+        <li>Click <b>Submit</b> for review.</li>
+      </ol>
+      <span class="note">Ads usually clear review within an hour to a day. Do not edit the post caption after authorizing it, the caption locks once it is a Spark Ad.</span>
+    </div>
+  </details>
 
   <section style="animation-delay:.16s">
     <div class="s-head"><span class="pill" style="background:var(--blue)">Tier 2</span>Reach surfaces &middot; feed the machine</div>
