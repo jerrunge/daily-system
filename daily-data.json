@@ -1,12 +1,12 @@
 {
-  "generated": "2026-06-06T14:54:05.299152Z",
-  "generatedPT": "7:54 AM PT",
+  "generated": "2026-06-07T15:02:31.427294Z",
+  "generatedPT": "8:02 AM PT",
   "rightNow": [
     {
-      "urgency": "week",
-      "text": "Caregiver progress dashboard \u2014 \"66 days to habit\" patience surface (placement TBD)",
-      "jer": "JER-584",
-      "pillar": "\ud83d\udcf1 Maddy's App"
+      "urgency": "urgent",
+      "text": "Weekend distribution push (paid concentration + creators + Reddit + posting)",
+      "jer": "JER-589",
+      "pillar": ""
     },
     {
       "urgency": "urgent",
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 71,
+      "days": 72,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 72,
+      "days": 73,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 72,
+      "days": 73,
       "why": ""
     }
   ],
