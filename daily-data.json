@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-08T16:53:29.789025Z",
-  "generatedPT": "9:53 AM PT",
+  "generated": "2026-06-09T16:13:30.795177Z",
+  "generatedPT": "9:13 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -26,7 +26,13 @@
       "title": "Note to Self \u2014 Love prevails",
       "platform": "X, Instagram, Substack, LinkedIn",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
+    },
+    {
+      "title": "Note to Self \u2014 The grandeur of the canyon",
+      "platform": "X, Instagram, Substack, LinkedIn",
+      "status": "Draft",
+      "due": "2026-06-16"
     }
   ],
   "followUpRadar": [
@@ -47,17 +53,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 73,
+      "days": 74,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 74,
+      "days": 75,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 74,
+      "days": 75,
       "why": ""
     }
   ],
