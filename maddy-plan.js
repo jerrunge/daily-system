@@ -64,3 +64,55 @@
   }
   onScroll();
 })();
+
+/* ===== Start map checklist (progress saved on device, only goes up in spirit) ===== */
+(function(){
+  "use strict";
+  var journey=document.querySelector('.journey'); if(!journey) return;
+  var steps=Array.prototype.slice.call(document.querySelectorAll('.step'));
+  var total=steps.length, KEY='maddyplan_steps';
+  function load(){ try{ return new Set(JSON.parse(localStorage.getItem(KEY)||'[]')); }catch(e){ return new Set(); } }
+  function save(set){ try{ localStorage.setItem(KEY, JSON.stringify(Array.prototype.slice.call(set))); }catch(e){} }
+  var done=load();
+  var C=2*Math.PI*34;
+  var ringfg=document.querySelector('.ringfg'), ringtxt=document.getElementById('ringtxt');
+  var nextA=document.getElementById('nexttext'), nextSub=document.getElementById('nextsub');
+  var nextCard=document.getElementById('nextstep'), allDone=document.querySelector('.alldone');
+  steps.forEach(function(st,i){ if(!st.id) st.id='step-'+i; });
+  function apply(){
+    var n=0;
+    steps.forEach(function(st){
+      var id=st.dataset.id, b=st.querySelector('.box');
+      if(done.has(id)){ st.setAttribute('data-done',''); n++; if(b){b.textContent='\u2713';b.setAttribute('aria-pressed','true');} }
+      else { st.removeAttribute('data-done'); if(b){b.textContent='';b.setAttribute('aria-pressed','false');} }
+    });
+    if(ringfg) ringfg.style.strokeDasharray=(C*(total?n/total:0))+' '+C;
+    if(ringtxt) ringtxt.textContent=n+'/'+total;
+    var next=null;
+    for(var i=0;i<steps.length;i++){ if(!done.has(steps[i].dataset.id)){ next=steps[i]; break; } }
+    if(next){
+      var lbl=next.querySelector('.slabel'), t=next.querySelector('.stime');
+      if(nextA){ nextA.textContent=lbl?lbl.textContent:'Open'; nextA.setAttribute('data-target',next.id); }
+      if(nextSub) nextSub.textContent=t?('about '+t.textContent):'';
+      if(nextCard) nextCard.style.display='';
+      if(allDone) allDone.style.display='none';
+    } else {
+      if(nextCard) nextCard.style.display='none';
+      if(allDone) allDone.style.display='block';
+    }
+  }
+  steps.forEach(function(st){
+    var box=st.querySelector('.box'); if(!box) return;
+    box.addEventListener('click', function(){
+      var id=st.dataset.id;
+      if(done.has(id)) done.delete(id); else done.add(id);
+      save(done); apply();
+    });
+  });
+  if(nextA){ nextA.addEventListener('click', function(e){
+    e.preventDefault();
+    var el=document.getElementById(nextA.getAttribute('data-target'));
+    if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+  }); }
+  apply();
+})();

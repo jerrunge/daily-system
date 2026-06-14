@@ -159,3 +159,43 @@ details.fold[open]>summary{border-bottom:1px solid var(--line);color:var(--ink)}
 #top{position:fixed;bottom:20px;right:18px;z-index:45;width:42px;height:42px;border-radius:50%;background:var(--card2);border:1px solid var(--line2);color:var(--soft);font-size:17px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s}
 #top.show{opacity:1;pointer-events:auto}#top:hover{color:var(--ink)}
 .foot{margin-top:30px;color:var(--mute);font-size:12px}
+
+/* ===== Start map / journey (ADHD-friendly) ===== */
+.mapintro{margin:4px 0 12px}
+.mapintro .big{font-family:'Baloo 2';font-weight:700;font-size:21px;color:var(--ink);line-height:1.25;margin-bottom:5px}
+.mapintro p{color:var(--soft);margin:4px 0;font-size:14.5px}
+.nextwrap{display:flex;align-items:center;gap:15px;background:var(--card);border:1px solid var(--line2);border-radius:16px;padding:15px 17px;margin:14px 0 6px}
+.ringsvg{width:72px;height:72px;flex:0 0 auto}
+.ringbg{fill:none;stroke:var(--line);stroke-width:7}
+.ringfg{fill:none;stroke:var(--green);stroke-width:7;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dasharray .45s ease}
+.ringtxt{fill:var(--ink);font-family:'Baloo 2';font-weight:700;font-size:15px;text-anchor:middle;dominant-baseline:central}
+.nextstep{flex:1;min-width:0}
+.nextstep .nl{font-family:Lexend;font-weight:600;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+.nextstep .nt{font-family:'Baloo 2';font-weight:700;font-size:17px;color:var(--ink);line-height:1.25;display:block;cursor:pointer}
+.nextstep .nt:hover{text-decoration:none;color:var(--amber)}
+.nextstep .nsub{font-size:12px;color:var(--mute);margin-top:3px}
+.alldone{display:none;background:rgba(107,212,154,.1);border:1px solid var(--green);border-radius:14px;padding:15px 17px;color:var(--green);font-family:'Baloo 2';font-weight:700;font-size:16px;margin:14px 0}
+
+.journey{margin:16px 0 6px}
+.phase{position:relative;margin-left:16px;padding:2px 0 16px 26px;border-left:2px solid var(--line)}
+.phase:last-of-type{border-left-color:transparent}
+.picon{position:absolute;left:-19px;top:-2px;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;background:var(--card2);border:2px solid var(--line)}
+.phead{margin-bottom:6px}
+.phase h3{font-family:'Baloo 2';font-size:18px;color:var(--ink)}
+.phead p{font-size:13px;color:var(--soft);margin:2px 0 0}
+.pa-blue .picon{border-color:var(--blue)}.pa-green .picon{border-color:var(--green)}.pa-orange .picon{border-color:var(--amber2)}.pa-pink .picon{border-color:var(--pink)}.pa-amber .picon{border-color:var(--amber)}
+.steps{display:flex;flex-direction:column}
+.step{display:flex;align-items:center;gap:11px;padding:11px 2px;border-bottom:1px solid var(--line);scroll-margin-top:120px}
+.step:last-child{border-bottom:0}
+.box{flex:0 0 auto;width:26px;height:26px;border-radius:8px;border:2px solid var(--line2);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;color:transparent;font-size:15px;font-weight:800;line-height:1;transition:all .15s}
+.box:hover{border-color:var(--soft)}
+.step[data-done] .box{background:var(--green);border-color:var(--green);color:var(--bg)}
+.slabel{flex:1;font-size:14.5px;color:var(--ink);line-height:1.4}
+.step[data-done] .slabel{color:var(--mute)}
+.stime{flex:0 0 auto;font-size:11px;color:var(--mute);background:var(--card2);border:1px solid var(--line);border-radius:99px;padding:3px 9px;white-space:nowrap}
+.sgo{flex:0 0 auto;font-size:12.5px;color:var(--blue);white-space:nowrap}
+@media(max-width:560px){.stime{display:none}}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 4px}
+.chips .gchip{font-size:12.5px;color:var(--soft);background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:9px 13px;flex:1;min-width:160px}
+.chips .gchip b{color:var(--amber);font-family:'Baloo 2';display:block;font-size:13px;margin-bottom:1px}
