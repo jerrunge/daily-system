@@ -1,17 +1,17 @@
 {
-  "generated": "2026-06-13T15:13:13.074712Z",
-  "generatedPT": "8:13 AM PT",
+  "generated": "2026-06-14T15:19:53.140358Z",
+  "generatedPT": "8:19 AM PT",
   "rightNow": [
-    {
-      "urgency": "urgent",
-      "text": "Weekend distribution push (paid concentration + creators + Reddit + posting)",
-      "jer": "JER-589",
-      "pillar": ""
-    },
     {
       "urgency": "urgent",
       "text": "TikTok lead form \u2192 Supabase auto-capture + auto-invite (tiktok-lead webhook)",
       "jer": "JER-600",
+      "pillar": ""
+    },
+    {
+      "urgency": "urgent",
+      "text": "Weekend distribution push (paid concentration + creators + Reddit + posting)",
+      "jer": "JER-589",
       "pillar": ""
     },
     {
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 78,
+      "days": 79,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 79,
+      "days": 80,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 79,
+      "days": 80,
       "why": ""
     }
   ],
