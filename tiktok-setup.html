@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maddy &middot; TikTok lead form setup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14152a; --card:#1a1b30; --card2:#1f2138;
+    --ink:#e8e9f3; --soft:#a8abc9; --line:rgba(255,255,255,.09);
+    --amber:#f5b942; --amber2:#e8902a; --blue:#5aa8e8; --green:#6bd49a; --pink:#f06aa0; --purple:#9a82e8;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lexend',-apple-system,sans-serif;font-weight:300;line-height:1.55;
+    padding:max(18px,env(safe-area-inset-top)) 16px max(40px,env(safe-area-inset-bottom)) 16px;-webkit-text-size-adjust:100%}
+  .wrap{max-width:680px;margin:0 auto}
+  h1{font-family:'Baloo 2',cursive;font-weight:700;font-size:25px;margin:0 0 4px;letter-spacing:-.2px}
+  .sub{color:var(--soft);font-size:14px;margin:0 0 4px}
+  .meta{color:var(--soft);font-size:12px;opacity:.8;margin:0 0 18px}
+  .bar{height:7px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden;margin:0 0 22px}
+  .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber2),var(--amber));transition:width .3s}
+  .phase{font-family:'Baloo 2',cursive;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.7px;
+    color:var(--bg);background:var(--amber);display:inline-block;padding:3px 11px;border-radius:20px;margin:26px 0 12px}
+  .phase.b{background:var(--blue)} .phase.g{background:var(--green)} .phase.p{background:var(--purple)}
+  .step{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin:9px 0;cursor:pointer;transition:.15s}
+  .step:active{transform:scale(.992)}
+  .step.done{opacity:.5;background:var(--card2)}
+  .step.done .t{text-decoration:line-through}
+  .box{flex:0 0 22px;height:22px;border-radius:7px;border:2px solid var(--soft);margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--bg)}
+  .step.done .box{background:var(--green);border-color:var(--green)}
+  .t{font-size:14.5px}
+  .t b{font-weight:600;color:#fff}
+  .t .n{color:var(--soft);font-size:13px;display:block;margin-top:3px}
+  .note{background:rgba(90,168,232,.07);border:1px solid rgba(90,168,232,.32);border-radius:13px;padding:12px 14px;margin:12px 0;font-size:13px;color:var(--soft)}
+  .note b{color:var(--blue);font-family:'Baloo 2',cursive;font-weight:600}
+  .warn{background:rgba(245,185,66,.08);border:1px solid rgba(245,185,66,.35)}
+  .warn b{color:var(--amber)}
+  .paste{position:relative;background:#0f1022;border:1px solid var(--line);border-radius:11px;padding:12px 13px;margin:8px 0 4px}
+  .paste .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--soft);margin-bottom:5px}
+  .paste pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:'Lexend';font-weight:400;font-size:13.5px;color:var(--ink)}
+  .cbtn{margin-top:9px;background:var(--amber);color:var(--bg);border:none;border-radius:8px;padding:7px 13px;font-family:'Baloo 2',cursive;font-weight:600;font-size:13px;cursor:pointer}
+  .cbtn:active{background:var(--amber2)}
+  a{color:var(--amber)}
+  .foot{margin-top:30px;border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--soft)}
+  .reset{margin-top:16px;background:none;border:1px solid var(--line);color:var(--soft);border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>TikTok lead form: exact setup</h1>
+  <p class="sub">Turns "tap the ad &rarr; in-app form &rarr; one tap" into a waitlist signup. No site, no scrolling. The plumbing into Supabase + the auto-invite are already built and tested; these are the TikTok-side steps only.</p>
+  <p class="meta">Each step saves on this device as you check it. Tracked in Linear JER-600.</p>
+  <div class="bar"><i id="prog"></i></div>
+
+  <span class="phase">Phase 0 &middot; before you start (verify)</span>
+  <div class="step" data-k="p0a"><div class="box">&#10003;</div><div class="t"><b>Verified Business Account</b><span class="n">You confirmed you have this. Needed for organic lead forms.</span></div></div>
+  <div class="step" data-k="p0b"><div class="box">&#10003;</div><div class="t"><b>Privacy policy live on mymaddy.app</b><span class="n">Required by TikTok to run any lead form. You confirmed it's up.</span></div></div>
+  <div class="step" data-k="p0c"><div class="box">&#10003;</div><div class="t"><b>Marketing API flowing</b><span class="n">Needed for the real-time webhook in Phase 2.</span></div></div>
+
+  <span class="phase">Phase 1 &middot; build the Instant Form</span>
+  <div class="step" data-k="p1a"><div class="box">&#10003;</div><div class="t"><b>Open Leads Center</b><span class="n">TikTok Ads Manager &rarr; Tools menu &rarr; Instant Forms (also reachable as Leads Center). Tap Create &rarr; Instant Form.</span></div></div>
+  <div class="step" data-k="p1b"><div class="box">&#10003;</div><div class="t"><b>Name the form</b><span class="n">Internal name only, people don't see it.</span></div></div>
+  <div class="paste"><div class="lbl">Form name</div><pre id="c1">Maddy beta waitlist</pre><button class="cbtn" data-c="c1">Copy</button></div>
+
+  <div class="step" data-k="p1c"><div class="box">&#10003;</div><div class="t"><b>Form type: choose "More volume"</b><span class="n">Not "Higher intent." Volume is right for a waitlist.</span></div></div>
+  <div class="step" data-k="p1d"><div class="box">&#10003;</div><div class="t"><b>Intro / headline</b><span class="n">Short. Paste below.</span></div></div>
+  <div class="paste"><div class="lbl">Intro headline</div><pre id="c2">Join the Maddy beta</pre><button class="cbtn" data-c="c2">Copy</button></div>
+  <div class="paste"><div class="lbl">Intro description</div><pre id="c3">Maddy is a daily-living app for AuDHD brains, co-designed with my daughter Maddy. Drop your email and I'll send your TestFlight invite.</pre><button class="cbtn" data-c="c3">Copy</button></div>
+
+  <div class="step" data-k="p1e"><div class="box">&#10003;</div><div class="t"><b>Questions: email only</b><span class="n">Keep the Email field (it prefills from their profile). Remove Name and Phone if shown, every extra field costs signups.</span></div></div>
+  <div class="step" data-k="p1f"><div class="box">&#10003;</div><div class="t"><b>Privacy policy URL</b><span class="n">Paste your exact privacy URL. Adjust the path if it isn't /privacy.</span></div></div>
+  <div class="paste"><div class="lbl">Privacy policy URL (confirm path)</div><pre id="c4">https://mymaddy.app/privacy</pre><button class="cbtn" data-c="c4">Copy</button></div>
+
+  <div class="step" data-k="p1g"><div class="box">&#10003;</div><div class="t"><b>Thank-you screen</b><span class="n">This is where you hand iOS people straight to TestFlight. Set headline, description, button text, and button link.</span></div></div>
+  <div class="paste"><div class="lbl">Thank-you headline</div><pre id="c5">You're on the list</pre><button class="cbtn" data-c="c5">Copy</button></div>
+  <div class="paste"><div class="lbl">Thank-you description</div><pre id="c6">Your TestFlight invite is on its way to your email. Want it right now? Tap below.</pre><button class="cbtn" data-c="c6">Copy</button></div>
+  <div class="paste"><div class="lbl">Button text</div><pre id="c7">Get the TestFlight beta</pre><button class="cbtn" data-c="c7">Copy</button></div>
+  <div class="paste"><div class="lbl">Button URL</div><pre id="c8">https://testflight.apple.com/join/Ez1Msh5G</pre><button class="cbtn" data-c="c8">Copy</button></div>
+  <div class="step" data-k="p1h"><div class="box">&#10003;</div><div class="t"><b>Publish the form</b><span class="n">Save and publish. You can still edit the thank-you screen later, but published field changes can be limited, so keep it email-only now.</span></div></div>
+
+  <span class="phase b">Phase 2 &middot; connect the webhook (auto-capture + auto-invite)</span>
+  <div class="note"><b>What this does.</b> Once connected, every lead lands in your Supabase waitlist tagged tiktok-leadform and gets the beta invite within seconds, automatically. Without this step the leads only sit inside TikTok.</div>
+  <div class="step" data-k="p2a"><div class="box">&#10003;</div><div class="t"><b>Open your TikTok for Developers app</b><span class="n">developers.tiktok.com &rarr; Manage apps &rarr; your Marketing API app &rarr; its Webhooks settings.</span></div></div>
+  <div class="step" data-k="p2b"><div class="box">&#10003;</div><div class="t"><b>Set the Callback / Webhook URL</b><span class="n">Paste the URL below exactly, including the ?k= token. That token is what secures it.</span></div></div>
+  <div class="paste"><div class="lbl">Webhook URL</div><pre id="c9">https://gfqjgdisuwzebaqjqseg.supabase.co/functions/v1/tiktok-lead?k=2ARQE04Fqd6TrFGK4w13pbB95MiLNaDR</pre><button class="cbtn" data-c="c9">Copy</button></div>
+  <div class="step" data-k="p2c"><div class="box">&#10003;</div><div class="t"><b>Subscribe to the Lead event</b><span class="n">In the same webhook settings, turn on / subscribe to the lead event (named "Lead" or "Lead Generation"). Save.</span></div></div>
+  <div class="note warn"><b>If you don't see a Lead event to subscribe to:</b> stop there and tell me. The no-code fallback is Leads Center &rarr; Connect CRM &rarr; Google Sheets, and I'll bridge the sheet to Supabase instead. Either way you're covered.</div>
+
+  <span class="phase g">Phase 3 &middot; test it once</span>
+  <div class="step" data-k="p3a"><div class="box">&#10003;</div><div class="t"><b>Submit one test lead</b><span class="n">Use the form's Preview/Test submit, or submit your own email through the live form once.</span></div></div>
+  <div class="step" data-k="p3b"><div class="box">&#10003;</div><div class="t"><b>Tell me right after</b><span class="n">I'll check it landed and confirm the email came through inline. If TikTok sends an ID-only payload instead, I add one fetch step (you'd set one Supabase secret) and we're done. ~5 min.</span></div></div>
+
+  <span class="phase p">Phase 4 &middot; put it on your paid ad</span>
+  <div class="step" data-k="p4a"><div class="box">&#10003;</div><div class="t"><b>Share the form to Ads Manager</b><span class="n">In Leads Center, open the form &rarr; Share &rarr; Link accounts. It then shows up in Ads Manager under Tools &rarr; Instant page with a "Shared" tag.</span></div></div>
+  <div class="step" data-k="p4b"><div class="box">&#10003;</div><div class="t"><b>Repoint the existing Lead Gen ad</b><span class="n">Your set-c-youtoo Spark Ad is Lead Gen but pointed at mymaddy.app (the website variant, still full friction). Edit the ad's destination to the Instant Form "Maddy beta waitlist." Objective can't change, but the form destination can.</span></div></div>
+  <div class="note"><b>Concentration still holds.</b> Run this one winning reel as the Lead Gen ad. Don't split budget across more.</div>
+
+  <span class="phase p">Phase 5 &middot; put it on organic posts</span>
+  <div class="step" data-k="p5a"><div class="box">&#10003;</div><div class="t"><b>Attach the form when you post</b><span class="n">In the TikTok app, on the post screen before publishing: Add link &rarr; Lead gen &rarr; choose "Maddy beta waitlist" &rarr; set the call to action &rarr; Post. The published video carries a lead tag. Same form, no paid spend.</span></div></div>
+
+  <div class="foot">
+    <b style="color:#fff;font-family:'Baloo 2',cursive">Where leads go</b><br>
+    Every submission: auto-inserted into Supabase waitlist (source=tiktok-leadform) and auto-sent the beta invite within seconds. TikTok also keeps a copy in Leads Center for 90 days as a backstop. Ask me anytime for the live count.
+    <br><br>
+    <b style="color:#fff;font-family:'Baloo 2',cursive">Two things only you can confirm</b><br>
+    1) The exact privacy policy URL path on mymaddy.app. 2) That the developer app exposes the Lead event in Phase 2. Flag either if it's off.
+    <button class="reset" id="reset">Reset checklist</button>
+  </div>
+</div>
+<script>
+  var KEY="maddy_tiktok_setup_v1";
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  var state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){state={}}
+  function prog(){var d=steps.filter(function(s){return state[s.dataset.k]}).length;
+    document.getElementById('prog').style.width=Math.round(d/steps.length*100)+'%';}
+  steps.forEach(function(s){var k=s.dataset.k;if(state[k])s.classList.add('done');
+    s.addEventListener('click',function(e){if(e.target.classList.contains('cbtn'))return;
+      state[k]=!state[k];s.classList.toggle('done');localStorage.setItem(KEY,JSON.stringify(state));prog();});});
+  document.querySelectorAll('.cbtn').forEach(function(b){b.addEventListener('click',function(){
+    var t=document.getElementById(b.dataset.c).innerText;
+    navigator.clipboard.writeText(t).then(function(){var o=b.innerText;b.innerText='Copied';setTimeout(function(){b.innerText=o},1100);});});});
+  document.getElementById('reset').addEventListener('click',function(){if(confirm('Clear all checks?')){state={};localStorage.setItem(KEY,'{}');steps.forEach(function(s){s.classList.remove('done')});prog();}});
+  prog();
+</script>
+</body>
+</html>
