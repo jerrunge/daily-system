@@ -81,13 +81,16 @@
   <div class="paste"><div class="lbl">Button URL</div><pre id="c8">https://testflight.apple.com/join/Ez1Msh5G</pre><button class="cbtn" data-c="c8">Copy</button></div>
   <div class="step" data-k="p1h"><div class="box">&#10003;</div><div class="t"><b>Publish the form</b><span class="n">Save and publish. You can still edit the thank-you screen later, but published field changes can be limited, so keep it email-only now.</span></div></div>
 
-  <span class="phase b">Phase 2 &middot; connect the webhook (auto-capture + auto-invite)</span>
-  <div class="note"><b>What this does.</b> Once connected, every lead lands in your Supabase waitlist tagged tiktok-leadform and gets the beta invite within seconds, automatically. Without this step the leads only sit inside TikTok.</div>
-  <div class="step" data-k="p2a"><div class="box">&#10003;</div><div class="t"><b>Open your TikTok for Developers app</b><span class="n">developers.tiktok.com &rarr; Manage apps &rarr; your Marketing API app &rarr; its Webhooks settings.</span></div></div>
-  <div class="step" data-k="p2b"><div class="box">&#10003;</div><div class="t"><b>Set the Callback / Webhook URL</b><span class="n">Paste the URL below exactly, including the ?k= token. That token is what secures it.</span></div></div>
-  <div class="paste"><div class="lbl">Webhook URL</div><pre id="c9">https://gfqjgdisuwzebaqjqseg.supabase.co/functions/v1/tiktok-lead?k=2ARQE04Fqd6TrFGK4w13pbB95MiLNaDR</pre><button class="cbtn" data-c="c9">Copy</button></div>
-  <div class="step" data-k="p2c"><div class="box">&#10003;</div><div class="t"><b>Subscribe to the Lead event</b><span class="n">In the same webhook settings, turn on / subscribe to the lead event (named "Lead" or "Lead Generation"). Save.</span></div></div>
-  <div class="note warn"><b>If you don't see a Lead event to subscribe to:</b> stop there and tell me. The no-code fallback is Leads Center &rarr; Connect CRM &rarr; Google Sheets, and I'll bridge the sheet to Supabase instead. Either way you're covered.</div>
+  <span class="phase b">Phase 2 &middot; connect lead delivery (pick ONE path)</span>
+  <div class="note"><b>What this does.</b> Routes each lead into your Supabase waitlist (tagged tiktok-leadform) and auto-sends the beta invite within seconds. Both paths below hit the same endpoint, which is already built and tested. Use whichever you can get working.</div>
+  <div class="note warn"><b>There is no "Lead" event to toggle.</b> The Marketing API doesn't give you an event checklist. You either set one callback URL on your app (Path A) or use a no-code bridge (Path B). That's why you didn't see a webhook switch.</div>
+
+  <div class="step" data-k="p2a"><div class="box">&#10003;</div><div class="t"><b>Path A &middot; native callback URL (no middleware)</b><span class="n">In business-api.tiktok.com, open your app's detail page, the same one with your client key and OAuth redirect URL. Find the Callback URL field and paste the URL below. Saving it IS the subscription, no event picker.</span></div></div>
+  <div class="paste"><div class="lbl">Callback / Webhook URL</div><pre id="c9">https://gfqjgdisuwzebaqjqseg.supabase.co/functions/v1/tiktok-lead?k=2ARQE04Fqd6TrFGK4w13pbB95MiLNaDR</pre><button class="cbtn" data-c="c9">Copy</button></div>
+  <div class="note warn"><b>No callback field at all?</b> Your app almost certainly lacks the Lead Ads (Lead Generation) permission. Add or request that permission on the app, then the callback field appears. This is the most likely reason it's missing.</div>
+
+  <div class="step" data-k="p2b"><div class="box">&#10003;</div><div class="t"><b>Path B &middot; no-code bridge (fastest unblock)</b><span class="n">Make.com (free HTTP module) or Zapier. Trigger: "New Lead in TikTok Lead Generation," connect via your TikTok business login. Action: HTTP POST to the same URL above, mapping the lead's email into the body. Real-time, no raw API.</span></div></div>
+  <div class="step" data-k="p2c"><div class="box">&#10003;</div><div class="t"><b>Then run one test and tell me</b><span class="n">Do Phase 3, and I'll confirm it arrived and the email parsed. The endpoint accepts Path A or Path B unchanged.</span></div></div>
 
   <span class="phase g">Phase 3 &middot; test it once</span>
   <div class="step" data-k="p3a"><div class="box">&#10003;</div><div class="t"><b>Submit one test lead</b><span class="n">Use the form's Preview/Test submit, or submit your own email through the live form once.</span></div></div>
