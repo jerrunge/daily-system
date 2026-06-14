@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maddy: Founder-Forward Video Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14152a; --bg2:#1a1b30; --card:#1f2138; --line:rgba(168,171,201,.16);
+    --ink:#e8e9f3; --soft:#a8abc9; --mute:#7f83a6;
+    --amber:#f5b942; --amber2:#e8902a; --blue:#5aa8e8; --green:#6bd49a; --pink:#f06aa0; --purple:#9a82e8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);
+    font-family:Lexend,system-ui,sans-serif;font-weight:300;line-height:1.65;font-size:17px;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:48px 22px 120px}
+  h1,h2,h3,h4{font-family:'Baloo 2',cursive;font-weight:700;line-height:1.15;margin:0}
+  h1{font-size:40px;letter-spacing:-.5px}
+  h2{font-size:27px;margin:54px 0 8px;color:var(--ink)}
+  h3{font-size:20px;margin:26px 0 6px;font-weight:600}
+  h4{font-size:16px;margin:18px 0 4px;font-weight:600;color:var(--soft);text-transform:uppercase;letter-spacing:1.2px;font-family:Lexend}
+  p{margin:10px 0}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .eyebrow{font-family:Lexend;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;
+    font-size:12px;color:var(--amber)}
+  .lede{font-size:19px;color:var(--soft);font-weight:300;margin-top:14px}
+  .rule{height:1px;background:var(--line);border:0;margin:34px 0}
+  .sec-no{font-family:'Baloo 2';color:var(--purple);font-weight:700;font-size:15px;
+    display:inline-block;margin-right:8px;opacity:.85}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:18px 0}
+  .grid{display:grid;gap:14px}
+  @media(min-width:680px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:1fr 1fr 1fr}}
+  .tag{display:inline-block;font-family:Lexend;font-weight:600;font-size:11px;letter-spacing:1px;
+    text-transform:uppercase;padding:4px 10px;border-radius:99px;margin:0 6px 6px 0}
+  .t-me{background:rgba(90,168,232,.16);color:var(--blue)}
+  .t-her{background:rgba(240,106,160,.16);color:var(--pink)}
+  .t-us{background:rgba(154,130,232,.18);color:var(--purple)}
+  .t-amber{background:rgba(245,185,66,.16);color:var(--amber)}
+  .t-green{background:rgba(107,212,154,.16);color:var(--green)}
+  ul,ol{margin:10px 0;padding-left:22px}
+  li{margin:7px 0}
+  .callout{border-left:3px solid var(--amber);background:rgba(245,185,66,.07);
+    border-radius:0 12px 12px 0;padding:16px 20px;margin:18px 0}
+  .callout.warn{border-color:var(--pink);background:rgba(240,106,160,.07)}
+  .callout.go{border-color:var(--green);background:rgba(107,212,154,.07)}
+  .callout.law{border-color:var(--purple);background:rgba(154,130,232,.08)}
+  .callout h4{margin-top:0;color:var(--ink)}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:Lexend;font-weight:600;color:var(--soft);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+  td strong{color:var(--ink);font-weight:600}
+  .small{font-size:14px;color:var(--mute)}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+  .toc a{font-size:13px;background:var(--card);border:1px solid var(--line);padding:7px 13px;border-radius:99px;color:var(--soft)}
+  .toc a:hover{color:var(--ink);text-decoration:none;border-color:var(--soft)}
+  .ep{border:1px solid var(--line);border-radius:13px;padding:15px 18px;margin:11px 0;background:rgba(255,255,255,.012)}
+  .ep .n{font-family:'Baloo 2';font-weight:700;color:var(--blue);font-size:14px}
+  .ep .hook{color:var(--ink);font-weight:400}
+  .ep .why{color:var(--mute);font-size:14px;margin-top:3px}
+  .foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+  .pill{font-family:Lexend;font-size:12px;font-weight:600;color:var(--bg);background:var(--amber);
+    padding:3px 9px;border-radius:6px;letter-spacing:.3px}
+  .ladder{counter-reset:rung}
+  .ladder .row{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+  .ladder .row:last-child{border-bottom:0}
+  .ladder .lv{font-family:'Baloo 2';font-weight:700;font-size:13px;color:var(--pink);
+    min-width:104px;padding-top:2px}
+  .ladder .desc{flex:1}
+  .ladder .desc b{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Maddy &nbsp;/&nbsp; Strategy Recommendation</div>
+  <h1>Founder-Forward Video: the real plan</h1>
+  <p class="lede">A recommendation for video across three tracks (Jeremy, Maddy, the two of you together) plus the mechanisms video alone cannot replace. Benchmarked against what is actually working in the world right now, and honest about what will not work.</p>
+
+  <div class="toc">
+    <a href="#bet">The bet</a>
+    <a href="#real">What's working now</a>
+    <a href="#consent">The consent spine</a>
+    <a href="#me">Track: Jeremy</a>
+    <a href="#her">Track: Maddy</a>
+    <a href="#us">Track: Together</a>
+    <a href="#mech">Other mechanisms</a>
+    <a href="#seq">Sequence</a>
+    <a href="#fail">How this fails</a>
+    <a href="#metrics">Metrics that matter</a>
+  </div>
+
+  <hr class="rule">
+
+  <!-- THE BET -->
+  <h2 id="bet"><span class="sec-no">01</span>The bet, stated plainly</h2>
+  <p>Maddy's one unfair advantage is that the intimacy is not performed. The category is full of faceless apps doing a warm voice behind a logo. You have a real dad and a real daughter who actually built this together. Founder-forward video is just letting the surface tell the truth the product is already made of.</p>
+  <p>But be clear-eyed about the shape of this bet:</p>
+  <div class="callout">
+    <h4>This is a compounding trust play, not a growth hack</h4>
+    <p>No single video saves this. It works because it is real and because it stacks: a body of honest founder video plus an audience that trusts you becomes the asset that makes practitioners say yes and warm caregivers convert at launch. Every ad dollar resets to zero when you stop. This does not. That is the entire reason to do it, and also the reason it is slow.</p>
+  </div>
+  <p>What this bet is <strong>not</strong>: it is not a path to fast numbers, it is not influencer cosplay, and it is not "put the kid on camera and watch it pop." The version that works is patient, founder-led, and unusually careful about Maddy. The version that blows up in your face is the impatient one.</p>
+
+  <!-- WHAT'S WORKING -->
+  <h2 id="real"><span class="sec-no">02</span>What is actually working in the world right now</h2>
+  <p>Grounding this against current reality, not theory. Here is the honest read of what performs in exactly your space as of mid-2026.</p>
+
+  <h3>Short-form story beats production value</h3>
+  <p>The neurodivergent creators who own this audience win on rawness and specificity, not polish. Paige Layle (2.6M on TikTok), Chloe Hayden (1.1M), AJ Wilkerson / Captain Autism Comedy (1.2M), and Morgan Foley (650K) built on conversational, lived-experience video: a single real moment, named precisely, often funny. The lane that converts caregivers is the practitioner-creator lane (CHADD, ADDitude, local hubs like ADHDKC, the Holdernesses' "ADHD is Awesome"), and its native phrase is "scaffolding without nagging." None of them out-produce a studio. They out-specify it.</p>
+
+  <h3>Founder and build-in-public storytelling earns durable trust, slowly</h3>
+  <p>A founder who built a tool for their own brain is a story this community actively engages with, not an ad it scrolls past. The trade is real: high trust, low velocity. It compounds over months, not days.</p>
+
+  <h3>Lives are a depth engine, not a discovery engine</h3>
+  <p>Lives deepen an audience that already exists. They do almost nothing to create one, and a live to an empty room is demoralizing and a waste of your scarcest resource (your time and your nervous system). Lives come after the short-form has gathered people, not on day one.</p>
+
+  <div class="callout warn">
+    <h4>The trap this whole space falls into</h4>
+    <p>Vanity metrics. Your current problem is the proof: thousands of views, almost no signups. Views are not the goal and never were. For a trust-gated product sold to risk-averse buyers, the only numbers that matter are qualified follows, practitioner replies, and waitlist conversion. A video with 1,200 views that brings one OT into a conversation beats a 40,000-view video that brings nothing.</p>
+  </div>
+
+  <table>
+    <tr><th>Format</th><th>Job it does</th><th>Honest verdict</th></tr>
+    <tr><td><strong>Short-form story</strong> (60-90s)</td><td>Discovery, the top of everything</td><td>Primary engine. Start here.</td></tr>
+    <tr><td><strong>Founder build-in-public</strong></td><td>Trust, depth, practitioner warm-up</td><td>High value, slow. The spine.</td></tr>
+    <tr><td><strong>Lives</strong></td><td>Retention, community depth</td><td>Real, but only after an audience exists.</td></tr>
+    <tr><td><strong>Long-form (YouTube)</strong></td><td>The origin film, evergreen searchable trust</td><td>Worth reopening (see note). Currently out of your canon scope.</td></tr>
+    <tr><td><strong>Polished brand ads</strong></td><td>Cold reach</td><td>Already proven not to convert this audience. Do not lead with it.</td></tr>
+  </table>
+  <p class="small">Note on YouTube: your marketing canon currently scopes YouTube and long-form founder video out. The origin story is the one piece that benefits from a searchable, evergreen long-form home (a parent googling "app for autistic teen won't start tasks" at 11pm should find you). I would reopen that scope decision deliberately rather than leave it closed by default.</p>
+
+  <!-- CONSENT SPINE -->
+  <h2 id="consent"><span class="sec-no">03</span>The consent spine (this goes first, on purpose)</h2>
+  <p>Because Maddy is in this, the framework for how she is in it comes before the creative, not after. This is not caution for its own sake. The thing that makes her involvement powerful (it is real) is the exact thing that breaks if she is even slightly pushed. Run her participation the way the app runs its Circle: opt-in, granular, at the center, revocable.</p>
+
+  <h3>The choice menu: "in or out" as a real, per-piece decision</h3>
+  <div class="card ladder">
+    <div class="row"><div class="lv">Out</div><div class="desc"><b>Not this one.</b> Always available, no reason needed, costs nothing between you.</div></div>
+    <div class="row"><div class="lv">Named only</div><div class="desc"><b>"Co-designed with Maddy."</b> Credit, no likeness, no words.</div></div>
+    <div class="row"><div class="lv">Her words</div><div class="desc"><b>Not her face.</b> A line she wrote, a design note in her voice, a voiceover. Her perspective without being on camera.</div></div>
+    <div class="row"><div class="lv">Her presence</div><div class="desc"><b>Pre-agreed.</b> She appears in a piece you lead, approved before it ships.</div></div>
+    <div class="row"><div class="lv">Her lead</div><div class="desc"><b>She drives it.</b> Her story, her feature, her voice as the AuDHDer it was built with. Used sparingly and age-calibrated (see below).</div></div>
+  </div>
+  <p>A young AuDHDer choosing her own level of exposure is also just good autonomy and sensory design. It matches how her brain works.</p>
+
+  <h3>How the choosing stays safe</h3>
+  <ul>
+    <li><strong>She sees the finished asset</strong> before it goes public, not a description of it. Approving an idea and approving the real thing are different.</li>
+    <li><strong>Two gates, both required, either can veto.</strong> Her yes, and yours as her dad. Her no is never overridden by a parent yes; your safety no is never overridden by her yes.</li>
+    <li><strong>A cooling beat.</strong> Nothing she is unsure about ships the same day.</li>
+    <li><strong>Comment shield.</strong> Default: she does not read the comments. Someone stands between her and the section. ND and parenting spaces can be cruel.</li>
+    <li><strong>Permanence lens.</strong> The test is not only "is she okay with this now," but "would the adult she becomes be okay that she did this." That ceiling is your call.</li>
+    <li><strong>Masking watch.</strong> If a piece makes her perform a self instead of being herself, it is the wrong piece, no matter how well it would do.</li>
+    <li><strong>Logged per piece</strong> in JER-384, with the rung she chose and her explicit yes. That log is the integrity backbone.</li>
+  </ul>
+
+  <div class="callout law">
+    <h4>The legal and ethical reality, current as of 2026 (not optional reading)</h4>
+    <p>The ground has shifted hard on minors in monetized content, and California (your state) is at the front of it. A rigorous plan has to sit inside this, not around it:</p>
+    <ul>
+      <li><strong>California</strong> amended the Coogan Law in 2024 to cover minors as content creators, requiring a trust-account share of a minor's earnings from monetized content (the protected percentage was raised in a January 2025 expansion).</li>
+      <li><strong>Illinois</strong> requires 50% of earnings from content featuring a child be set aside in trust; the child can sue if it is not.</li>
+      <li><strong>Minnesota</strong> restricts monetized content featuring children under 14 and gives minors 13 and older the right to demand deletion.</li>
+      <li>The cultural signal is just as real: after the Ruby Franke case, Shari Franke testified that "there is no such thing as a moral or ethical family vlogger," and the consensus principle in the discourse is that young children cannot meaningfully consent to appearing in a parent's monetized content.</li>
+    </ul>
+    <p><strong>What this means for Maddy, concretely:</strong></p>
+    <ul>
+      <li><strong>If Maddy is a minor:</strong> adopt the strict standard on purpose, even beyond what is strictly required. Keep her exposure measured, lean on the lower rungs (named, her words) far more than "her lead," and set up an earnings-tracking or trust mechanism for any Maddy-featuring content that ever earns, before it earns. This matches the stricter-than-legal internal standard you already hold for a vulnerable population.</li>
+      <li><strong>If Maddy is a legal adult:</strong> the consent is hers to give freely, but the comfort, permanence, masking, and comment-shield guardrails still all apply. Adulthood changes the legal frame, not the care.</li>
+      <li><strong>Either way:</strong> do not build the brand on her face. Build it on the co-design truth, with her voice present at the level she chooses. That is both the right call and the durable one.</li>
+    </ul>
+    <p class="small">Calibrating the rungs to her age is a parent's judgment call, and it is yours, not this document's. The plan below defaults conservative and expands only as she chooses upward.</p>
+  </div>
+
+  <!-- TRACK ME -->
+  <h2 id="me"><span class="sec-no">04</span>Track: Jeremy <span class="tag t-me">the spine</span></h2>
+  <p>This is the load-bearing track and the one to start with. You, the dad, telling the truth. It carries the brand whether or not Maddy ever appears, which is exactly why it is the foundation: it does not depend on her.</p>
+
+  <h4>Format</h4>
+  <p>Short-form, 60 to 90 seconds, talking to camera or your voiceover over simple b-roll. Low production on purpose. The currency is honesty and specificity, not lighting. Lead with the problem and your life; the app is the resolution of the story, never the subject of it.</p>
+
+  <h4>The opening arc (the first 8, in order)</h4>
+  <div class="ep"><span class="n">01 / Origin</span><div class="hook">"My daughter could fly across the world alone but could not start the dishes. Here is what I finally understood."</div><div class="why">The capability-versus-performance hook, straight from the research. It stops the scroll because it sounds like a contradiction and resolves into recognition.</div></div>
+  <div class="ep"><span class="n">02 / The reframe</span><div class="hook">"If you have watched your kid get called lazy when you know that is not it, this one is for you."</div><div class="why">Aimed at the caregiver, not the user. "You are not lazy" is the single most native line in this entire community. This is the caregiver doorway.</div></div>
+  <div class="ep"><span class="n">03 / The wall</span><div class="hook">"Starting is the wall. Not the doing, the starting." Task initiation, named.</div><div class="why">Names the exact felt experience (task paralysis, staring at the spoon). High save rate, because saving is how people say "this is me."</div></div>
+  <div class="ep"><span class="n">04 / Why the other apps failed us</span><div class="hook">"Every app I tried assumed she was disorganized. She is not disorganized. The lists made it worse."</div><div class="why">Differentiation without naming competitors. Speaks to every parent who has bought five apps that did not stick.</div></div>
+  <div class="ep"><span class="n">05 / The Circle</span><div class="hook">"The goal was never for her to need us forever. The support is designed to fade."</div><div class="why">Body doubling is native vocabulary here. Caregiver-fade as a feature, not a bug, is the thing no faceless competitor frames.</div></div>
+  <div class="ep"><span class="n">06 / The shame loop</span><div class="hook">"Red rings and 'you failed today' do real harm to these brains. So we built something with no failure state."</div><div class="why">Research-grounded, emotionally true, and a clean values statement.</div></div>
+  <div class="ep"><span class="n">07 / What I got wrong</span><div class="hook">"Here is a thing I built, watched her not use, and had to tear out."</div><div class="why">Build-in-public honesty. This is the episode that makes people trust the other seven.</div></div>
+  <div class="ep"><span class="n">08 / The wider door</span><div class="hook">"This started for my autistic and ADHD daughter. Turns out the same wall shows up for a lot of brains."</div><div class="why">The "+". Honest at the mechanism level. Opens the audience to ADHD, TBI, and the wider executive-function world without a single overclaim.</div></div>
+
+  <div class="callout">
+    <h4>The honesty boundary lives here too</h4>
+    <p>Your story can go anywhere. "Maddy is proven to help X" still cannot. Episode 08 says "the same wall shows up for a lot of brains," which is true and yours to say. It does not say "Maddy treats TBI." The honest founder is the credible founder, and that credibility is the whole reason an OT will trust you. Do not trade it for a stronger-sounding line.</p>
+  </div>
+
+  <h4>Cadence, honestly</h4>
+  <p>Two to three short videos a week is realistic and sustainable for a founder who is also building the thing. Batch them: film several in one sitting, release across the week. Do not promise yourself daily. Daily is how this dies in a month (see "How this fails").</p>
+
+  <h4>Where</h4>
+  <p>TikTok and Instagram Reels as primary (both in your canon scope). Threads for passive cross-post. The origin (Episode 01) is the candidate for a longer YouTube cut if you reopen that scope.</p>
+
+  <!-- TRACK HER -->
+  <h2 id="her"><span class="sec-no">05</span>Track: Maddy <span class="tag t-her">the multiplier</span></h2>
+  <p>When she opts in, this is the most credible content the brand can possibly make. A young AuDHDer who co-designed the tool, talking to other AuDHDers, is peer trust you cannot buy. To caregivers it does something even rarer: it inverts their fear. Not "your kid is struggling," but "here is a kid like yours who is a designer, who made something real." You are offering hope instead of pity, and a parent will follow hope.</p>
+
+  <p><strong>Critical:</strong> this is not a channel she is obligated to feed. It is a set of options she picks from, per piece, at her rung. Some months it is nothing. That is success, not failure.</p>
+
+  <h4>What it looks like at each rung</h4>
+  <ul>
+    <li><span class="tag t-her">Named</span> "Co-designed with Maddy" appears in your videos. She is credited, present in the story, not on camera.</li>
+    <li><span class="tag t-her">Her words</span> She wrote one of the check-in states; a card carries a design note in her voice (Dancing Script, her exclusive type); she voices a line over your b-roll.</li>
+    <li><span class="tag t-her">Her presence</span> She appears briefly in a piece you lead and approved together.</li>
+    <li><span class="tag t-her">Her lead</span> She explains a feature she asked for, in her own voice. Reserved, age-calibrated, comment-shielded. If she is a minor, this rung is rare and protected by everything in Section 03.</li>
+  </ul>
+
+  <div class="callout go">
+    <h4>The co-design piece is the quiet superpower</h4>
+    <p>"Here is a feature, and here is why I designed it this way," from the person it is for, is marketing and method at the same time. It is visible proof of the one claim no competitor can stage: that this was built with an AuDHDer, not just for an imagined one. Even at the "her words" rung, with no face, this lands.</p>
+  </div>
+
+  <!-- TRACK US -->
+  <h2 id="us"><span class="sec-no">06</span>Track: Together <span class="tag t-us">the heart</span></h2>
+  <p>The dad-and-daughter co-design conversation is the single most powerful asset available to you. Precisely because it is so strong, use it sparingly. Scarcity is what keeps it real and what protects her.</p>
+
+  <h4>Forms</h4>
+  <ul>
+    <li>"She asked for this feature. Here is the conversation we had." (Her at the rung she chooses; can be her words over the story, not necessarily her face.)</li>
+    <li>Designing a small thing together, shown honestly.</li>
+    <li>Her reacting to something you built from her feedback.</li>
+  </ul>
+
+  <div class="callout warn">
+    <h4>Why sparing is non-negotiable</h4>
+    <p>Volume is exactly what tips "a dad and his daughter who built an app" into "a family vlog," which is the precise thing the new laws and the public mood are reacting against. A handful of together-pieces a year reads as authentic collaboration. A weekly together-series reads as monetizing your kid, and it would quietly torch the trust advantage the whole strategy is built on. Restraint is not timidity here. It is the strategy.</p>
+  </div>
+
+  <!-- OTHER MECHANISMS -->
+  <h2 id="mech"><span class="sec-no">07</span>The mechanisms video cannot replace</h2>
+  <p>Video is the trust-builder. It is not the whole machine. Honest about that: a founder who only makes videos and skips these will underperform a founder who makes fewer videos and does these.</p>
+
+  <div class="grid two">
+    <div class="card">
+      <span class="tag t-amber">the moat</span>
+      <h3 style="margin-top:6px">Practitioner outreach, founder-signed</h3>
+      <p>Your highest-leverage move, and it needs no audience and no ad budget. ND-affirming OTs, ADHD coaches, special-ed and ND therapists. Caregivers trust them more than any ad. One OT relationship refers AuDHD, ADHD, and TBI clients at once, because they all do executive-function work. Your founder video does real work here: an OT can watch you tell the story before a call, so trust is half-built before you speak. Start at the @neurodiversity_ot hub and the ND-affirming OT directories.</p>
+    </div>
+    <div class="card">
+      <span class="tag t-green">amplify</span>
+      <h3 style="margin-top:6px">Borrowed trust, as collaboration</h3>
+      <p>The AuDHD and parent-advocate creators above will share a founder-built-with-his-daughter story in a way they would never run an ad read. Approach as collaboration, not a paid shout. The co-design truth is the thing they will actually want to pass on.</p>
+    </div>
+    <div class="card">
+      <span class="tag t-me">retain</span>
+      <h3 style="margin-top:6px">Lives, once there is a room</h3>
+      <p>After the short-form has gathered people, lives deepen them: office hours, "ask a dad who built this," co-design Q and A. Powerful for the warm middle of the funnel. Pointless before the audience exists.</p>
+    </div>
+    <div class="card">
+      <span class="tag t-amber">capture</span>
+      <h3 style="margin-top:6px">Word of mouth and the site</h3>
+      <p>Parents are already recommending you by hand; that is the rarest signal you have. Make passing it on frictionless, and fix what a warm caregiver sees when they land on mymaddy.app so it speaks to the buyer, not only the user. You are leaking earned interest if the page only talks to the AuDHDer.</p>
+    </div>
+  </div>
+  <p>And the plumbing is already yours: the lead-capture and auto-invite pipeline is live. Video drives the follow, the follow becomes a waitlist signup, the pipeline sends the invite. The video tracks feed a machine that already runs.</p>
+
+  <!-- SEQUENCE -->
+  <h2 id="seq"><span class="sec-no">08</span>The sequence (what, in what order)</h2>
+  <table>
+    <tr><th>Phase</th><th>Do</th><th>Maddy</th><th>Hold</th></tr>
+    <tr>
+      <td><strong>Phase 1</strong><br><span class="small">now, pre-audience</span></td>
+      <td>Jeremy short-form: origin + problem episodes. Practitioner outreach in parallel. Fix the caregiver path on the site.</td>
+      <td>Named, or her words, only. No face required.</td>
+      <td>No lives yet. No creator asks yet.</td>
+    </tr>
+    <tr>
+      <td><strong>Phase 2</strong><br><span class="small">audience forming</span></td>
+      <td>Introduce together-pieces sparingly. Begin lives. Open creator collaborations. Reopen the YouTube origin question.</td>
+      <td>Her presence, if she chooses it, per piece.</td>
+      <td>Still no weekly family-style cadence with her.</td>
+    </tr>
+    <tr>
+      <td><strong>Phase 3</strong><br><span class="small">post-launch</span></td>
+      <td>Testimonial-driven content. Ratchet to product-level claims only where real customer data backs them, per population.</td>
+      <td>Her lead, if she wants it and her age allows, fully protected.</td>
+      <td>Never trade her comfort for a launch number.</td>
+    </tr>
+  </table>
+
+  <!-- HOW THIS FAILS -->
+  <h2 id="fail"><span class="sec-no">09</span>How this fails (the part you asked me not to soften)</h2>
+  <div class="grid two">
+    <div class="card"><h4 style="color:var(--pink)">Chasing one viral hit</h4><p>There is no single video that saves this. It compounds or it does nothing. If you need a hit to believe it is working, you will quit before it works.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Worshipping views</h4><p>The exact failure you are living now: big views, no signups. If the dashboard you check is view count, you will optimize for the wrong thing and feel busy while nothing converts.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Founder burnout</h4><p>Promising daily, doing it for three weeks, resenting it, stopping. Batch and go sustainable, or this becomes another abandoned good idea.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Maddy at the center</h4><p>Her face converts, which is exactly the temptation. Over-index on it and you risk her wellbeing, the law, and the authenticity the whole thing runs on. The restraint is the plan, not a limit on it.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Lives too early</h4><p>Going live to nobody, feeling foolish, concluding "video does not work." Video works. The order was wrong.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Going faceless when it gets hard</h4><p>The first slow month, the pull will be to retreat behind the logo. That retreat throws away the only durable advantage you have. The face is the strategy.</p></div>
+  </div>
+
+  <!-- METRICS -->
+  <h2 id="metrics"><span class="sec-no">10</span>Metrics that actually matter</h2>
+  <p>Stop counting views. Count these:</p>
+  <ul>
+    <li><strong>Qualified follows:</strong> caregivers and AuDHDers who engage, not raw reach.</li>
+    <li><strong>Saves and shares over likes:</strong> a save means "this is me" or "this is my kid." That is intent.</li>
+    <li><strong>Waitlist signups attributable to video,</strong> not impressions.</li>
+    <li><strong>Practitioner replies and relationships</strong> opened. One real OT conversation is worth tens of thousands of views.</li>
+    <li><strong>Maddy's comfort,</strong> tracked honestly as a success metric, the way caregiver-fade is a success metric inside the app. If it ever competes with a number, it wins.</li>
+  </ul>
+
+  <hr class="rule">
+  <div class="callout go">
+    <h4>The one-line version</h4>
+    <p>Lead with Jeremy, the dad who tells the truth. Let Maddy in at the rung she chooses, protected, never at the center. Use the two of you together rarely and powerfully. Point all of it at practitioners and caregivers, not at view counts. Be patient enough to let it compound, and careful enough that it stays real, because real is the entire edge.</p>
+  </div>
+
+  <div class="foot">
+    Maddy / Reck the Fort LLC. Internal strategy recommendation. Honesty boundary applies: mechanism-level claims only until post-launch data supports product-level claims. Any sender name, signoff, or signature on outbound surfaces is a separate call before drafting. Benchmarks current as of June 2026.
+  </div>
+
+</div>
+</body>
+</html>
