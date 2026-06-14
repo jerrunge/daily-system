@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maddy: Founder-Forward Operating Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Lexend:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14152a; --bg2:#1a1b30; --card:#1f2138; --card2:#23253f; --line:rgba(168,171,201,.16);
+    --ink:#e8e9f3; --soft:#a8abc9; --mute:#7f83a6;
+    --amber:#f5b942; --amber2:#e8902a; --blue:#5aa8e8; --green:#6bd49a; --pink:#f06aa0; --purple:#9a82e8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);
+    font-family:Lexend,system-ui,sans-serif;font-weight:300;line-height:1.62;font-size:16.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:46px 22px 130px}
+  h1,h2,h3,h4{font-family:'Baloo 2',cursive;font-weight:700;line-height:1.14;margin:0}
+  h1{font-size:40px;letter-spacing:-.5px}
+  h2{font-size:26px;margin:14px 0 8px;scroll-margin-top:20px}
+  h3{font-size:19px;margin:24px 0 6px;font-weight:600}
+  h4{font-size:13px;margin:16px 0 4px;font-weight:600;color:var(--soft);text-transform:uppercase;letter-spacing:1.4px;font-family:Lexend}
+  p{margin:9px 0}
+  a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+  .eyebrow{font-family:Lexend;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;font-size:12px;color:var(--amber)}
+  .lede{font-size:18px;color:var(--soft);font-weight:300;margin-top:13px}
+  .rule{height:1px;background:var(--line);border:0;margin:30px 0}
+  .secband{display:flex;align-items:baseline;gap:12px;margin:56px 0 4px;padding-top:14px;border-top:1px solid var(--line)}
+  .secno{font-family:'Baloo 2';color:var(--purple);font-weight:800;font-size:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:20px 22px;margin:16px 0}
+  .grid{display:grid;gap:13px}
+  @media(min-width:680px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:1fr 1fr 1fr}}
+  .tag{display:inline-block;font-family:Lexend;font-weight:600;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:99px;margin:0 5px 5px 0}
+  .t-me{background:rgba(90,168,232,.16);color:var(--blue)} .t-her{background:rgba(240,106,160,.16);color:var(--pink)}
+  .t-us{background:rgba(154,130,232,.18);color:var(--purple)} .t-amber{background:rgba(245,185,66,.16);color:var(--amber)}
+  .t-green{background:rgba(107,212,154,.16);color:var(--green)} .t-user{background:rgba(90,168,232,.13);color:var(--blue)}
+  .t-care{background:rgba(245,185,66,.14);color:var(--amber)}
+  ul,ol{margin:9px 0;padding-left:22px}li{margin:6px 0}
+  .callout{border-left:3px solid var(--amber);background:rgba(245,185,66,.07);border-radius:0 12px 12px 0;padding:15px 19px;margin:16px 0}
+  .callout.warn{border-color:var(--pink);background:rgba(240,106,160,.07)}
+  .callout.go{border-color:var(--green);background:rgba(107,212,154,.07)}
+  .callout.law{border-color:var(--purple);background:rgba(154,130,232,.08)}
+  .callout h4{margin-top:0;color:var(--ink)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+  th,td{text-align:left;padding:10px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:Lexend;font-weight:600;color:var(--soft);font-size:11.5px;text-transform:uppercase;letter-spacing:1px}
+  td strong{color:var(--ink);font-weight:600}
+  .small{font-size:13.5px;color:var(--mute)}
+  .toc{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0 0}
+  .toc a{font-size:12.5px;background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:99px;color:var(--soft)}
+  .toc a:hover{color:var(--ink);text-decoration:none;border-color:var(--soft)}
+  .ep{border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:9px 0;background:rgba(255,255,255,.012)}
+  .ep .n{font-family:'Baloo 2';font-weight:700;color:var(--blue);font-size:13px;letter-spacing:.3px}
+  .ep .hook{color:var(--ink);font-weight:400;margin:2px 0}
+  .ep .meta{color:var(--mute);font-size:13px;margin-top:3px}
+  .ladder .row{display:flex;gap:14px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line)}
+  .ladder .row:last-child{border-bottom:0}
+  .ladder .lv{font-family:'Baloo 2';font-weight:700;font-size:13px;color:var(--pink);min-width:108px;padding-top:2px}
+  .ladder .desc{flex:1}.ladder .desc b{color:var(--ink);font-weight:600}
+  .msg{background:#10111f;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0;
+    font-family:Lexend;font-weight:300;font-size:14.5px;color:var(--soft);line-height:1.6;white-space:pre-wrap}
+  .msg .lbl{display:block;font-family:Lexend;font-weight:600;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+  .target{border:1px solid var(--line);border-radius:11px;padding:12px 15px;background:var(--card2)}
+  .target .nm{font-family:'Baloo 2';font-weight:700;font-size:15px;color:var(--ink)}
+  .target .h{color:var(--blue);font-size:13px}
+  .target .d{color:var(--mute);font-size:13px;margin-top:3px}
+  .week{border:1px solid var(--line);border-radius:13px;padding:15px 18px;margin:11px 0;background:rgba(255,255,255,.012)}
+  .week .wk{font-family:'Baloo 2';font-weight:700;color:var(--amber);font-size:14px}
+  .field{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .field:last-child{border-bottom:0}
+  .field .k{min-width:160px;color:var(--soft);font-weight:500;font-size:14px}
+  .field .v{flex:1;color:var(--mute);font-size:14px}
+  .jr{border:1px solid var(--purple);background:rgba(154,130,232,.08);border-radius:13px;padding:16px 19px;margin:13px 0}
+  .jr h4{color:var(--purple);margin-top:0}
+  .dancing{font-family:'Dancing Script',cursive;font-weight:600;color:var(--pink);font-size:19px}
+  .foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+  .pill{font-family:Lexend;font-size:11px;font-weight:600;color:var(--bg);background:var(--amber);padding:2px 8px;border-radius:5px}
+  .kpi{display:inline-block;background:var(--card2);border:1px solid var(--line);border-radius:9px;padding:8px 12px;margin:4px 6px 4px 0;font-size:13.5px}
+  .kpi b{color:var(--green);font-family:'Baloo 2'}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Maddy &nbsp;/&nbsp; Founder-Forward Operating Plan &nbsp;/&nbsp; v1</div>
+  <h1>The full plan</h1>
+  <p class="lede">Founder-forward growth for Maddy, built to run. Three video tracks (Jeremy, Maddy, together), the practitioner moat, creator collaborations, lives, word-of-mouth, and the site fix, sequenced across 90 days and wired to the lead pipeline that is already live. Maddy is 21 and opts in per piece. The honesty boundary holds throughout.</p>
+
+  <div class="toc">
+    <a href="#s0">0 / The frame</a>
+    <a href="#s1">1 / Consent OS</a>
+    <a href="#s2">2 / Track: Jeremy</a>
+    <a href="#s3">3 / Track: Maddy</a>
+    <a href="#s4">4 / Track: Together</a>
+    <a href="#s5">5 / Practitioner moat</a>
+    <a href="#s6">6 / Creators</a>
+    <a href="#s7">7 / Lives</a>
+    <a href="#s8">8 / Word of mouth + site</a>
+    <a href="#s9">9 / The funnel</a>
+    <a href="#s10">10 / 90-day sequence</a>
+    <a href="#s11">11 / Metrics</a>
+    <a href="#s12">12 / How it fails</a>
+    <a href="#s13">13 / Your calls</a>
+  </div>
+
+  <!-- 0 -->
+  <div class="secband"><span class="secno">00</span><h2 id="s0">The frame</h2></div>
+  <p>One unfair advantage drives all of this: the intimacy is not performed. The category is faceless apps doing a warm voice behind a logo. You have a real dad and a real daughter who built this together. Every move below is a way to let that truth do the work a logo cannot.</p>
+  <p><strong>What winning looks like</strong> (and what it is not): not view counts. It is qualified follows from caregivers and AuDHD adults, practitioner relationships that refer, warm waitlist signups, and Maddy's comfort staying intact. A 1,200-view video that opens one OT conversation beats a 40,000-view video that converts nobody.</p>
+  <div class="grid three">
+    <div class="card"><h4 style="margin-top:0">The spine</h4><p class="small">Jeremy the dad, telling the truth, in short video. Carries the brand with or without Maddy. Start here.</p></div>
+    <div class="card"><h4 style="margin-top:0">The moat</h4><p class="small">Practitioners who vouch. No audience or budget needed. Highest leverage per hour. One OT refers across AuDHD, ADHD, and TBI.</p></div>
+    <div class="card"><h4 style="margin-top:0">The multiplier</h4><p class="small">Maddy's voice at the rung she chooses, and the two of you together, used rarely and powerfully.</p></div>
+  </div>
+  <div class="callout"><h4>Three things never move</h4>
+  <p><strong>The honesty boundary:</strong> your story goes anywhere; "Maddy is proven to help X" never does. Name the mechanism or the research as the subject of any cross-population claim, never Maddy. <strong>Maddy's consent and comfort:</strong> per piece, revocable, hers. <strong>The in-product voice:</strong> inside the app, it stays built-for-the-user. Founder-forward is the trust wrapper, not a change to the product's voice.</p></div>
+
+  <!-- 1 -->
+  <div class="secband"><span class="secno">01</span><h2 id="s1">The consent operating system</h2></div>
+  <p>Because Maddy is in this, the system for how she is in it comes before the creative. She is 21, so this is her decision to make and unmake. The child-influencer laws do not apply. What applies is care, by choice: the thing that makes her involvement powerful is that it is real, and real breaks the instant she is pushed. Run her participation the way the app runs its Circle: opt-in, granular, centered on her, revocable.</p>
+
+  <h3>The choice ladder, with examples</h3>
+  <div class="card ladder">
+    <div class="row"><div class="lv">Out</div><div class="desc"><b>Not this one.</b> No reason needed, costs nothing between you. Always the easy answer.</div></div>
+    <div class="row"><div class="lv">Named only</div><div class="desc"><b>"Co-designed with Maddy."</b> Credit in a caption or lower-third. No likeness, no words.</div></div>
+    <div class="row"><div class="lv">Her words</div><div class="desc"><b>Her perspective, not her face.</b> A check-in state she wrote, a design note in her voice, a voiceover line over your b-roll. Example on a card: <span class="dancing">"I asked for no red. Red felt like failing."</span></div></div>
+    <div class="row"><div class="lv">Her presence</div><div class="desc"><b>She appears in a piece you lead,</b> approved before it ships.</div></div>
+    <div class="row"><div class="lv">Her lead</div><div class="desc"><b>She drives it.</b> Her feature, her story, her voice as the AuDHD adult it was built with. At 21, fully hers to choose, held only to comfort and the guardrails.</div></div>
+  </div>
+
+  <h3>The per-piece flow</h3>
+  <ol>
+    <li><strong>Propose.</strong> You name the piece, the surface, and the rung you are asking for. One sentence each.</li>
+    <li><strong>She reviews the finished asset,</strong> not a description. Approving an idea and approving the real thing are different.</li>
+    <li><strong>Cooling beat.</strong> Anything she is unsure about does not ship that day. She sleeps on it.</li>
+    <li><strong>Two yeses.</strong> Hers, and yours as the person protecting her and the brand. Her no always wins. Your safety concern pauses for a conversation, it does not override an adult.</li>
+    <li><strong>Publish, then log</strong> in JER-384 with the rung and her explicit yes.</li>
+    <li><strong>Revocable.</strong> On owned surfaces you can pull it anytime. For a creator reshare, you tell her the honest limit up front.</li>
+  </ol>
+
+  <h3>The choice sheet (one per piece)</h3>
+  <div class="card">
+    <div class="field"><div class="k">Piece name / ID</div><div class="v">short label, e.g. "origin-01"</div></div>
+    <div class="field"><div class="k">Surface</div><div class="v">TikTok / IG / YouTube / site / one-pager</div></div>
+    <div class="field"><div class="k">What it is</div><div class="v">one line</div></div>
+    <div class="field"><div class="k">Rung requested</div><div class="v">out / named / her words / her presence / her lead</div></div>
+    <div class="field"><div class="k">Maddy's note</div><div class="v">in her words, anything she wants changed</div></div>
+    <div class="field"><div class="k">Finished asset reviewed?</div><div class="v">yes / no &nbsp;&nbsp; date</div></div>
+    <div class="field"><div class="k">Cooling beat used?</div><div class="v">yes / no</div></div>
+    <div class="field"><div class="k">Jeremy safety check</div><div class="v">clear / paused for talk</div></div>
+    <div class="field"><div class="k">Both yeses</div><div class="v">Maddy ✓ &nbsp; Jeremy ✓</div></div>
+    <div class="field"><div class="k">Published / link</div><div class="v">date + URL</div></div>
+    <div class="field"><div class="k">Status</div><div class="v">live / pulled / archived</div></div>
+  </div>
+
+  <h3>Guardrails that run in the background</h3>
+  <ul>
+    <li><strong>Comment shield.</strong> Default: she does not read comments. You or a filter triage. Harassment gets hidden, blocked, reported. She sees the warm ones only if she wants to.</li>
+    <li><strong>Permanence lens.</strong> Content is forever. "Would future her be glad this exists." At 21 that is hers to weigh, with you.</li>
+    <li><strong>Masking watch.</strong> If a piece makes her perform a self instead of being herself, it is the wrong piece, however well it would do.</li>
+    <li><strong>Comfort is the metric.</strong> If her comfort ever competes with a number, comfort wins. A coerced moment reads as inauthentic, and inauthentic torches the whole advantage. The right call and the winning call are the same call.</li>
+  </ul>
+  <div class="callout go"><h4>Her optional own presence</h4><p>If she ever wants a creator presence of her own, an AuDHD adult talking to other AuDHD adults as one of them, that is available and it is hers, not a deliverable you assign. Supported if she wants it, never required.</p></div>
+
+  <!-- 2 -->
+  <div class="secband"><span class="secno">02</span><h2 id="s2">Track: Jeremy <span class="tag t-me" style="vertical-align:middle">the spine</span></h2></div>
+  <p>The load-bearing track and the one to start first. You, the dad, telling the truth in short video. It carries the brand whether or not Maddy ever appears, which is exactly why it is the foundation.</p>
+
+  <h3>Who you are on camera</h3>
+  <p>A dad who lived this and built something because nothing else worked. Warm and direct, not warm and soft. Specific, not generic. You lead with your life and the problem; the app is the resolution of the story, never the subject of it. No jargon. Identity-first language. And the honesty boundary lives here too: "the same wall shows up for a lot of brains" is yours to say; "Maddy treats TBI" is not.</p>
+
+  <h3>The episode bank</h3>
+  <p>Twenty-four episodes across six categories. Each is a hook, a beat, an aim, and a soft call. Film against these directly. Aim tags: <span class="tag t-user">user</span> speaks to the AuDHD adult, <span class="tag t-care">caregiver</span> speaks to the buyer.</p>
+
+  <h4>A / Origin (the spine story)</h4>
+  <div class="ep"><div class="n">01 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"My daughter could fly across the world alone but could not start the dishes. Here is what I finally understood."</div><div class="meta">Beat: the contradiction, then the reframe (capability is not the problem, initiation is). Call: follow.</div></div>
+  <div class="ep"><div class="n">02 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"The night I stopped thinking my kid was lazy."</div><div class="meta">Beat: a specific moment, the turn, what changed in you. Call: follow.</div></div>
+  <div class="ep"><div class="n">03 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"I named the app after her because she designed half of it."</div><div class="meta">Beat: co-design truth, why her name is the asset. Call: follow.</div></div>
+  <div class="ep"><div class="n">04 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"I am not a developer. I built this anyway, because every app we tried failed her."</div><div class="meta">Beat: the dad-built honesty, the stakes. Call: follow.</div></div>
+
+  <h4>B / Problem episodes (the "that is my kid / that is me" recognition)</h4>
+  <div class="ep"><div class="n">05 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"Starting is the wall. Not the doing. The starting."</div><div class="meta">Beat: name task initiation, the spoon/freeze feeling. High save rate. Call: none, let it land.</div></div>
+  <div class="ep"><div class="n">06 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"She does not feel hungry until she is already falling apart."</div><div class="meta">Beat: interoception in plain language, why external cues are not optional. Call: follow.</div></div>
+  <div class="ep"><div class="n">07 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"A to-do list with twelve things is a freeze machine for this brain."</div><div class="meta">Beat: why full lists harm, why "just one thing" works. Call: follow.</div></div>
+  <div class="ep"><div class="n">08 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"Time does not feel real until it is too late."</div><div class="meta">Beat: time blindness, the external-structure fix. Call: none.</div></div>
+  <div class="ep"><div class="n">09 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"One missed day, and the shame does more damage than the missed task."</div><div class="meta">Beat: the shame spiral, why no-failure-state design matters. Call: follow.</div></div>
+  <div class="ep"><div class="n">10 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"The more I told her to do it, the harder it got for her to start."</div><div class="meta">Beat: demand sensitivity, why nagging backfires. Call: follow.</div></div>
+
+  <h4>C / Caregiver-direct (aimed straight at the buyer)</h4>
+  <div class="ep"><div class="n">11 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"If you have called your kid lazy and regretted it, this is for you."</div><div class="meta">Beat: the reframe, the most native line in the community. Call: follow / link.</div></div>
+  <div class="ep"><div class="n">12 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"Every reminder I gave made her depend on me more. I had it backwards."</div><div class="meta">Beat: the over-help trap, the fix is scaffolding that fades. Call: follow.</div></div>
+  <div class="ep"><div class="n">13 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"Scaffolding without nagging. Here is what that actually means."</div><div class="meta">Beat: their expert phrase, shown concretely. Call: link.</div></div>
+  <div class="ep"><div class="n">14 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"My real fear: what happens when I am not there to prompt her."</div><div class="meta">Beat: the fear under it all, caregiver-fade as the answer. Call: follow.</div></div>
+
+  <h4>D / Build-in-public (trust through honesty)</h4>
+  <div class="ep"><div class="n">15 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"Here is a feature I built, watched her not use, and tore out."</div><div class="meta">Beat: real failure, what it taught. The episode that makes the others trusted. Call: follow.</div></div>
+  <div class="ep"><div class="n">16 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"The hardest call: no streaks that punish, no red, no failure screen."</div><div class="meta">Beat: a values decision shown as a design decision. Call: none.</div></div>
+  <div class="ep"><div class="n">17 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"What changes when your co-designer is the person it is actually for."</div><div class="meta">Beat: co-design method, the proof no competitor can stage. Call: follow.</div></div>
+  <div class="ep"><div class="n">18 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"No fake money. No dark patterns. Here is why that mattered to me."</div><div class="meta">Beat: ethics for a vulnerable population, trust signal to parents and practitioners. Call: follow.</div></div>
+
+  <h4>E / The "+" (mechanism-level adjacency, honest)</h4>
+  <div class="ep"><div class="n">19 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"This started for my autistic and ADHD daughter. Turns out the same wall shows up for a lot of brains."</div><div class="meta">Beat: ADHD, TBI, the executive-function world, at the mechanism level. Says "the same wall," never "Maddy treats X." Call: follow.</div></div>
+  <div class="ep"><div class="n">20 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"Executive function, explained like you are a person and not a robot."</div><div class="meta">Beat: plain-language education, "the knowledge is there, access is unreliable." Call: follow.</div></div>
+  <div class="ep"><div class="n">21 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"Why every productivity app made it worse, not better."</div><div class="meta">Beat: generic apps assume disorganization, not impairment. Differentiation without naming names. Call: follow.</div></div>
+
+  <h4>F / Values and myth-busting</h4>
+  <div class="ep"><div class="n">22 &nbsp;<span class="tag t-user">user</span></div><div class="hook">"Neurodivergence is not a productivity problem to fix."</div><div class="meta">Beat: the stance, why the app is built-for not built-at. Call: follow.</div></div>
+  <div class="ep"><div class="n">23 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"Most tools like this get abandoned. Here is the trap, and what we did about it."</div><div class="meta">Beat: the abandonment problem, independence-by-design. Honest and credible. Call: follow.</div></div>
+  <div class="ep"><div class="n">24 &nbsp;<span class="tag t-care">caregiver</span></div><div class="hook">"Support that is designed to fade is the entire point."</div><div class="meta">Beat: caregiver-fade as success, not failure. Call: follow.</div></div>
+
+  <h3>Hooks library (the first three seconds)</h3>
+  <table>
+    <tr><th>Pattern</th><th>Shape</th><th>Example</th></tr>
+    <tr><td><strong>Contradiction</strong></td><td>"She can X but cannot Y"</td><td>"She can fly alone but cannot start the dishes."</td></tr>
+    <tr><td><strong>Confession</strong></td><td>own a wrong belief</td><td>"I called my kid lazy. I was wrong."</td></tr>
+    <tr><td><strong>Reframe</strong></td><td>"It is not X. It is Y."</td><td>"It is not laziness. It is task initiation."</td></tr>
+    <tr><td><strong>The number</strong></td><td>a stat that stops the scroll</td><td>"Most apps like this get abandoned. Here is why."</td></tr>
+    <tr><td><strong>Direct address</strong></td><td>"If you are a parent who..."</td><td>"If you have ever called your kid lazy and regretted it."</td></tr>
+    <tr><td><strong>Behind the scenes</strong></td><td>show the build</td><td>"Here is a feature I deleted."</td></tr>
+  </table>
+
+  <h3>The shooting system</h3>
+  <ul>
+    <li><strong>Gear:</strong> your phone, natural light from a window, a cheap tripod. A clip mic is nice, not required. Stop here. Production value is not the currency, honesty and specificity are.</li>
+    <li><strong>Length:</strong> 30 to 75 seconds. Shorter is usually better.</li>
+    <li><strong>Structure every time:</strong> hook (3s) → the story or problem (15 to 40s) → the turn or insight → a soft call. One idea per video.</li>
+    <li><strong>Batch:</strong> film 6 to 8 in one 90-minute sitting, once or twice a month. This is the single thing that prevents burnout. You are not filming daily.</li>
+    <li><strong>Captions:</strong> always, burned in. Most people watch muted.</li>
+    <li><strong>B-roll to grab once:</strong> the app screen, hands, a sink of dishes, a door, a phone timer, walking, morning light. Five minutes of cutaways covers a month.</li>
+    <li><strong>Editing:</strong> CapCut or similar, minimal. The "good enough" bar is clear audio, captions, one hook. Ship at good enough. Polish is procrastination here.</li>
+  </ul>
+
+  <h3>Cadence and the weekly mix</h3>
+  <p>Two to three short videos a week, drawn from your monthly batch. Do not promise daily. A sustainable mix:</p>
+  <table>
+    <tr><th></th><th>Slot 1</th><th>Slot 2</th><th>Slot 3 (optional)</th></tr>
+    <tr><td><strong>Job</strong></td><td>Recognition (top of funnel)</td><td>Trust (build-in-public or caregiver-direct)</td><td>Origin or "+"</td></tr>
+    <tr><td><strong>Example</strong></td><td>Ep 05, 07, 09</td><td>Ep 11, 15, 18</td><td>Ep 01, 19</td></tr>
+  </table>
+
+  <h3>Per-platform</h3>
+  <ul>
+    <li><strong>TikTok:</strong> primary discovery. Native feel, sounds and trends fine, but story first.</li>
+    <li><strong>Instagram Reels:</strong> the same cuts, a cleaner text cover. Repurpose problem episodes into carousels.</li>
+    <li><strong>Threads:</strong> the insight as text plus a link. Low effort, passive.</li>
+    <li><strong>YouTube (pending your call, see Section 13):</strong> the origin as a 3 to 5 minute film, problem episodes as Shorts. This is the one evergreen, searchable home, a parent googling at 11pm finds you here. Currently out of canon scope.</li>
+  </ul>
+
+  <h3>The call-to-action ladder</h3>
+  <p>Most videos end on "follow for more," trust before ask. Periodically: "link in bio to join the waitlist." That link is mymaddy.app, which writes to the waitlist, which triggers the invite pipeline that is already live. So a follow becomes a waitlist signup becomes an instant beta invite, with no new plumbing.</p>
+
+  <!-- 3 -->
+  <div class="secband"><span class="secno">03</span><h2 id="s3">Track: Maddy <span class="tag t-her" style="vertical-align:middle">the multiplier</span></h2></div>
+  <p>When she opts in, this is the most credible content the brand can make. To AuDHD adults it is peer trust you cannot buy. To caregivers it inverts the fear: not "your kid is struggling," but "here is a young woman like yours who is a designer, who made something real." Hope, not pity. Everything here is gated by Section 01 and is per piece, never a channel she owes.</p>
+
+  <h3>What it looks like at each rung</h3>
+  <ul>
+    <li><span class="tag t-her">Named</span> "Co-designed with Maddy" in your captions and lower-thirds.</li>
+    <li><span class="tag t-her">Her words</span> She wrote a check-in state; a card carries a design note in her voice (Dancing Script, her exclusive type); she voices one line over your b-roll.</li>
+    <li><span class="tag t-her">Her presence</span> She appears briefly in a piece you lead and approved together.</li>
+    <li><span class="tag t-her">Her lead</span> She explains a feature she asked for, in her own voice; a "how I actually use it" piece; peer-to-peer to AuDHD adults. As a 21-year-old in the target audience, this is the most credible content in the whole plan when she wants it.</li>
+  </ul>
+  <div class="callout go"><h4>The co-design engine</h4><p>"She asked for this. Here is why I designed it that way." That sentence is marketing and method at once, and it is the one claim no faceless competitor can stage. It works even at the "her words" rung with no face. This is the highest-value recurring format Maddy unlocks.</p></div>
+
+  <!-- 4 -->
+  <div class="secband"><span class="secno">04</span><h2 id="s4">Track: Together <span class="tag t-us" style="vertical-align:middle">the heart</span></h2></div>
+  <p>The dad-and-daughter co-design conversation is the single most powerful asset available. Precisely because it is so strong, use it sparingly. Scarcity keeps it real and protects her.</p>
+  <h4>Forms</h4>
+  <ul>
+    <li>"She asked for this feature. Here is the conversation we had." (Her at her chosen rung, can be her words over the story.)</li>
+    <li>Designing a small thing together, shown honestly.</li>
+    <li>Her reacting to something you built from her feedback.</li>
+  </ul>
+  <div class="callout warn"><h4>The scarcity rule is the strategy, not timidity</h4><p>A handful of together-pieces a year reads as genuine collaboration. A weekly together-series reads as mining the relationship for content, which is inauthentic no matter how real it is, and it would quietly torch the trust advantage the whole plan is built on. Rare and powerful beats frequent and cheap.</p></div>
+
+  <!-- 5 -->
+  <div class="secband"><span class="secno">05</span><h2 id="s5">The practitioner moat <span class="tag t-amber" style="vertical-align:middle">highest leverage</span></h2></div>
+  <p>Your single best door, and it needs no audience and no ad budget. Caregivers trust practitioners more than any ad, because that person knows their kid. One occupational therapist who likes Maddy refers a stream of pre-trusted, high-intent caregivers. And because OTs do executive-function work across populations, one relationship refers AuDHD, ADHD, and TBI clients at once. The moat and the "+" compound.</p>
+
+  <h3>Segments (in priority order)</h3>
+  <ol>
+    <li><strong>Neurodiversity-affirming OTs.</strong> Primary. They describe their own work as supporting daily routines, self-care, executive functioning, and burnout. That is Maddy's exact register.</li>
+    <li><strong>ND-affirming therapists / counselors</strong> serving autistic and ADHD adults and teens.</li>
+    <li><strong>ADHD and executive-function coaches.</strong></li>
+    <li><strong>State developmental-disability service coordinators.</strong> Warm structural start via SARC (JER-45/46). Slower, durable, gatekeeper economics.</li>
+    <li><strong>Filtered BCBAs,</strong> ND-affirming only, hard filter applied.</li>
+  </ol>
+
+  <h3>Named starter targets</h3>
+  <div class="grid two">
+    <div class="target"><div class="nm">OTs for Neurodiversity</div><div class="h">@neurodiversity_ot (IG, ~6.7K)</div><div class="d">The hub. Co-founders @jacklyngerda_ot and @commun_ot. The room where ND-affirming OTs already gather. Engage, then approach the co-founders.</div></div>
+    <div class="target"><div class="nm">ndtherapists.com</div><div class="h">directory, by state</div><div class="d">Lists ND-affirming OTs who build "customized executive function tools" for teens and adults. Mine for direct, named outreach.</div></div>
+    <div class="target"><div class="nm">neurodivergentpractitioners.org</div><div class="h">practitioner community + directory</div><div class="d">Networked ND practitioners including OTs. A second sourcing pool.</div></div>
+    <div class="target"><div class="nm">STAR Institute</div><div class="h">Dr. Virginia Spielmann</div><div class="d">Sensory and ND-affirming OT education. Institutional credibility node; long game.</div></div>
+    <div class="target"><div class="nm">Lakeshore Affirmative Therapy</div><div class="h">ND-affirming OT practice</div><div class="d">Serves autistic, ADHD, PDA clients on routines, self-care, EF, burnout. Archetype of the ideal referrer.</div></div>
+    <div class="target"><div class="nm">CHADD chapters + ADHDKC</div><div class="h">parent-org adjacency</div><div class="d">Where practitioners and caregivers meet. Local chapters are warmer than national.</div></div>
+  </div>
+  <p class="small">This is a starter set from the live research. The full vetted list with handles and contact paths is the first thing I build next (Section 13).</p>
+
+  <h3>The outreach sequence (per practitioner)</h3>
+  <ol>
+    <li><strong>Touch 0, warm up.</strong> Follow, and genuinely engage with their content for a week. No cold approach.</li>
+    <li><strong>Touch 1, the founder note.</strong> Short. A dad who built this with his AuDHD daughter, asking for their eyes. Not a pitch. Offer the one-pager and a free look.</li>
+    <li><strong>Touch 2, one follow-up</strong> after about a week if no reply, value-add (the research base or a single relevant link), then stop. No third chase.</li>
+    <li><strong>If interested:</strong> send the one-pager plus a TestFlight or demo, and offer a 15-minute call.</li>
+    <li><strong>The reviewer is the referrer.</strong> The OT who reads it pre-publish is your first referrer. This is how the open OT-reviewer gate (JER-471) and the caregiver-reach problem get solved by the same relationship.</li>
+  </ol>
+
+  <h3>Draft: practitioner founder note (Instagram DM)</h3>
+  <div class="msg"><span class="lbl">DM draft</span>Hi [name]. I am Jeremy, a dad in the Bay Area. My daughter Maddy is an AuDHD adult, and over the last year she and I built a daily-living app together, for the way her brain actually works: external task initiation, a no-failure-state design, support that is meant to fade toward independence.
+
+I am not trying to sell you anything. You clearly get this population, and I would value your honest read before we go further. Could I send you a one-page overview and a free look? If it is not useful, tell me straight.
+
+[SIGNOFF: your call, see Section 13]</div>
+
+  <h3>Draft: practitioner founder note (email)</h3>
+  <div class="msg"><span class="lbl">Email draft &nbsp; subject: a dad-built ND tool, and your honest read</span>Hi [name],
+
+I am Jeremy. My daughter Maddy is a 21-year-old AuDHD adult, and she is the co-designer (and namesake) of an app we built together for daily living: routines and self-care scaffolded for executive-function impairment, with no streaks-as-punishment, no red, no failure state, and a deliberate design toward independence rather than dependence on prompts.
+
+The reason I am writing you specifically is that the work you describe, [one specific true detail about their practice], is exactly the register we built in. I would value your honest read before this goes any wider. No pitch, no obligation. If you are open to it, I will send a one-page overview and a free look, and if it does not earn a place in your toolkit, I would rather you tell me.
+
+The design rests on published mechanism-level research (executive function, interoception, no-failure-state design); I am careful not to claim outcomes we have not yet measured.
+
+Thank you for the work you do.
+
+[SIGNOFF: your call, see Section 13]</div>
+
+  <h3>Tracking</h3>
+  <p>A simple table, in a Google Sheet or Supabase: name, handle or email, segment, touch-0 date, touch-1 date, reply, call, status (cold / warm / interested / referrer), notes. Twenty good relationships beat two hundred cold sends.</p>
+
+  <!-- 6 -->
+  <div class="secband"><span class="secno">06</span><h2 id="s6">Borrowed trust: creators <span class="tag t-green" style="vertical-align:middle">amplify</span></h2></div>
+  <p>The AuDHD and parent-advocate creators will share a founder-built-with-his-daughter story in a way they would never run an ad read. Approach as collaboration, not a paid shout. The co-design truth is the currency. Start in the 10K to 150K range where engagement is real and a yes is realistic, before reaching for the mega accounts.</p>
+
+  <h3>Named targets by tier</h3>
+  <table>
+    <tr><th>Tier</th><th>Who</th><th>Why</th></tr>
+    <tr><td><strong>Peer AuDHD, reachable</strong></td><td>Morgan Foley (650K), Ellie Middleton (~133K), Connor DeWolfe</td><td>Raw, conversational AuDHD voices. Engagement-real, collaboration-open.</td></tr>
+    <tr><td><strong>Peer AuDHD, mega</strong></td><td>Paige Layle (2.6M), Chloe Hayden (1.1M), AJ Wilkerson (1.2M)</td><td>Reach. Later, once the story has traction. Not a cold first ask.</td></tr>
+    <tr><td><strong>ADHD science-relatable</strong></td><td>Dr. Sasha Hamdani, Jessica McCabe (How to ADHD), Carmen Authentically ADHD</td><td>Credibility plus relatability. Good for the "+" and the research base.</td></tr>
+    <tr><td><strong>Parent-advocate</strong></td><td>The Holdernesses (ADHD is Awesome), Toren Wolf + Mama Wolf, Dr. Emily (learnwithdremily)</td><td>Direct line to caregivers, the buyer. Highest conversion fit.</td></tr>
+  </table>
+
+  <h3>The ask, and the draft</h3>
+  <p>Not "will you promote this." It is "I built something with my daughter and I think your audience would want to know it exists, can we do something real together." Forms: a genuine conversation, them trying it, a stitch or duet, a gifted early look.</p>
+  <div class="msg"><span class="lbl">Creator outreach draft</span>Hi [name]. I am Jeremy, a dad who built a daily-living app with my AuDHD daughter Maddy (she is 21 and co-designed it). It is the opposite of a productivity app: no failure states, no shame loops, built for task initiation the way our brains actually work.
+
+I am not looking for an ad. Your voice is the real thing, and I would rather do something honest with you than buy a post: a conversation, you trying it, whatever feels true to you. Happy to give you and your community an early look. Would you be open to it?
+
+[SIGNOFF: your call, see Section 13]</div>
+
+  <!-- 7 -->
+  <div class="secband"><span class="secno">07</span><h2 id="s7">Lives <span class="tag t-me" style="vertical-align:middle">depth, later</span></h2></div>
+  <p>Lives deepen an audience that already exists. They do almost nothing to create one. A live to an empty room is demoralizing and a waste of your scarcest resource. The order matters: short-form gathers people first, lives deepen them after.</p>
+  <ul>
+    <li><strong>Threshold:</strong> start when you have roughly 1 to 2K engaged followers, or a warm email list that will reliably show up. Not before.</li>
+    <li><strong>Formats:</strong> "ask a dad who built this," office hours, a co-design Q and A, a build-in-public update. Occasionally with Maddy, her choice, per Section 01.</li>
+    <li><strong>Cadence:</strong> monthly to start. Announce a day ahead. One topic, three talking points, open questions, a soft call at the end.</li>
+  </ul>
+
+  <!-- 8 -->
+  <div class="secband"><span class="secno">08</span><h2 id="s8">Word of mouth and the site fix</h2></div>
+  <p>Parents are already recommending Maddy by hand. That is the rarest, most valuable signal you have, and the cheapest growth in the plan. Two moves.</p>
+  <h3>Make sharing frictionless</h3>
+  <ul>
+    <li>A "bring another parent in" share link, clean and caregiver-shaped.</li>
+    <li>A gentle referral prompt inside the beta-invite email and at a moment of delight in the app.</li>
+    <li>A shareable caregiver-shaped card (not a user-shaped one) for the parents already advocating.</li>
+  </ul>
+  <h3>Fix what a warm caregiver lands on</h3>
+  <p>Right now mymaddy.app may speak mainly to the AuDHDer who would use it ("starting is the wall"). A caregiver arriving from word of mouth needs to see themselves immediately, or they bounce, and you leak the exact interest that is converting. Add a caregiver path: "You are a parent or a supporter? Here is how Maddy helps, and how you join their Circle," with a clear waitlist CTA for caregivers. This is a Webflow change I can make.</p>
+
+  <!-- 9 -->
+  <div class="secband"><span class="secno">09</span><h2 id="s9">The funnel, and the machine that already runs</h2></div>
+  <p>Video and outreach are the top of a funnel whose plumbing is already built and live. The job is to fill the top with warm traffic, not cold.</p>
+  <div class="card">
+    <p style="margin:0;font-family:'Baloo 2';color:var(--soft);font-size:14px;line-height:2.1">
+    Founder video / Maddy / together &nbsp;→&nbsp; <span style="color:var(--blue)">follow</span> &nbsp;→&nbsp; [trust over time] &nbsp;→&nbsp; <span style="color:var(--amber)">waitlist signup</span> (mymaddy.app or TikTok lead form)<br>
+    Practitioner &nbsp;→&nbsp; <span style="color:var(--amber)">caregiver referral</span> (warm, high intent) &nbsp;→&nbsp; <span style="color:var(--amber)">waitlist</span><br>
+    <span style="color:var(--amber)">waitlist</span> &nbsp;→&nbsp; <span style="color:var(--green)">auto-invite pipeline</span> (live: lead capture → waitlist insert → instant TestFlight invite) &nbsp;→&nbsp; <span style="color:var(--green)">TestFlight</span> &nbsp;→&nbsp; App Store at launch
+    </p>
+  </div>
+  <p>The lead-capture and auto-invite system is deployed and running. Every signup is tagged by source, so video-driven and practitioner-driven traffic are measurable separately. You are not building plumbing. You are pointing warm water at a machine that already works.</p>
+
+  <!-- 10 -->
+  <div class="secband"><span class="secno">10</span><h2 id="s10">The 90-day sequence</h2></div>
+  <p>Phase by phase, week by week. Concrete enough to execute against. "Film" is yours; "build / send / ship" items marked with <span class="pill">claude</span> are things I can do.</p>
+
+  <h4>Phase 1 / Weeks 1 to 4: Foundation (no audience yet)</h4>
+  <div class="week"><div class="wk">Week 1</div><ul>
+    <li>Film batch 1: origin 01 to 02, problem 05 and 07 (4 to 6 videos in one sitting).</li>
+    <li>Set up posting on TikTok + IG Reels. Captions workflow.</li>
+    <li><span class="pill">claude</span> Build the vetted practitioner target list (50+ named, with handles and paths).</li>
+    <li><span class="pill">claude</span> Draft the caregiver path for mymaddy.app.</li>
+    <li>Maddy: named-only or her-words, nothing more yet.</li>
+  </ul></div>
+  <div class="week"><div class="wk">Week 2</div><ul>
+    <li>Post 3 times (recognition / trust / origin mix).</li>
+    <li>Send the first 10 practitioner founder-notes (Touch 0 warm-up done, Touch 1 sent).</li>
+    <li><span class="pill">claude</span> Ship the caregiver path on mymaddy.app (Webflow).</li>
+    <li><span class="pill">claude</span> Stand up the outreach tracking sheet.</li>
+  </ul></div>
+  <div class="week"><div class="wk">Week 3</div><ul>
+    <li>Post 3 times. Reply to any practitioner responses; send the one-pager to anyone warm.</li>
+    <li>Film batch 2: caregiver-direct 11 and 12, build-in-public 15, the "+" 19.</li>
+    <li><span class="pill">claude</span> Build the practitioner one-pager (and a service-coordinator variant later).</li>
+    <li>Send 10 more practitioner notes.</li>
+  </ul></div>
+  <div class="week"><div class="wk">Week 4</div><ul>
+    <li>Post 3 times. First creator soft-outreach: 3 to 5 reachable-tier names.</li>
+    <li>First metrics review (Section 11). Keep what earns saves and replies, cut what only earns views.</li>
+    <li>Decide the two open canon calls with Jeremy (Section 13) so Phase 2 is unblocked.</li>
+  </ul></div>
+
+  <h4>Phase 2 / Weeks 5 to 9: Audience forming</h4>
+  <div class="week"><div class="wk">Weeks 5 to 9</div><ul>
+    <li>Hold 2 to 3 posts a week from batches. Keep filming one batch a month.</li>
+    <li>Introduce one Together piece if Maddy chooses it. Co-design content begins.</li>
+    <li>Begin practitioner calls. Convert the first reviewers into referrers.</li>
+    <li>Land the first creator collaboration if one says yes.</li>
+    <li>If YouTube scope is reopened: cut and post the origin film.</li>
+    <li>Keep the practitioner pipeline filling: 10 new notes a week, follow-ups disciplined.</li>
+  </ul></div>
+
+  <h4>Phase 3 / Weeks 10 to 13: Depth and warm conversion</h4>
+  <div class="week"><div class="wk">Weeks 10 to 13</div><ul>
+    <li>Start monthly lives if the audience threshold is hit.</li>
+    <li>Testimonial content as TestFlight users respond (with their consent).</li>
+    <li>Maddy "her lead" if she wants it; possibly her own peer-voice presence.</li>
+    <li>Ratchet practitioner relationships into standing referrals.</li>
+    <li>Prep launch assets in parallel (ties to the JER-471 / 472 / 473 gates).</li>
+  </ul></div>
+
+  <!-- 11 -->
+  <div class="secband"><span class="secno">11</span><h2 id="s11">Metrics and the weekly review</h2></div>
+  <p>Stop counting views. The dashboard:</p>
+  <div>
+    <span class="kpi"><b>Qualified follows</b> caregivers / AuDHD adults, by bio and engagement</span>
+    <span class="kpi"><b>Saves + shares</b> per post (intent) &gt; likes</span>
+    <span class="kpi"><b>Waitlist signups</b> attributable to video / outreach</span>
+    <span class="kpi"><b>Practitioner funnel</b> notes → replies → calls → referrers</span>
+    <span class="kpi"><b>Maddy's comfort</b> checked every piece</span>
+  </div>
+  <h3>The weekly review (30 minutes)</h3>
+  <ul>
+    <li>What posted, and what landed (saves and shares, not views).</li>
+    <li>What outreach moved (replies, calls, a new referrer).</li>
+    <li>One format to scale (high save-rate), one to drop (views-only).</li>
+    <li>Maddy check: did any piece cost her comfort. If yes, that is the first thing fixed.</li>
+  </ul>
+  <p class="small">Scale criterion: a format that earns saves, shares, and signups. Kill criterion: a format that earns only views. The current problem (big views, no signups) is exactly the trap this dashboard is built to catch.</p>
+
+  <!-- 12 -->
+  <div class="secband"><span class="secno">12</span><h2 id="s12">How this fails (and the guard against each)</h2></div>
+  <div class="grid two">
+    <div class="card"><h4 style="color:var(--pink)">Chasing a viral hit</h4><p class="small">There is no single video that saves this. Guard: judge by the dashboard, not by any one post. Compounding or nothing.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Worshipping views</h4><p class="small">The failure you are living now. Guard: the only numbers on the wall are saves, signups, and practitioner replies.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Founder burnout</h4><p class="small">Daily for three weeks, then resentment, then silence. Guard: batch monthly, 2 to 3 posts a week, never daily.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Maddy at the center</h4><p class="small">Her face converts, which is the temptation. Guard: restraint by design; she leads only when she chooses, never as the default engine.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Lives too early</h4><p class="small">Going live to nobody and concluding video does not work. Guard: the audience threshold before the first live.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Going faceless when it is slow</h4><p class="small">The first quiet month, the pull is to hide behind the logo. Guard: the face is the strategy; the slow month is the cost of the only durable asset.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Performed authenticity</h4><p class="small">This community punishes masking and ad-cosplay instantly. Guard: lead with real life, own the failures, never script a feeling.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Outreach that smells like sales</h4><p class="small">Practitioners and creators reject a pitch. Guard: it is an invitation and an honest ask for a read, never a close.</p></div>
+    <div class="card"><h4 style="color:var(--pink)">Channel sprawl</h4><p class="small">Spreading thin across six platforms. Guard: TikTok and IG first; everything else is repurpose or later.</p></div>
+  </div>
+
+  <!-- 13 -->
+  <div class="secband"><span class="secno">13</span><h2 id="s13">Your calls, and what I build next</h2></div>
+  <p>Four decisions are genuinely yours, not mine. They unblock the rest.</p>
+
+  <div class="jr"><h4>Call 1 / Signoff and sender identity</h4><p>Every outreach draft above leaves the signoff as <strong>[SIGNOFF]</strong>, and the video CTAs do not assume a from-name. Per your protocol I will not default these. Pick the posture: "Jeremy" / "Jeremy Runge" / "Jeremy, Maddy's dad" / something else, and whether practitioner email comes from a personal address or hello@mymaddy.app. Once you choose, I apply it everywhere.</p></div>
+  <div class="jr"><h4>Call 2 / Reopen YouTube and long-form?</h4><p>Canon currently scopes it out. The origin film wants a searchable, evergreen home. Reopen it, or hold the line?</p></div>
+  <div class="jr"><h4>Call 3 / Lock and propagate founder-forward into canon</h4><p>You verbally locked founder-forward. To make it real I will write the decision record and propagate it through the docs that currently say the opposite (brand-architecture separation section, marketing-strategy Anti-pattern 1, the voice guide), and file it in Linear as a tracked canon change with the downstream sweep. Say go.</p></div>
+  <div class="jr"><h4>Call 4 / Widen the headline audience to AuDHD+ / executive function?</h4><p>The research already supports it at the mechanism level (the "+" is built for this). Make it an explicit canon decision, or keep AuDHD as the stated headline with the "+" carrying the adjacency quietly?</p></div>
+
+  <h3>What I build the moment you say go</h3>
+  <ul>
+    <li>The vetted <strong>practitioner target list</strong> (50+ named, handles, paths) and the <strong>ready-to-send outreach</strong> in your chosen signoff.</li>
+    <li>The <strong>practitioner one-pager</strong> (hosted HTML + PDF), honesty-boundary clean.</li>
+    <li><strong>Maddy's choice sheet</strong> as a standalone, AuDHD-friendly fillable tool, plus the JER-384 logging update for per-piece rungs.</li>
+    <li>The <strong>caregiver path on mymaddy.app</strong> (Webflow) and the share mechanic.</li>
+    <li>The <strong>creator outreach</strong> drafts personalized per target.</li>
+    <li>The <strong>Linear tickets</strong> for each workstream, scanned for duplicates first, so this plan is tracked, not floating.</li>
+  </ul>
+
+  <div class="foot">
+    Maddy / Reck the Fort LLC. Founder-forward operating plan v1, June 2026. Maddy (co-designer) is 21; her participation is per-piece, consent-gated, revocable. Honesty boundary applies throughout: mechanism-level claims only until post-launch data supports product-level claims. All signoffs and sender identities are open calls (Section 13). Benchmarks and named targets current as of June 2026.
+  </div>
+
+</div>
+</body>
+</html>
