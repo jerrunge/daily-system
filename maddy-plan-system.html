@@ -119,14 +119,14 @@
         <tr><td><strong>1</strong></td><td>05 Starting is the wall</td><td>11 Called your kid lazy</td><td>01 Fly alone, cannot start dishes</td></tr>
         <tr><td><strong>2</strong></td><td>07 The 12-item freeze</td><td>15 The feature I tore out</td><td>19 The same wall, a lot of brains</td></tr>
         <tr><td><strong>3</strong></td><td>09 One missed day, the shame</td><td>12 Every reminder made it worse</td><td>03 Why I named it after her</td></tr>
-        <tr><td><strong>4</strong></td><td>06 Hungry until falling apart</td><td>18 No fake money, no dark patterns</td><td>23 Most tools get abandoned</td></tr>
+        <tr><td><strong>4</strong></td><td>06 Hungry until falling apart</td><td>18 Real rewards, no dark patterns</td><td>23 Most tools get abandoned</td></tr>
       </table>
       <p class="small">Recognition posts widen the top. Trust posts deepen and convert. Origin and "+" posts carry the story and the breadth. Rotate so no week is all one job.</p>
 
       <h3>The call-to-action ladder</h3>
       <ul>
         <li><strong>Most videos:</strong> end on "follow for more." Trust before ask.</li>
-        <li><strong>Every third or fourth:</strong> "link in bio to join the waitlist." That link is mymaddy.app, which writes to the waitlist, which fires the invite pipeline that is already live. A follow becomes a signup becomes an instant beta invite, no new plumbing.</li>
+        <li><strong>Every third or fourth:</strong> "link in bio to join the waitlist." That link is mymaddy.app, which writes a source-tagged row to the waitlist and sends an automatic "you're on the list" note. The TestFlight invite goes out through send-beta-invite (already live): it auto-invites TikTok leads on arrival, and sends to waitlist signups when you invite a cohort. The back-half is built, no new plumbing to start.</li>
         <li><strong>Never:</strong> hard-sell a beta to a cold viewer. Cold plus hard ask is the thing that has not worked.</li>
       </ul>
 
@@ -159,8 +159,10 @@
           <span class="b">Follow</span> on TikTok / Reels / YouTube<br>
           &#8595; every 3rd or 4th video, the link<br>
           <span class="a">mymaddy.app</span> waitlist (warm, never cold)<br>
-          &#8595; writes to Supabase <span class="b">waitlist</span> table<br>
-          <span class="g">Instant beta invite</span> fires automatically (send-beta-invite v3, single mode)<br>
+          &#8595; writes a source-tagged row to the Supabase <span class="b">waitlist</span> table<br>
+          Automatic <span class="b">"you're on the list"</span> email goes out (from hello@mymaddy.app, signed by you)<br>
+          &#8595; TikTok leads auto-invite here; waitlist signups join the cohort you invite<br>
+          <span class="g">TestFlight invite</span> via send-beta-invite (live, v3)<br>
           &#8595;<br>
           <span class="g">TestFlight</span> install, from a parent who already trusts you
         </div>
@@ -168,12 +170,12 @@
 
       <h3>Why this works now</h3>
       <ul>
-        <li><strong>The plumbing exists.</strong> A new waitlist signup already triggers an immediate, personal beta invite. No new build to start pouring traffic in.</li>
+        <li><strong>The back-half is built and live.</strong> waitlist-signup, send-beta-invite, tiktok-lead, and sync-tiktok-leads are all deployed and active in production (52 people already on the list, source-tagged, all emailed). A new site signup gets an immediate "you're on the list" email; the TestFlight invite is sent through send-beta-invite, which auto-invites TikTok leads on arrival and sends to waitlist signups when you invite a cohort. No new build to start pouring traffic in.</li>
         <li><strong>The lead is warm by the time it arrives.</strong> They watched, they followed, they chose to click. That is the opposite of the cold-ad path that stalled.</li>
         <li><strong>Source is tagged.</strong> Organic site signups vs TikTok leads are distinguishable, so you can see which stories convert.</li>
       </ul>
 
-      <div class="callout go"><h4>The one change that matters most</h4><p>Nothing downstream needs fixing. The single highest-impact move is upstream: get the founder-forward video and the practitioner moat running, so warm, qualified people actually enter the funnel that is already waiting for them.</p></div>
+      <div class="callout go"><h4>The one change that matters most</h4><p>The back-half is built and running. The single highest-impact move is upstream: get the founder-forward video and the practitioner moat running, so warm, qualified people actually enter the funnel that is already waiting for them. One optional tweak if you want it: organic site signups currently get the "you're on the list" email but not an instant TestFlight invite, so wiring waitlist-signup to send-beta-invite would make the organic path fully automatic too.</p></div>
     
 <div class="pagenav"><a href="maddy-founder-plan.html">&#8592; Home</a><a href="maddy-plan-map.html">Next: Map &#8594;</a></div>
 <div class="foot">Maddy plan. Built for Jeremy, Maddy's dad. Founder-forward, AuDHD+ executive-function-wide, honesty boundary held.</div>
