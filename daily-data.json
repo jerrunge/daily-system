@@ -1,7 +1,13 @@
 {
-  "generated": "2026-06-14T15:19:53.140358Z",
-  "generatedPT": "8:19 AM PT",
+  "generated": "2026-06-15T18:02:29.400531Z",
+  "generatedPT": "11:02 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
+      "jer": "JER-115",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
     {
       "urgency": "urgent",
       "text": "TikTok lead form \u2192 Supabase auto-capture + auto-invite (tiktok-lead webhook)",
@@ -13,12 +19,6 @@
       "text": "Weekend distribution push (paid concentration + creators + Reddit + posting)",
       "jer": "JER-589",
       "pillar": ""
-    },
-    {
-      "urgency": "urgent",
-      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
-      "jer": "JER-115",
-      "pillar": "\ud83d\udcf1 Maddy's App"
     }
   ],
   "contentDue": [
@@ -26,7 +26,7 @@
       "title": "Note to Self \u2014 The grandeur of the canyon",
       "platform": "X, Instagram, Substack, LinkedIn",
       "status": "Draft",
-      "due": "2026-06-16"
+      "due": "tomorrow"
     }
   ],
   "followUpRadar": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 79,
+      "days": 80,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 80,
+      "days": 81,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 80,
+      "days": 81,
       "why": ""
     }
   ],
