@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-15T18:02:29.400531Z",
-  "generatedPT": "11:02 AM PT",
+  "generated": "2026-06-16T18:11:30.834431Z",
+  "generatedPT": "11:11 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -26,7 +26,13 @@
       "title": "Note to Self \u2014 The grandeur of the canyon",
       "platform": "X, Instagram, Substack, LinkedIn",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
+    },
+    {
+      "title": "Note to Self \u2014 Yosemite's glory remains",
+      "platform": "X, Instagram, Substack",
+      "status": "Draft",
+      "due": "2026-06-23"
     }
   ],
   "followUpRadar": [
@@ -47,17 +53,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 80,
+      "days": 81,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 81,
+      "days": 82,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 81,
+      "days": 82,
       "why": ""
     }
   ],
