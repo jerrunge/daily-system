@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-18T16:43:37.895615Z",
-  "generatedPT": "9:43 AM PT",
+  "generated": "2026-06-19T16:15:09.870905Z",
+  "generatedPT": "9:15 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -10,14 +10,14 @@
     },
     {
       "urgency": "urgent",
-      "text": "TikTok lead form \u2192 Supabase auto-capture + auto-invite (tiktok-lead webhook)",
-      "jer": "JER-600",
-      "pillar": ""
+      "text": "Billing model hardening (F1\u2013F8) \u2014 from circle-keyed scenario pressure-test",
+      "jer": "JER-608",
+      "pillar": "\ud83d\udcf1 Maddy's App"
     },
     {
       "urgency": "urgent",
-      "text": "Weekend distribution push (paid concentration + creators + Reddit + posting)",
-      "jer": "JER-589",
+      "text": "TikTok lead form \u2192 Supabase auto-capture + auto-invite (tiktok-lead webhook)",
+      "jer": "JER-600",
       "pillar": ""
     }
   ],
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 83,
+      "days": 84,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 84,
+      "days": 85,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 84,
+      "days": 85,
       "why": ""
     }
   ],
