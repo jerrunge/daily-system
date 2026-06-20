@@ -111,6 +111,20 @@
       "status": "planned",
       "hook": "She asked for a way to say I can't right now without it counting against her.",
       "feature": "no-failure-state"
+    },
+    "C5": {
+      "audience": "caregiver",
+      "consent": "gated",
+      "status": "planned",
+      "hook": "He said yes with the homework right there, blank.",
+      "theme": "lying / false completion"
+    },
+    "U6": {
+      "audience": "user",
+      "consent": "open",
+      "status": "planned",
+      "hook": "I say yeah I did it before my brain catches up.",
+      "theme": "lying / false completion"
     }
   }
 }
