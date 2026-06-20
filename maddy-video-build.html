@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maddy: Video Build Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Lexend:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --surface:#FAFCFF; --card:#FFFFFF; --ink:#1B2733; --soft:#5B6B7A; --faint:#8EA0B0;
+  --line:#E6EEF6; --accent:#0EA5E9; --accentdark:#0284C7;
+  --user:#0EA5E9; --userbg:#E0F2FE;
+  --care:#EC4899; --carebg:#FCE7F3;
+  --support:#22C55E; --supportbg:#DCFCE7;
+  --peer:#F59E0B; --peerbg:#FEF3C7;
+  --planned:#94A3B8; --filming:#0EA5E9; --editing:#F59E0B; --posted:#22C55E;
+  --shadow:0 1px 2px rgba(16,40,64,.05),0 6px 20px rgba(16,40,64,.06);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--ink);font-family:Lexend,system-ui,sans-serif;font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px 120px}
+h1,h2,h3{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+a{color:var(--accentdark)}
+.script{font-family:'Dancing Script',cursive}
+
+/* top bar */
+header.bar{position:sticky;top:0;z-index:50;background:rgba(250,252,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .inner{max-width:920px;margin:0 auto;padding:11px 18px;display:flex;align-items:center;gap:12px}
+.bar .mark{font-family:'Baloo 2';font-weight:800;color:var(--ink);text-decoration:none;font-size:17px;display:flex;align-items:center;gap:7px}
+.bar .mark .dot{width:10px;height:10px;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+.bar .tag{margin-left:auto;font-size:12px;color:var(--faint);font-weight:400}
+
+/* hero */
+.hero{padding:30px 0 8px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accentdark);font-weight:600}
+.hero h1{font-size:30px;font-weight:800;margin:8px 0 6px;letter-spacing:-.01em}
+.hero p{color:var(--soft);font-size:15px;max-width:640px;margin:0}
+
+/* dashboard */
+.dash{margin:22px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.dash .row{display:flex;flex-wrap:wrap;gap:0}
+.dash .stat{flex:1 1 96px;padding:15px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dash .stat .n{font-family:'Baloo 2';font-weight:800;font-size:26px;line-height:1}
+.dash .stat .l{font-size:11.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.07em;margin-top:5px;font-weight:500}
+.bar-track{height:9px;background:var(--line);border-radius:99px;overflow:hidden;margin:0}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#34D399);border-radius:99px;transition:width .4s ease}
+.dash .next{padding:14px 17px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.dash .next .lab{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);font-weight:600}
+.dash .next .who{font-family:'Baloo 2';font-weight:700;font-size:15px}
+.dash .next a{margin-left:auto;font-size:13px;font-weight:500;text-decoration:none;background:var(--accent);color:#fff;padding:7px 14px;border-radius:99px}
+
+/* controls */
+.controls{position:sticky;top:53px;z-index:40;background:rgba(250,252,255,.92);backdrop-filter:blur(10px);padding:13px 0 11px;margin-top:14px}
+.search{width:100%;padding:11px 15px;border:1px solid var(--line);border-radius:12px;font-family:Lexend;font-size:14.5px;background:#fff;color:var(--ink)}
+.search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--userbg)}
+.chiprow{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--soft);font-family:Lexend;font-weight:500;font-size:12.5px;padding:6px 13px;border-radius:99px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:.15s}
+.chip .swatch{width:9px;height:9px;border-radius:99px}
+.chip.on{color:#fff;border-color:transparent}
+.chip[data-aud="all"].on{background:var(--ink)}
+.chip[data-aud="user"].on{background:var(--user)} .chip[data-aud="user"] .swatch{background:var(--user)}
+.chip[data-aud="caregiver"].on{background:var(--care)} .chip[data-aud="caregiver"] .swatch{background:var(--care)}
+.chip[data-aud="supporter"].on{background:var(--support)} .chip[data-aud="supporter"] .swatch{background:var(--support)}
+.chip[data-aud="peer"].on{background:var(--peer)} .chip[data-aud="peer"] .swatch{background:var(--peer)}
+.chip[data-st].on{background:var(--soft)}
+.chiplabel{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;align-self:center;margin-right:2px;font-weight:600}
+.countnote{font-size:12.5px;color:var(--faint);margin:10px 2px 0}
+
+/* episode card */
+.ep{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:15px;box-shadow:var(--shadow);margin-top:13px;overflow:hidden}
+.ep[data-aud="user"]{border-left-color:var(--user)}
+.ep[data-aud="caregiver"]{border-left-color:var(--care)}
+.ep[data-aud="supporter"]{border-left-color:var(--support)}
+.ep[data-aud="peer"]{border-left-color:var(--peer)}
+.ep summary{list-style:none;cursor:pointer;padding:15px 17px;display:flex;align-items:center;gap:11px}
+.ep summary::-webkit-details-marker{display:none}
+.ep .num{font-family:'Baloo 2';font-weight:800;font-size:15px;color:var(--faint);min-width:24px}
+.aud-badge{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.aud-badge.user{background:var(--userbg);color:var(--accentdark)}
+.aud-badge.caregiver{background:var(--carebg);color:#BE185D}
+.aud-badge.supporter{background:var(--supportbg);color:#15803D}
+.aud-badge.peer{background:var(--peerbg);color:#B45309}
+.ep .hooktext{flex:1;font-weight:400;font-size:14.5px;color:var(--ink)}
+.ep .chev{color:var(--faint);transition:.2s;font-size:13px}
+.ep[open] .chev{transform:rotate(90deg)}
+.status-pill{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1.5px solid;cursor:pointer;white-space:nowrap;background:#fff}
+.status-pill[data-s="planned"]{color:var(--planned);border-color:var(--planned)}
+.status-pill[data-s="filming"]{color:var(--filming);border-color:var(--filming)}
+.status-pill[data-s="editing"]{color:var(--editing);border-color:var(--editing)}
+.status-pill[data-s="posted"]{color:#fff;background:var(--posted);border-color:var(--posted)}
+
+.ep .body{padding:2px 17px 18px;border-top:1px solid var(--line)}
+.hookblock{background:linear-gradient(180deg,#F8FCFF,#F2F9FF);border:1px solid var(--line);border-radius:13px;padding:13px 15px;margin:14px 0 6px}
+.hookblock .ht{font-family:'Baloo 2';font-weight:700;font-size:13px;color:var(--accentdark);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:7px;margin-bottom:9px}
+.hookblock .ht .ic{font-size:14px}
+.hk{display:grid;grid-template-columns:88px 1fr;gap:4px 12px;font-size:14px}
+.hk .hkk{color:var(--faint);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.hk .hkv{color:var(--ink)}
+.hk .hkv strong{font-weight:600}
+.theline{font-family:'Baloo 2';font-weight:700;font-size:16px;color:var(--ink);background:#fff;border:1px dashed var(--accent);border-radius:9px;padding:8px 12px;margin-top:3px;display:inline-block}
+
+.f{display:grid;grid-template-columns:92px 1fr;gap:3px 12px;padding:9px 0;border-bottom:1px solid #F2F7FB;font-size:14px}
+.f:last-child{border-bottom:none}
+.f .k{color:var(--faint);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.f .v{color:var(--ink)}
+.beat{display:inline-block;background:var(--userbg);color:var(--accentdark);font-weight:600;font-size:11.5px;padding:1px 7px;border-radius:6px;margin-right:5px;font-family:'Baloo 2'}
+.osd{display:inline-block;background:#F1F5F9;color:var(--soft);font-size:12.5px;padding:2px 8px;border-radius:6px;margin:2px 4px 2px 0}
+
+/* assets */
+.assets{margin-top:9px}
+.asset-link{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:6px 11px;margin:3px 5px 3px 0;font-size:12.5px;text-decoration:none;color:var(--soft);font-weight:400}
+.asset-link.have{color:var(--accentdark);border-color:var(--accent);background:var(--userbg)}
+.asset-link .ai{font-size:13px}
+.asset-need{color:var(--faint);font-style:italic;font-size:12.5px}
+
+/* status control row inside card */
+.statusctl{margin-top:14px;background:#F8FBFE;border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.statusctl .sl{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);font-weight:600;width:100%;margin-bottom:2px}
+.sbtn{font-family:Lexend;font-weight:500;font-size:12.5px;padding:7px 13px;border-radius:99px;border:1.5px solid var(--line);background:#fff;color:var(--soft);cursor:pointer;transition:.15s}
+.sbtn.active[data-set="planned"]{background:var(--planned);color:#fff;border-color:var(--planned)}
+.sbtn.active[data-set="filming"]{background:var(--filming);color:#fff;border-color:var(--filming)}
+.sbtn.active[data-set="editing"]{background:var(--editing);color:#fff;border-color:var(--editing)}
+.sbtn.active[data-set="posted"]{background:var(--posted);color:#fff;border-color:var(--posted)}
+.posted-when{font-size:12px;color:var(--posted);font-weight:500;margin-left:auto}
+
+.canon{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:9px 13px;margin-top:11px;font-size:12.5px;color:#92400E}
+.canon b{color:#78350F}
+
+/* sync bar */
+.syncbar{position:fixed;bottom:0;left:0;right:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:11px 18px}
+.syncbar .inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:11px}
+.syncbar .stxt{font-size:12.5px;color:var(--soft)}
+.syncbar button{margin-left:auto;font-family:Lexend;font-weight:600;font-size:13px;padding:9px 16px;border-radius:99px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+.syncbar button.ghost{background:#fff;color:var(--soft);border:1px solid var(--line)}
+
+.note{font-size:12.5px;color:var(--faint);margin:7px 2px}
+.sec-h{font-family:'Baloo 2';font-weight:700;font-size:13px;color:var(--soft);text-transform:uppercase;letter-spacing:.07em;margin:26px 2px 2px}
+details.guide{background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);margin-top:12px;padding:0 16px}
+details.guide summary{cursor:pointer;list-style:none;padding:14px 0;font-family:'Baloo 2';font-weight:700;font-size:15px}
+details.guide summary::-webkit-details-marker{display:none}
+details.guide .gbody{padding:0 0 16px;font-size:14px;color:var(--soft)}
+details.guide .gbody ol{padding-left:18px;margin:6px 0}
+details.guide .gbody li{margin:6px 0}
+.hidden{display:none!important}
+@media(max-width:560px){
+  .hk{grid-template-columns:1fr;gap:2px}.hk .hkk{padding-top:8px}
+  .f{grid-template-columns:1fr;gap:1px}.f .k{padding-top:6px}
+  .dash .stat{flex:1 1 33%}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="inner">
+    <a class="mark" href="maddy-founder-plan.html"><span class="dot"></span>Maddy</a>
+    <span class="tag">Video Build Guide</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Production board</div>
+    <h1>The video build guide</h1>
+    <p>Every video says who it is for and how it opens, before anything else. Film from the card, link the assets, then close it out. Four audiences, color matched to the Circle: <strong style="color:var(--accentdark)">User</strong>, <strong style="color:var(--care)">Caregiver</strong>, <strong style="color:var(--support)">Supporter</strong>, <strong style="color:var(--peer)">Peer</strong>.</p>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="dash">
+    <div class="row">
+      <div class="stat"><div class="n" id="n-total">0</div><div class="l">Episodes</div></div>
+      <div class="stat"><div class="n" id="n-posted" style="color:var(--posted)">0</div><div class="l">Posted</div></div>
+      <div class="stat"><div class="n" id="n-prog" style="color:var(--editing)">0</div><div class="l">In motion</div></div>
+      <div class="stat" style="border-right:none"><div class="n" id="n-todo" style="color:var(--planned)">0</div><div class="l">To film</div></div>
+    </div>
+    <div style="padding:13px 17px 4px"><div class="bar-track"><div class="bar-fill" id="progfill" style="width:0%"></div></div></div>
+    <div class="next">
+      <span class="lab">Next up</span>
+      <span class="who" id="nextwho">All caught up</span>
+      <a id="nextlink" href="#">Open</a>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <input class="search" id="search" type="text" placeholder="Search hooks, topics, assets (try: dishes, hovering, fade, shame)">
+    <div class="chiprow" id="audchips">
+      <span class="chiplabel">For</span>
+      <button class="chip on" data-aud="all">All</button>
+      <button class="chip" data-aud="user"><span class="swatch"></span>User</button>
+      <button class="chip" data-aud="caregiver"><span class="swatch"></span>Caregiver</button>
+      <button class="chip" data-aud="supporter"><span class="swatch"></span>Supporter</button>
+      <button class="chip" data-aud="peer"><span class="swatch"></span>Peer</button>
+    </div>
+    <div class="chiprow" id="stchips">
+      <span class="chiplabel">Status</span>
+      <button class="chip on" data-st="all">All</button>
+      <button class="chip" data-st="todo">To film</button>
+      <button class="chip" data-st="filming">Filming</button>
+      <button class="chip" data-st="editing">Editing</button>
+      <button class="chip" data-st="posted">Posted</button>
+    </div>
+    <div class="countnote" id="countnote"></div>
+  </div>
+
+  <div id="eplist">
+
+    <!-- ========== CARD: CAREGIVER (posted) ========== -->
+    <details class="ep" data-aud="caregiver" data-id="01" data-kw="fly world alone dishes initiation contradiction caregiver lazy">
+      <summary>
+        <span class="num">01</span>
+        <span class="aud-badge caregiver">Caregiver</span>
+        <span class="hooktext">She could fly across the world alone. She could not start the dishes.</span>
+        <span class="status-pill" data-s="posted">posted</span>
+        <span class="chev">&#9656;</span>
+      </summary>
+      <div class="body">
+        <div class="hookblock">
+          <div class="ht"><span class="ic">&#9889;</span>The hook (first 2 seconds)</div>
+          <div class="hk">
+            <div class="hkk">First frame</div><div class="hkv">Hard split screen. Left: a departures board or world map. Right: a sink stacked with dishes. No face yet.</div>
+            <div class="hkk">The draw</div><div class="hkv"><strong>The gap is the visual.</strong> Cut hard between the two halves on the first beat, then collapse them into one frame. The eye finishes the contradiction before you speak.</div>
+            <div class="hkk">The line</div><div class="hkv"><span class="theline">"She could fly across the world alone. She couldn't start the dishes."</span></div>
+          </div>
+        </div>
+        <div class="f"><div class="k">For</div><div class="v"><b>Caregiver.</b> The parent or partner who has watched this exact gap and been told it was defiance. Naming it as task initiation is a relief, and relief gets saved and shared.</div></div>
+        <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the contradiction. <span class="beat">3-15s</span>the two side by side: the big thing she can do, the small thing that stops her. <span class="beat">15-35s</span>the insight: novel tasks come with structure, urgency, a destination. Daily tasks come with none. <span class="beat">35-50s</span>name it: initiation, not laziness.</div></div>
+        <div class="f"><div class="k">Payoff</div><div class="v">"Her brain can do the hard thing. It just cannot generate the start on its own. So we built the start."</div></div>
+        <div class="f"><div class="k">On screen</div><div class="v"><span class="osd">capability is not the problem</span><span class="osd">initiation is</span><span class="osd">this is not laziness</span></div></div>
+        <div class="f"><div class="k">Call</div><div class="v">Follow. No link on this one. Let it land.</div></div>
+        <div class="f"><div class="k">Why it works</div><div class="v">The contradiction sounds impossible, stops the scroll, then resolves into recognition. That turn from "wait, what" to "that is my kid" is the whole engine.</div></div>
+        <div class="f"><div class="k">Maddy</div><div class="v">Named only is plenty. Her words optional: one line she wrote about the gap.</div></div>
+        <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+          <a class="asset-link have" href="https://share.descript.com/view/m9Fd6hECOa8" target="_blank"><span class="ai">&#9654;</span>Posted cut (Descript)</a>
+          <span class="asset-need">need: departures board / world map clip, sink b-roll</span>
+        </div></div></div>
+        <div class="statusctl">
+          <span class="sl">Status</span>
+          <button class="sbtn" data-set="planned">Planned</button>
+          <button class="sbtn" data-set="filming">Filming</button>
+          <button class="sbtn" data-set="editing">Editing</button>
+          <button class="sbtn" data-set="posted">Posted</button>
+          <span class="posted-when"></span>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========== CARD: USER (planned) ========== -->
+    <details class="ep" data-aud="user" data-id="05" data-kw="starting wall task initiation user audhd you not lazy doing">
+      <summary>
+        <span class="num">05</span>
+        <span class="aud-badge user">User</span>
+        <span class="hooktext">It is not the doing. It is the starting.</span>
+        <span class="status-pill" data-s="planned">planned</span>
+        <span class="chev">&#9656;</span>
+      </summary>
+      <div class="body">
+        <div class="hookblock">
+          <div class="ht"><span class="ic">&#9889;</span>The hook (first 2 seconds)</div>
+          <div class="hk">
+            <div class="hkk">First frame</div><div class="hkv">A single unstarted thing, held still: one dish in an empty sink, or a blinking cursor on an empty list. Dead quiet.</div>
+            <div class="hkk">The draw</div><div class="hkv"><strong>Everything freezes but one pulse.</strong> The whole frame goes still, then one element breathes (the cursor, the tap target). The stillness is the feeling of being stuck. Then a sharp text snap on the word "starting."</div>
+            <div class="hkk">The line</div><div class="hkv"><span class="theline">"It's not the doing. It's the starting."</span></div>
+          </div>
+        </div>
+        <div class="f"><div class="k">For</div><div class="v"><b>User.</b> The AuDHDer hearing their own experience named without a fix attached. Not "here is how to be productive." Just "this thing you can't explain has a name, and it is not a character flaw."</div></div>
+        <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the still frame, the word lands. <span class="beat">3-20s</span>you describe the wall from the inside: the task is easy, you want to do it, and you still cannot make the first move happen. <span class="beat">20-40s</span>name it as task initiation, separate from willpower. <span class="beat">40s+</span>the relief: it is a wiring thing, not a worth thing.</div></div>
+        <div class="f"><div class="k">Payoff</div><div class="v">"You are not lazy. Your brain just does not hand you the start. That is the part we built around."</div></div>
+        <div class="f"><div class="k">On screen</div><div class="v"><span class="osd">the start is the hard part</span><span class="osd">not laziness</span><span class="osd">a wiring thing, not a worth thing</span></div></div>
+        <div class="f"><div class="k">Call</div><div class="v">Follow. Soft. "If this is you, there is more here."</div></div>
+        <div class="f"><div class="k">Why it works</div><div class="v">Users are exhausted by content that talks at them like a problem to optimize. Being seen, with no fix demanded, is the rarest thing in this feed. It earns the follow on trust, not on a tip.</div></div>
+        <div class="f"><div class="k">Maddy</div><div class="v">Optional and powerful: Maddy says the line in her own words, peer to peer. Her rung, her call.</div></div>
+        <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+          <a class="asset-link" href="#"><span class="ai">&#128247;</span>app: empty list / "just one thing" screen</a>
+          <span class="asset-need">need: a clean screen-recording of the focus screen at low-capacity state</span>
+        </div></div></div>
+        <div class="statusctl">
+          <span class="sl">Status</span>
+          <button class="sbtn" data-set="planned">Planned</button>
+          <button class="sbtn" data-set="filming">Filming</button>
+          <button class="sbtn" data-set="editing">Editing</button>
+          <button class="sbtn" data-set="posted">Posted</button>
+          <span class="posted-when"></span>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========== CARD: SUPPORTER (new, planned) ========== -->
+    <details class="ep" data-aud="supporter" data-id="S1" data-kw="supporter help hovering checking in cheering on did you do it surveillance encouragement">
+      <summary>
+        <span class="num">S1</span>
+        <span class="aud-badge supporter">Supporter</span>
+        <span class="hooktext">"Did you do it yet" is the worst thing you can ask.</span>
+        <span class="status-pill" data-s="planned">planned</span>
+        <span class="chev">&#9656;</span>
+      </summary>
+      <div class="body">
+        <div class="hookblock">
+          <div class="ht"><span class="ic">&#9889;</span>The hook (first 2 seconds)</div>
+          <div class="hk">
+            <div class="hkk">First frame</div><div class="hkv">A phone screen, close. A text bubble drops in: "did you do it yet??" Then the thumb hesitates, and the screen goes dark.</div>
+            <div class="hkk">The draw</div><div class="hkv"><strong>The flinch.</strong> The buzz, the message, then a real human beat of the screen closing instead of replying. Anyone who has been on either side of that text feels it land.</div>
+            <div class="hkk">The line</div><div class="hkv"><span class="theline">"If you love someone with ADHD, this text makes it worse."</span></div>
+          </div>
+        </div>
+        <div class="f"><div class="k">For</div><div class="v"><b>Supporter.</b> The friend, sibling, or coworker who wants to help and keeps reaching for the check-in. In the app their job is to cheer on, not watch over. This video teaches the difference before they ever open it.</div></div>
+        <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the flinch. <span class="beat">3-18s</span>why checking in backfires: it adds a second task (managing your worry) on top of the first. <span class="beat">18-38s</span>what helps instead: presence, specifics, and cheering the start, not the finish. <span class="beat">38s+</span>the reframe: support, not surveillance.</div></div>
+        <div class="f"><div class="k">Payoff</div><div class="v">"You do not have to track them. You just have to be glad to be in it with them. That is the whole job."</div></div>
+        <div class="f"><div class="k">On screen</div><div class="v"><span class="osd">checking in is a second task</span><span class="osd">cheer the start, not the streak</span><span class="osd">support, not surveillance</span></div></div>
+        <div class="f"><div class="k">Call</div><div class="v">Follow, plus a soft line: "this is exactly the role Maddy gives people who want to help without hovering."</div></div>
+        <div class="f"><div class="k">Why it works</div><div class="v">Almost no one makes content for the person on the supporting side who is trying and getting it wrong with love. It converts a guilty helper into an informed one, and it maps one to one onto a real role in the app.</div></div>
+        <div class="f"><div class="k">Maddy</div><div class="v">Named only. This one is Jeremy to camera, dad to other supporters.</div></div>
+        <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+          <a class="asset-link" href="#"><span class="ai">&#128247;</span>app: Supporter view ("cheering on")</a>
+          <a class="asset-link" href="#"><span class="ai">&#128247;</span>app: encouragement / reaction surface</a>
+          <span class="asset-need">need: screen-rec of the outer-ring Supporter home + a reaction being sent</span>
+        </div></div></div>
+        <div class="canon"><b>Canon check:</b> the app has no watching-eye surface (no live map, no last-active, no online dot). Keep the video true to that: the win is the supporter doing less watching, not better watching.</div>
+        <div class="statusctl">
+          <span class="sl">Status</span>
+          <button class="sbtn" data-set="planned">Planned</button>
+          <button class="sbtn" data-set="filming">Filming</button>
+          <button class="sbtn" data-set="editing">Editing</button>
+          <button class="sbtn" data-set="posted">Posted</button>
+          <span class="posted-when"></span>
+        </div>
+      </div>
+    </details>
+
+    <!-- ========== CARD: PEER (new, planned) ========== -->
+    <details class="ep" data-aud="peer" data-id="P1" data-kw="peer body double presence alongside friend room start together ambient">
+      <summary>
+        <span class="num">P1</span>
+        <span class="aud-badge peer">Peer</span>
+        <span class="hooktext">The most underrated way to help a friend who cannot start: be in the room.</span>
+        <span class="status-pill" data-s="planned">planned</span>
+        <span class="chev">&#9656;</span>
+      </summary>
+      <div class="body">
+        <div class="hookblock">
+          <div class="ht"><span class="ic">&#9889;</span>The hook (first 2 seconds)</div>
+          <div class="hk">
+            <div class="hkk">First frame</div><div class="hkv">Two people on a couch, each on their own thing, not talking. Warm, quiet, ordinary. One soft ambient pulse passes between two dots on screen.</div>
+            <div class="hkk">The draw</div><div class="hkv"><strong>Calm against a loud feed.</strong> While every other video is shouting, this one is still and warm. The contrast itself is the scroll-stopper. Slow push-in, no hard cut.</div>
+            <div class="hkk">The line</div><div class="hkv"><span class="theline">"Sometimes the help is just being in the room. No pressure. No checking. Just there."</span></div>
+          </div>
+        </div>
+        <div class="f"><div class="k">For</div><div class="v"><b>Peer.</b> The friend who is not a caregiver and does not want to manage anyone. They just want to be alongside. In the app, that is exactly their role: standing alongside, presence not pressure.</div></div>
+        <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the quiet two-shot. <span class="beat">3-18s</span>name body doubling in plain words: starting is easier when someone is simply present. <span class="beat">18-35s</span>what it is not: not supervising, not nagging, not performing. <span class="beat">35s+</span>presence is a real form of help, and it costs almost nothing to give.</div></div>
+        <div class="f"><div class="k">Payoff</div><div class="v">"You do not have to fix anything. Being there, doing your own thing nearby, can be the thing that gets them started."</div></div>
+        <div class="f"><div class="k">On screen</div><div class="v"><span class="osd">presence, not pressure</span><span class="osd">alongside, not over</span><span class="osd">just be in the room</span></div></div>
+        <div class="f"><div class="k">Call</div><div class="v">Follow. "Maddy has a quiet way to be that person, even from far away."</div></div>
+        <div class="f"><div class="k">Why it works</div><div class="v">It is a pattern interrupt. A calm, warm video in a feed of urgency reads as honest and gets saved and sent to a specific friend, which is the share that actually moves people.</div></div>
+        <div class="f"><div class="k">Maddy</div><div class="v">Strong fit for Maddy's own voice if she wants it. Peer to peer is literally her register.</div></div>
+        <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+          <a class="asset-link" href="#"><span class="ai">&#127909;</span>b-roll: two people, parallel quiet activity</a>
+          <a class="asset-link" href="#"><span class="ai">&#128247;</span>app: Peer view ("standing alongside") + presence signal</a>
+          <span class="asset-need">need: a warm two-shot clip + screen-rec of the Peer ambient presence surface</span>
+        </div></div></div>
+        <div class="canon"><b>Canon check:</b> body doubling is user valued and mechanism plausible, not clinically proven. Frame it as a felt thing that helps, never as a proven treatment. Maddy's version is asynchronous and ambient, which avoids the surveillance trap by design.</div>
+        <div class="statusctl">
+          <span class="sl">Status</span>
+          <button class="sbtn" data-set="planned">Planned</button>
+          <button class="sbtn" data-set="filming">Filming</button>
+          <button class="sbtn" data-set="editing">Editing</button>
+          <button class="sbtn" data-set="posted">Posted</button>
+          <span class="posted-when"></span>
+        </div>
+      </div>
+    </details>
+
+  </div>
+
+  <div class="sec-h">Sample set</div>
+  <p class="note">These four are the direction, one per audience, including the two roles that had zero coverage before (Supporter and Peer). The full bank rebuilds into this format on your go. Cards 01 and 05 are real keepers from the existing 24; S1 and P1 are new episodes written straight at the outer ring.</p>
+
+  <details class="guide">
+    <summary>How this page works</summary>
+    <div class="gbody">
+      <ol>
+        <li><strong>Every card opens with the hook.</strong> First frame, the draw, the line. Build the open from that block, not from words alone.</li>
+        <li><strong>The badge says who it is for.</strong> Filter by audience to batch-film one role at a time. Filter by status to see only what is left.</li>
+        <li><strong>Close a video out</strong> by tapping its status: Planned, Filming, Editing, Posted. It saves on this device instantly.</li>
+        <li><strong>Keep me in sync.</strong> Tap "Copy status for Jeremy's dad" at the bottom, paste it back to me in chat, and I log it in the vault so the page and I always agree. That is the "log it and know it" loop.</li>
+        <li><strong>Assets</strong> show what each video needs. A blue link means the file is in hand. Grey italic means it is still on the shot list.</li>
+      </ol>
+    </div>
+  </details>
+
+</div>
+
+<!-- SYNC BAR -->
+<div class="syncbar">
+  <div class="inner">
+    <span class="stxt" id="synctxt">Status saves on this device.</span>
+    <button class="ghost" id="resetbtn">Reset</button>
+    <button id="copybtn">Copy status for the vault</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'maddy-video-build-status-v1';
+  // baked-in defaults = the vault manifest's current state
+  var DEFAULTS = { "01":"posted", "05":"planned", "S1":"planned", "P1":"planned" };
+  var ORDER = ["01","05","S1","P1"];
+  var LABEL = {planned:"planned",filming:"filming",editing:"editing",posted:"posted"};
+
+  function load(){
+    var s = {};
+    try{ s = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ s = {}; }
+    var out = {};
+    ORDER.forEach(function(id){ out[id] = s[id] || DEFAULTS[id] || "planned"; });
+    return out;
+  }
+  function save(s){ try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){} }
+
+  var state = load();
+
+  function isProg(v){ return v==="filming"||v==="editing"; }
+
+  function paintCard(card){
+    var id = card.getAttribute('data-id');
+    var v = state[id];
+    card.setAttribute('data-status', v);
+    var pill = card.querySelector('.status-pill');
+    pill.setAttribute('data-s', v); pill.textContent = LABEL[v];
+    card.querySelectorAll('.sbtn').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-set')===v);
+    });
+    var pw = card.querySelector('.posted-when');
+    if(pw){ pw.textContent = v==="posted" ? "live \u2713" : ""; }
+  }
+
+  function paintDash(){
+    var total = ORDER.length, posted=0, prog=0, todo=0;
+    ORDER.forEach(function(id){
+      var v = state[id];
+      if(v==="posted") posted++; else if(isProg(v)) prog++; else todo++;
+    });
+    document.getElementById('n-total').textContent = total;
+    document.getElementById('n-posted').textContent = posted;
+    document.getElementById('n-prog').textContent = prog;
+    document.getElementById('n-todo').textContent = todo;
+    document.getElementById('progfill').style.width = total? Math.round(posted/total*100)+'%' : '0%';
+    // next up = first non-posted in order
+    var nextId = ORDER.filter(function(id){ return state[id]!=="posted"; })[0];
+    var nw = document.getElementById('nextwho'), nl = document.getElementById('nextlink');
+    if(nextId){
+      var c = document.querySelector('.ep[data-id="'+nextId+'"]');
+      var hook = c ? c.querySelector('.hooktext').textContent : nextId;
+      var aud = c ? c.querySelector('.aud-badge').textContent : '';
+      nw.textContent = aud+' \u00b7 '+hook.slice(0,52)+(hook.length>52?'\u2026':'');
+      nl.style.display='inline-block';
+      nl.onclick=function(e){ e.preventDefault(); if(c){ c.open=true; c.scrollIntoView({behavior:'smooth',block:'center'}); } };
+    } else { nw.textContent='All posted \u2713'; nl.style.display='none'; }
+  }
+
+  function applyFilters(){
+    var aud = document.querySelector('#audchips .chip.on').getAttribute('data-aud');
+    var st  = document.querySelector('#stchips .chip.on').getAttribute('data-st');
+    var q   = (document.getElementById('search').value||'').toLowerCase().trim();
+    var shown=0;
+    document.querySelectorAll('.ep').forEach(function(c){
+      var cAud = c.getAttribute('data-aud');
+      var v = state[c.getAttribute('data-id')];
+      var cSt = v==="posted"?"posted":(isProg(v)?(v):"todo");
+      var kw = (c.getAttribute('data-kw')||'')+' '+c.querySelector('.hooktext').textContent.toLowerCase();
+      var ok = true;
+      if(aud!=="all" && cAud!==aud) ok=false;
+      if(st!=="all"){
+        if(st==="todo" && cSt!=="todo") ok=false;
+        else if(st==="filming" && v!=="filming") ok=false;
+        else if(st==="editing" && v!=="editing") ok=false;
+        else if(st==="posted" && v!=="posted") ok=false;
+      }
+      if(q && kw.indexOf(q)===-1) ok=false;
+      c.classList.toggle('hidden', !ok);
+      if(ok) shown++;
+    });
+    document.getElementById('countnote').textContent = shown+' of '+document.querySelectorAll('.ep').length+' shown';
+  }
+
+  // wire status buttons + pill
+  document.querySelectorAll('.ep').forEach(function(card){
+    paintCard(card);
+    card.querySelectorAll('.sbtn').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.preventDefault();
+        state[card.getAttribute('data-id')] = b.getAttribute('data-set');
+        save(state); paintCard(card); paintDash(); applyFilters();
+      });
+    });
+    var pill = card.querySelector('.status-pill');
+    pill.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var seq=["planned","filming","editing","posted"];
+      var id=card.getAttribute('data-id');
+      var i=seq.indexOf(state[id]); state[id]=seq[(i+1)%seq.length];
+      save(state); paintCard(card); paintDash(); applyFilters();
+    });
+  });
+
+  // chips
+  document.querySelectorAll('#audchips .chip').forEach(function(ch){
+    ch.addEventListener('click', function(){
+      document.querySelectorAll('#audchips .chip').forEach(function(c){c.classList.remove('on');});
+      ch.classList.add('on'); applyFilters();
+    });
+  });
+  document.querySelectorAll('#stchips .chip').forEach(function(ch){
+    ch.addEventListener('click', function(){
+      document.querySelectorAll('#stchips .chip').forEach(function(c){c.classList.remove('on');});
+      ch.classList.add('on'); applyFilters();
+    });
+  });
+  document.getElementById('search').addEventListener('input', applyFilters);
+
+  // sync / copy
+  document.getElementById('copybtn').addEventListener('click', function(){
+    var lines = ORDER.map(function(id){ return id+': '+state[id]; });
+    var txt = 'Maddy video status ('+new Date().toISOString().slice(0,10)+')\n'+lines.join('\n');
+    var done=function(){ document.getElementById('synctxt').textContent='Copied. Paste it to me in chat to log it.'; };
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done,done); }
+    else{ var t=document.createElement('textarea'); t.value=txt; document.body.appendChild(t); t.select(); try{document.execCommand('copy');}catch(e){} t.remove(); done(); }
+  });
+  document.getElementById('resetbtn').addEventListener('click', function(){
+    if(!confirm('Reset all statuses to the saved baseline?')) return;
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    state = load();
+    document.querySelectorAll('.ep').forEach(paintCard); paintDash(); applyFilters();
+    document.getElementById('synctxt').textContent='Reset to baseline.';
+  });
+
+  paintDash(); applyFilters();
+})();
+</script>
+</body>
+</html>
