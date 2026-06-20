@@ -1,668 +1,900 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maddy plan: Videos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maddy: Video Build Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Lexend:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="maddy-plan.css">
 <style>
-/* batch-02 additions: kept minimal and self-contained so nothing in maddy-plan.css can break */
-.epstatus{display:inline-block;font:600 10px/1 Lexend,system-ui,sans-serif;letter-spacing:.09em;color:#fff;background:#2f7d4f;padding:3px 6px;border-radius:5px;margin-right:8px;vertical-align:middle}
-.epstatus.queued{background:#7a6a55}
-.shotcard{border-left:3px solid #2f7d4f;padding-left:14px;margin:14px 0 22px}
-.shotcard h4{margin:0 0 4px}
-.shotcard .meta{font:400 13px/1.5 Lexend,system-ui,sans-serif;opacity:.75;margin-bottom:8px}
-.spec .k{min-width:104px}
-.sayfirst{font-weight:600}
-.hookcard{font:700 13px/1.4 Lexend,system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase}
+:root{
+  --surface:#FAFCFF; --card:#FFFFFF; --ink:#1B2733; --soft:#5B6B7A; --faint:#8EA0B0;
+  --line:#E6EEF6; --accent:#0EA5E9; --accentdark:#0284C7;
+  --user:#0EA5E9; --userbg:#E0F2FE;
+  --care:#EC4899; --carebg:#FCE7F3;
+  --support:#22C55E; --supportbg:#DCFCE7;
+  --peer:#F59E0B; --peerbg:#FEF3C7;
+  --codesign:#8B5CF6; --codesignbg:#EDE9FE;
+  --planned:#94A3B8; --filming:#0EA5E9; --editing:#F59E0B; --posted:#22C55E;
+  --gate:#DC2626; --gatebg:#FEE2E2;
+  --shadow:0 1px 2px rgba(16,40,64,.05),0 6px 20px rgba(16,40,64,.06);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface);color:var(--ink);font-family:Lexend,system-ui,sans-serif;font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:0 18px 130px}
+h1,h2,h3,h4{font-family:'Baloo 2',sans-serif;line-height:1.15;margin:0}
+a{color:var(--accentdark)}
+.script{font-family:'Dancing Script',cursive}
+
+header.bar{position:sticky;top:0;z-index:50;background:rgba(250,252,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .inner{max-width:940px;margin:0 auto;padding:11px 18px;display:flex;align-items:center;gap:12px}
+.bar .mark{font-family:'Baloo 2';font-weight:800;color:var(--ink);text-decoration:none;font-size:17px;display:flex;align-items:center;gap:7px}
+.bar .mark .dot{width:10px;height:10px;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+.bar .tag{margin-left:auto;font-size:12px;color:var(--faint);font-weight:400}
+.bar .tabs{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap}
+.bar .tabs a{font-size:12.5px;color:var(--soft);text-decoration:none;padding:5px 9px;border-radius:8px;font-weight:500;font-family:'Baloo 2'}
+.bar .tabs a:hover{background:var(--userbg)}
+.bar .tabs a.on{background:var(--ink);color:#fff}
+
+.hero{padding:28px 0 6px}
+.hero .eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accentdark);font-weight:600}
+.hero h1{font-size:30px;font-weight:800;margin:8px 0 6px;letter-spacing:-.01em}
+.hero p{color:var(--soft);font-size:15px;max-width:680px;margin:0}
+
+.handoff{margin:16px 0 0;background:#F1F9FF;border:1px solid #CFE9FB;border-radius:13px;padding:12px 15px;font-size:13.5px;color:var(--soft);display:flex;gap:10px;align-items:flex-start}
+.handoff b{color:var(--ink)}
+.handoff .ic{font-size:16px;line-height:1.3}
+
+.dash{margin:16px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.dash .row{display:flex;flex-wrap:wrap}
+.dash .stat{flex:1 1 90px;padding:14px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dash .stat .n{font-family:'Baloo 2';font-weight:800;font-size:25px;line-height:1}
+.dash .stat .l{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-top:5px;font-weight:500}
+.bar-track{height:9px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#34D399);border-radius:99px;transition:width .4s ease}
+.dash .next{padding:13px 17px;display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.dash .next .lab{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);font-weight:600}
+.dash .next .who{font-family:'Baloo 2';font-weight:700;font-size:14.5px}
+.dash .next a{margin-left:auto;font-size:13px;font-weight:500;text-decoration:none;background:var(--accent);color:#fff;padding:7px 14px;border-radius:99px}
+
+.controls{position:sticky;top:53px;z-index:40;background:rgba(250,252,255,.93);backdrop-filter:blur(10px);padding:12px 0 10px;margin-top:14px}
+.search{width:100%;padding:11px 15px;border:1px solid var(--line);border-radius:12px;font-family:Lexend;font-size:14.5px;background:#fff;color:var(--ink)}
+.search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--userbg)}
+.chiprow{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--soft);font-family:Lexend;font-weight:500;font-size:12.5px;padding:6px 13px;border-radius:99px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:.15s}
+.chip .swatch{width:9px;height:9px;border-radius:99px}
+.chip.on{color:#fff;border-color:transparent}
+.chip[data-aud="all"].on{background:var(--ink)}
+.chip[data-aud="user"].on{background:var(--user)} .chip[data-aud="user"] .swatch{background:var(--user)}
+.chip[data-aud="caregiver"].on{background:var(--care)} .chip[data-aud="caregiver"] .swatch{background:var(--care)}
+.chip[data-aud="supporter"].on{background:var(--support)} .chip[data-aud="supporter"] .swatch{background:var(--support)}
+.chip[data-aud="peer"].on{background:var(--peer)} .chip[data-aud="peer"] .swatch{background:var(--peer)}
+.chip[data-aud="codesign"].on{background:var(--codesign)} .chip[data-aud="codesign"] .swatch{background:var(--codesign)}
+.chip[data-st].on{background:var(--soft)}
+.chiplabel{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;align-self:center;margin-right:2px;font-weight:600}
+.countnote{font-size:12.5px;color:var(--faint);margin:9px 2px 0}
+
+.ep{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:15px;box-shadow:var(--shadow);margin-top:13px;overflow:hidden}
+.ep[data-aud="user"]{border-left-color:var(--user)}
+.ep[data-aud="caregiver"]{border-left-color:var(--care)}
+.ep[data-aud="supporter"]{border-left-color:var(--support)}
+.ep[data-aud="peer"]{border-left-color:var(--peer)}
+.ep[data-aud="codesign"]{border-left-color:var(--codesign)}
+.ep summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ep summary::-webkit-details-marker{display:none}
+.ep .num{font-family:'Baloo 2';font-weight:800;font-size:14px;color:var(--faint);min-width:26px}
+.aud-badge{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.aud-badge.user{background:var(--userbg);color:var(--accentdark)}
+.aud-badge.caregiver{background:var(--carebg);color:#BE185D}
+.aud-badge.supporter{background:var(--supportbg);color:#15803D}
+.aud-badge.peer{background:var(--peerbg);color:#B45309}
+.aud-badge.codesign{background:var(--codesignbg);color:#6D28D9}
+.ep .hooktext{flex:1;min-width:200px;font-weight:500;font-size:14.5px;color:var(--ink);font-family:'Baloo 2'}
+.ep .chev{color:var(--faint);transition:.2s;font-size:13px}
+.ep[open] .chev{transform:rotate(90deg)}
+.status-pill{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1.5px solid;cursor:pointer;white-space:nowrap;background:#fff}
+.status-pill[data-s="planned"]{color:var(--planned);border-color:var(--planned)}
+.status-pill[data-s="filming"]{color:var(--filming);border-color:var(--filming)}
+.status-pill[data-s="editing"]{color:var(--editing);border-color:var(--editing)}
+.status-pill[data-s="posted"]{color:#fff;background:var(--posted);border-color:var(--posted)}
+.lock{font-size:11px;color:var(--gate);background:var(--gatebg);border-radius:99px;padding:3px 8px;font-weight:600;white-space:nowrap}
+
+.ep .body{padding:2px 16px 17px;border-top:1px solid var(--line)}
+.hookblock{background:linear-gradient(180deg,#F8FCFF,#EEF7FF);border:1px solid #D6EAF8;border-radius:13px;padding:13px 15px;margin:14px 0 6px}
+.hookblock .ht{font-family:'Baloo 2';font-weight:700;font-size:12.5px;color:var(--accentdark);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:7px;margin-bottom:9px}
+.hk{display:grid;grid-template-columns:84px 1fr;gap:4px 12px;font-size:14px}
+.hk .hkk{color:var(--faint);font-weight:500;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;padding-top:3px}
+.hk .hkv{color:var(--ink)}
+.hk .hkv strong{font-weight:600}
+.theline{font-family:'Baloo 2';font-weight:700;font-size:16px;color:var(--ink);background:#fff;border:1px dashed var(--accent);border-radius:9px;padding:8px 12px;margin-top:3px;display:inline-block;line-height:1.3}
+
+.block{margin-top:12px;border-radius:12px;padding:11px 14px;font-size:14px}
+.block .bt{font-family:'Baloo 2';font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.block.story{background:#FBFDFF;border:1px solid var(--line)} .block.story .bt{color:var(--soft)}
+.block.ask{background:#F0FBF4;border:1px solid #CDEBD7} .block.ask .bt{color:#15803D}
+.block.ask .cta{font-weight:500;color:var(--ink)}
+.block.ask .tf{font-family:'Baloo 2';font-weight:700;color:#15803D;word-break:break-all}
+.block.brief{background:#FFFCF5;border:1px solid #F6E7C2} .block.brief .bt{color:#B45309}
+
+.f{display:grid;grid-template-columns:88px 1fr;gap:3px 12px;padding:8px 0;border-bottom:1px solid #F2F7FB;font-size:14px}
+.f:last-child{border-bottom:none}
+.f .k{color:var(--faint);font-weight:500;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.f .v{color:var(--ink)}
+.beat{display:inline-block;background:var(--userbg);color:var(--accentdark);font-weight:600;font-size:11.5px;padding:1px 7px;border-radius:6px;margin-right:5px;font-family:'Baloo 2'}
+.osd{display:inline-block;background:#F1F5F9;color:var(--soft);font-size:12.5px;padding:2px 8px;border-radius:6px;margin:2px 4px 2px 0}
+
+.assets{margin-top:4px}
+.asset-link{display:inline-flex;align-items:center;gap:6px;background:var(--userbg);border:1px solid #BEE3F8;border-radius:9px;padding:5px 10px;margin:3px 5px 3px 0;font-size:12px;text-decoration:none;color:var(--accentdark);font-weight:500}
+.asset-link.broll{background:#EEF7FF}
+.asset-need{display:inline-flex;align-items:center;gap:5px;color:#B45309;background:var(--peerbg);border:1px dashed #F0C46A;border-radius:9px;padding:5px 10px;margin:3px 5px 3px 0;font-size:12px;font-weight:500}
+
+.consent{background:var(--gatebg);border:1px solid #FBC4C4;border-radius:10px;padding:9px 13px;margin-top:11px;font-size:12.5px;color:#991B1B}
+.consent b{color:#7F1D1D}
+.canon{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:9px 13px;margin-top:11px;font-size:12.5px;color:#92400E}
+
+.statusctl{margin-top:13px;background:#F8FBFE;border:1px solid var(--line);border-radius:12px;padding:11px 13px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.statusctl .sl{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);font-weight:600;width:100%;margin-bottom:2px}
+.sbtn{font-family:Lexend;font-weight:500;font-size:12.5px;padding:7px 13px;border-radius:99px;border:1.5px solid var(--line);background:#fff;color:var(--soft);cursor:pointer;transition:.15s}
+.sbtn.active[data-set="planned"]{background:var(--planned);color:#fff;border-color:var(--planned)}
+.sbtn.active[data-set="filming"]{background:var(--filming);color:#fff;border-color:var(--filming)}
+.sbtn.active[data-set="editing"]{background:var(--editing);color:#fff;border-color:var(--editing)}
+.sbtn.active[data-set="posted"]{background:var(--posted);color:#fff;border-color:var(--posted)}
+.posted-when{font-size:12px;color:var(--posted);font-weight:500;margin-left:auto}
+
+.sec-h{font-family:'Baloo 2';font-weight:700;font-size:13px;color:var(--soft);text-transform:uppercase;letter-spacing:.07em;margin:28px 2px 2px}
+.note{font-size:12.5px;color:var(--faint);margin:7px 2px}
+details.guide{background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);margin-top:12px;padding:0 16px}
+details.guide summary{cursor:pointer;list-style:none;padding:14px 0;font-family:'Baloo 2';font-weight:700;font-size:15px}
+details.guide summary::-webkit-details-marker{display:none}
+details.guide .gbody{padding:0 0 16px;font-size:14px;color:var(--soft)}
+details.guide .gbody ol,details.guide .gbody ul{padding-left:18px;margin:6px 0}
+details.guide .gbody li{margin:6px 0}
+.shotlist{background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);margin-top:12px;padding:14px 16px}
+.shotlist h4{font-size:15px;margin-bottom:4px}
+.shotlist .sub{font-size:12.5px;color:var(--faint);margin-bottom:8px}
+.shotlist ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink)}
+.shotlist li{margin:5px 0}
+.shotlist .tagapp{font-size:10.5px;background:var(--userbg);color:var(--accentdark);border-radius:5px;padding:1px 6px;font-weight:600;margin-right:6px}
+.shotlist .tagbroll{font-size:10.5px;background:var(--peerbg);color:#B45309;border-radius:5px;padding:1px 6px;font-weight:600;margin-right:6px}
+.hidden{display:none!important}
+
+.syncbar{position:fixed;bottom:0;left:0;right:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:11px 18px}
+.syncbar .inner{max-width:940px;margin:0 auto;display:flex;align-items:center;gap:11px}
+.syncbar .stxt{font-size:12.5px;color:var(--soft)}
+.syncbar button{font-family:Lexend;font-weight:600;font-size:13px;padding:9px 15px;border-radius:99px;border:none;background:var(--accent);color:#fff;cursor:pointer}
+.syncbar button.ghost{background:#fff;color:var(--soft);border:1px solid var(--line);margin-left:auto}
+
+@media(max-width:580px){
+  .hk{grid-template-columns:1fr;gap:2px}.hk .hkk{padding-top:8px}
+  .f{grid-template-columns:1fr;gap:1px}.f .k{padding-top:6px}
+  .dash .stat{flex:1 1 33%}
+  .ep .hooktext{order:5;flex:1 1 100%}
+}
 </style>
 </head>
-<body data-accent="blue">
-<div id="prog"></div>
-<header class="tabbar">
-  <a class="home" href="maddy-founder-plan.html">Maddy &#9670;</a>
-  <nav class="tabs"><a href="maddy-founder-plan.html">Start</a><a href="maddy-plan-videos.html" class="on">Videos</a><a href="maddy-plan-moat.html">The moat</a><a href="maddy-plan-channels.html">Channels</a><a href="maddy-plan-system.html">System</a><a href="maddy-plan-map.html">Track</a></nav>
+<body>
+
+<header class="bar">
+  <div class="inner">
+    <a class="mark" href="maddy-founder-plan.html"><span class="dot"></span>Maddy</a>
+    <nav class="tabs">
+      <a href="maddy-founder-plan.html">Start</a>
+      <a href="maddy-plan-videos.html" class="on">Videos</a>
+      <a href="maddy-plan-moat.html">Moat</a>
+      <a href="maddy-plan-channels.html">Channels</a>
+      <a href="maddy-plan-system.html">System</a>
+      <a href="maddy-plan-map.html">Track</a>
+    </nav>
+  </div>
 </header>
-<main class="wrap">
-<div class="page-head">
-<div class="eyebrow">Film mode</div>
-<h1>Videos</h1>
-<p class="sub">One production standard, the videos already shipped, and a bank of twenty-four ready-to-shoot pieces. Every card tells you exactly what to say first, what to put on screen, and where to land.</p>
-<div class="time">Read the standard once. Then pick the one you film today.</div>
-</div>
 
-<p class="lead">Everything here runs to one method, learned from the first four videos: lead with the sharpest line, no warm-up; put a hook on screen for the muted scroll; keep it under forty seconds; end on the line that lands. You film on your phone and drop the clip in Drive. The cut, captions, hook card, and review link come back to you.</p>
+<div class="wrap">
 
-<h2 class="blk">The shot standard</h2>
-<p class="lead">This is the part that was missing. Not "a beat sheet," the actual direction. Every card below assumes these eight. You do not re-decide them per video.</p>
+  <div class="hero">
+    <div class="eyebrow">Production board &middot; single source of truth</div>
+    <h1>The video build guide</h1>
+    <p>This is the one place the video work lives. Each card is one video, shoot-and-hand-back ready: it opens with a hook built to stop the scroll, speaks to one of the four acquisition audiences (the Circle roles), shows how Maddy answers what that person is actually struggling with, and ends with the real ask, the free beta. Below the four audiences sit Maddy's own co-design videos, in her voice, filmed only when she opts in. Film it, drop the clip in iCloud, I finish it in Descript, you post.</p>
+  </div>
 
-<div class="callout info">
-<h4>The eight, every time</h4>
-<ol>
-<li><strong>Frame.</strong> Vertical, 1080 by 1920. Chest-up, phone at eye height, eyes into the lens, not the screen. Soft light from one side (a window works). Quiet room.</li>
-<li><strong>Say it first.</strong> Your opening words are the hook. No "so," no "today I want to talk about," no "hey everybody." The hardest, truest line comes out of your mouth in second one.</li>
-<li><strong>Hook card.</strong> Big on-screen text for the first ~1.5 seconds, upper third, above your face, then it clears. This is what stops a muted scroll. Each card gives you the exact words.</li>
-<li><strong>Punch-ins.</strong> A subtle zoom on two or three emphasis beats to carry energy and hide the cuts. Each card names them. You do not film these, they get added in the edit.</li>
-<li><strong>Tighten.</strong> Target 30 to 40 seconds. Every gap and breath gets cut. Energy over completeness.</li>
-<li><strong>Captions.</strong> All-caps, white with a heavy shadow, yellow active word, sitting at 82% down the frame so nothing clips on mobile. Burned in, so they travel with the file. Added in the edit.</li>
-<li><strong>Button.</strong> End on the line that resonates, never on "more to come" or "anyway." Each card gives you the closing line.</li>
-<li><strong>Audio.</strong> Your <strong>master is voice plus captions, no music.</strong> On TikTok you add a trending sound in the app at 15 to 20 percent (keep your original audio at 100). A baked-in music bed only goes on a version for places you will not add a native sound (LinkedIn, a fire-and-forget Short). Never both, or the two tracks fight.</li>
-</ol>
-</div>
+  <div class="handoff">
+    <span class="ic">&#9729;</span>
+    <div><b>Handoff:</b> drop the raw clip in iCloud Drive, full resolution, no re-export. I pull it straight into Descript. Size is not a factor. The b-roll and app screens each card needs are already in the vault, linked on the card.</div>
+  </div>
 
-<div class="callout">
-<h4>The loop, start to posted</h4>
-<p>Film on your phone (one clean take is enough, stumbles get cut). Drop the clip in the <strong>Maddy App Videos</strong> Drive folder and make sure the folder is set to <strong>Anyone with the link</strong> so the cut can pull it. The clip comes back as a cut with the hook card, punch-ins, captions, and Studio Sound, plus a private review link you approve on your phone and the post copy. You add the trending sound and post.</p>
-<p class="small">One Drive note: clips over ~120MB trip Google's large-file warning page. If one bounces, a fresh "copy link" on that specific file clears it.</p>
-</div>
+  <div class="dash">
+    <div class="row">
+      <div class="stat"><div class="n" id="n-total">0</div><div class="l">Videos</div></div>
+      <div class="stat"><div class="n" id="n-posted" style="color:var(--posted)">0</div><div class="l">Posted</div></div>
+      <div class="stat"><div class="n" id="n-prog" style="color:var(--editing)">0</div><div class="l">In motion</div></div>
+      <div class="stat"><div class="n" id="n-todo" style="color:var(--planned)">0</div><div class="l">To film</div></div>
+      <div class="stat" style="border-right:none"><div class="n" id="n-gate" style="color:var(--gate)">0</div><div class="l">Consent to clear</div></div>
+    </div>
+    <div style="padding:13px 17px 4px"><div class="bar-track"><div class="bar-fill" id="progfill" style="width:0%"></div></div></div>
+    <div class="next">
+      <span class="lab">Next up</span>
+      <span class="who" id="nextwho">All caught up</span>
+      <a id="nextlink" href="#">Open</a>
+    </div>
+  </div>
 
-<div class="callout warn">
-<h4>Two lines that never move</h4>
-<p><strong>Honesty boundary.</strong> The mechanism can carry a cross-population claim ("this kind of support is documented to help across these brains"). Maddy never can ("Maddy is proven to help X"). Name the mechanism, not the product, as the subject.</p>
-<p><strong>Maddy's consent.</strong> Anything that names her, uses her words, or shows her is opt-in per piece, reviewed as a finished asset, with a cooling beat and two yeses, logged in JER-384. Her inner world is not a content farm.</p>
-</div>
+  <div class="controls">
+    <input class="search" id="search" type="text" placeholder="Search hooks, topics, assets (dishes, gone, hovering, couch, shower)">
+    <div class="chiprow" id="audchips">
+      <span class="chiplabel">For</span>
+      <button class="chip on" data-aud="all">All</button>
+      <button class="chip" data-aud="user"><span class="swatch"></span>User</button>
+      <button class="chip" data-aud="caregiver"><span class="swatch"></span>Caregiver</button>
+      <button class="chip" data-aud="supporter"><span class="swatch"></span>Supporter</button>
+      <button class="chip" data-aud="peer"><span class="swatch"></span>Peer</button>
+      <button class="chip" data-aud="codesign"><span class="swatch"></span>Co-design</button>
+    </div>
+    <div class="chiprow" id="stchips">
+      <span class="chiplabel">Status</span>
+      <button class="chip on" data-st="all">All</button>
+      <button class="chip" data-st="todo">To film</button>
+      <button class="chip" data-st="filming">Filming</button>
+      <button class="chip" data-st="editing">Editing</button>
+      <button class="chip" data-st="posted">Posted</button>
+    </div>
+    <div class="countnote" id="countnote"></div>
+  </div>
 
-<h2 class="blk">Shot and shipped</h2>
-<p class="lead">Four filmed so far. Videos 1 and 2 are posted. Videos 3 and 4 are cut and waiting on your review (and Maddy's consent, since both name her). These are the finished shot lists, what was actually said, framed, and built, so the next ones match.</p>
+  <div id="eplist">
 
-<div class="shotcard">
-<h4><span class="epstatus">SHOT</span>Video 1 &middot; The channel intro <span style="opacity:.6;font-weight:400">(posted)</span></h4>
-<div class="meta">~45s &middot; founder intro, not a bank episode &middot; the "who is this guy" piece</div>
-<div class="epbody">
-<div class="f spec"><div class="k">Said first</div><div class="v sayfirst">"I'm Jeremy. I'm Maddy's dad, and the co-designer and builder of the Maddy app."</div></div>
-<div class="f spec"><div class="k">Arc</div><div class="v">Intro &rarr; invitation to join the waitlist and test &rarr; the dad-and-daughter story of giving her a path and removing the daily-living obstacles.</div></div>
-<div class="f spec"><div class="k">Button</div><div class="v">"Excited to share the story behind the Maddy app."</div></div>
-<div class="f spec"><div class="k">Note</div><div class="v">Posted before the standard above existed, so it opens warmer and softer than the new cuts. Fine as a pinned "start here." Future intros lead harder.</div></div>
-<div class="f spec"><div class="k">TikTok copy</div><div class="v">Meet the guy behind Maddy. A dad, a daughter, and an app built to clear the daily-living obstacles so her gifts get to show up. Maddy is AuDHD+ designed to support all executive-functioning needs, and it is almost ready. Want in early? Join the wait list and become a tester. <em>#AuDHD #neurodivergent #executivefunction #buildinpublic #founderstory</em></div></div>
-<div class="f spec"><div class="k">Instagram copy</div><div class="v">Behind every app is a reason. Ours has a name.<br><br>Maddy started with a dad trying to give his daughter a real path: one that lets all of her giftedness reach the world and takes the daily-living obstacles off her plate. Co-designed with her, built for AuDHD+ and every brain where starting is the wall.<br><br>More of the story is coming in the days ahead, the behind-the-scenes and the why and the build. Your input shapes it. Join the wait list, become a tester, and help us get this right before it opens to everyone.<br><br>Love, J (Maddy's dad)</div></div>
-</div>
-</div>
+  <!-- ===================== CAREGIVER ===================== -->
 
-<div class="shotcard">
-<h4><span class="epstatus">SHOT</span>Video 2 &middot; The capability contrast <span style="opacity:.6;font-weight:400">(posted &middot; Ep 01)</span></h4>
-<div class="meta">~67.6s &middot; this is bank Ep 01, filmed</div>
-<div class="epbody">
-<div class="f spec"><div class="k">Said first</div><div class="v sayfirst">The contradiction: he could travel the world and trust Maddy could navigate the airport, the ticket, a new country, the transit, all solo, no worry, because she is that good.</div></div>
-<div class="f spec"><div class="k">Arc</div><div class="v">That navigational brilliance is an AuDHD giftedness &rarr; the daily-living stuff is the genuinely hard part &rarr; he is the ADHDer &rarr; built it together &rarr; hope-framed close.</div></div>
-<div class="f spec"><div class="k">Button</div><div class="v">"As it has helped her, we hope it helps everyone who needs more executive-functioning support."</div></div>
-<div class="f spec"><div class="k">Note</div><div class="v">Capability-framed, no asserted trip. Hope, not proof. Clean against the honesty boundary. Longer than the new 30-40s target, runs on its own strength.</div></div>
-<div class="f spec"><div class="k">TikTok copy</div><div class="v">She could navigate the airport, the ticket, the plane, a brand-new country, and the transit on the other side, all on her own. Starting the everyday stuff is the part that's hard. That contradiction is what AuDHD can look like, and it's why we built Maddy: AuDHD+ designed to support all executive-functioning needs. More to come. <em>#AuDHD #ADHD #autism #neurodivergent #executivefunction</em></div></div>
-<div class="f spec"><div class="k">Instagram copy</div><div class="v">Here's a contradiction that helped build Maddy.<br><br>My daughter could cross the world on her own: find the airport, get the ticket, board the plane, land somewhere new, figure out the transit, reach the hotel. No worry on my end, because she is that good. That navigational brilliance is one of the giftednesses so many AuDHDers carry.<br><br>The hard part sits at the other end: the daily-living stuff. The repetitive, unstructured, unglamorous things that living just requires. That's where the wall is.<br><br>So we built the app together. As it has helped her, we hope it helps everyone who needs a little more executive-functioning support. More to come.<br><br>Love, J (Maddy's dad)</div></div>
-</div>
-</div>
-
-<div class="shotcard">
-<h4><span class="epstatus">SHOT</span>Video 3 &middot; The "lazy" reframe <span style="opacity:.6;font-weight:400">(in review &middot; blends Ep 02 + Ep 05 + Ep 11)</span></h4>
-<div class="meta">~43s &middot; cut, captioned, hook card and punch-ins in &middot; awaiting your review + Maddy consent</div>
-<div class="epbody">
-<div class="f spec"><div class="k">Frame</div><div class="v">Chest-up, eyes to lens, even light.</div></div>
-<div class="f spec"><div class="k">Said first</div><div class="v sayfirst">"It's easy and painful to think that your kid is just lazy."</div></div>
-<div class="f spec"><div class="k">Hook card</div><div class="v"><span class="hookcard">your kid isn't lazy</span> &mdash; first 1.5s, upper third.</div></div>
-<div class="f spec"><div class="k">Built order</div><div class="v">lazy (the pain) &rarr; for the AuDHD and ADHD community it's shame, the challenge to start is rarely laziness &rarr; we do so many things well, but the starting is hard &rarr; that's why we built the Maddy app, I didn't want to think of myself, and especially my daughter, as lazy.</div></div>
-<div class="f spec"><div class="k">Punch-ins</div><div class="v">"lazy" (open), "the starting is hard," "my daughter."</div></div>
-<div class="f spec"><div class="k">Button</div><div class="v">"I wanted to provide a way for her to become." (the weak "more to come" tag was cut)</div></div>
-<div class="f spec"><div class="k">Caption fix</div><div class="v">Auto-transcript wrote "Mati App," corrected to "Maddy app."</div></div>
-<div class="f spec"><div class="k">B-roll to grab</div><div class="v">Still missing and worth it: a full sink, a hand hovering then starting, the app's "just one thing" screen. Cut these over the back half later.</div></div>
-<div class="f spec"><div class="k">TikTok copy</div><div class="v">Your kid isn't lazy. For AuDHD and ADHD brains the wall was never laziness, it's starting. We do so many things brilliantly. The starting is the hard part. That's why we built Maddy. <em>#AuDHD #ADHD #neurodivergent #executivefunction #parenting</em></div></div>
-<div class="f spec"><div class="k">Instagram copy</div><div class="v">"Lazy" is the word that does the most damage.<br><br>As a parent, it is easy and painful to land there: your kid won't start, so maybe they're just lazy. For those of us in the AuDHD and ADHD community, that word is shame, because the struggle to start was almost never about laziness. So many things these brains do brilliantly. The starting is the wall.<br><br>That's another reason we built Maddy. Refusing to see myself, and especially my daughter, as lazy. Building her a way to begin instead.<br><br>More to come.<br><br>Love, J (Maddy's dad)</div></div>
-</div>
-</div>
-
-<div class="shotcard">
-<h4><span class="epstatus">SHOT</span>Video 4 &middot; Why it's named Maddy <span style="opacity:.6;font-weight:400">(in review &middot; Ep 03)</span></h4>
-<div class="meta">~33s &middot; cut, captioned, hook card and punch-ins in &middot; awaiting your review + Maddy consent</div>
-<div class="epbody">
-<div class="f spec"><div class="k">Frame</div><div class="v">Warm, chest-up, eyes to lens.</div></div>
-<div class="f spec"><div class="k">Said first</div><div class="v sayfirst">"Maddy is the co-designer of this app. She's also my daughter. And she's an AuDHDer." (the "so why is it named Maddy, well because" preamble was cut)</div></div>
-<div class="f spec"><div class="k">Hook card</div><div class="v"><span class="hookcard">i named this app after my daughter</span> &mdash; first 1.5s, upper third.</div></div>
-<div class="f spec"><div class="k">Built order</div><div class="v">co-designer + daughter + AuDHDer &rarr; the app was a way for the two of us to initiate daily-living skills, for her to feel better and for me to parent better &rarr; turns out a lot of people want that.</div></div>
-<div class="f spec"><div class="k">Punch-ins</div><div class="v">"co-designer," "AuDHDer," "all of you."</div></div>
-<div class="f spec"><div class="k">Button</div><div class="v">"We named it after her, but built it for all of you."</div></div>
-<div class="f spec"><div class="k">Caption fix</div><div class="v">"Maddie" to "Maddy," "AuDHD-er" to "AuDHDer."</div></div>
-<div class="f spec"><div class="k">B-roll to grab</div><div class="v">The app screens for the features she shaped; a sketch or notebook if one exists, with her okay.</div></div>
-<div class="f spec"><div class="k">TikTok copy</div><div class="v">I named the app after my daughter. She's the co-designer, she's an AuDHDer, and we built it to actually start the daily stuff together. Named after her, built for all of you. <em>#AuDHD #neurodivergent #executivefunction #founderstory</em></div></div>
-<div class="f spec"><div class="k">Instagram copy</div><div class="v">Why is the app named Maddy?<br><br>Because Maddy is the co-designer. She's also my daughter, and she's an AuDHDer. The app started as the thing the two of us built together: a way to actually initiate the daily-living stuff, for her to feel better about her day and for me to parent better.<br><br>Then it turned out a lot of people want exactly that kind of support. So we named it after her, and built it for all of you.<br><br>Love, J (Maddy's dad)</div></div>
-</div>
-</div>
-
-<p class="small">The other twenty episodes below are written to this exact standard, so any one of them shoots the same way these did. The TikTok and Instagram copy gets written for each when it is filmed, the way it is shown on the four cards above.</p>
-
-<h3>The episode bank</h3>
-      <p>Twenty-four episodes in six categories. Each opens into a directive card: what to say first, the hook card, the frame, the beats, the button, the b-roll, the punch-ins, the call, why it works, where Maddy could come in, and how to repurpose it. The four already filmed are badged. Filter or search, then tap to open.</p>
-
-      <div class="eptools">
-        <div class="row1">
-          <input class="epsearch" id="epsearch" type="text" placeholder="Search episodes (e.g. shame, OT, time, fade, shot)...">
-        </div>
-        <div class="row1" style="margin-top:8px">
-          <button class="fchip on" data-f="all">All 24</button>
-          <button class="fchip" data-f="origin">Origin</button>
-          <button class="fchip" data-f="problem">Problem</button>
-          <button class="fchip" data-f="caregiver">Caregiver</button>
-          <button class="fchip" data-f="build">Build-in-public</button>
-          <button class="fchip" data-f="plus">The "+"</button>
-          <button class="fchip" data-f="values">Values</button>
-          <span class="epcount" id="epcount"></span>
+  <details class="ep" data-aud="caregiver" data-id="C1" data-consent="gated" data-kw="gone future fear support system circle outlive independence caregiver night">
+    <summary><span class="num">C1</span><span class="aud-badge caregiver">Caregiver</span><span class="hooktext">"What happens to her when I'm gone?"</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">A dark bedroom ceiling. A clock reads 3:00. No music, just the room.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>Silence and the dark do the work.</strong> Hold the still ceiling one full beat before any words. It reads as the exact 3am every one of these parents knows.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"What happens to her when I'm gone?"</span></div>
         </div>
       </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Caregiver.</b> What they say right now: the fear isn't death, it's leaving behind a person who still can't do the daily things alone. The literature calls it building a support system that outlasts you. Nobody says it out loud. Saying it is the whole hook.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>The fear is that support equals you, and you run out. Maddy's Circle spreads the daily support across the people who love her, so it does not all live in one person. And the design goal is to fade: the scaffolding steps back as she builds the start on her own. Built so the support outlasts any one person in it.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"The beta is open and it's free. If you carry this, come see what we built." Join on TestFlight: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>. Or start at mymaddy.app.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the ceiling, the question. <span class="beat">3-18s</span>name the real fear: not being there, and the daily things still being hard. <span class="beat">18-40s</span>the reframe: support shouldn't be one person who runs out. <span class="beat">40s+</span>what a Circle that outlasts you looks like.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Cold open on the held ceiling shot (you), no captions for the first beat, let it breathe. Bring captions in on the question. Cut to <code>broll-circle</code> as you describe the Circle, <code>broll-showingup</code> on the fade line. Studio Sound. End card with the TestFlight line.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-circle-1080.mp4</a>
+        <a class="asset-link broll">&#127909; broll-showingup-1080.mp4</a>
+        <span class="asset-need">&#9729; your talking-head clip</span>
+      </div></div></div>
+      <div class="f"><div class="k">Why it works</div><div class="v">It says the unsayable in the first second. Recognition that deep gets saved and sent to the other parent, which is the share that actually moves people.</div></div>
+      <div class="consent"><b>Consent:</b> names Maddy and tells her story. Log the per-piece entry in JER-384 before this is marked posted.</div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <div id="epwrap">
-
-      <h4 style="margin-top:6px">A / Origin (the spine story)</h4>
-
-      <details class="ep" data-cat="origin" data-aim="caregiver" data-kw="origin fly travel dishes capability performance contradiction shot shipped ep01">
-        <summary><span class="epn">01</span><span class="epstatus">SHOT</span><span class="ephook">"She could fly across the world alone but could not start the dishes."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-care">caregiver</span> the contradiction that earns the follow &middot; <strong>filmed as Video 2</strong></div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"My daughter could fly across the world alone but could not start the dishes."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">she can cross the world alone. she can't start the dishes.</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, direct to camera, no intro.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span> the contradiction. <span class="beat">3-15s</span> the two side by side (the big thing she can do, the small thing that stops her). <span class="beat">15-35s</span> the insight: novel tasks come with structure, urgency, a destination; daily tasks come with none. <span class="beat">35-50s</span> name it: task initiation, not laziness.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"Her brain can do the hard thing. It just cannot generate the start on its own. So we built the start."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A departures board or world map, then a full sink; a phone timer starting; the app's "just one thing" screen to close.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"capability is not the problem" / "initiation is" / "this is not laziness"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"start the dishes," "initiation," "we built the start."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow. No link on this one; let it land.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">The contradiction stops the scroll because it sounds impossible, then resolves into recognition. Caregivers have watched this exact gap and been told it was defiance. Naming it as initiation is a relief, and relief gets saved and shared.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Named-only is plenty ("co-designed with Maddy"). Her words optional: one line she wrote about the gap.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">The anchor for the YouTube origin film. Threads: the contradiction as a one-liner.</div></div>
+  <details class="ep" data-aud="caregiver" data-id="C2" data-consent="gated" data-kw="fly world alone dishes initiation contradiction capability posted batch01">
+    <summary><span class="num">C2</span><span class="aud-badge caregiver">Caregiver</span><span class="hooktext">She could fly across the world alone. She couldn't start the dishes.</span><span class="status-pill" data-s="posted">posted</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">Hard split: left a departures board, right a stacked sink. No face yet.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>The gap is the visual.</strong> Cut hard between the halves on the first beat, then collapse to one frame.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"She could fly across the world alone. She couldn't start the dishes."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Caregiver.</b> The contradiction sounds impossible, then resolves into recognition. Already live and the strongest performer, kept as the anchor.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>Capability was never the problem. The start is. Maddy is built to generate the first step on the days the brain can't, so the gap between what she can do and what she can begin gets smaller.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">Follow on this one (it earned the trust). Carry the TestFlight line in the caption: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Already cut and live (Video 2, batch01). Listed here so the anchor sits in the bank.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets"><a class="asset-link" href="https://share.descript.com/view/m9Fd6hECOa8" target="_blank">&#9654; posted cut (Descript)</a></div></div></div>
+      <div class="consent"><b>Consent:</b> live, but the JER-384 entry still needs to be logged. Close the consent debt for the four already posted.</div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="origin" data-aim="caregiver" data-kw="origin lazy turn moment realized shot shipped video3">
-        <summary><span class="epn">02</span><span class="epstatus">SHOT</span><span class="ephook">"The night I stopped thinking my kid was lazy."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-care">caregiver</span> the emotional turn, parent to parent &middot; <strong>shipped as Video 3</strong> (blended with the starting-is-the-wall idea)</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"It's easy and painful to think that your kid is just lazy." (the cut Video 3 uses)</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">your kid isn't lazy</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Lower light, quieter delivery if you reshoot a purer version of this beat.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-4s</span> the line. <span class="beat">4-25s</span> one specific scene (a task undone, your old frustration, the moment you saw the effort underneath). <span class="beat">25-45s</span> what shifted in you. <span class="beat">45-55s</span> the resolve that led to the app.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"She was not refusing. She was stuck at the start. Once I saw that, I could not unsee it."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">Minimal; let your face carry it. A single cutaway of a quiet kitchen at night.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"effort I couldn't see" / "stuck, not refusing"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"lazy," "the moment I saw it," "stuck at the start."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Vulnerability from a parent who admits they got it wrong is disarming. Every caregiver watching has had that frustration; you are giving them permission to forgive themselves and re-see their kid.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Out or named-only. This is your interior, not hers. Keep her private experience off it unless she offers a line.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Substack or the origin film's emotional center. Carousel: the scene as 3 slides.</div></div>
+  <details class="ep" data-aud="caregiver" data-id="C3" data-consent="gated" data-kw="reminders nagging prompt dependency parenting backfire caregiver more needed">
+    <summary><span class="num">C3</span><span class="aud-badge caregiver">Caregiver</span><span class="hooktext">I kept reminding her. That's exactly why she couldn't do it.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">A phone, a long column of sent texts: "did you," "don't forget," "are you up." All from you. All unanswered.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>The wall of your own messages.</strong> Scroll the sent texts fast, then stop dead. The pile is the picture of trying too hard.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"I kept reminding her. That's exactly why she couldn't do it."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Caregiver.</b> What they say right now: reminding feels like helping, but it reads as criticism and creates dependence. The research is blunt, parenting your person is corrosive, and every reminder makes them rely on you more.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>Maddy holds the structure so you don't have to be the reminder. The prompt comes from the app, not from you, which takes the nagging out of the relationship and lets the dependence shift from you to a system designed to fade.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"If you've become the human reminder, this is the off-ramp." Free beta on TestFlight: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the text pile. <span class="beat">3-20s</span>the trap: more reminders, more dependence, more resentment. <span class="beat">20-40s</span>the shift: let the app carry the prompt. <span class="beat">40s+</span>what changed between you when you stopped.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on a screen-recording of the sent-text pile (capture needed). Cut to you for the turn. <code>broll-checkin</code> when you describe the app carrying the prompt, <code>broll-circle</code> on the relationship line. Captions throughout, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-checkin-1080.mp4</a>
+        <a class="asset-link broll">&#127909; broll-circle-1080.mp4</a>
+        <span class="asset-need">&#128247; screen-rec: a wall of sent reminder texts</span>
+        <span class="asset-need">&#9729; your talking-head clip</span>
+      </div></div></div>
+      <div class="consent"><b>Consent:</b> names Maddy and her story. Log JER-384 before posted.</div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="origin" data-aim="user" data-kw="origin name namesake co-design why shot shipped ep03 video4">
-        <summary><span class="epn">03</span><span class="epstatus">SHOT</span><span class="ephook">"I named the app after her because she designed half of it."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> the co-design truth, the thing no competitor can stage &middot; <strong>filmed as Video 4</strong></div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"Maddy is the co-designer of this app. She's also my daughter. And she's an AuDHDer."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">i named this app after my daughter</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Warm, chest-up, eyes to lens.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-4s</span> the identity hook. <span class="beat">4-25s</span> two or three things she specifically asked for and why. <span class="beat">25-40s</span> what changes when the person it is for is in the room. <span class="beat">40-50s</span> the name is the promise.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"We named it after her, but built it for all of you."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">The app screens for the features she shaped; a notebook or sketch if one exists, with her okay.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"built with, not built for" / feature names she chose</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"co-designer," "AuDHDer," "all of you."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Co-design is the proof point. It converts both audiences at once: peer credibility for AuDHD adults, hope for caregivers.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Strong candidate for "her words" or "her presence" if she wants it. Even a single line in her voice lands hard here. Her choice, per Section 01.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Pin this. It is the brand-defining piece. Carousel of "features she asked for."</div></div>
+  <details class="ep" data-aud="caregiver" data-id="C4" data-consent="gated" data-kw="lazy character not laziness task initiation reframe caregiver wrong">
+    <summary><span class="num">C4</span><span class="aud-badge caregiver">Caregiver</span><span class="hooktext">I called my kid lazy for years. I was wrong.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">The single word LAZY, large, on a plain card. Then it gets struck through.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>The word, then the strike.</strong> The blunt word stops the scroll because parents flinch at it. The strike-through is the promise of the correction coming.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"I called my kid lazy for years. I was wrong, and here's what it really was."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Caregiver.</b> What they say right now: they used the word, they regret it, and they're starved for the real explanation. The reframe in the community is exact, it's a support problem, not a character problem.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>What looked like laziness is task initiation, a wiring thing, not a worth thing. Maddy is built around that one truth: it generates the start, so the thing that looked like not caring turns out to be a gap you can scaffold.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"If you've said it too, you're not a bad parent, you were missing one word." Free beta: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the word, struck. <span class="beat">3-18s</span>own it honestly. <span class="beat">18-38s</span>name it: task initiation, not laziness. <span class="beat">38s+</span>what changed when you saw it right.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Title-card open ("LAZY" then strike, built in Descript). Cut to you for the confession and the turn. <code>broll-day-low</code> on the initiation explainer, app start screen to close. Captions, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-day-low-1080.mp4</a>
+        <span class="asset-need">&#128247; app: the start / first-step screen</span>
+        <span class="asset-need">&#9729; your talking-head clip</span>
+      </div></div></div>
+      <div class="consent"><b>Consent:</b> names Maddy. Log JER-384 before posted.</div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="origin" data-aim="caregiver" data-kw="origin not a developer built anyway failed every app">
-        <summary><span class="epn">04</span><span class="ephook">"I am not a developer. I built this anyway, because every app we tried failed her."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-care">caregiver</span> the dad-built stakes</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"I am not a developer. I built this anyway."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">i'm not a developer. i built it anyway.</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, plain, honest.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-4s</span> the admission. <span class="beat">4-22s</span> the apps you tried and how each failed her. <span class="beat">22-40s</span> the decision to build. <span class="beat">40-50s</span> what it cost and why it was worth it.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"I did not want to build an app. I wanted my kid to have a morning that did not break her. Nothing out there did that, so here we are."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A phone home screen full of app icons; the Maddy app opening; you at a laptop late.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"five apps, none stuck" / "so I built the sixth"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"not a developer," "failed her," "here we are."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow. Occasional waitlist link.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">The underdog, parent-built story is exactly what this community shares. It signals stakes and sincerity, the opposite of a brand.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Named-only.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Reddit founder post (r/SideProject style), YouTube origin film act two.</div></div>
+  <!-- ===================== USER (solo-safe) ===================== -->
+
+  <details class="ep" data-aud="user" data-id="U1" data-consent="open" data-kw="todo list built for neurotypical brain not yours cornell scaffold user solo research">
+    <summary><span class="num">U1</span><span class="aud-badge user">User</span><span class="hooktext">Your to-do list keeps failing you because it was built for a brain you don't have.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">A clean, perfect to-do app. Crisp checkboxes. Then a crack runs straight down the middle of it.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>The tool breaks, not you.</strong> The satisfying app cracking is the scroll-stopper. It moves the blame off the viewer and onto the thing they've been told to use.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"Your to-do list keeps failing you because it was built for a brain you don't have."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>User (works solo).</b> What they say right now: every productivity app assumes you can already self-regulate and feel time. A March 2026 Cornell paper says the same, these tools are built for neurotypical brains and leave everyone else blaming themselves. This is the relief of "it was the tool."</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>Maddy is built for how your brain actually starts. It hands you one thing sized to your capacity, not a 12-item freeze, and there's no streak to break and no failure state. Works entirely on your own, the Circle is there only if you want it.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"If every app has made you feel broken, try one that didn't assume your brain." Free beta on TestFlight: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the perfect app cracks. <span class="beat">3-20s</span>why generic lists fail this brain: they assume self-start and time-sense. <span class="beat">20-40s</span>what built-for-you looks like: one thing, your capacity, no punishment. <span class="beat">40s+</span>the ask.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on an app screen-recording with a crack overlay/title animation built in Descript. Cut to you. <code>broll-day-low</code> on the capacity line, app focus screen ("just one thing") to close. Captions, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-day-low-1080.mp4</a>
+        <span class="asset-need">&#128247; app: focus screen at low capacity ("just one thing today")</span>
+        <span class="asset-need">&#9729; your talking-head clip</span>
+      </div></div></div>
+      <div class="f"><div class="k">Why it works</div><div class="v">It's the rarest thing in this feed: it tells the viewer they were never the problem, and it's backed by current research, which makes it shareable as proof, not just opinion.</div></div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <h4>B / Problem episodes (the "that is my kid / that is me" recognition)</h4>
-
-      <details class="ep" data-cat="problem" data-aim="user" data-kw="problem task initiation wall starting freeze spoon paralysis">
-        <summary><span class="epn">05</span><span class="ephook">"Starting is the wall. Not the doing. The starting."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> the core recognition, your highest-save piece</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"For a lot of us, starting is the wall. Not the doing. The starting."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">starting is the wall</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Direct, chest-up.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-4s</span> the line. <span class="beat">4-20s</span> the felt experience (you want to, you care, you are still standing there). <span class="beat">20-35s</span> why: the start needs a trigger the brain cannot always generate. <span class="beat">35-45s</span> what an external start looks like.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"Once it starts, you are fine. The whole game is the first step. So we made something that takes the first step for you."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A hand hovering over a task; a timer that starts; "just one thing" on screen.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"you're not lazy" / "the start is the hard part"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"the wall," "the start," "first step."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">None. Let it get saved. Saving is how people say "this is me."</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">This is the community's native sentence. It is also true across ADHD, autism, long COVID, and more, which is why it travels far beyond AuDHD. Expect this to be your most-saved and most-shared.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Out. This is a peer-to-peer recognition piece in your voice.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">YouTube Short, Threads one-liner, the line on a quote card.</div></div>
+  <details class="ep" data-aud="user" data-id="U2" data-consent="open" data-kw="just start override neurology vibes willpower user solo initiation">
+    <summary><span class="num">U2</span><span class="aud-badge user">User</span><span class="hooktext">"Just start" is asking me to override my own neurology with vibes.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">A hand hovering over a single task, frozen, not landing. Held still.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>The freeze, then a hard word-snap.</strong> The motionless hand, then the word "vibes" snaps onto screen on the beat. The contrast between effort and the dismissive word is the hook.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"When you tell me to just start, you're asking me to override my neurology with vibes."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>User (works solo).</b> What they say right now, almost verbatim: "just start" means "please override your neurobiology using vibes." It's the most hated advice in the community. Weaponizing it back is instant in-group recognition.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>Maddy doesn't tell you to start, it generates the start for you. The first step is already chosen and sized down, so you're not relying on willpower you can't summon. On your own, no circle required.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"Stop trying to vibe your way past your wiring. Let something build the start." Free beta: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>frozen hand, "vibes" snap. <span class="beat">3-18s</span>the gap between intending and doing is real and physical. <span class="beat">18-35s</span>what actually helps: the start gets made for you. <span class="beat">35s+</span>the ask.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on your frozen-hand shot (or a close b-roll grab), animate the "vibes" text snap in Descript. <code>broll-day-low</code> on the gap line, app first-step screen to close. Captions, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-day-low-1080.mp4</a>
+        <span class="asset-need">&#128247; app: the first-step / start screen</span>
+        <span class="asset-need">&#9729; your talking-head + a frozen-hand grab</span>
+      </div></div></div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="problem" data-aim="caregiver" data-kw="problem interoception hunger fatigue dysregulation falling apart">
-        <summary><span class="epn">06</span><span class="ephook">"She does not feel hungry until she is already falling apart."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-care">caregiver</span> interoception, in plain language</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"She does not feel hungry until she is already falling apart. There is a name for that, and it is not carelessness."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">it's not carelessness. it has a name.</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, calm.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the hook. <span class="beat">5-22s</span> what interoception is (the sense of your own body's signals) and how it runs unreliable. <span class="beat">22-40s</span> why external cues are not babying, they are necessary. <span class="beat">40-50s</span> the check-in as a built place to register what the body is not reporting.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"If your body does not tell you, something else has to. That is not a crutch. That is the accommodation."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A clock; a glass of water; the app check-in screen ("how are you showing up today").</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"interoception" / "the body's signal is unreliable" / "so we made the cue external"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"falling apart," "interoception," "the accommodation."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Most caregivers have never heard the word but have lived the thing. Naming it gives them a model and a reason the design exists.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Her words optional (she could describe the experience). Her presence only if she wants it; this is personal.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Carousel explainer. Useful for practitioner-facing material too.</div></div>
+  <details class="ep" data-aud="user" data-id="U3" data-consent="open" data-kw="shower eleven steps micro steps sensory committee user solo overwhelm">
+    <summary><span class="num">U3</span><span class="aud-badge user">User</span><span class="hooktext">A shower has eleven steps and my brain saw all of them at once.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">A closed bathroom door. Ordinary. Still.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>The list lands on the door.</strong> As you say it, eleven tiny step-labels stack up over the closed door, fast, until it's buried. The pile-up is the overwhelm made visible.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"A shower has eleven steps, and my brain saw all of them at once."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>User (works solo).</b> What they say right now: "the shower that requires a committee meeting." A simple task is really many micro-steps plus transitions plus sensory load, and seeing them all at once is the freeze. Absurd, specific, instantly recognized.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>Maddy shrinks the wall to one next step instead of the whole stack. On a low day it literally narrows to a single thing. You're not staring at eleven steps, you're doing the first one. Solo, no circle needed.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"If a shower can feel like a project, you're not lazy, you're seeing all eleven steps. Here's one that hands you one." Free beta: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the door, the steps pile on. <span class="beat">3-18s</span>why "simple" tasks aren't: micro-steps, transitions, sensory. <span class="beat">18-35s</span>one step instead of the stack. <span class="beat">35s+</span>the ask.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on a closed-door grab, animate the stacking step-labels in Descript. Cut to you. App low-capacity "one thing" screen on the turn. <code>broll-day-low</code> as texture. Captions, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-day-low-1080.mp4</a>
+        <span class="asset-need">&#128247; app: low-capacity "one thing today" screen</span>
+        <span class="asset-need">&#9729; your talking-head + a closed-door grab</span>
+      </div></div></div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="problem" data-aim="user" data-kw="problem list freeze twelve things overwhelm one thing">
-        <summary><span class="epn">07</span><span class="ephook">"A to-do list with twelve things is a freeze machine for this brain."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> why standard productivity advice backfires</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"A to-do list with twelve things on it is not a plan. For this brain it is a freeze machine."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">the list is the problem</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Open on a long list filling the screen, then to you.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-4s</span> the long list. <span class="beat">4-18s</span> what a full list does (everything at once equals nothing). <span class="beat">18-35s</span> the fix: one thing visible, the rest hidden. <span class="beat">35-45s</span> "next up," not "here is everything."</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"You do not need to see all twelve. You need to see the one. Then the next one."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A cluttered list collapsing down to a single task card.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"twelve things = zero things" / "show one"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"freeze machine," "see the one," "the next one."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Everyone in this audience has been handed "just make a list" and watched it fail. Validating that, then showing the actual fix, is high-trust.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Out or named.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Side-by-side carousel (the list vs the one card).</div></div>
+  <details class="ep" data-aud="user" data-id="U4" data-consent="open" data-kw="37 unread inbox freeze decision paralysis shame guilt all day user solo">
+    <summary><span class="num">U4</span><span class="aud-badge user">User</span><span class="hooktext">37 unread. I can't pick which one matters. So I close it, and feel it all day.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">A red badge: 37. It pulses once. Then the screen goes black.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>Pulse, then dark.</strong> The badge throbs like pressure, then the screen closes to black mid-beat. The avoidance is shown, not described.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"37 unread. I can't pick which one matters. So I close it. And feel it all day."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>User (works solo).</b> What they say right now: open the inbox, 37 messages, brain can't decide which matters, close it, feel guilty all day. The freeze plus the shame loop, named exactly.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>Maddy removes the pick-one paralysis by handing you a single focus instead of a wall of choices, and there's no streak and no red-badge guilt waiting if you miss. Nothing resets, nothing punishes. Works on your own.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"If choosing is the part that breaks you, try one that chooses the next thing for you." Free beta: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>badge pulse, black. <span class="beat">3-18s</span>the freeze: too many, can't rank, retreat. <span class="beat">18-35s</span>one focus, no punishment for the miss. <span class="beat">35s+</span>the ask.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open with a badge animation + cut to black built in Descript. Cut to you. App focus screen on the turn, <code>broll-checkin</code> as warmth. Captions, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-checkin-1080.mp4</a>
+        <span class="asset-need">&#128247; app: single-focus screen</span>
+        <span class="asset-need">&#9729; your talking-head clip</span>
+      </div></div></div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="problem" data-aim="user" data-kw="problem time blindness time agnosia late">
-        <summary><span class="epn">08</span><span class="ephook">"Time does not feel real until it is already too late."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> time blindness, named and externalized</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"Time does not feel real to some of us until it is already too late."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">time blindness is real</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, direct.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-4s</span> the line. <span class="beat">4-20s</span> the felt experience (five minutes and an hour feel the same). <span class="beat">20-35s</span> why willpower does not fix a sensing problem. <span class="beat">35-45s</span> making time visible instead of imagined.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"You cannot push harder on a sense you do not have. You can make it visible. That is the whole trick."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A countdown timer; a clock the camera lingers on; the app's guided timer (time made visible while you do the thing).</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"5 minutes and an hour feel the same" / "make time visible"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"too late," "a sense you do not have," "make it visible."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Time blindness is one of the most relatable hooks in the whole ADHD and AuDHD space, and it reaches the long COVID and brain-fog audiences too.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Out.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">YouTube Short. Strong cross-audience reach ("+").</div></div>
+  <details class="ep" data-aud="user" data-id="U5" data-consent="open" data-kw="support problem not character flaw reframe shame user solo no failure state">
+    <summary><span class="num">U5</span><span class="aud-badge user">User</span><span class="hooktext">It's not a character flaw. It's a support problem.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">Two words swap: "character flaw" fades, "support problem" lands in its place, same spot.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>The reframe happens on screen.</strong> The literal word-swap is the whole idea, fast and clean, before you finish the sentence.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"This was never a character flaw. It's a support problem."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>User (works solo).</b> What they say right now: AuDHD adults were trained to treat support needs as moral failures. The reframe lands hard, executive function improves when you engineer the environment, not your personality.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>Maddy is the support, built to be opened on your worst day, not just your best. No streak to break, no failure state, nothing that turns a hard day into proof you failed. You can use it alone, and lean on your Circle only when you want to.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"You don't need to fix your personality. You need support that fits your brain." Free beta: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the word-swap. <span class="beat">3-20s</span>the lie we were taught: needing help is failing. <span class="beat">20-38s</span>support that doesn't punish. <span class="beat">38s+</span>the ask.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Title-card word-swap open built in Descript. Cut to you. <code>broll-showingup</code> on the "no failure state" line, <code>broll-day-low</code> for texture. Captions, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-showingup-1080.mp4</a>
+        <a class="asset-link broll">&#127909; broll-day-low-1080.mp4</a>
+        <span class="asset-need">&#9729; your talking-head clip</span>
+      </div></div></div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="problem" data-aim="user" data-kw="problem shame spiral missed day failure no failure state">
-        <summary><span class="epn">09</span><span class="ephook">"One missed day, and the shame does more damage than the missed task."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> the shame loop, and the no-failure-state answer</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"Miss one day, and the shame does more damage than the thing you actually missed."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">the shame does the damage</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, a little quieter.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the line. <span class="beat">5-22s</span> the spiral (one miss becomes proof you are failing becomes why start). <span class="beat">22-38s</span> why red rings and broken streaks do measurable harm here. <span class="beat">38-48s</span> what a no-failure-state design feels like instead.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"We built it so there is no way to fail. Nothing resets, nothing breaks, nothing shames you. You just start again."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A red broken-streak graphic (then crossed out); the app's calm restart screen.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"no red. no failure screen." / "you just begin again"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"the shame," "no way to fail," "start again."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">This is both an emotional truth and a values statement, and it differentiates hard from gamified streak apps without naming them.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Her words optional and powerful here, but only if she offers; shame is tender ground.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Quote card, carousel on "why streaks hurt this brain."</div></div>
+  <!-- ===================== SUPPORTER ===================== -->
+
+  <details class="ep" data-aud="supporter" data-id="S1" data-consent="open" data-kw="did you do it yet worst text checking nagging supporter outer ring RSD">
+    <summary><span class="num">S1</span><span class="aud-badge supporter">Supporter</span><span class="hooktext">"Did you do it yet" is the most damaging text you can send.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">A phone. A bubble drops in: "did you do it yet??" The thumb moves toward it, then closes the app instead.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>The flinch.</strong> The buzz, the message, then a real beat of the screen closing instead of replying. Both sides of that text feel it.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"If you love someone with ADHD, this is the most damaging text you can send."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Supporter (outer ring).</b> What they say right now: "did you do it yet" reads as criticism, and with rejection-sensitivity it lands as rejection. The advice is unanimous, stop parenting the person you love. This implicates the viewer gently, which is what keeps them watching.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>Maddy gives you a Supporter role that's built to cheer on, not check up. There's no live map, no "last active," no watching-eye anything. You send encouragement, not surveillance, and the app carries the reminding so you don't have to be the one asking.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">Outer ring, so the ask is to spread, not subscribe: "Send this to someone who keeps texting it." Maddy is free in beta, and the person you love can add you to their Circle. <span class="tf">testflight.apple.com/join/Ez1Msh5G</span></div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the flinch. <span class="beat">3-18s</span>why checking in backfires: it's a second task on top of the first. <span class="beat">18-35s</span>what helps: cheer the start, not the streak. <span class="beat">35s+</span>the role that does exactly that.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on a phone screen-recording of the text + close (capture, or staged). Cut to you. App Supporter view ("cheering on") + a reaction being sent on the turn. <code>broll-checkin</code> for warmth. Captions, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-checkin-1080.mp4</a>
+        <span class="asset-need">&#128247; app: Supporter view ("cheering on") + reaction send</span>
+        <span class="asset-need">&#9729; your talking-head clip</span>
+      </div></div></div>
+      <div class="canon"><b>Canon:</b> the app has no watching-eye surface (no map, no last-active, no online dot). The win is the supporter watching less, not better.</div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="problem" data-aim="caregiver" data-kw="problem demand avoidance PDA nagging told to do it harder">
-        <summary><span class="epn">10</span><span class="ephook">"The more I told her to do it, the harder it got for her to start."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-care">caregiver</span> demand sensitivity, why nagging backfires</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"The more I told her to do it, the harder it got for her to start. That is not stubbornness."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">nagging makes it worse</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, honest.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the hook. <span class="beat">5-22s</span> the pattern (the reminder becomes a demand, the demand triggers resistance). <span class="beat">22-38s</span> the reframe: the prompt has to come from the system, not the parent. <span class="beat">38-48s</span> what taking yourself out of the loop does for both of you.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"When the prompt comes from the app instead of from me, the fight disappears. She is not resisting me anymore. There is no me to resist."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A tense kitchen moment (recreated lightly); then a phone gently buzzing a prompt.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"the reminder became a demand" / "let the system prompt, not you"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"harder to start," "not stubbornness," "no me to resist."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Every caregiver of an AuDHD or ADHD kid knows the power-struggle exhaustion. Offering a way out of the fight, framed with empathy, is magnetic to the buyer.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Out or named. Her interior experience of demand stays hers.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Strong caregiver-ad candidate later (warm retargeting only, not cold).</div></div>
+  <details class="ep" data-aud="supporter" data-id="S2" data-consent="open" data-kw="say this instead what to say curious help not fix supporter outer ring">
+    <summary><span class="num">S2</span><span class="aud-badge supporter">Supporter</span><span class="hooktext">Stop asking if they did it. Say this instead.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">A text box. "did you do it yet" is typed, then the backspace runs and deletes it, cursor blinking on empty.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>The delete in real time.</strong> Watching the nag get erased and a better line typed in its place is satisfying and instantly useful, so it gets saved.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"Stop asking if they did it. Say this instead."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Supporter (outer ring).</b> What they say right now, the better lines: "I can see how much effort this takes." "What's the hardest part today?" "I had a feeling, so I grabbed it for you." Curiosity and presence, not fixing. Actionable content gets saved and sent.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>The Supporter role is built around exactly these moves: encouragement and small real help, surfaced at the right moment, with no way to hover. It turns a guilty helper into an effective one.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"Send this to someone who loves an ADHDer." Maddy is free in beta, and gives you a role that does this for you. <span class="tf">testflight.apple.com/join/Ez1Msh5G</span></div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the nag deletes. <span class="beat">3-20s</span>three lines to say instead, fast and concrete. <span class="beat">20-35s</span>why they work: curious, not controlling. <span class="beat">35s+</span>the role built on them.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on a typed-then-deleted text animation in Descript, then on-screen text for the three better lines. Cut to you to land them. App Supporter encouragement surface on the turn. Captions, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <span class="asset-need">&#128247; app: Supporter encouragement / reaction surface</span>
+        <span class="asset-need">&#9729; your talking-head clip</span>
+      </div></div></div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <h4>C / Caregiver-direct (aimed straight at the buyer)</h4>
+  <!-- ===================== PEER ===================== -->
 
-      <details class="ep" data-cat="caregiver" data-aim="caregiver" data-kw="caregiver lazy regret reframe parent">
-        <summary><span class="epn">11</span><span class="ephook">"If you have called your kid lazy and regretted it, this is for you."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-care">caregiver</span> the doorway, the most native line in the space &middot; <em>related territory shipped in Video 3; this is the sharper caregiver-direct cut</em></div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"If you have ever called your kid lazy and then regretted it, this one is for you."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">for the parent who said it</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Direct address, eye contact, chest-up.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the direct address. <span class="beat">5-20s</span> name the guilt without judging it. <span class="beat">20-38s</span> the reframe (it was never laziness, it was the wall at the start). <span class="beat">38-48s</span> what to do instead of pushing harder.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"You were not wrong to want more for them. You were wrong about why it was hard. That is fixable, and it is not your fault or theirs."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">Mostly your face; one cutaway of a parent and young adult.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"it was never laziness" / "the wall is real" / "and it is not your fault"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"regretted it," "never laziness," "not your fault."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow, and an occasional waitlist link, framed as "for when there is something to hand them."</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">"You are not lazy" is the universal line; pointed at the parent instead of the user, it converts the buyer. It offers absolution, which is rare and powerful.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Out. This is parent-to-parent.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Pin for the caregiver audience. Carousel. The caregiver-page hero on the site.</div></div>
+  <details class="ep" data-aud="peer" data-id="P1" data-consent="open" data-kw="couch body double presence alongside friend room suddenly working peer outer ring">
+    <summary><span class="num">P1</span><span class="aud-badge peer">Peer</span><span class="hooktext">My friend sat on my couch. Didn't talk. Didn't help. And suddenly I could work.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">Two people on a couch, each on their own thing, not talking. Warm, quiet, ordinary.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>Calm against a loud feed.</strong> While everything else is shouting, this is still and warm. The contrast stops the scroll. Slow push-in, no hard cut.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"My friend sat on my couch. Didn't talk. Didn't help. And suddenly I could work."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Peer (outer ring).</b> What they say right now, nearly word for word: a friend sat down, said nothing, did nothing, and the task that felt impossible started flowing. It's called body doubling and it's having a moment.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>Maddy carries a quiet, ambient version of that presence inside your own Circle, the people you actually trust, not random strangers. Async and low-key, so being "in the room" works even from far away.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"Send this to the friend you'd want on your couch." Maddy is free in beta and lets you be that presence for each other. <span class="tf">testflight.apple.com/join/Ez1Msh5G</span></div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the quiet two-shot. <span class="beat">3-18s</span>name it: starting is easier when someone is simply present. <span class="beat">18-32s</span>what it is not: not supervising, not nagging. <span class="beat">32s+</span>presence, even from a distance.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on the warm two-shot (b-roll to grab). Slow push-in, soft track. Cut to you for the name-it. <code>broll-circle</code> on the "your people" line, <code>broll-rest</code> for calm. Light captions, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-circle-1080.mp4</a>
+        <a class="asset-link broll">&#127909; broll-rest-1080.mp4</a>
+        <span class="asset-need">&#127909; b-roll to grab: two people, parallel quiet activity</span>
+        <span class="asset-need">&#9729; your talking-head clip</span>
+      </div></div></div>
+      <div class="canon"><b>Canon:</b> body doubling is user-valued and mechanism-plausible (social facilitation), not clinically proven. Frame it as a felt thing that helps, never a proven treatment.</div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="caregiver" data-aim="caregiver" data-kw="caregiver over-help reminder dependence backwards fade">
-        <summary><span class="epn">12</span><span class="ephook">"Every reminder I gave made her depend on me more. I had it backwards."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-care">caregiver</span> the over-help trap, and the fade as the fix</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"Every reminder I gave made her depend on me a little more. I had the whole thing backwards."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">i had it backwards</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, reflective.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the confession. <span class="beat">5-22s</span> the trap (more help, more reliance, less independence). <span class="beat">22-40s</span> the goal was never lifelong prompting; it was a scaffold that fades. <span class="beat">40-50s</span> what designing for your own exit looks like.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"The win is not her needing me forever. The win is her needing me less. So the support is built to fade."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A hand steadying a bike, then letting go; a fading-support concept graphic (frame as the design goal, not a finished screen: the first rung is live but the full fade ladder is still in build, so do not show it as a shipped feature).</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"help that creates dependence" / "scaffolding that fades" / "designed for my exit"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"backwards," "needing me less," "built to fade."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Caregiver-fade is the single most differentiated idea you have. No streak app frames its goal as needing you less. It also answers the caregiver's deepest fear (Ep 14) before they voice it.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Named-only.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Practitioner-facing too: the fade is what OTs mean by graded independence.</div></div>
+  <details class="ep" data-aud="peer" data-id="P2" data-consent="open" data-kw="best hack never prescribed couch every day gap peer outer ring body double">
+    <summary><span class="num">P2</span><span class="aud-badge peer">Peer</span><span class="hooktext">The best ADHD hack no one prescribed. The catch: your friend can't sit on your couch every day.</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">An empty couch, one warm indent left in the cushion. Nobody there.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>The absence.</strong> The empty couch reads as a thing that was working and then left. It sets up the gap before you name it.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"The best ADHD hack no one prescribed. The catch: your friend can't sit there every day."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Peer (outer ring).</b> What they say right now: body doubling is the most effective thing they've found, and the limit is real, your friend can't physically be there every day. That gap is the exact opening for the app.</div></div>
+      <div class="block story"><div class="bt">&#128241; How Maddy answers it</div><div>Maddy fills the couch-can't-be-there-every-day gap with ambient presence from the people already in your Circle. Not a stranger-matching app, the friends you chose, present in a quiet, async way.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"Tag the friend who is your couch person." Maddy keeps that presence going when they can't be there. Free in beta: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span></div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the empty couch. <span class="beat">3-15s</span>the hack that works, and its one limit. <span class="beat">15-30s</span>fill the gap with your own people, quietly. <span class="beat">30s+</span>the tag-a-friend ask.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on an empty-couch grab. Cut to you. <code>broll-circle</code> on the "your people" line, app Peer presence surface on the turn. Captions, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-circle-1080.mp4</a>
+        <span class="asset-need">&#128247; app: Peer view ("standing alongside") + presence signal</span>
+        <span class="asset-need">&#127909; b-roll to grab: an empty couch</span>
+        <span class="asset-need">&#9729; your talking-head clip</span>
+      </div></div></div>
+      <div class="canon"><b>Canon:</b> presence framed as felt and helpful, not a clinical claim. Maddy's async/ambient design avoids the surveillance trap by structure.</div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="caregiver" data-aim="caregiver" data-kw="caregiver scaffolding without nagging support not control practitioner term">
-        <summary><span class="epn">13</span><span class="ephook">"Scaffolding without nagging. That phrase is the whole product."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-care">caregiver</span> name the thing practitioners already say</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"There is a phrase therapists use: scaffolding without nagging. That is the entire thing we built."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">scaffolding without nagging</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, plain.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the phrase. <span class="beat">5-22s</span> what scaffolding means (structure that holds you up while you build the skill). <span class="beat">22-40s</span> why nagging is the opposite (it adds pressure, not structure). <span class="beat">40-50s</span> how a system can scaffold without ever nagging.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"Hold up the structure. Drop the pressure. That is the line we will not cross."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">Literal scaffolding on a building; then the app gently surfacing one step.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"structure, not pressure" / "the therapist's phrase"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"without nagging," "structure not pressure," "won't cross."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">This is the OTs' own language. Using it signals you are inside their frame, which builds practitioner trust and gives caregivers a phrase to carry into their own appointments.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Named-only.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">This is a bridge piece to the practitioner moat (Section 05). Good to send alongside a one-pager.</div></div>
+  <details class="ep" data-aud="codesign" data-id="MC1" data-consent="gated" data-kw="co-design maddy voice no red failure colors she asked dancing script built with">
+    <summary><span class="num">MC1</span><span class="aud-badge codesign">Co-design</span><span class="hooktext">"She asked for no red."</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">Her words come up in her own handwriting (Dancing Script), nothing else on screen: <span class="script" style="font-size:18px">"no red."</span></div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>Her handwriting, not yours.</strong> The shift to her voice signals this is the co-designer talking, not the founder. That is the proof the app was built with an AuDHDer, not just for one.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"She asked for no red. So there's no red."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Co-design (Maddy's voice).</b> Lands with everyone, and it does the one thing marketing can't fake: it shows an AuDHD adult shaped the product. What she asked for: failure colors hurt, so take them out.</div></div>
+      <div class="block story"><div class="bt">&#9998; The feature it became</div><div>The app carries no red, no alert-red, no angry states. A missed day doesn't light up like a warning. That came straight from her ask, and it's shipped: the UI is built so a hard day never looks like a failure on screen.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"This is what built-with looks like. Come see it." Free beta on TestFlight: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>her words, her handwriting. <span class="beat">3-15s</span>your short context: why she asked, why it mattered. <span class="beat">15-30s</span>the screen, no red anywhere. <span class="beat">30s+</span>the ask.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on her line as a Dancing Script title card (built in Descript). Cut to you for the short context. App screen showing the calm, no-red state on the turn. Captions on your voice only, leave her card clean. Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <span class="asset-need">&#128247; app: a calm state screen (showing no failure-red)</span>
+        <span class="asset-need">&#9729; your short context clip</span>
+        <span class="asset-need">&#9999; her line as a Dancing Script card (built in Descript), or her on camera if she opts in</span>
+      </div></div></div>
+      <div class="consent"><b>Consent:</b> her words, her voice, possibly her on camera. Strongest gate. Per-piece JER-384, her approval for this exact piece, before posted.</div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="caregiver" data-aim="caregiver" data-kw="caregiver fear what happens when I am not there future independence aging parent">
-        <summary><span class="epn">14</span><span class="ephook">"Every parent like me has the same 3am fear: what happens when I am gone."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-care">caregiver</span> the deepest fear, answered by the fade</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"Every parent like me has the same fear at 3am. What happens to her when I am not here to help."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">the 3am fear</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Quiet, lower light, honest. Your face carries it.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-6s</span> name the fear plainly. <span class="beat">6-24s</span> why it is real (the help that works today is you, and you will not always be there). <span class="beat">24-42s</span> the only real answer: build independence now, while you can. <span class="beat">42-55s</span> what designing for that future looks like.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"I cannot be there forever. So the job is not to help her more. It is to help her need me less, on purpose, starting now."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">Restrained; your face mostly. One cutaway of a window at night.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"build independence while I can" / "the support is meant to fade"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"3am," "not be there forever," "starting now."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow. Waitlist link appropriate here, gently.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">This is the most emotionally loaded fear in the entire buyer audience, especially for parents of adult kids. Naming it and offering a design philosophy as the answer is deeply resonant. Handle with care, never exploit it.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Out or named-only. This is your fear as a parent; keep it yours unless she explicitly wants to speak to it.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Origin film's closing note. Use sparingly so it never feels like a fear-sell.</div></div>
+  <details class="ep" data-aud="codesign" data-id="MC2" data-consent="gated" data-kw="co-design maddy voice one thing not twelve single step view she asked built with">
+    <summary><span class="num">MC2</span><span class="aud-badge codesign">Co-design</span><span class="hooktext">"She asked to see one thing, not twelve."</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">A full twelve-item list on screen, then everything fades but one line. Her handwriting names it: <span class="script" style="font-size:18px">"one thing."</span></div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>Twelve collapsing to one, on screen.</strong> The visual relief of the list emptying is the hook, and her voice naming it makes it real, not a feature pitch.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"She asked to see one thing, not twelve. So that's the whole screen."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Co-design (Maddy's voice).</b> Shows the single most important design decision came from the person it's for. What she asked: twelve items is the freeze, show me one.</div></div>
+      <div class="block story"><div class="bt">&#9998; The feature it became</div><div>The single-focus view: on a given moment the app hands you one thing, not the whole pile. That's the shipped answer to her ask, and it's the core of how Maddy keeps the list from becoming the wall.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"One thing, because she asked for one thing. See it." Free beta on TestFlight: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>twelve collapse to one, her word. <span class="beat">3-15s</span>your context: why twelve freezes this brain. <span class="beat">15-30s</span>the single-focus screen, live. <span class="beat">30s+</span>the ask.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on an app screen-recording of the list narrowing to one (capture needed), overlay her Dancing Script word. Cut to you for context. Hold on the single-focus screen. Captions on your voice. Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <span class="asset-need">&#128247; app: the single-focus / one-thing screen</span>
+        <span class="asset-need">&#9729; your short context clip</span>
+        <span class="asset-need">&#9999; her line as a Dancing Script card, or her on camera if she opts in</span>
+      </div></div></div>
+      <div class="consent"><b>Consent:</b> her words and voice. Per-piece JER-384, her approval for this exact piece, before posted.</div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <h4>D / Build-in-public (the receipts behind the values)</h4>
-
-      <details class="ep" data-cat="build" data-aim="user" data-kw="build feature removed tore out deleted less is more">
-        <summary><span class="epn">15</span><span class="ephook">"Here is a feature I tore out, even though it tested well."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> proof you build by subtraction</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"Here is a feature I built, tested, and then deleted on purpose. Here is why."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">i deleted this on purpose</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Show the feature on screen, then a delete gesture, then to you.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-4s</span> the reveal. <span class="beat">4-20s</span> what it did and why it seemed good. <span class="beat">20-38s</span> the harm it risked for this brain (added load, pressure, or noise). <span class="beat">38-48s</span> the principle that made the cut obvious.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"If a feature helps the average user but hurts the person we built this for, it loses. Every time."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">The actual UI of the removed feature; a before and after of the screen.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"tested well, still cut" / "less, on purpose"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"deleted," "for this brain," "every time."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Build-in-public earns trust by showing the values are real, not marketing. Deleting a working feature is a costly signal, which is exactly why it is believed.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Her words strong here if the cut came from her feedback ("she said it stressed her out, so it went").</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Reddit founder/indie post; YouTube devlog Short.</div></div>
+  <details class="ep" data-aud="codesign" data-id="MC3" data-consent="gated" data-kw="co-design maddy voice i cant right now no failure state counting against rest capacity she asked">
+    <summary><span class="num">MC3</span><span class="aud-badge codesign">Co-design</span><span class="hooktext">"She asked for a way to say 'I can't right now.'"</span><span class="status-pill" data-s="planned">planned</span><span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <div class="hookblock">
+        <div class="ht">&#9889; The hook (first 2 seconds)</div>
+        <div class="hk">
+          <div class="hkk">First frame</div><div class="hkv">Her handwriting, alone on screen: <span class="script" style="font-size:18px">"I can't right now."</span> Held, calm, no punctuation of alarm.</div>
+          <div class="hkk">The draw</div><div class="hkv"><strong>Permission, in her words.</strong> The sentence everyone's been made to feel guilty for saying, sitting there allowed. That's the stop.</div>
+          <div class="hkk">The line</div><div class="hkv"><span class="theline">"She asked for a way to say I can't right now without it counting against her. So it doesn't."</span></div>
         </div>
-      </details>
+      </div>
+      <div class="f"><div class="k">For</div><div class="v"><b>Co-design (Maddy's voice).</b> The most emotional of the three, it's the no-failure-state told as her ask. What she wanted: a way to opt out of a day without being punished for it.</div></div>
+      <div class="block story"><div class="bt">&#9998; The feature it became</div><div>The no-failure-state. You can have a low day, take rest, say not today, and nothing breaks, nothing resets, nothing counts it against you. That's shipped, and it's the clearest proof the app honors capacity instead of demanding it.</div></div>
+      <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"Built so a hard day is allowed. Come see what that feels like." Free beta on TestFlight: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>her sentence, held. <span class="beat">3-18s</span>your context: why this one mattered most. <span class="beat">18-32s</span>the low-day / rest state, nothing punished. <span class="beat">32s+</span>the ask.</div></div>
+      <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on her Dancing Script sentence (built in Descript), let it breathe, no captions on her card. Cut to you. <code>broll-rest</code> and the app low-day state on the turn. Captions on your voice, Studio Sound.</div></div>
+      <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
+        <a class="asset-link broll">&#127909; broll-rest-1080.mp4</a>
+        <span class="asset-need">&#128247; app: the low-day / rest state (no-failure-state)</span>
+        <span class="asset-need">&#9729; your short context clip</span>
+        <span class="asset-need">&#9999; her line as a Dancing Script card, or her on camera if she opts in</span>
+      </div></div></div>
+      <div class="consent"><b>Consent:</b> her words, her voice, the most personal of the set. Per-piece JER-384, her approval for this exact piece, before posted.</div>
+      <div class="statusctl"><span class="sl">Status</span>
+        <button class="sbtn" data-set="planned">Planned</button><button class="sbtn" data-set="filming">Filming</button><button class="sbtn" data-set="editing">Editing</button><button class="sbtn" data-set="posted">Posted</button><span class="posted-when"></span>
+      </div>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="build" data-aim="user" data-kw="build no streaks no failure state hardest decision gamification">
-        <summary><span class="epn">16</span><span class="ephook">"Cutting the punishing streak was the hardest call I made. Here is why I did it anyway."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> the anti-gamification stance, as a hard choice</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"Cutting the kind of streak you can break was the hardest decision in this whole build. I did it anyway."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">nothing here can be broken</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, direct.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the hook. <span class="beat">5-22s</span> why streaks work for retention (and are tempting for a founder). <span class="beat">22-40s</span> why they are harmful here (the broken-streak shame spiral from Ep 09). <span class="beat">40-52s</span> what replaced them (a showing-up strip that only ever adds, plus gentle restart and no failure state).</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"A breakable streak would have helped my numbers and hurt the people I built this for. So there is no streak you can break, and no way to fail. What is left only ever adds up."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A typical streak counter (generic), then the app's calm no-streak screen.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"good for retention, bad for them" / "no failure state"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"hardest decision," "no way to fail," "only ever adds up."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Names an industry-standard pattern and rejects it on principle, which positions Maddy against gamified apps without naming a competitor. It is a values flag and a differentiator in one.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Named-only.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Pairs with Ep 09 and Ep 18 as a values trilogy carousel.</div></div>
-        </div>
-      </details>
+  </div>
 
-      <details class="ep" data-cat="build" data-aim="user" data-kw="build co-design process changes how you build user in the room">
-        <summary><span class="epn">17</span><span class="ephook">"Building with the person it is for changes everything about how you build."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> co-design as method, not slogan</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"When the person it is for is in the room, you build completely differently. Here is how."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">she changed how i built it</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, with a screen to cut to.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the claim. <span class="beat">5-24s</span> a concrete example where her feedback changed a decision you were sure about. <span class="beat">24-40s</span> what you would have gotten wrong without her. <span class="beat">40-50s</span> why "for them" is not the same as "with them."</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"I would have built the wrong thing with total confidence. She is the reason it is right."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A design choice on screen with a note about what changed; sketches if any (with her okay).</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"for them =/= with them" / "she changed this"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"in the room," "without her," "the reason it is right."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Reinforces the core moat (co-design) with a method story, which is more credible than a slogan. Appeals to both audiences and to practitioners who value lived-experience design.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Natural "her presence" or "her lead" candidate if she wants it; the example is hers. Her choice per Section 01.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Practitioner-facing; YouTube longer cut on the co-design process.</div></div>
-        </div>
-      </details>
+  <div class="sec-h">The one batched shot list</div>
+  <div class="shotlist">
+    <h4>Capture these in a single sitting</h4>
+    <div class="sub">App screens need your device (TestFlight build, biometric unlock, seeded Circle). External grabs are quick. Get them all at once so you never discover a missing asset mid-edit.</div>
+    <ul>
+      <li><span class="tagapp">app</span>Focus / "just one thing today" screen at low capacity (U1, U3, U4)</li>
+      <li><span class="tagapp">app</span>The first-step / start screen (C4, U2)</li>
+      <li><span class="tagapp">app</span>Supporter view ("cheering on") + a reaction being sent (S1, S2)</li>
+      <li><span class="tagapp">app</span>Peer view ("standing alongside") + the presence signal (P2)</li>
+      <li><span class="tagapp">app</span>A wall of sent reminder texts, screen-recorded (C3)</li>
+      <li><span class="tagbroll">grab</span>Warm two-shot: two people, parallel quiet activity (P1)</li>
+      <li><span class="tagbroll">grab</span>An empty couch with a warm indent (P2)</li>
+      <li><span class="tagbroll">grab</span>Departures board or world map, and a stacked sink (C2 refresh, if recutting)</li>
+    </ul>
+  </div>
 
-      <details class="ep" data-cat="build" data-aim="user" data-kw="build no fake money no dark patterns ethics vulnerable freemium">
-        <summary><span class="epn">18</span><span class="ephook">"No points to grind, no dark patterns, and every reward is real."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> the ethics stance, stated plainly</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"No points you grind for nothing, no pressure tricks, no dark patterns. Every reward in Maddy is real."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">no dark patterns. ever.</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, firm.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the list of nos. <span class="beat">5-22s</span> why these tactics are everywhere in apps. <span class="beat">22-38s</span> why they are especially predatory for brains prone to impulsive engagement. <span class="beat">38-52s</span> the standard instead: every reward binds to something real (real money, time, a named treat), nothing you earn buys nothing.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"The people this is for are more vulnerable to these tricks, which is exactly why we will never use them. If you earn something here, it is real."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">Generic examples of a points-grind or countdown UI (not a named app), then your clean screens and a real reward being chosen.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"no urgency tricks" / "value first, always"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"no dark patterns," "more vulnerable," "it is real."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">A trust and ethics flag that resonates with caregivers protecting their kids and with self-aware adult users. Sets you apart from the manipulative end of the category.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Named-only.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Values trilogy with Ep 09 and Ep 16.</div></div>
-        </div>
-      </details>
+  <div class="sec-h">The production standard</div>
+  <details class="guide">
+    <summary>The eight, every video</summary>
+    <div class="gbody">
+      <p style="margin-top:0">These hold across every card so the feed reads as one voice. The per-card Descript brief tells you what's specific; this is what's always true. Tagged by who does it.</p>
+      <ol>
+        <li><strong>Say it first.</strong> <em>(you, on camera)</em> Your opening words are the hook. No "so," no "today I want to talk about," no "hey everybody." The hardest, truest line comes out first.</li>
+        <li><strong>Hook card.</strong> <em>(me, in edit)</em> Big on-screen text for the first ~1.5 seconds, upper third above your face, then it clears. This is what stops a muted scroll.</li>
+        <li><strong>Punch-ins.</strong> <em>(me, in edit)</em> A subtle zoom on two or three emphasis beats to carry energy and hide cuts. You don't film these.</li>
+        <li><strong>Tighten.</strong> <em>(you + me)</em> Target 30 to 40 seconds. Every gap and breath gets cut. Energy over completeness.</li>
+        <li><strong>Captions.</strong> <em>(me, in edit)</em> All-caps, white with a heavy shadow, yellow active word, sitting at 82% down the frame so nothing clips on mobile. Burned in, so they travel with the file.</li>
+        <li><strong>Button.</strong> <em>(you, on camera)</em> End on the line that resonates, never on "more to come" or "anyway." The card gives you the closing line.</li>
+        <li><strong>Audio.</strong> <em>(you, after)</em> The master is voice plus captions, no music. On TikTok you add a trending sound in-app at 15 to 20 percent, original audio at 100.</li>
+        <li><strong>One idea, vertical.</strong> <em>(you, on camera)</em> 9:16, one idea per video. If it's two ideas, it's two videos.</li>
+      </ol>
+      <p><strong>Recurring co-design formats</strong> (future, when the moment is real, and only if she opts in): the feature test (the two of you trying something in the app, honest reactions, including when it doesn't work), the interview (her leading), the origin told together (one piece, used sparingly), and the milestone (launch day or a big review, marked together).</p>
+      <p><strong>Two guardrails that never move:</strong> the honesty boundary (mechanism-level only pre-launch, the subject of any cross-population claim is the research or the design, never "Maddy fixes X"), and the founding price stays out of video copy until the two-product setup ships.</p>
+    </div>
+  </details>
 
-      <h4>E / The "+" (the wider door, mechanism-level only)</h4>
-      <div class="callout warn"><h4>Honesty boundary, hard line for this whole category</h4><p>These three reach beyond AuDHD on purpose. The breadth is always carried by the <strong>mechanism</strong> as the subject ("the same wall," "executive function," "the research on task initiation"), never by the product. You may say "this kind of support is documented to help across these brains." You may never say "Maddy is proven to help long COVID." Name the mechanism, not Maddy.</p></div>
+  <details class="guide">
+    <summary>How this board works</summary>
+    <div class="gbody">
+      <ol>
+        <li><strong>Shoot from the card.</strong> The hook block is the open, the beats are the spine, the ask is the close. One idea per video.</li>
+        <li><strong>Drop the clip in iCloud Drive.</strong> Full resolution, no re-export. I pull it into Descript and run the brief on the card.</li>
+        <li><strong>I hand it back</strong> as a published review link: hook built, b-roll cut in, captions burned, audio cleaned.</li>
+        <li><strong>Close it out</strong> by tapping the status: Planned, Filming, Editing, Posted. Saves on this device, and the board reads the same state on your other devices.</li>
+        <li><strong>Consent-gated cards</strong> (the ones telling Maddy's story) ask you to confirm the JER-384 entry is logged before posting. The dashboard counts what's still open.</li>
+        <li><strong>Keep me in sync:</strong> tap "Copy status for the vault" and paste it back, and I log it so the board and I always agree. Say "deploy the backend" and edits sync across all three devices on their own.</li>
+      </ol>
+    </div>
+  </details>
 
-      <details class="ep" data-cat="plus" data-aim="user" data-kw="plus same wall many brains adhd autism tbi long covid menopause burnout executive function">
-        <summary><span class="epn">19</span><span class="ephook">"The same wall shows up for a lot more brains than you would think."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-us">the "+"</span> open the door, safely</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"The wall at the start of a task is not just an AuDHD thing. The same wall shows up for a lot more brains than you would think."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">same wall, more brains</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, with room for an on-screen list.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the hook. <span class="beat">5-26s</span> name the others where executive function takes a hit: ADHD, autism, brain injury and stroke, long COVID, perimenopause, depression, burnout. <span class="beat">26-42s</span> the shared mechanism: the start is the broken step, whatever the cause. <span class="beat">42-52s</span> built with AuDHD, useful wherever that wall lives.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"We built it with an AuDHD brain. It turns out the wall it solves for is a lot more common than one diagnosis."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A simple on-screen list of the brains; a single wall graphic the list points at.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"AuDHD+ : every brain where starting is the wall" / "the mechanism is shared"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"more brains," "the shared mechanism," "more common than one diagnosis."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">This is the "+" episode that grows the addressable audience without diluting the anchor. The honesty boundary keeps it credible; the breadth is in the mechanism, not a product claim. Expect strong reach because each named group sees itself.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Named-only.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">High-reach YouTube Short. The site's "who it is for" section. Pin during a "+" push.</div></div>
-        </div>
-      </details>
+</div>
 
-      <details class="ep" data-cat="plus" data-aim="user" data-kw="plus executive function plain language define cooking analogy">
-        <summary><span class="epn">20</span><span class="ephook">"Executive function, explained without the jargon."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-us">the "+"</span> own the plain-language definition</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"Executive function is a phrase everyone uses and nobody explains. Here it is without the jargon."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">executive function, in plain words</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, teacherly but warm.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the hook. <span class="beat">5-24s</span> the plain definition: the brain's set of "get yourself to do the thing" skills (starting, sequencing, switching, remembering why). <span class="beat">24-40s</span> a daily-life example of each failing. <span class="beat">40-50s</span> why support beats willpower when these run low.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"It is not about how much you care or how hard you try. It is the machinery that gets you from caring to doing. When that runs low, you build it a ramp."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">Simple icons for start, sequence, switch, remember; a daily example for one.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"start / sequence / switch / hold the why" / "a ramp, not willpower"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"nobody explains," "caring to doing," "a ramp."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Owning the clearest explanation of the category's core term makes you the trusted explainer for the whole executive-function audience. Highly shareable and very searchable on YouTube.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Out or named.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Cornerstone YouTube Short; carousel; evergreen explainer linked from the site.</div></div>
-        </div>
-      </details>
+<div class="syncbar">
+  <div class="inner">
+    <span class="stxt" id="synctxt">Reads on every device. Edits save here.</span>
+    <button class="ghost" id="resetbtn">Reset</button>
+    <button id="copybtn">Copy status for the vault</button>
+  </div>
+</div>
 
-      <details class="ep" data-cat="plus" data-aim="user" data-kw="plus generic productivity apps make it worse notion todoist overwhelm">
-        <summary><span class="epn">21</span><span class="ephook">"Why generic productivity apps can make this worse, not better."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-us">the "+"</span> anti-positioning to general productivity</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"The big productivity apps can actually make this worse for an executive-function brain. Here is the trap."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">why your productivity app backfires</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Open on a dense, complex dashboard, then to you.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-4s</span> the complex dashboard. <span class="beat">4-22s</span> the trap: infinite flexibility, setup burden, everything visible at once, all of which raise the load. <span class="beat">22-40s</span> what these brains actually need: less, surfaced one step at a time, no setup tax. <span class="beat">40-50s</span> why "powerful" is the wrong goal here.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"You do not need a more powerful tool. You need a quieter one that decides the next step so you do not have to."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A busy generic dashboard (not a named brand), then the app's single-step view.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"flexibility is a tax" / "quieter, not more powerful"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"make this worse," "the trap," "quieter, not more powerful."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Speaks to everyone who has tried the popular tools and bounced off them, which is most of this audience. Positions Maddy by contrast without naming a competitor, and travels across the whole "+" population.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Named-only.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">YouTube Short; strong comment-engagement driver ("which app did you give up on").</div></div>
-        </div>
-      </details>
+<script>
+(function(){
+  var KEY='maddy-video-build-status-v2';
+  var STATE_URL='./video-board-state.json';
+  var DEFAULTS={C1:"planned",C2:"posted",C3:"planned",C4:"planned",U1:"planned",U2:"planned",U3:"planned",U4:"planned",U5:"planned",S1:"planned",S2:"planned",P1:"planned",P2:"planned",MC1:"planned",MC2:"planned",MC3:"planned"};
+  var ORDER=["C1","C2","C3","C4","U1","U2","U3","U4","U5","S1","S2","P1","P2","MC1","MC2","MC3"];
+  var LABEL={planned:"planned",filming:"filming",editing:"editing",posted:"posted"};
+  var state={};
 
-      <h4>F / Values (the worldview that makes people loyal)</h4>
+  function localOverrides(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
+  function saveLocal(s){ try{ localStorage.setItem(KEY,JSON.stringify(s)); }catch(e){} }
 
-      <details class="ep" data-cat="values" data-aim="user" data-kw="values neurodivergence not a problem to fix accommodation worldview">
-        <summary><span class="epn">22</span><span class="ephook">"This is not a productivity problem to fix. It is a brain to support."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> the worldview, stated</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"We did not build this to fix anyone. There is nothing to fix. We built it to support how a brain already works."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">nothing to fix</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Your face mostly, human, not graphic-heavy.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the stance. <span class="beat">5-24s</span> the difference between fixing (make you normal) and supporting (work with your wiring). <span class="beat">24-40s</span> why the fixing frame causes shame and burnout. <span class="beat">40-50s</span> what accommodation, not correction, looks like in practice.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"You do not need a different brain. You need tools that respect the one you have."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">Your face mostly; a soft cutaway. Keep it human.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"support, not correction" / "respect the brain you have"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"nothing to fix," "shame and burnout," "the one you have."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">The neurodiversity-affirming worldview is the loyalty driver. It is what makes this audience choose you over a clinical-sounding competitor, and it is what an ND-affirming OT checks for before referring.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Her words or her lead if she wants it; this is the values heart and her voice carries it powerfully. Her choice.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Manifesto piece. Pin. The about-page spine.</div></div>
-        </div>
-      </details>
+  function merge(base){
+    var ov=localOverrides(), out={};
+    ORDER.forEach(function(id){ out[id]=ov[id]||base[id]||DEFAULTS[id]||"planned"; });
+    return out;
+  }
+  function isProg(v){ return v==="filming"||v==="editing"; }
 
-      <details class="ep" data-cat="values" data-aim="user" data-kw="values abandonment rate independence designed to fade retention">
-        <summary><span class="epn">23</span><span class="ephook">"Most tools like this get abandoned. We designed for that on purpose."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-user">user</span> turn the abandonment problem into the design philosophy</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"Most apps like this get abandoned fast. Instead of fighting that, we designed for it."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">designed to be abandoned</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Chest-up, certain.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-5s</span> the counterintuitive hook. <span class="beat">5-24s</span> why these tools get dropped (they demand constant engagement, which is the opposite of what the brain can sustain). <span class="beat">24-42s</span> reframe: the goal is not forever-engagement, it is building the skill until you need the app less. <span class="beat">42-52s</span> success is you outgrowing it.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"If you need us less over time, that is not churn. That is the point. The support is built to fade."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A hand on a bike seat letting go (callback to Ep 12); a fading support graphic.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"not forever-engagement" / "built to fade" / "outgrowing it is winning"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"designed for it," "need us less," "that is the point."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">Naming the abandonment stat shows honesty about the category, and flipping it into the fade philosophy is a memorable, anti-extractive position that builds deep trust.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">Named-only.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">Pairs with Ep 12 and Ep 24 as the independence trilogy. Practitioner-facing.</div></div>
-        </div>
-      </details>
+  function paintCard(card){
+    var id=card.getAttribute('data-id'); var v=state[id];
+    card.setAttribute('data-status',v);
+    var pill=card.querySelector('.status-pill'); pill.setAttribute('data-s',v); pill.textContent=LABEL[v];
+    card.querySelectorAll('.sbtn').forEach(function(b){ b.classList.toggle('active',b.getAttribute('data-set')===v); });
+    var pw=card.querySelector('.posted-when'); if(pw) pw.textContent=(v==="posted")?"live \u2713":"";
+    // gate lock chip in summary
+    var gated=card.getAttribute('data-consent')==="gated";
+    var sum=card.querySelector('summary');
+    var lock=sum.querySelector('.lock');
+    if(gated && v!=="posted"){
+      if(!lock){ lock=document.createElement('span'); lock.className='lock'; lock.textContent='consent'; sum.insertBefore(lock,sum.querySelector('.chev')); }
+    } else if(lock){ lock.remove(); }
+  }
 
-      <details class="ep" data-cat="values" data-aim="caregiver" data-kw="values support designed to fade independence is the point closing">
-        <summary><span class="epn">24</span><span class="ephook">"Support that is designed to fade. That is the whole point."</span><span class="chev">&#9656;</span></summary>
-        <div class="epbody">
-          <div class="f"><div class="k">Aim</div><div class="v"><span class="tag t-care">caregiver</span> the closing thesis, the line the brand lives on</div></div>
-          <div class="f"><div class="k">Say first</div><div class="v sayfirst">"If I had to put the whole thing in one line: support that is designed to fade. That is the point."</div></div>
-          <div class="f"><div class="k">Hook card</div><div class="v"><span class="hookcard">designed to fade</span></div></div>
-          <div class="f"><div class="k">Frame</div><div class="v">Calm, certain, chest-up.</div></div>
-          <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-6s</span> the one-line thesis. <span class="beat">6-26s</span> tie the threads together: the start (Ep 05), the no-failure-state (Ep 09), the caregiver-fade (Ep 12), the independence (Ep 23). <span class="beat">26-44s</span> why fading is love, not abandonment. <span class="beat">44-55s</span> the future you are building toward.</div></div>
-          <div class="f"><div class="k">Button</div><div class="v">"The best thing this app can do is make itself less necessary. Same as the best thing I can do as her dad. That is what we built."</div></div>
-          <div class="f"><div class="k">B-roll</div><div class="v">A montage of earlier b-roll (the sink, the bike, the morning light); end on the app then the phone going dark.</div></div>
-          <div class="f"><div class="k">Text beats</div><div class="v">"the goal is to need it less" / "fading is the love"</div></div>
-          <div class="f"><div class="k">Punch-ins</div><div class="v">"designed to fade," "fading is love," "what we built."</div></div>
-          <div class="f"><div class="k">Call</div><div class="v">Follow, and link, because this is a natural conversion close.</div></div>
-          <div class="f"><div class="k">Why it works</div><div class="v">The thesis statement that unifies every other episode. Works as a series finale, a pinned post, and the emotional close of the YouTube origin film.</div></div>
-          <div class="f"><div class="k">Maddy</div><div class="v">"Her presence" or "her lead" if she wants the closing word; otherwise named-only. Her choice.</div></div>
-          <div class="f"><div class="k">Repurpose</div><div class="v">The closing minute of the origin film. The site's mission line. The one-pager's last paragraph.</div></div>
-        </div>
-      </details>
+  function setStatus(card,v){
+    var id=card.getAttribute('data-id');
+    var gated=card.getAttribute('data-consent')==="gated";
+    if(v==="posted" && gated){
+      if(!confirm("This video names Maddy and tells her story. Confirm the per-piece consent is logged in JER-384 before marking it posted. Mark posted?")) return;
+    }
+    var ov=localOverrides(); ov[id]=v; saveLocal(ov); state[id]=v;
+    paintCard(card); paintDash(); applyFilters();
+    document.getElementById('synctxt').textContent="Saved on this device. Copy status to sync the vault.";
+  }
 
-      </div><!-- /epwrap -->
+  function paintDash(){
+    var total=ORDER.length,posted=0,prog=0,todo=0,gate=0;
+    ORDER.forEach(function(id){
+      var v=state[id]; if(v==="posted")posted++; else if(isProg(v))prog++; else todo++;
+      var c=document.querySelector('.ep[data-id="'+id+'"]');
+      if(c && c.getAttribute('data-consent')==="gated") gate++;
+    });
+    document.getElementById('n-total').textContent=total;
+    document.getElementById('n-posted').textContent=posted;
+    document.getElementById('n-prog').textContent=prog;
+    document.getElementById('n-todo').textContent=todo;
+    document.getElementById('n-gate').textContent=gate;
+    document.getElementById('progfill').style.width=total?Math.round(posted/total*100)+'%':'0%';
+    var nextId=ORDER.filter(function(id){ return state[id]!=="posted"; })[0];
+    var nw=document.getElementById('nextwho'),nl=document.getElementById('nextlink');
+    if(nextId){
+      var c=document.querySelector('.ep[data-id="'+nextId+'"]');
+      var hook=c?c.querySelector('.hooktext').textContent:nextId;
+      var aud=c?c.querySelector('.aud-badge').textContent:'';
+      nw.textContent=aud+' \u00b7 '+hook.slice(0,46)+(hook.length>46?'\u2026':'');
+      nl.style.display='inline-block';
+      nl.onclick=function(e){ e.preventDefault(); if(c){ c.open=true; c.scrollIntoView({behavior:'smooth',block:'center'}); } };
+    } else { nw.textContent='All posted \u2713'; nl.style.display='none'; }
+  }
 
-<h2 class="blk">Maddy's voice, at her rung</h2>
-      <p class="lead">Used at the rung she chooses, Maddy's voice is the most credible content in the whole plan, because she is the exact person it was built with and for. This track is entirely opt-in (Section 01). Nothing here is a deliverable assigned to her. It is a menu of what becomes available when she wants it.</p>
+  function applyFilters(){
+    var aud=document.querySelector('#audchips .chip.on').getAttribute('data-aud');
+    var st=document.querySelector('#stchips .chip.on').getAttribute('data-st');
+    var q=(document.getElementById('search').value||'').toLowerCase().trim();
+    var shown=0,total=document.querySelectorAll('.ep').length;
+    document.querySelectorAll('.ep').forEach(function(c){
+      var cAud=c.getAttribute('data-aud'); var v=state[c.getAttribute('data-id')];
+      var cSt=v==="posted"?"posted":(isProg(v)?v:"todo");
+      var kw=(c.getAttribute('data-kw')||'')+' '+c.querySelector('.hooktext').textContent.toLowerCase();
+      var ok=true;
+      if(aud!=="all"&&cAud!==aud)ok=false;
+      if(st!=="all"){
+        if(st==="todo"&&cSt!=="todo")ok=false;
+        else if(st==="filming"&&v!=="filming")ok=false;
+        else if(st==="editing"&&v!=="editing")ok=false;
+        else if(st==="posted"&&v!=="posted")ok=false;
+      }
+      if(q&&kw.indexOf(q)===-1)ok=false;
+      c.classList.toggle('hidden',!ok); if(ok)shown++;
+    });
+    document.getElementById('countnote').textContent=shown+' of '+total+' shown';
+  }
 
-      <h3>What each rung unlocks</h3>
-      <table>
-        <tr><th>Rung</th><th>What it makes possible</th></tr>
-        <tr><td><span class="tag t-her">named</span></td><td>The co-design proof on every origin piece ("co-designed with Maddy"). Costs her nothing, strengthens everything.</td></tr>
-        <tr><td><span class="tag t-her">her words</span></td><td>A line on a card, a design note, a voiceover. <span class="dancing">"I asked for no red"</span> style. Her perspective without her face.</td></tr>
-        <tr><td><span class="tag t-her">her presence</span></td><td>She appears in a piece you lead and approve together. The two-of-you testing clips, the kitchen moments.</td></tr>
-        <tr><td><span class="tag t-her">her lead</span></td><td>The highest-trust content that exists: an AuDHD adult talking to other AuDHD adults as one of them. Her feature, her story, her pace.</td></tr>
-      </table>
+  function wire(){
+    document.querySelectorAll('.ep').forEach(function(card){
+      paintCard(card);
+      card.querySelectorAll('.sbtn').forEach(function(b){
+        b.addEventListener('click',function(e){ e.preventDefault(); setStatus(card,b.getAttribute('data-set')); });
+      });
+      var pill=card.querySelector('.status-pill');
+      pill.addEventListener('click',function(e){
+        e.preventDefault(); e.stopPropagation();
+        var seq=["planned","filming","editing","posted"]; var id=card.getAttribute('data-id');
+        setStatus(card,seq[(seq.indexOf(state[id])+1)%seq.length]);
+      });
+    });
+    document.querySelectorAll('#audchips .chip').forEach(function(ch){
+      ch.addEventListener('click',function(){ document.querySelectorAll('#audchips .chip').forEach(function(c){c.classList.remove('on');}); ch.classList.add('on'); applyFilters(); });
+    });
+    document.querySelectorAll('#stchips .chip').forEach(function(ch){
+      ch.addEventListener('click',function(){ document.querySelectorAll('#stchips .chip').forEach(function(c){c.classList.remove('on');}); ch.classList.add('on'); applyFilters(); });
+    });
+    document.getElementById('search').addEventListener('input',applyFilters);
+    document.getElementById('copybtn').addEventListener('click',function(){
+      var lines=ORDER.map(function(id){ return id+': '+state[id]; });
+      var txt='Maddy video status ('+new Date().toISOString().slice(0,10)+')\n'+lines.join('\n');
+      var done=function(){ document.getElementById('synctxt').textContent='Copied. Paste it to me in chat to log it.'; };
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done,done); }
+      else{ var t=document.createElement('textarea'); t.value=txt; document.body.appendChild(t); t.select(); try{document.execCommand('copy');}catch(e){} t.remove(); done(); }
+    });
+    document.getElementById('resetbtn').addEventListener('click',function(){
+      if(!confirm('Reset all statuses to the synced baseline?')) return;
+      try{ localStorage.removeItem(KEY); }catch(e){}
+      boot(true);
+    });
+  }
 
-      <h3>The co-design engine (recurring format, if she opts in)</h3>
-      <p>A repeatable series where each post is one thing she asked for and why. It is endless, low-pressure, and it is the moat made visible:</p>
-      <ul>
-        <li><strong>"She asked for no red."</strong> Why failure colors hurt, what replaced them.</li>
-        <li><strong>"She asked to see one thing, not twelve."</strong> The single-step view.</li>
-        <li><strong>"She asked for a way to say I can't right now without it counting against her."</strong> The no-failure-state.</li>
-        <li>Each is a card in her voice (Dancing Script) plus your short context. Named or her-words rung. She approves each.</li>
-      </ul>
-
-      <div class="callout info"><h4>The translation rule</h4><p>You translate her lived experience into content only with explicit permission, per piece. Her inner world is not a content farm. When in doubt, ask, and take the no easily.</p></div>
-
-<h2 class="blk">The two of you, rarely</h2>
-      <p class="lead">The two of you on screen is the most powerful and most depletable asset in the plan. The father-daughter dynamic is the thing no competitor can fake. It is also the thing that curdles fastest if overused or performed. So it runs on a scarcity rule.</p>
-
-      <div class="callout warn"><h4>The scarcity rule</h4><p>A handful of together-pieces per year, never a weekly series. Each one is a genuine moment she opted into at "her presence" or "her lead," not a recurring obligation. Rarity is what keeps them real and keeps them landing.</p></div>
-
-      <h3>Formats, when the moment is real</h3>
-      <ul>
-        <li><strong>The feature test.</strong> 20 to 40 seconds of the two of you trying something in the app, honest reactions, including when it does not work.</li>
-        <li><strong>The interview, her leading.</strong> She asks you why you built a thing, or you ask her what she would change. Unscripted, short.</li>
-        <li><strong>The origin, told together.</strong> One piece, maybe once, where you both tell the story from your own sides. High-value, use sparingly.</li>
-        <li><strong>The milestone.</strong> Launch day, a big review, a moment worth marking, together, if she wants to be there for it.</li>
-      </ul>
-      <p class="small">Every together-piece passes the full Section 01 flow: finished-asset review, cooling beat, two yeses, comment-shield pre-set, logged in JER-384.</p>
-
-<div class="pagenav"><a href="maddy-founder-plan.html">&#8592; Home</a><a href="maddy-plan-moat.html">Next: The moat &#8594;</a></div>
-<div class="foot">Maddy plan. Built for Jeremy, Maddy's dad. Founder-forward, AuDHD+ executive-function-wide, honesty boundary held. Videos updated 2026-06-15: shot standard, shipped shot lists, all 24 cards directive.</div>
-</main>
-<button id="top" aria-label="Back to top">&#8593;</button>
-<script src="maddy-plan.js"></script>
+  function boot(rewire){
+    fetch(STATE_URL,{cache:'no-store'}).then(function(r){ return r.ok?r.json():null; }).then(function(json){
+      var base=(json&&json.episodes)?{}:DEFAULTS;
+      if(json&&json.episodes){ ORDER.forEach(function(id){ base[id]=(json.episodes[id]&&json.episodes[id].status)||DEFAULTS[id]; }); }
+      state=merge(base);
+      document.querySelectorAll('.ep').forEach(paintCard); paintDash(); applyFilters();
+    }).catch(function(){
+      state=merge(DEFAULTS);
+      document.querySelectorAll('.ep').forEach(paintCard); paintDash(); applyFilters();
+    });
+    if(rewire!==true){ wire(); }
+  }
+  boot();
+})();
+</script>
 </body>
 </html>
