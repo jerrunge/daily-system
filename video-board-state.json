@@ -4,23 +4,113 @@
   "canonical_url": "https://jerrunge.github.io/daily-system/maddy-plan-videos.html",
   "redirect_from": "https://jerrunge.github.io/daily-system/maddy-video-build.html",
   "testflight": "https://testflight.apple.com/join/Ez1Msh5G",
-  "audiences": ["user", "caregiver", "supporter", "peer", "codesign"],
+  "audiences": [
+    "user",
+    "caregiver",
+    "supporter",
+    "peer",
+    "codesign"
+  ],
   "episodes": {
-    "C1": {"audience":"caregiver","consent":"gated","status":"planned","hook":"What happens to her when I'm gone?"},
-    "C2": {"audience":"caregiver","consent":"gated","status":"posted","hook":"She could fly across the world alone. She couldn't start the dishes.","note":"live (batch01 Video 2); consent debt: log JER-384"},
-    "C3": {"audience":"caregiver","consent":"gated","status":"planned","hook":"I kept reminding her. That's exactly why she couldn't do it."},
-    "C4": {"audience":"caregiver","consent":"gated","status":"planned","hook":"I called my kid lazy for years. I was wrong."},
-    "U1": {"audience":"user","consent":"open","status":"planned","hook":"Your to-do list was built for a brain you don't have."},
-    "U2": {"audience":"user","consent":"open","status":"planned","hook":"Just start is asking me to override my neurology with vibes."},
-    "U3": {"audience":"user","consent":"open","status":"planned","hook":"A shower has eleven steps and my brain saw all of them at once."},
-    "U4": {"audience":"user","consent":"open","status":"planned","hook":"37 unread. I close it. And feel it all day."},
-    "U5": {"audience":"user","consent":"open","status":"planned","hook":"It's not a character flaw. It's a support problem."},
-    "S1": {"audience":"supporter","consent":"open","status":"planned","hook":"Did you do it yet is the most damaging text you can send."},
-    "S2": {"audience":"supporter","consent":"open","status":"planned","hook":"Stop asking if they did it. Say this instead."},
-    "P1": {"audience":"peer","consent":"open","status":"planned","hook":"My friend sat on my couch, didn't help, and suddenly I could work."},
-    "P2": {"audience":"peer","consent":"open","status":"planned","hook":"The best ADHD hack no one prescribed. Your friend can't sit there every day."},
-    "MC1": {"audience":"codesign","consent":"gated","status":"planned","hook":"She asked for no red.","feature":"no failure-red in the UI"},
-    "MC2": {"audience":"codesign","consent":"gated","status":"planned","hook":"She asked to see one thing, not twelve.","feature":"single-focus view"},
-    "MC3": {"audience":"codesign","consent":"gated","status":"planned","hook":"She asked for a way to say I can't right now without it counting against her.","feature":"no-failure-state"}
+    "C1": {
+      "audience": "caregiver",
+      "consent": "gated",
+      "status": "planned",
+      "hook": "What happens to her when I'm gone?"
+    },
+    "C2": {
+      "audience": "caregiver",
+      "consent": "gated",
+      "status": "posted",
+      "hook": "She could fly across the world alone. She couldn't start the dishes.",
+      "note": "live (batch01 Video 2); consent debt: log JER-384"
+    },
+    "C3": {
+      "audience": "caregiver",
+      "consent": "gated",
+      "status": "filming",
+      "hook": "I kept reminding her. That's exactly why she couldn't do it."
+    },
+    "C4": {
+      "audience": "caregiver",
+      "consent": "gated",
+      "status": "posted",
+      "hook": "I called my kid lazy for years. I was wrong."
+    },
+    "U1": {
+      "audience": "user",
+      "consent": "open",
+      "status": "filming",
+      "hook": "Your to-do list was built for a brain you don't have."
+    },
+    "U2": {
+      "audience": "user",
+      "consent": "open",
+      "status": "filming",
+      "hook": "Just start is asking me to override my neurology with vibes."
+    },
+    "U3": {
+      "audience": "user",
+      "consent": "open",
+      "status": "planned",
+      "hook": "A shower has eleven steps and my brain saw all of them at once."
+    },
+    "U4": {
+      "audience": "user",
+      "consent": "open",
+      "status": "planned",
+      "hook": "37 unread. I close it. And feel it all day."
+    },
+    "U5": {
+      "audience": "user",
+      "consent": "open",
+      "status": "planned",
+      "hook": "It's not a character flaw. It's a support problem."
+    },
+    "S1": {
+      "audience": "supporter",
+      "consent": "open",
+      "status": "planned",
+      "hook": "Did you do it yet is the most damaging text you can send."
+    },
+    "S2": {
+      "audience": "supporter",
+      "consent": "open",
+      "status": "planned",
+      "hook": "Stop asking if they did it. Say this instead."
+    },
+    "P1": {
+      "audience": "peer",
+      "consent": "open",
+      "status": "planned",
+      "hook": "My friend sat on my couch, didn't help, and suddenly I could work."
+    },
+    "P2": {
+      "audience": "peer",
+      "consent": "open",
+      "status": "planned",
+      "hook": "The best ADHD hack no one prescribed. Your friend can't sit there every day."
+    },
+    "MC1": {
+      "audience": "codesign",
+      "consent": "gated",
+      "status": "planned",
+      "hook": "She asked for no red.",
+      "feature": "no failure-red in the UI"
+    },
+    "MC2": {
+      "audience": "codesign",
+      "consent": "gated",
+      "status": "planned",
+      "hook": "She asked to see one thing, not twelve.",
+      "feature": "single-focus view"
+    },
+    "MC3": {
+      "audience": "codesign",
+      "consent": "gated",
+      "status": "planned",
+      "hook": "She asked for a way to say I can't right now without it counting against her.",
+      "feature": "no-failure-state"
+    }
   }
 }
