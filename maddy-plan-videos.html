@@ -135,6 +135,12 @@ header.bar{position:sticky;top:0;z-index:50;background:rgba(250,252,255,.93);bac
 .asset-need{display:inline-flex;align-items:center;gap:5px;color:#B45309;background:var(--peerbg);border:1px dashed #F0C46A;border-radius:9px;padding:5px 10px;margin:3px 5px 3px 0;font-size:12px;font-weight:500}
 .asset-link.gen{background:var(--codesignbg);border:1px solid #C7B8F5;color:#6D28D9}
 .asset-link.sim{background:#FEF3C7;border:1px solid #F0C46A;color:#B45309}
+.asset-link.cap{background:var(--supportbg);border:1px solid #A7E3BD;color:#15803D}
+.capgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:10px}
+.capcell{font-size:11px;color:var(--soft);text-align:center}
+.capcell a{display:block;text-decoration:none;color:var(--soft)}
+.capcell img{width:100%;border-radius:10px;border:1px solid var(--line);display:block;margin-bottom:4px}
+.capcell .vid{display:inline-block;background:var(--ink);color:#fff;font-size:9px;font-weight:700;border-radius:4px;padding:1px 5px;margin-right:4px;letter-spacing:.04em}
 
 .consent{background:var(--gatebg);border:1px solid #FBC4C4;border-radius:10px;padding:9px 13px;margin-top:11px;font-size:12.5px;color:#991B1B}
 .consent b{color:#7F1D1D}
@@ -359,7 +365,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link gen" href="./assets/broll/c4_lazy_strike.mp4">&#10022; c4_lazy_strike.mp4</a>
         <a class="asset-link broll">&#127909; broll-day-low-1080.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: the start / first-step screen</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: the start / first-step screen</a>
         <span class="asset-need">&#9729; your talking-head clip</span>
       </div></div></div>
       <div class="consent"><b>Consent:</b> names Maddy. Log JER-384 before posted.</div>
@@ -391,7 +397,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link gen" href="./assets/broll/c5_yes_blank.mp4">&#10022; c5_yes_blank.mp4</a>
         <a class="asset-link broll">&#127909; broll-checkin-1080.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: the app carrying the prompt (Home / capacity)</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: the app carrying the prompt (Home / capacity)</a>
         <span class="asset-need">&#9729; your talking-head clip</span>
       </div></div></div>
       <div class="canon"><b>Canon (anti-surveillance):</b> Maddy is not a lie detector. It never tells you whether they "really" did it, and it never will. The win is ending the audit, not winning it. If this ever reads as "now you can verify them," it's wrong, rewrite it.</div>
@@ -422,7 +428,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link gen" href="./assets/broll/u1_todo_crack.mp4">&#10022; u1_todo_crack.mp4</a>
         <a class="asset-link broll">&#127909; broll-day-low-1080.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: focus screen at low capacity ("just one thing today")</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: focus screen at low capacity ("just one thing today")</a>
         <span class="asset-need">&#9729; your talking-head clip</span>
       </div></div></div>
       <div class="f"><div class="k">Why it works</div><div class="v">It's the rarest thing in this feed: it tells the viewer they were never the problem, and it's backed by current research, which makes it shareable as proof, not just opinion.</div></div>
@@ -452,7 +458,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link gen" href="./assets/broll/u2_vibes_snap.mp4">&#10022; u2_vibes_snap.mp4</a>
         <a class="asset-link broll">&#127909; broll-day-low-1080.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: the first-step / start screen</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: the first-step / start screen</a>
         <span class="asset-need">&#9729; your talking-head + a frozen-hand grab</span>
       </div></div></div>
       <div class="statusctl"><span class="sl">Status</span>
@@ -481,7 +487,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link gen" href="./assets/broll/u3_step_stack.mp4">&#10022; u3_step_stack.mp4</a>
         <a class="asset-link broll">&#127909; broll-day-low-1080.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: low-capacity "one thing today" screen</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: low-capacity "one thing today" screen</a>
         <span class="asset-need">&#9729; your talking-head + a closed-door grab</span>
       </div></div></div>
       <div class="statusctl"><span class="sl">Status</span>
@@ -510,7 +516,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link gen" href="./assets/broll/u4_badge_pulse.mp4">&#10022; u4_badge_pulse.mp4</a>
         <a class="asset-link broll">&#127909; broll-checkin-1080.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: single-focus screen</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: single-focus screen</a>
         <span class="asset-need">&#9729; your talking-head clip</span>
       </div></div></div>
       <div class="statusctl"><span class="sl">Status</span>
@@ -570,7 +576,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link gen" href="./assets/broll/u6_reflex_yes.mp4">&#10022; u6_reflex_yes.mp4</a>
         <a class="asset-link broll">&#127909; broll-day-low-1080.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: the "I can't right now" / capacity screen</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: the "I can't right now" / capacity screen</a>
         <span class="asset-need">&#9729; your talking-head clip</span>
       </div></div></div>
       <div class="f"><div class="k">Why it works</div><div class="v">It names a thing people carry in private shame and reframes it as self-protection, not character. That reframe is the share: it gives someone language for a habit they hated in themselves.</div></div>
@@ -599,7 +605,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on a phone screen-recording of the text + close (capture, or staged). Cut to you. App Supporter view ("cheering on") + a reaction being sent on the turn. <code>broll-checkin</code> for warmth. Captions, Studio Sound.</div></div>
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link broll">&#127909; broll-checkin-1080.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: Supporter view ("cheering on") + reaction send</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: Supporter view ("cheering on") + reaction send</a>
         <span class="asset-need">&#9729; your talking-head clip</span>
       </div></div></div>
       <div class="canon"><b>Canon:</b> the app has no watching-eye surface (no map, no last-active, no online dot). The win is the supporter watching less, not better.</div>
@@ -627,7 +633,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>the nag deletes. <span class="beat">3-20s</span>three lines to say instead, fast and concrete. <span class="beat">20-35s</span>why they work: curious, not controlling. <span class="beat">35s+</span>the role built on them.</div></div>
       <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on a typed-then-deleted text animation in Descript, then on-screen text for the three better lines. Cut to you to land them. App Supporter encouragement surface on the turn. Captions, Studio Sound.</div></div>
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: Supporter encouragement / reaction surface</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: Supporter encouragement / reaction surface</a>
         <span class="asset-need">&#9729; your talking-head clip</span>
       </div></div></div>
       <div class="statusctl"><span class="sl">Status</span>
@@ -687,7 +693,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on an empty-couch grab. Cut to you. <code>broll-circle</code> on the "your people" line, app Peer presence surface on the turn. Captions, Studio Sound.</div></div>
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link broll">&#127909; broll-circle-1080.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: Peer view ("standing alongside") + presence signal</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: Peer view ("standing alongside") + presence signal</a>
         <span class="asset-need">&#127909; b-roll to grab: an empty couch</span>
         <span class="asset-need">&#9729; your talking-head clip</span>
       </div></div></div>
@@ -710,14 +716,15 @@ details.guide .gbody li{margin:6px 0}
         </div>
       </div>
       <div class="f"><div class="k">For</div><div class="v"><b>Co-design (Maddy's voice).</b> Lands with everyone, and it does the one thing marketing can't fake: it shows an AuDHD adult shaped the product. What she asked for: failure colors hurt, so take them out.</div></div>
-      <div class="block story"><div class="bt">&#9998; The feature it became</div><div>In the code, every theme warns in amber, never red. A missed day, a low day, your progress: none of it lights up like a failure. The only red anywhere is the delete button, the way every phone does it. So the daily experience is exactly what she asked for: a hard day never turns red on you.</div></div>
+      <div class="block story"><div class="bt">&#9998; The feature it became</div><div>I checked this against the build. There's no red anywhere you would feel it: not on a missed task, not on a low day, not on your progress. A hard day renders calm, the screen literally says "That's okay, Jeremy," never a warning. The only red in the whole app is the delete button, the way every phone does it. She asked for no red, and the code keeps that promise.</div></div>
       <div class="block ask"><div class="bt">&#9654; The ask</div><div class="cta">"This is what built-with looks like. Come see it." Free beta on TestFlight: <span class="tf">testflight.apple.com/join/Ez1Msh5G</span>.</div></div>
-      <div class="block film"><div class="bt">&#127909; You film</div><div><b>Just you, to camera.</b> Just you, to camera, the short context behind Maddy's ask. Her line is her handwriting card, not you. If she opts in, she records her bit herself.</div><div class="say"><b>Say it like this</b> (your words, adlib freely): "Maddy asked for one thing early on. No red. No angry colors on a hard day. So in the app, warnings are amber, and a bad day never turns red. She asked, and it shipped."</div><div class="filmmeta">15 to 25 seconds of context, one take, look down the lens.</div><div class="notyours"><b>Not yours to shoot</b> (handled for you): her 'no red' handwriting card (generated), the app amber and calm screens, captions, sound. Her voice bit is hers, by consent.</div></div>
-      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>her words, her handwriting. <span class="beat">3-15s</span>your short context: why she asked, why it mattered. <span class="beat">15-30s</span>the screen: warnings in amber, a hard day that never turns red. <span class="beat">30s+</span>the ask.</div></div>
+      <div class="block film"><div class="bt">&#127909; You film</div><div><b>Just you, to camera.</b> Just you, to camera, the short context behind Maddy's ask. Her line is her handwriting card, not you. If she opts in, she records her bit herself.</div><div class="say"><b>Say it like this</b> (your words, adlib freely): "Maddy asked for one thing early on. No red. No angry colors on a hard day. So in the app, nothing turns red on a hard day. The screen just says that's okay. She asked, and it shipped."</div><div class="filmmeta">15 to 25 seconds of context, one take, look down the lens.</div><div class="notyours"><b>Not yours to shoot</b> (handled for you): her 'no red' handwriting card (generated), the real calm-state screen ("That's okay"), captions, sound. Her voice bit is hers, by consent.</div></div>
+      <div class="f"><div class="k">Beats</div><div class="v"><span class="beat">0-3s</span>her words, her handwriting. <span class="beat">3-15s</span>your short context: why she asked, why it mattered. <span class="beat">15-30s</span>the screen: a hard day renders calm ("That's okay"), never red. <span class="beat">30s+</span>the ask.</div></div>
       <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on her line as a Dancing Script title card (built in Descript). Cut to you for the short context. App screen showing the calm, no-red state on the turn. Captions on your voice only, leave her card clean. Studio Sound.</div></div>
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link gen" href="./assets/broll/mc1_no_red.mp4">&#10022; mc1_no_red.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: a calm state screen (showing no failure-red)</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: the "That's okay" calm screen</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: capacity sheet (only amber = self-chosen Restless)</a>
         <span class="asset-need">&#9729; your short context clip</span>
         <span class="asset-need">&#9999; her line as a Dancing Script card (built in Descript), or her on camera if she opts in</span>
       </div></div></div>
@@ -747,7 +754,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="block brief"><div class="bt">&#9986; Descript brief</div><div>Open on an app screen-recording of the list narrowing to one (capture needed), overlay her Dancing Script word. Cut to you for context. Hold on the single-focus screen. Captions on your voice. Studio Sound.</div></div>
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link gen" href="./assets/broll/mc2_one_thing.mp4">&#10022; mc2_one_thing.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: the single-focus / one-thing screen</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: the single-focus / one-thing screen</a>
         <span class="asset-need">&#9729; your short context clip</span>
         <span class="asset-need">&#9999; her line as a Dancing Script card, or her on camera if she opts in</span>
       </div></div></div>
@@ -778,7 +785,7 @@ details.guide .gbody li{margin:6px 0}
       <div class="f"><div class="k">Assets</div><div class="v"><div class="assets">
         <a class="asset-link gen" href="./assets/broll/mc3_cant_now.mp4">&#10022; mc3_cant_now.mp4</a>
         <a class="asset-link broll">&#127909; broll-rest-1080.mp4</a>
-        <a class="asset-link sim" href="./assets/sim-capture-spec.md">&#128247; Sim: the low-day / rest state (no-failure-state)</a>
+        <a class="asset-link cap" href="#app-captures">&#9989; App: the low-day / rest state (no-failure-state)</a>
         <span class="asset-need">&#9729; your short context clip</span>
         <span class="asset-need">&#9999; her line as a Dancing Script card, or her on camera if she opts in</span>
       </div></div></div>
@@ -806,12 +813,9 @@ details.guide .gbody li{margin:6px 0}
       <li><span class="tagbroll">gen</span><b>u5_word_swap</b>: "character flaw" to "support problem"</li>
       <li><span class="tagbroll">gen</span>Plus the live-action bank: broll-circle, broll-checkin, broll-day-low, broll-day-strong, broll-rest, broll-showingup</li>
     </ul>
-    <h4 style="margin-top:14px">One Simulator capture run (Code)</h4>
-    <div class="sub">The only thing that still needs capturing is the real app UI, and it comes fresh from the current build in the iOS Simulator, not the May screenshots (some are dated against current code). Spec and harness are in the vault: <a href="./assets/sim-capture-spec.md">sim-capture-spec.md</a> and <a href="./assets/capture-app-screens.sh">capture-app-screens.sh</a>. iPhone 16 Pro Max sim, native 1290 x 2796.</div>
-    <ul>
-      <li><span class="tagapp">stills</span>Home single-task (light + dark), the one-thing start, the capacity picker, "That's okay," an amber nudge (proof: warns amber, not red), the supporter "Cheering for" home + cheer composer, the peer "Standing alongside" home + presence, the Circle, breathe, the showing-up tracker, Care</li>
-      <li><span class="tagapp">flows</span>capacity to "I can't right now" to "That's okay"; complete a task to the calm reward; send a cheer; (if it animates natively) multi to single focus</li>
-    </ul>
+    <h4 id="app-captures" style="margin-top:14px">Captured, real app UI (JER-628, done)</h4>
+    <div class="sub">Shot fresh from the running build (HEAD 61601ef) in the Simulator, iPhone 17 Pro Max, native 1320 x 2868. All real UI, nothing mocked. 13 stills + 3 flows. Full-resolution originals are in the vault asset bank; these are previews. One honest gap: there is no subject-facing amber nudge in the build, so MC1 leans on the generated card plus the real calm screens below (zero red is verifiable across every shot).</div>
+    <div class="capgrid"><div class="capcell"><a href="./assets/app/app-focus-light.jpg" target="_blank"><img src="./assets/app/app-focus-light.jpg" alt="Home, single task (light)" loading="lazy">Home, single task (light)</a></div><div class="capcell"><a href="./assets/app/app-focus-dark.jpg" target="_blank"><img src="./assets/app/app-focus-dark.jpg" alt="Home, single task (dark)" loading="lazy">Home, single task (dark)</a></div><div class="capcell"><a href="./assets/app/app-start.jpg" target="_blank"><img src="./assets/app/app-start.jpg" alt=""One thing" start" loading="lazy">"One thing" start</a></div><div class="capcell"><a href="./assets/app/app-capacity-sheet.jpg" target="_blank"><img src="./assets/app/app-capacity-sheet.jpg" alt="Capacity picker" loading="lazy">Capacity picker</a></div><div class="capcell"><a href="./assets/app/app-thats-okay.jpg" target="_blank"><img src="./assets/app/app-thats-okay.jpg" alt=""That's okay" calm veil" loading="lazy">"That's okay" calm veil</a></div><div class="capcell"><a href="./assets/app/app-supporter-home.jpg" target="_blank"><img src="./assets/app/app-supporter-home.jpg" alt="Supporter: Cheering for" loading="lazy">Supporter: Cheering for</a></div><div class="capcell"><a href="./assets/app/app-supporter-compose.jpg" target="_blank"><img src="./assets/app/app-supporter-compose.jpg" alt="Supporter: compose a note" loading="lazy">Supporter: compose a note</a></div><div class="capcell"><a href="./assets/app/app-peer-home.jpg" target="_blank"><img src="./assets/app/app-peer-home.jpg" alt="Peer: Standing alongside" loading="lazy">Peer: Standing alongside</a></div><div class="capcell"><a href="./assets/app/app-together.jpg" target="_blank"><img src="./assets/app/app-together.jpg" alt="Peer: "A bright day for"" loading="lazy">Peer: "A bright day for"</a></div><div class="capcell"><a href="./assets/app/app-circle.jpg" target="_blank"><img src="./assets/app/app-circle.jpg" alt="Your circle" loading="lazy">Your circle</a></div><div class="capcell"><a href="./assets/app/app-rest-breathe.jpg" target="_blank"><img src="./assets/app/app-rest-breathe.jpg" alt="Breathing moment" loading="lazy">Breathing moment</a></div><div class="capcell"><a href="./assets/app/app-showingup.jpg" target="_blank"><img src="./assets/app/app-showingup.jpg" alt="Showing up tracker" loading="lazy">Showing up tracker</a></div><div class="capcell"><a href="./assets/app/app-care.jpg" target="_blank"><img src="./assets/app/app-care.jpg" alt="Care tab" loading="lazy">Care tab</a></div><div class="capcell"><a href="./assets/app/flow-capacity-to-okay.jpg" target="_blank"><img src="./assets/app/flow-capacity-to-okay.jpg" alt="Capacity to "That's okay" (24s)" loading="lazy"><span class="vid">VIDEO</span>Capacity to "That's okay" (24s)</a></div><div class="capcell"><a href="./assets/app/flow-complete-task.jpg" target="_blank"><img src="./assets/app/flow-complete-task.jpg" alt="Complete a task, no red (12s)" loading="lazy"><span class="vid">VIDEO</span>Complete a task, no red (12s)</a></div><div class="capcell"><a href="./assets/app/flow-send-cheer.jpg" target="_blank"><img src="./assets/app/flow-send-cheer.jpg" alt="Send a note (6s)" loading="lazy"><span class="vid">VIDEO</span>Send a note (6s)</a></div></div>
     <h4 style="margin-top:14px">Camera (you)</h4>
     <div class="sub">Your talking-head and short context clips per card. Optional live-action upgrades the generated b-roll already covers: a frozen hand, a closed door, an empty couch, a warm two-shot, a departures board and a sink.</div>
   </div>
