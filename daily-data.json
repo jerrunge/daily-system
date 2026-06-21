@@ -1,7 +1,13 @@
 {
-  "generated": "2026-06-20T15:16:33.057696Z",
-  "generatedPT": "8:16 AM PT",
+  "generated": "2026-06-21T15:18:18.504177Z",
+  "generatedPT": "8:18 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "Maddy video build guide: 4-audience production board (visual hooks + close-out tracking)",
+      "jer": "JER-627",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
     {
       "urgency": "urgent",
       "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
@@ -13,12 +19,6 @@
       "text": "Billing model hardening (F1\u2013F8) \u2014 from circle-keyed scenario pressure-test",
       "jer": "JER-608",
       "pillar": "\ud83d\udcf1 Maddy's App"
-    },
-    {
-      "urgency": "urgent",
-      "text": "TikTok lead form \u2192 Supabase auto-capture + auto-invite (tiktok-lead webhook)",
-      "jer": "JER-600",
-      "pillar": ""
     }
   ],
   "contentDue": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 85,
+      "days": 86,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 86,
+      "days": 87,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 86,
+      "days": 87,
       "why": ""
     }
   ],
