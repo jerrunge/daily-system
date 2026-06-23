@@ -1,12 +1,12 @@
 {
-  "generated": "2026-06-22T17:54:25.631619Z",
-  "generatedPT": "10:54 AM PT",
+  "generated": "2026-06-23T16:06:48.472531Z",
+  "generatedPT": "9:06 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
-      "text": "Content series \u2014 men's physical health, performance + whole self (Fortify SX/PH)",
-      "jer": "JER-148",
-      "pillar": "Wealth Stack"
+      "text": "Maddy co-design clips: \"Designing Maddy, with Maddy\" (6 features + teaser, built in Descript, in review pre-post)",
+      "jer": "JER-635",
+      "pillar": "\ud83d\udcf1 Maddy's App"
     },
     {
       "urgency": "urgent",
@@ -26,7 +26,13 @@
       "title": "Note to Self \u2014 Yosemite's glory remains",
       "platform": "X, Instagram, Substack",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
+    },
+    {
+      "title": "Note to Self \u2014 The Grand Canyon, Ooh Aah",
+      "platform": "X, Instagram, Substack",
+      "status": "Draft",
+      "due": "2026-06-30"
     }
   ],
   "followUpRadar": [
@@ -47,17 +53,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 87,
+      "days": 88,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 88,
+      "days": 89,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 88,
+      "days": 89,
       "why": ""
     }
   ],
