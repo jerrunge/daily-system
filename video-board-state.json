@@ -1,6 +1,6 @@
 {
   "_doc": "Cross-device read state for the Maddy video board (single source of truth). Served same-origin from daily-system Pages at maddy-plan-videos.html so the board reads identical status on desktop, phone, and iPad. Claude maintains this file. Full read-write cross-device sync goes live when the staged Supabase backend in ./backend is deployed.",
-  "updated": "2026-06-20",
+  "updated": "2026-06-23",
   "canonical_url": "https://jerrunge.github.io/daily-system/maddy-plan-videos.html",
   "redirect_from": "https://jerrunge.github.io/daily-system/maddy-video-build.html",
   "testflight": "https://testflight.apple.com/join/Ez1Msh5G",
@@ -125,6 +125,91 @@
       "status": "planned",
       "hook": "I say yeah I did it before my brain catches up.",
       "theme": "lying / false completion"
+    },
+    "MC4": {
+      "audience": "codesign",
+      "consent": "gated",
+      "consent_logged": true,
+      "consent_ref": "JER-384",
+      "status": "editing",
+      "hook": "Nobody wants to just look at something and say, I can't do this.",
+      "feature": "rate energy and time before starting, 1-10 before and after, anti-burnout",
+      "composition": "0d2148b5",
+      "duration": "~41s",
+      "note": "built in Descript 2026-06-22, cold open + sky-blue word captions @50% + Studio Sound 50% + animated end card; in review pre-post"
+    },
+    "MC5": {
+      "audience": "codesign",
+      "consent": "gated",
+      "consent_logged": true,
+      "consent_ref": "JER-384",
+      "status": "editing",
+      "hook": "Not every autistic person enjoys vibrations.",
+      "feature": "notifications your way: visual, gentle vibration, or read aloud; fixes the DND-miss trap",
+      "composition": "18add316",
+      "duration": "~48s",
+      "note": "built in Descript 2026-06-22, cold open + sky-blue word captions @50% + Studio Sound 50% + animated end card; in review pre-post daughter/wife aside excluded"
+    },
+    "MC6": {
+      "audience": "codesign",
+      "consent": "gated",
+      "consent_logged": true,
+      "consent_ref": "JER-384",
+      "status": "editing",
+      "hook": "What if I wanna step away and do art?",
+      "feature": "a built-in sensory break you can't skip, can be restorative like art",
+      "composition": "aa43d543",
+      "duration": "~35s",
+      "note": "built in Descript 2026-06-22, cold open + sky-blue word captions @50% + Studio Sound 50% + animated end card; in review pre-post"
+    },
+    "MC7": {
+      "audience": "codesign",
+      "consent": "gated",
+      "consent_logged": true,
+      "consent_ref": "JER-384",
+      "status": "editing",
+      "hook": "It should be by choice then.",
+      "feature": "optional micro-step breakdown, only when you choose it",
+      "composition": "949f9835",
+      "duration": "~49s",
+      "note": "built in Descript 2026-06-22, cold open + sky-blue word captions @50% + Studio Sound 50% + animated end card; in review pre-post"
+    },
+    "MC8": {
+      "audience": "codesign",
+      "consent": "gated",
+      "consent_logged": true,
+      "consent_ref": "JER-384",
+      "status": "editing",
+      "hook": "Use icons, color coding, and photos.",
+      "feature": "personalize with your own icons, colors, and photos",
+      "composition": "b7ef9fe7",
+      "duration": "~40s",
+      "note": "built in Descript 2026-06-22, cold open + sky-blue word captions @50% + Studio Sound 50% + animated end card; in review pre-post"
+    },
+    "MC9": {
+      "audience": "codesign",
+      "consent": "gated",
+      "consent_logged": true,
+      "consent_ref": "JER-384",
+      "status": "editing",
+      "hook": "Now we build it.",
+      "feature": "the heart clip: pay-attention / love you / now we build it; the father-daughter anchor",
+      "composition": "a59da0bb",
+      "duration": "~14s",
+      "note": "built in Descript 2026-06-22, cold open + sky-blue word captions @50% + Studio Sound 50% + animated end card; in review pre-post push-in on closing line"
+    },
+    "MC10": {
+      "audience": "codesign",
+      "consent": "gated",
+      "consent_logged": true,
+      "consent_ref": "JER-384",
+      "status": "editing",
+      "hook": "Which are your top three?",
+      "feature": "short teaser for the series, Maddy on her top picks",
+      "composition": "25391c87",
+      "duration": "~17s",
+      "note": "built in Descript 2026-06-22, cold open + sky-blue word captions @50% + Studio Sound 50% + animated end card; in review pre-post"
     }
-  }
+  },
+  "codesign_series": "Designing Maddy, with Maddy (MC4-MC10): 6 feature clips + teaser, cut from the App ideas co-design session, project d25e615a-cf9b-4ece-a86a-2b8f451c3242"
 }
