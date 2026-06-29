@@ -1,7 +1,13 @@
 {
-  "generated": "2026-06-28T14:58:13.878300Z",
-  "generatedPT": "7:58 AM PT",
+  "generated": "2026-06-29T16:43:10.413142Z",
+  "generatedPT": "9:43 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
+      "jer": "JER-115",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
     {
       "urgency": "urgent",
       "text": "Maddy co-design clips: \"Designing Maddy, with Maddy\" (6 features + teaser, built in Descript, in review pre-post)",
@@ -13,12 +19,6 @@
       "text": "Maddy video build guide: 4-audience production board (visual hooks + close-out tracking)",
       "jer": "JER-627",
       "pillar": "\ud83d\udcf1 Maddy's App"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
-      "jer": "JER-115",
-      "pillar": "\ud83d\udcf1 Maddy's App"
     }
   ],
   "contentDue": [
@@ -26,7 +26,7 @@
       "title": "Note to Self \u2014 The Grand Canyon, Ooh Aah",
       "platform": "X, Instagram, Substack",
       "status": "Draft",
-      "due": "2026-06-30"
+      "due": "tomorrow"
     }
   ],
   "followUpRadar": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 93,
+      "days": 94,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 94,
+      "days": 95,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 94,
+      "days": 95,
       "why": ""
     }
   ],
