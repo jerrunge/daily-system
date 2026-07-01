@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-30T15:43:12.820903Z",
-  "generatedPT": "8:43 AM PT",
+  "generated": "2026-07-01T15:57:06.361603Z",
+  "generatedPT": "8:57 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -22,12 +22,6 @@
     }
   ],
   "contentDue": [
-    {
-      "title": "Note to Self \u2014 The Grand Canyon, Ooh Aah",
-      "platform": "X, Instagram, Substack",
-      "status": "Draft",
-      "due": "today"
-    },
     {
       "title": "Note to Self \u2014 Love in every season",
       "platform": "X, Instagram, Substack",
@@ -53,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 95,
+      "days": 96,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 96,
+      "days": 97,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 96,
+      "days": 97,
       "why": ""
     }
   ],
