@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-03T15:27:18.254110Z",
-  "generatedPT": "8:27 AM PT",
+  "generated": "2026-07-04T14:46:12.471266Z",
+  "generatedPT": "7:46 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 98,
+      "days": 99,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 99,
+      "days": 100,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 99,
+      "days": 100,
       "why": ""
     }
   ],
