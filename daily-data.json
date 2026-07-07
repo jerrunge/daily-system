@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-06T16:31:12.777449Z",
-  "generatedPT": "9:31 AM PT",
+  "generated": "2026-07-07T15:57:34.877471Z",
+  "generatedPT": "8:57 AM PT",
   "rightNow": [
     {
       "urgency": "urgent",
@@ -26,7 +26,13 @@
       "title": "Note to Self \u2014 Love in every season",
       "platform": "X, Instagram, Substack",
       "status": "Draft",
-      "due": "tomorrow"
+      "due": "today"
+    },
+    {
+      "title": "Note to Self \u2014 Love, oh Love",
+      "platform": "X, Instagram, Substack",
+      "status": "Draft",
+      "due": "2026-07-14"
     }
   ],
   "followUpRadar": [
@@ -47,17 +53,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 101,
+      "days": 102,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 102,
+      "days": 103,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 102,
+      "days": 103,
       "why": ""
     }
   ],
