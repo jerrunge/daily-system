@@ -1,7 +1,13 @@
 {
-  "generated": "2026-07-08T15:36:48.356802Z",
-  "generatedPT": "8:36 AM PT",
+  "generated": "2026-07-09T16:09:34.068284Z",
+  "generatedPT": "9:09 AM PT",
   "rightNow": [
+    {
+      "urgency": "week",
+      "text": "Android v1 \u2014 port to Google Play",
+      "jer": "JER-678",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
     {
       "urgency": "urgent",
       "text": "Content series \u2014 men's physical health, performance + whole self (Fortify SX/PH)",
@@ -13,12 +19,6 @@
       "text": "Design The Rebuild \\u2014 product structure, pricing, membership, landing page",
       "jer": "JER-163",
       "pillar": ""
-    },
-    {
-      "urgency": "urgent",
-      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
-      "jer": "JER-115",
-      "pillar": "\ud83d\udcf1 Maddy's App"
     }
   ],
   "contentDue": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 103,
+      "days": 104,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 104,
+      "days": 105,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 104,
+      "days": 105,
       "why": ""
     }
   ],
