@@ -1,7 +1,13 @@
 {
-  "generated": "2026-07-10T15:40:17.812729Z",
-  "generatedPT": "8:40 AM PT",
+  "generated": "2026-07-11T14:33:07.200679Z",
+  "generatedPT": "7:33 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "Reminders don't fire after setup (subject expected proactive nudges)",
+      "jer": "JER-679",
+      "pillar": ""
+    },
     {
       "urgency": "week",
       "text": "Android v1 \u2014 port to Google Play",
@@ -13,12 +19,6 @@
       "text": "Content series \u2014 men's physical health, performance + whole self (Fortify SX/PH)",
       "jer": "JER-148",
       "pillar": "Wealth Stack"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Design The Rebuild \\u2014 product structure, pricing, membership, landing page",
-      "jer": "JER-163",
-      "pillar": ""
     }
   ],
   "contentDue": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 105,
+      "days": 106,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 106,
+      "days": 107,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 106,
+      "days": 107,
       "why": ""
     }
   ],
