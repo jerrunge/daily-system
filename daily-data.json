@@ -1,18 +1,18 @@
 {
-  "generated": "2026-07-11T14:33:07.200679Z",
-  "generatedPT": "7:33 AM PT",
+  "generated": "2026-07-12T14:38:03.808155Z",
+  "generatedPT": "7:38 AM PT",
   "rightNow": [
-    {
-      "urgency": "urgent",
-      "text": "Reminders don't fire after setup (subject expected proactive nudges)",
-      "jer": "JER-679",
-      "pillar": ""
-    },
     {
       "urgency": "week",
       "text": "Android v1 \u2014 port to Google Play",
       "jer": "JER-678",
       "pillar": "\ud83d\udcf1 Maddy's App"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Reminders don't fire after setup (subject expected proactive nudges)",
+      "jer": "JER-679",
+      "pillar": ""
     },
     {
       "urgency": "urgent",
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 106,
+      "days": 107,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 107,
+      "days": 108,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 107,
+      "days": 108,
       "why": ""
     }
   ],
