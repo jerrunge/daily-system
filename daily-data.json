@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-12T14:38:03.808155Z",
-  "generatedPT": "7:38 AM PT",
+  "generated": "2026-07-13T16:00:29.129021Z",
+  "generatedPT": "9:00 AM PT",
   "rightNow": [
     {
       "urgency": "week",
@@ -26,7 +26,7 @@
       "title": "Note to Self \u2014 Love, oh Love",
       "platform": "X, Instagram, Substack",
       "status": "Draft",
-      "due": "2026-07-14"
+      "due": "tomorrow"
     }
   ],
   "followUpRadar": [
@@ -47,17 +47,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 107,
+      "days": 108,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 108,
+      "days": 109,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 108,
+      "days": 109,
       "why": ""
     }
   ],
