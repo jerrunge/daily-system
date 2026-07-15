@@ -1,6 +1,6 @@
 {
-  "generated": "2026-07-14T15:03:31.135621Z",
-  "generatedPT": "8:03 AM PT",
+  "generated": "2026-07-15T15:02:26.185700Z",
+  "generatedPT": "8:02 AM PT",
   "rightNow": [
     {
       "urgency": "week",
@@ -21,14 +21,7 @@
       "pillar": "Wealth Stack"
     }
   ],
-  "contentDue": [
-    {
-      "title": "Note to Self \u2014 Love, oh Love",
-      "platform": "X, Instagram, Substack",
-      "status": "Draft",
-      "due": "today"
-    }
-  ],
+  "contentDue": [],
   "followUpRadar": [
     {
       "name": "Jennifer Rendon",
@@ -47,17 +40,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 109,
+      "days": 110,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 110,
+      "days": 111,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 110,
+      "days": 111,
       "why": ""
     }
   ],
