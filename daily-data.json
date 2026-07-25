@@ -1,7 +1,13 @@
 {
-  "generated": "2026-07-24T15:10:06.903669Z",
-  "generatedPT": "8:10 AM PT",
+  "generated": "2026-07-25T14:42:26.973511Z",
+  "generatedPT": "7:42 AM PT",
   "rightNow": [
+    {
+      "urgency": "urgent",
+      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
+      "jer": "JER-115",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
     {
       "urgency": "week",
       "text": "Circle invite should self-explain what Maddy is",
@@ -13,12 +19,6 @@
       "text": "Android v1 \u2014 port to Google Play",
       "jer": "JER-678",
       "pillar": "\ud83d\udcf1 Maddy's App"
-    },
-    {
-      "urgency": "urgent",
-      "text": "Reminders don't fire after setup (subject expected proactive nudges)",
-      "jer": "JER-679",
-      "pillar": ""
     }
   ],
   "contentDue": [],
@@ -40,17 +40,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 119,
+      "days": 120,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 120,
+      "days": 121,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 120,
+      "days": 121,
       "why": ""
     }
   ],
