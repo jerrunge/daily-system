@@ -1,18 +1,18 @@
 {
-  "generated": "2026-07-25T14:42:26.973511Z",
-  "generatedPT": "7:42 AM PT",
+  "generated": "2026-07-26T14:45:02.732618Z",
+  "generatedPT": "7:45 AM PT",
   "rightNow": [
-    {
-      "urgency": "urgent",
-      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
-      "jer": "JER-115",
-      "pillar": "\ud83d\udcf1 Maddy's App"
-    },
     {
       "urgency": "week",
       "text": "Circle invite should self-explain what Maddy is",
       "jer": "JER-683",
       "pillar": ""
+    },
+    {
+      "urgency": "urgent",
+      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
+      "jer": "JER-115",
+      "pillar": "\ud83d\udcf1 Maddy's App"
     },
     {
       "urgency": "week",
@@ -40,17 +40,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 120,
+      "days": 121,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 121,
+      "days": 122,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 121,
+      "days": 122,
       "why": ""
     }
   ],
