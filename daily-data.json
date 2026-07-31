@@ -1,24 +1,24 @@
 {
-  "generated": "2026-07-30T15:25:16.319164Z",
-  "generatedPT": "8:25 AM PT",
+  "generated": "2026-07-31T15:30:47.086086Z",
+  "generatedPT": "8:30 AM PT",
   "rightNow": [
+    {
+      "urgency": "week",
+      "text": "Billing F8: payer-departure / account-deletion billing handling",
+      "jer": "JER-665",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Billing model hardening (F1\u2013F8) \u2014 from circle-keyed scenario pressure-test",
+      "jer": "JER-608",
+      "pillar": "\ud83d\udcf1 Maddy's App"
+    },
     {
       "urgency": "urgent",
       "text": "Build The Letting Go Protocol hosted workbook",
       "jer": "JER-711",
       "pillar": "Personal Systems"
-    },
-    {
-      "urgency": "week",
-      "text": "Circle invite should self-explain what Maddy is",
-      "jer": "JER-683",
-      "pillar": ""
-    },
-    {
-      "urgency": "urgent",
-      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
-      "jer": "JER-115",
-      "pillar": "\ud83d\udcf1 Maddy's App"
     }
   ],
   "contentDue": [],
@@ -40,17 +40,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 125,
+      "days": 126,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 126,
+      "days": 127,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 126,
+      "days": 127,
       "why": ""
     }
   ],
