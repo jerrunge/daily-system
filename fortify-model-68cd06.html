@@ -160,8 +160,8 @@ function render(kicker,title,lede,keys){
 }
 function showDom(code){clear();highlight([code]);nodeEls[code].classList.remove("dim");
   render("domain · "+code,P[code].name,DOM[code].l,DOM[code].k);}
-function showKey(k){clear();highlight([k.a,k.b]);
-  document.querySelectorAll(".key").forEach(b=>{if(b.dataset.n===k.n)b.classList.add("on")});
+function showKey(k,quiet){clear();if(!quiet){highlight([k.a,k.b]);
+  document.querySelectorAll(".key").forEach(b=>{if(b.dataset.n===k.n)b.classList.add("on")});}
   render("keystone · "+k.a+" and "+k.b,k.n,k.s,k.k);}
 function showPair(a,b,name){clear();highlight([a,b]);render("connection · "+a+" and "+b,name,"",[]);}
 const kw=document.getElementById("keys");
@@ -170,6 +170,6 @@ KEYS.forEach(k=>{
   b.innerHTML='<span class="nm">'+esc(k.n)+'</span><span class="pr">'+esc(k.a)+" &harr; "+esc(k.b)+'</span><span class="st">'+esc(k.s)+"</span>";
   b.addEventListener("click",()=>showKey(k));kw.appendChild(b);
 });
-showKey(KEYS[0]);
+showKey(KEYS[0],true);
 </script>
 </body></html>
