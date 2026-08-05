@@ -1,0 +1,555 @@
+<title>The Council · a standing board for solo builders</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --night:#0A0E22; --panel:#121834; --panel-2:#0E1330; --line:#232C55;
+    --star:#EAEDFA; --dim:#9AA3CB; --faint:#6B74A0;
+    --gold:#E5B54D; --peri:#8E9DFF; --jade:#79C9A8;
+    color-scheme: dark;
+  }
+  html,body{background:var(--night);}
+  body{
+    margin:0; color:var(--star);
+    font-family:Seravek,"Avenir Next","Helvetica Neue",system-ui,sans-serif;
+    font-size:16.5px; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;}
+  .wrap{max-width:720px; margin:0 auto; padding:0 24px;}
+  a{color:var(--peri);}
+
+  /* ---------- hero ---------- */
+  header{position:relative; min-height:min(86vh,720px); overflow:hidden;}
+  #sky{position:absolute; inset:0; width:100%; height:100%; display:block;}
+  .star-label{
+    position:absolute; transform:translate(-50%,0); text-align:center;
+    pointer-events:none; white-space:nowrap;
+  }
+  .star-label .n{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--gold); font-size:15px; letter-spacing:.08em;
+  }
+  .star-label .r{color:var(--faint); font-size:11.5px; letter-spacing:.05em;}
+  .hero-text{
+    position:relative; z-index:2; text-align:center;
+    padding:62vh 24px 72px;
+  }
+  @media (max-height:700px){ .hero-text{padding-top:58vh;} }
+  .eyebrow{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace;
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--faint);
+  }
+  .eyebrow b{color:var(--gold); font-weight:500;}
+  h1{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-weight:400; font-size:clamp(42px,8vw,60px); margin:10px 0 18px;
+    letter-spacing:.01em; text-wrap:balance;
+  }
+  .thesis{max-width:560px; margin:0 auto; color:var(--dim); font-size:17.5px; text-wrap:balance;}
+  .thesis strong{color:var(--star); font-weight:500;}
+  .alt-names{margin-top:22px; font-size:12px; color:var(--faint);}
+
+  /* ---------- epigraph ---------- */
+  .epigraph{padding:72px 24px 8px; text-align:center;}
+  .epigraph blockquote{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-size:clamp(20px,4vw,26px); color:var(--star); margin:0 auto; max-width:600px;
+    font-style:italic; text-wrap:balance;
+  }
+  .epigraph figcaption{margin-top:14px; font-size:12px; color:var(--faint); letter-spacing:.06em;}
+
+  /* ---------- sections ---------- */
+  section{padding:88px 0 0;}
+  .sect-eyebrow{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace;
+    font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:10px;
+  }
+  h2{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-weight:400; font-size:clamp(25px,5vw,30px); margin:0 0 18px; text-wrap:balance;
+  }
+  p{margin:0 0 18px; color:var(--dim);}
+  p strong{color:var(--star); font-weight:500;}
+  .divider{
+    display:flex; align-items:center; gap:14px; margin:88px auto 0; max-width:720px; padding:0 24px;
+  }
+  .divider::before,.divider::after{content:""; flex:1; height:1px; background:var(--line);}
+  .divider span{color:var(--gold); font-size:12px;}
+
+  /* ---------- night log ---------- */
+  .log{
+    border-left:1px solid var(--line); margin:28px 0 6px; padding:4px 0 4px 22px;
+    display:flex; flex-direction:column; gap:18px;
+  }
+  .log-tag{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace;
+    font-size:10.5px; letter-spacing:.16em; color:var(--faint); text-transform:uppercase;
+  }
+  .log-entry .t{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace;
+    color:var(--gold); font-size:12px; letter-spacing:.06em;
+  }
+  .log-entry .e{color:var(--dim); margin-top:2px;}
+  .kicker{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--star); font-size:19px; font-style:italic; margin-top:26px;
+  }
+
+  /* ---------- cycle ---------- */
+  ol.cycle{list-style:none; margin:30px 0 0; padding:0; display:flex; flex-direction:column; gap:22px;}
+  ol.cycle li{display:flex; gap:18px; align-items:baseline;}
+  ol.cycle .num{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--gold); font-size:26px; min-width:30px; text-align:right;
+    font-variant-numeric:tabular-nums;
+  }
+  ol.cycle .name{color:var(--star); font-weight:500;}
+  ol.cycle .d{color:var(--dim);}
+  .turnover{color:var(--faint); font-size:13.5px; margin-top:22px; padding-left:48px;}
+
+  /* ---------- charter ---------- */
+  .laws{display:flex; flex-direction:column; gap:0; margin-top:26px; border-top:1px solid var(--line);}
+  .law{padding:20px 0; border-bottom:1px solid var(--line); display:flex; gap:20px; align-items:baseline;}
+  .law .rn{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    color:var(--gold); min-width:36px; font-size:15px; letter-spacing:.08em;
+  }
+  .law p{margin:0;}
+  .charter-note{margin-top:22px; font-size:13.5px; color:var(--faint);}
+
+  /* ---------- seat card ---------- */
+  .seat{
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:24px; margin-top:28px;
+  }
+  .seat-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:18px;}
+  .seat-head .who{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif; font-size:19px;}
+  .seat-head .wk{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:11px; color:var(--faint); letter-spacing:.1em;}
+  .domain-grid{display:flex; flex-wrap:wrap; gap:8px;}
+  .pill{
+    position:relative; font-size:12px; color:var(--dim);
+    border:1px solid var(--line); border-radius:999px; padding:4px 12px 6px;
+    background:var(--panel-2);
+  }
+  .pill i{
+    position:absolute; left:12px; right:12px; bottom:3px; height:2px; border-radius:2px;
+    background:var(--line); font-style:normal;
+  }
+  .pill i b{display:block; height:100%; border-radius:2px; background:var(--peri);}
+  .pill.held{border-style:dashed; color:var(--faint);}
+  .pill.held::after{content:"held"; font-family:ui-monospace,"SF Mono",Menlo,monospace;
+    font-size:9px; letter-spacing:.08em; color:var(--faint); margin-left:7px;}
+  .seat-rows{display:grid; grid-template-columns:92px 1fr; gap:10px 16px; margin-top:20px; font-size:14.5px;}
+  .seat-rows .k{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:10.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--faint); padding-top:3px;
+  }
+  .seat-rows .v{color:var(--dim);}
+  .seat-rows .v em{color:var(--star); font-style:normal;}
+  .caption{font-size:12.5px; color:var(--faint); margin-top:14px;}
+
+  /* ---------- phone mockups ---------- */
+  .phones{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:26px;}
+  @media (max-width:680px){ .phones{grid-template-columns:1fr;} }
+  .phone-slot{margin:0;}
+  .p-tag{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:10px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--faint); margin-bottom:9px;}
+  .phone{background:#0C1129; border:1px solid var(--line); border-radius:22px;
+    padding:16px 14px 14px; min-height:392px; display:flex; flex-direction:column; gap:9px;}
+  .p-time{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:9.5px; letter-spacing:.12em;
+    color:var(--faint); text-transform:uppercase;}
+  .p-title{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-size:16.5px; color:var(--star); margin-bottom:2px;}
+  .g-row{display:flex; justify-content:space-between; align-items:center; gap:8px;
+    font-size:12px; color:var(--dim); padding:6px 0; border-bottom:1px solid rgba(35,44,85,.55);}
+  .g-row .dn{flex:1;}
+  .dots{display:inline-flex; gap:3px; margin-right:2px;}
+  .dots i{width:5.5px; height:5.5px; border-radius:50%; background:var(--line); display:inline-block;}
+  .dots i.f{background:var(--gold);}
+  .mini{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:8.5px; letter-spacing:.08em;
+    text-transform:uppercase; border:1px solid var(--line); border-radius:999px; padding:2px 7px;
+    color:var(--dim); white-space:nowrap;}
+  .mini.hold{border-style:dashed; color:var(--faint);}
+  .more-row{font-size:11px; color:var(--faint); padding-top:8px;}
+  .p-foot{margin-top:auto; font-size:10.5px; color:var(--faint); padding-top:10px;}
+  .lead-card{background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:11px 12px; font-size:12px; color:var(--dim);}
+  .lead-card .lc-t{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:8.5px;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;}
+  .lead-card em{color:var(--star); font-style:normal;}
+  .k-row{display:flex; gap:9px; align-items:baseline; font-size:11.5px; color:var(--dim);
+    padding:6px 0; border-bottom:1px solid rgba(35,44,85,.55);}
+  .k-row .kc{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:8.5px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--faint); min-width:58px;}
+  .btn{display:inline-block; border:1px solid var(--gold); color:var(--gold); border-radius:999px;
+    padding:6px 16px; font-size:11.5px; letter-spacing:.02em;}
+  .btn.ghost{border-color:var(--line); color:var(--faint);}
+  .btn-row{display:flex; gap:8px; margin-top:2px;}
+  .feed-t{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:9.5px; letter-spacing:.08em;
+    color:var(--peri);}
+  .feed-e{font-size:11.5px; color:var(--dim); margin-top:1px;}
+  .landed{font-size:11.5px; color:var(--jade);}
+
+  /* ---------- chairs ---------- */
+  .chairs{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:26px;}
+  @media (max-width:640px){ .chairs{grid-template-columns:1fr;} }
+  .chair{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px;}
+  .chair .n{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif; color:var(--gold); font-size:17px;}
+  .chair .m{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:10.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--faint); margin:4px 0 10px;}
+  .chair .d{font-size:14px; color:var(--dim);}
+  .trade{margin-top:22px;}
+
+  /* ---------- horizon ---------- */
+  .rungs{display:flex; flex-direction:column; gap:0; margin-top:26px;}
+  .rung{display:flex; gap:18px; padding:18px 0; border-top:1px solid var(--line); align-items:baseline;}
+  .rung:last-child{border-bottom:1px solid var(--line);}
+  .rung .w{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:10.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--faint); min-width:110px; padding-top:4px;
+  }
+  .rung p{margin:0;}
+
+  /* ---------- true today ---------- */
+  .truths{display:flex; flex-direction:column; gap:14px; margin-top:26px;}
+  .truth{display:flex; gap:14px; align-items:baseline;}
+  .truth::before{content:"\2713"; color:var(--jade); font-size:14px;}
+  .truth p{margin:0;}
+
+  /* ---------- test ---------- */
+  .test-close{
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-size:19px; color:var(--star); font-style:italic; margin-top:26px;
+  }
+
+  footer{padding:96px 24px 60px; text-align:center;}
+  footer p{font-size:12.5px; color:var(--faint); margin:0 0 6px;}
+
+  :focus-visible{outline:2px solid var(--peri); outline-offset:2px;}
+  @media (prefers-reduced-motion:reduce){ *{animation:none !important;} }
+</style>
+
+<header>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="star-label" id="lab-m"><div class="n">Amel</div><div class="r">finance mind</div></div>
+  <div class="star-label" id="lab-a"><div class="n">Alyssa</div><div class="r">marketing mind</div></div>
+  <div class="star-label" id="lab-j"><div class="n">Jeremy</div><div class="r">operator mind</div></div>
+  <div class="hero-text">
+    <div class="eyebrow">working name · <b>yours to rule</b></div>
+    <h1>The Council</h1>
+    <p class="thesis">Every serious company has a board. Almost no person does. <strong>This is a standing board of directors for people building alone, and it never adjourns.</strong></p>
+    <p class="alt-names">also in the running: The Table · The Standing Board · Three Chairs</p>
+  </div>
+</header>
+
+<figure class="epigraph">
+  <blockquote>&ldquo;we win in work and life, together, and separate&rdquo;</blockquote>
+  <figcaption>Jeremy, typed 2026-08-05. The sentence this page is built on.</figcaption>
+</figure>
+
+<section>
+  <div class="wrap">
+    <div class="sect-eyebrow">The gap</div>
+    <h2>Builders alone get no governance</h2>
+    <p>A funded founder gets an exec team: a finance mind watching runway, a marketing mind shaping the story, a board asking the questions nobody inside the work can see. A person building alone gets a group chat. Masterminds meet monthly and evaporate. Coaches bill by the hour and leave. Advice arrives, and nothing holds it, nothing follows up, nothing remembers.</p>
+    <p>The gap was never about willingness. Three friends who want to govern each other's success have had no instrument for it, because the staff work underneath a real board, the briefing, the pattern reading, the follow-through, took salaries nobody building alone can pay. <strong>That constraint just died.</strong></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sect-eyebrow">The invention</div>
+    <h2>The staff layer</h2>
+    <p>Each member seats an <strong>AI chief of staff</strong>. It holds their whole picture: how the ten domains feel this week, the goals, the moves in flight, where they are stuck. Instruments a member already runs can feed it; a notebook and a weekly conversation feed it just as well.</p>
+    <p><strong>And the staffs meet while the humans sleep.</strong></p>
+    <div class="log-tag">an imagined night · drawn to show the mechanism</div>
+    <div class="log">
+      <div class="log-entry"><div class="t">2:14 am</div><div class="e">One chair is stuck on a price, third week circling it. Another chair has priced that shape of work before. The ask is drafted before sunrise.</div></div>
+      <div class="log-entry"><div class="t">3:02 am</div><div class="e">One chair's runway pattern points at a crunch eight weeks out. The question is queued for the table, receipts attached.</div></div>
+      <div class="log-entry"><div class="t">5:47 am</div><div class="e">One chair's Physical gauge dipped twice in the same week the work surged. The table will lead with it, not end with it.</div></div>
+      <div class="log-entry"><div class="t">dawn</div><div class="e">The packet is assembled. Three humans wake up already briefed.</div></div>
+    </div>
+    <p class="kicker">Boards adjourn. This one never does.</p>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>&#10022;</span></div>
+
+<section>
+  <div class="wrap">
+    <div class="sect-eyebrow">The cycle</div>
+    <h2>One cycle, running forever</h2>
+    <ol class="cycle">
+      <li><span class="num">1</span><span><span class="name">Gauge.</span> <span class="d">Each member marks how the ten domains feel this week. Felt, not scored. Two minutes.</span></span></li>
+      <li><span class="num">2</span><span><span class="name">Publish.</span> <span class="d">Each chooses what crosses the membrane, signal by signal. The rest stays home.</span></span></li>
+      <li><span class="num">3</span><span><span class="name">Confer.</span> <span class="d">The staffs meet. Patterns read across every seat, needs matched to strengths, asks drafted.</span></span></li>
+      <li><span class="num">4</span><span><span class="name">The packet.</span> <span class="d">One page per chair, the connective work already done. Nobody arrives cold.</span></span></li>
+      <li><span class="num">5</span><span><span class="name">The table.</span> <span class="d">The humans sit. Judgment, care, rulings. The system never votes.</span></span></li>
+      <li><span class="num">6</span><span><span class="name">Land.</span> <span class="d">Rulings return to each life as scheduled moves, into whatever instrument that member runs. The staffs watch the follow-through.</span></span></li>
+    </ol>
+    <p class="turnover">then it turns over, and the board keeps sitting.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sect-eyebrow">The charter</div>
+    <h2>Together, and separate is the architecture</h2>
+    <p>Sovereignty here is not a settings page. It is the load-bearing wall.</p>
+    <div class="laws">
+      <div class="law"><span class="rn">I</span><p><strong>Your data lives with you.</strong> The table sees only what you publish, signal by signal, week by week.</p></div>
+      <div class="law"><span class="rn">II</span><p><strong>The system briefs. It never rules.</strong> Humans hold every gavel.</p></div>
+      <div class="law"><span class="rn">III</span><p><strong>No score of a person exists anywhere in it.</strong> Gauges are felt and self-set. Verdicts about people are forbidden by design.</p></div>
+      <div class="law"><span class="rn">IV</span><p><strong>It may choose what to lead with. It never decides what you are allowed to see</strong>, and it never assesses you without telling you.</p></div>
+      <div class="law"><span class="rn">V</span><p><strong>Floors, not ceilings.</strong> It amplifies what a member already carries. It never caps, chaperones, or shames.</p></div>
+    </div>
+    <p class="charter-note">One of the founders already wrote these laws for himself, refusal by refusal, in a system of record. Here they become the charter, for every member. They are also the moat: a product that harvests three lives into one database cannot retrofit trust. One built on consent from the first commit can hold strangers.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sect-eyebrow">One seat</div>
+    <h2>A seat, up close</h2>
+    <div class="seat">
+      <div class="seat-head">
+        <span class="who">The marketing chair</span>
+        <span class="wk">week of aug 3</span>
+      </div>
+      <div class="domain-grid">
+        <span class="pill">Physical<i><b style="width:70%"></b></i></span>
+        <span class="pill">Mental<i><b style="width:55%"></b></i></span>
+        <span class="pill">Cognitive<i><b style="width:80%"></b></i></span>
+        <span class="pill held">Sexual</span>
+        <span class="pill">Relational<i><b style="width:65%"></b></i></span>
+        <span class="pill">Social<i><b style="width:45%"></b></i></span>
+        <span class="pill">Financial<i><b style="width:35%"></b></i></span>
+        <span class="pill">Environmental<i><b style="width:75%"></b></i></span>
+        <span class="pill held">Spiritual</span>
+        <span class="pill">Identity<i><b style="width:60%"></b></i></span>
+      </div>
+      <div class="seat-rows">
+        <span class="k">Goals</span><span class="v">Two retainer clients signed by October. The fall campaign shipped.</span>
+        <span class="k">In flight</span><span class="v">Pricing page rewrite. Tuesday pitch.</span>
+        <span class="k">Stuck</span><span class="v">The retainer price itself.</span>
+        <span class="k">The ask</span><span class="v"><em>Someone hold me to a number by Friday.</em></span>
+      </div>
+    </div>
+    <p class="caption">Eight domains published, two held home, that chair's call every week. Every detail here is illustrative. The shape is the point: what a seat holds, and what it keeps.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sect-eyebrow">In hand</div>
+    <h2>What the instrument looks like</h2>
+    <p>Three screens from the tool this page imagines: the weekly gauge, the packet, and the board between sittings.</p>
+    <div class="phones">
+
+      <figure class="phone-slot">
+        <figcaption class="p-tag">the gauge · finance chair</figcaption>
+        <div class="phone">
+          <div class="p-time">sun 6:10 pm</div>
+          <div class="p-title">How did the week feel?</div>
+          <div class="g-row"><span class="dn">Physical</span><span class="dots"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span><span class="mini">publish</span></div>
+          <div class="g-row"><span class="dn">Financial</span><span class="dots"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span><span class="mini">publish</span></div>
+          <div class="g-row"><span class="dn">Relational</span><span class="dots"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><span class="mini">publish</span></div>
+          <div class="g-row"><span class="dn">Spiritual</span><span class="dots"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><span class="mini hold">hold</span></div>
+          <div class="g-row"><span class="dn">Identity</span><span class="dots"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span><span class="mini">publish</span></div>
+          <div class="more-row">five more domains below</div>
+          <div class="p-foot">two minutes, once a week. hold means hold: it never leaves this phone.</div>
+        </div>
+      </figure>
+
+      <figure class="phone-slot">
+        <figcaption class="p-tag">the packet · marketing chair</figcaption>
+        <div class="phone">
+          <div class="p-time">thu 7:00 am</div>
+          <div class="p-title">The packet</div>
+          <div class="lead-card"><div class="lc-t">&#10022; lead with</div><em>The operator chair.</em> Physical dipped twice in the same week the work surged.</div>
+          <div class="k-row"><span class="kc">finance</span><span>runway question for the table, receipts attached</span></div>
+          <div class="k-row"><span class="kc">marketing</span><span>a price, third week circling it</span></div>
+          <div class="k-row"><span class="kc">operator</span><span>shipping streak; body flagged above</span></div>
+          <div class="k-row"><span class="kc">asks</span><span>two drafted, waiting for the room</span></div>
+          <div class="p-foot"><span class="btn">Sit down</span></div>
+        </div>
+      </figure>
+
+      <figure class="phone-slot">
+        <figcaption class="p-tag">the between · operator chair</figcaption>
+        <div class="phone">
+          <div class="p-time">tue 9:41 am</div>
+          <div class="p-title">The standing board</div>
+          <div><div class="feed-t">2:14 am · the staffs conferred</div><div class="feed-e">One pattern read, one ask drafted while you slept.</div></div>
+          <div class="lead-card"><div class="lc-t">an ask, for you</div>&ldquo;Hold me to a number by Friday.&rdquo;<div class="btn-row"><span class="btn">Take it</span><span class="btn ghost">Pass</span></div></div>
+          <div class="landed">&#10003; landed · pricing call on the books</div>
+          <div class="p-foot">nothing here was sent by a machine on its own authority. everything waits for a human.</div>
+        </div>
+      </figure>
+
+    </div>
+    <p class="caption">Drawn to feel, not to spec. Every detail illustrative, and every screen obeys the charter above: publish or hold is the member's alone, the system drafts and never rules.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sect-eyebrow">The founding table</div>
+    <h2>Three chairs, already filled</h2>
+    <div class="chairs">
+      <div class="chair"><div class="n">Amel</div><div class="m">finance mind</div><div class="d">Sees the runway. Prices the risk. Keeps it honest.</div></div>
+      <div class="chair"><div class="n">Alyssa</div><div class="m">marketing mind</div><div class="d">Sees the story. Names the audience. Makes it land.</div></div>
+      <div class="chair"><div class="n">Jeremy</div><div class="m">operator mind</div><div class="d">Sees the system. Breaks the logjam. Ships.</div></div>
+    </div>
+    <p class="trade">Each chair gives one lens and receives two. That trade is the whole economy of the table, and it already works at three people, before any code exists.</p>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span>&#10022;</span></div>
+
+<section>
+  <div class="wrap">
+    <div class="sect-eyebrow">What if</div>
+    <h2>Where it goes if it works</h2>
+    <div class="rungs">
+      <div class="rung"><span class="w">Circles</span><p>Kindred builders join in threes and fours, matched on mindset, not industry.</p></div>
+      <div class="rung"><span class="w">The network</span><p>Boards of boards. Asks travel between circles, and a stranger's strength answers your stuck point.</p></div>
+      <div class="rung"><span class="w">The institution</span><p>The tool running it becomes the product: the exec team everyone was told to hire someday, standing, for anyone building alone.</p></div>
+    </div>
+    <p class="charter-note">Each rung waits for the one below it to prove out. The whole ladder waits on the test at the bottom of this page.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sect-eyebrow">True today</div>
+    <h2>What already exists</h2>
+    <div class="truths">
+      <div class="truth"><p>The founding three exist, and already do this in conversation. The table formalizes what the friendship started.</p></div>
+      <div class="truth"><p>The ten domains are not a sketch. A claims-backed model with research standing under every connection already exists.</p></div>
+      <div class="truth"><p>Instruments to feed a seat already exist or are in flight. Jeremy's own daily instrument plugs in later, in its own sequence. Every seat starts by hand.</p></div>
+      <div class="truth"><p>Nothing else is built. That is deliberate, and it is why the next section exists.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sect-eyebrow">The test</div>
+    <h2>Before any code: one real cycle</h2>
+    <p>The premise worth testing is not whether the software can exist. It is whether three humans want this cadence. So the first version costs an evening, not a quarter: three seat cards filled by hand, the staffs played by Claude sessions, one packet, one table.</p>
+    <p>If the room feels what this page promises, build it. If it does not, this page cost a day.</p>
+    <p class="test-close">This page's first job is to be shown to two people.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Drawn 2026-08-05 by a Claude session, from an idea Jeremy typed the same day.</p>
+  <p>Working draft. Nothing here is ruled: the name, the laws, the ladder all await the founders' word.</p>
+</footer>
+
+<script>
+(function(){
+  var canvas = document.getElementById('sky');
+  var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W, H, dpr;
+
+  // the three chairs as stars; y is a fraction of the sky zone above the hero text
+  var anchors = [
+    {x:0.27, y:0.60, label:'lab-a'},
+    {x:0.50, y:0.78, label:'lab-j'},
+    {x:0.73, y:0.36, label:'lab-m'}
+  ];
+  var edges = [[0,1],[1,2],[2,0]];
+  var pts = [];
+
+  var field = [];
+  function seedField(){
+    field = [];
+    for (var i=0; i<110; i++){
+      field.push({
+        x: Math.random(), y: Math.random()*0.92,
+        r: Math.random()*1.1 + 0.3,
+        a: Math.random()*0.5 + 0.15,
+        tw: Math.random()*Math.PI*2,
+        sp: Math.random()*0.8 + 0.3
+      });
+    }
+  }
+
+  function size(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = W*dpr; canvas.height = H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    // sky zone: everything above the hero eyebrow, with clearance for labels
+    var eyebrow = document.querySelector('.hero-text .eyebrow');
+    var zone = Math.max(220, eyebrow.getBoundingClientRect().top + window.scrollY - 92);
+    pts = anchors.map(function(a){
+      var el = document.getElementById(a.label);
+      el.style.left = (a.x*100)+'%';
+      el.style.top = (a.y*zone + 14)+'px';
+      return {x: a.x*W, y: a.y*zone};
+    });
+  }
+
+  function drawStar(px, py, r, glow){
+    var g = ctx.createRadialGradient(px,py,0,px,py,r*7);
+    g.addColorStop(0,'rgba(229,181,77,'+glow+')');
+    g.addColorStop(1,'rgba(229,181,77,0)');
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(px,py,r*7,0,7); ctx.fill();
+    ctx.fillStyle = '#F4E3B2';
+    ctx.beginPath(); ctx.arc(px,py,r,0,7); ctx.fill();
+  }
+
+  function frame(t){
+    ctx.clearRect(0,0,W,H);
+    // background field
+    field.forEach(function(s){
+      var a = reduced ? s.a : s.a*(0.65 + 0.35*Math.sin(t*0.001*s.sp + s.tw));
+      ctx.fillStyle = 'rgba(234,237,250,'+a.toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(s.x*W, s.y*H, s.r, 0, 7); ctx.fill();
+    });
+    // constellation lines
+    ctx.strokeStyle = 'rgba(142,157,255,0.28)';
+    ctx.lineWidth = 1;
+    edges.forEach(function(e){
+      var a = pts[e[0]], b = pts[e[1]];
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.stroke();
+    });
+    // staff traffic: pulses traveling each edge
+    edges.forEach(function(e, i){
+      var a = pts[e[0]], b = pts[e[1]];
+      var p = reduced ? (0.25 + i*0.25) : ((t*0.00006*(1 + i*0.35) + i*0.33) % 1);
+      var px = a.x + (b.x - a.x)*p;
+      var py = a.y + (b.y - a.y)*p;
+      var g = ctx.createRadialGradient(px,py,0,px,py,9);
+      g.addColorStop(0,'rgba(142,157,255,0.9)');
+      g.addColorStop(1,'rgba(142,157,255,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(px,py,9,0,7); ctx.fill();
+    });
+    // the three stars
+    pts.forEach(function(a,i){
+      var breathe = reduced ? 1 : (1 + 0.12*Math.sin(t*0.0009 + i*2.1));
+      drawStar(a.x, a.y, 2.6*breathe, 0.5);
+    });
+    if (!reduced) requestAnimationFrame(frame);
+  }
+
+  seedField();
+  size();
+  window.addEventListener('resize', function(){ size(); if (reduced) frame(0); });
+  if (reduced) { frame(0); } else { requestAnimationFrame(frame); }
+})();
+</script>
