@@ -75,6 +75,11 @@ details.dom[open] .car{transform:rotate(90deg)}
 .dead{font-size:14px;line-height:1.55;margin-top:8px;padding:9px 11px;background:var(--chip);border-left:3px solid var(--red)}
 .flag b,.dead b{color:var(--land)}
 
+.steps{margin:8px 0 2px;padding-left:20px}
+.steps li{font-size:14.5px;line-height:1.6;margin-bottom:4px;color:var(--body)}
+.steps li::marker{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate2)}
+.steps li b{color:var(--land);font-weight:600}
+.asis{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate2);display:block;margin:9px 0 2px}
 /* scenarios */
 .scenes{display:grid;grid-template-columns:repeat(auto-fit,minmax(318px,1fr));gap:12px}
 .scene{background:var(--card);border:1px solid var(--hairline);display:flex;flex-direction:column}
@@ -168,27 +173,49 @@ tr:last-child td{border-bottom:none}
       <summary><span class="cd">PH</span><span><span class="dn">Physical</span><span class="dt">What the body can do, and what it costs to keep doing it.</span></span><span class="dmeta"><span class="chip c1">4</span><span class="car">&rsaquo;</span></span></summary>
       <div class="dbody">
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>The activity floor, aimed at the bottom of the curve</h4><span class="chip c1">T1 &middot; pooled</span></div>
-          <p class="do"><b>Do:</b> the prescription for a sedentary executive is not 150 minutes. It is the first 30. Move him off zero, then build.</p>
-          <p>The dose-response curve is inverse and curvilinear, with the steepest gradient at the lowest activity volumes, and real benefit below the public health recommendation. Most of the return sits in the first increment.</p>
-          <div class="src">Pearce M, Garcia L, Abbas A, et al. JAMA Psychiatry 2022;79:550-559. doi:10.1001/jamapsychiatry.2022.0609. 15 studies, 191,130 participants, 2,110,588 person-years. Pooled cohort data, so say "associated with."</div>
+          <div class="top"><h4>Start below the guideline, not at it</h4><span class="chip c1">T1 &middot; pooled</span></div>
+          <p class="do"><b>Do:</b> the curve is steepest at the bottom, so the first block of movement buys the most. Prescribing 150 minutes to a man doing zero is prescribing failure.</p>
+          <ol class="steps">
+            <li>Get his <b>actual</b> current weekly total in minutes. Not his intention, and not a good week.</li>
+            <li>Add <b>one</b> session to that number. If he is at zero, one twenty-minute walk is the whole prescription.</li>
+            <li>Hold it four weeks unchanged before adding a second.</li>
+            <li>Only once two are habitual does the 150-minute conversation happen.</li>
+          </ol>
+          <div class="src">Pearce M, Garcia L, Abbas A, et al. JAMA Psychiatry 2022;79:550-559. doi:10.1001/jamapsychiatry.2022.0609. 15 studies, 191,130 participants, 2,110,588 person-years. The authors&rsquo; conclusion: "significant mental health benefits from being physically active, even at levels below the public health recommendations," and practitioners "should therefore encourage any increase." Pooled cohort data, so say "associated with." The step sizes above are practical implementation, not trial arms.</div>
         </div>
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>Combined physical and psychological work in the same week</h4><span class="chip c1">T1 &middot; SMD 0.73</span></div>
-          <p class="do"><b>Do:</b> never run a session without a physical prescription attached to the same week.</p>
-          <p>Combined interventions measured 0.73 against 0.41 to 0.49 for exercise alone or mindfulness alone, and 0.37 to 0.39 for ACT alone.</p>
-          <div class="src">Wilkie L, et al. Nat Hum Behav 2026;10:715-726. doi:10.1038/s41562-025-02369-1.</div>
+          <div class="top"><h4>Pair the physical and the psychological inside one week</h4><span class="chip c1">T1 &middot; SMD 0.73</span></div>
+          <p class="do"><b>Do:</b> the combination measures nearly double either alone, so the two must land in the same seven days rather than in alternating phases.</p>
+          <ol class="steps">
+            <li>Close every session by naming <b>one</b> physical commitment for the next seven days.</li>
+            <li>Give it a dose and a day. "Walk more" is not a commitment; "35 minutes, Tuesday and Friday, before work" is.</li>
+            <li>Open the following session with that commitment before anything else is discussed.</li>
+            <li>If it did not happen, cut the dose in half rather than repeating the ask.</li>
+          </ol>
+          <div class="src">Wilkie L, et al. Nat Hum Behav 2026;10:715-726. doi:10.1038/s41562-025-02369-1. Combined interventions 0.73, against 0.41 to 0.49 for exercise or mindfulness alone and 0.37 to 0.39 for ACT alone. The trials establish that combining beats either alone; the session mechanics above are implementation.</div>
         </div>
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>The fourteen-day sleep-opportunity audit</h4><span class="chip c1">T1 &middot; causal</span></div>
-          <p class="do"><b>Do:</b> fourteen days of time-in-bed logging with an objective performance check, never a self-rating.</p>
-          <p>Fourteen days at six hours in bed produced deficits equivalent to two nights of total sleep deprivation, while subjective sleepiness plateaued and performance kept falling. He cannot feel it, which is the whole point.</p>
-          <div class="src">Van Dongen HP, Maislin G, Mullington JM, Dinges DF. Sleep 2003;26:117-126. doi:10.1093/sleep/26.2.117.</div>
+          <div class="top"><h4>The fourteen-night sleep-opportunity audit</h4><span class="chip c1">T1 &middot; causal</span></div>
+          <p class="do"><b>Do:</b> fourteen nights, because the deficit accumulates and he stops being able to feel it. This is the single most persuasive demonstration available for a man who says he is fine on six hours.</p>
+          <span class="asis">Protocol as tested</span>
+          <ol class="steps">
+            <li>Fix <b>time in bed</b>, not time asleep. The trial manipulated time in bed at 8, 6 and 4 hours.</li>
+            <li>Hold it <b>fourteen consecutive nights</b>. The effect is cumulative, so a week proves nothing.</li>
+            <li>Measure with an <b>objective</b> performance test, and separately record how sharp he feels.</li>
+            <li>Show him the two curves together. That gap is the intervention.</li>
+          </ol>
+          <p>At six hours for fourteen nights, performance deficits matched two nights of total sleep deprivation, while subjective sleepiness plateaued and objective performance kept falling.</p>
+          <div class="src">Van Dongen HP, Maislin G, Mullington JM, Dinges DF. Sleep 2003;26:117-126. doi:10.1093/sleep/26.2.117. Randomization to 8, 6 or 4 hours time in bed for 14 consecutive days, against 3 nights of total sleep deprivation, under standardized laboratory conditions.</div>
         </div>
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>CBT-I when sleep is actually broken</h4><span class="chip c1">T1 &middot; refer</span></div>
-          <p class="do"><b>Do:</b> refer, or use a validated digital programme. Do not deliver CBT-I as coaching.</p>
-          <div class="src">Nie S, et al. J Health Psychol 2026. doi:10.1177/13591053261461928. 7 RCTs, 4,751 participants; moderate-quality evidence that full CBT-I improves absenteeism and presenteeism.</div>
+          <div class="top"><h4>CBT-I when sleep is genuinely broken</h4><span class="chip c1">T1 &middot; refer</span></div>
+          <p class="do"><b>Do:</b> refer, or point him at a validated digital programme. Do not deliver CBT-I as coaching. Insist on the <b>full</b> protocol.</p>
+          <ol class="steps">
+            <li>Separate the two cases first: short sleep <b>opportunity</b> is a scheduling problem and belongs in the audit above. Insomnia is adequate opportunity with an inability to use it, and that is the referral.</li>
+            <li>Refer for full CBT-I, not a single component. The work-outcome evidence attaches to the complete protocol.</li>
+            <li>Fully automated digital delivery is a legitimate option when access or privacy is the barrier.</li>
+          </ol>
+          <div class="src">Nie S, et al. J Health Psychol 2026. doi:10.1177/13591053261461928. 7 RCTs, 4,751 participants. Moderate-quality evidence that <b>full</b> CBT-I improved absenteeism and presenteeism, with weaker evidence for productivity loss. Digital: Gao K, et al. Sleep Breath 2026;30:177. doi:10.1007/s11325-026-03723-x.</div>
         </div>
         <div class="dead"><b>Not this:</b> VO2 max as "the strongest single predictor of all-cause mortality." That superlative is not in the literature. The largest cohort, 122,007 people, uses none.</div>
       </div>
@@ -198,34 +225,61 @@ tr:last-child td{border-bottom:none}
       <summary><span class="cd">ME</span><span><span class="dn">Mental</span><span class="dt">The inner weather. Not the absence of illness, the presence of a good state.</span></span><span class="dmeta"><span class="chip c1">5</span><span class="car">&rsaquo;</span></span></summary>
       <div class="dbody">
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>Behavioural activation</h4><span class="chip c1">T1 &middot; pooled &middot; SMD 0.67</span></div>
-          <p class="do"><b>Do:</b> activity scheduling plus activity monitoring. Schedule valued action first and let mood follow, rather than waiting for motivation to return.</p>
-          <p>105 trials and 13,933 patients, forty of them at low risk of bias. It is behavioural and structural, which keeps it on the coaching side of the line. It is also the mechanism underneath what you already do by instinct when you get someone moving again.</p>
-          <div class="src">Cuijpers P, Ciharova M, Tong L, et al. Clin Psychol Rev 2026;128:102783. doi:10.1016/j.cpr.2026.102783. SMD 0.67 (95% CI 0.54-0.80) versus control.</div>
+          <div class="top"><h4>Behavioural activation</h4><span class="chip c1">T1 &middot; pooled &middot; SMD 0.67</span><span class="chip c3">highest yield here</span></div>
+          <p class="do"><b>Do:</b> put the action before the motivation. He does not act because he feels better; he feels better because he acted. The two core components are activity <b>monitoring</b> and activity <b>scheduling</b>, in that order.</p>
+          <span class="asis">Protocol as tested</span>
+          <ol class="steps">
+            <li><b>Monitor for one week.</b> He logs what he actually did, hour by hour, and rates mood after each block. No changes yet. The log is the diagnostic.</li>
+            <li><b>Find the live ones.</b> Circle the blocks that scored well, and separately the ones that connect to something he says he values even if they scored badly.</li>
+            <li><b>Schedule, do not intend.</b> Those go into specific slots in next week's calendar with a day and a time.</li>
+            <li><b>Execute on the schedule, not on the feeling.</b> This is the active ingredient. He goes when the calendar says so, in whatever mood he is in.</li>
+            <li><b>Review against the log,</b> then re-scale. Too hard means shrink the block, not skip the week.</li>
+          </ol>
+          <p>105 trials and 13,933 patients, forty of them at low risk of bias. It is behavioural and structural, which keeps it on the coaching side of the line.</p>
+          <div class="src">Cuijpers P, Ciharova M, Tong L, et al. Clin Psychol Rev 2026;128:102783. doi:10.1016/j.cpr.2026.102783. SMD 0.67 (95% CI 0.54-0.80) versus control, high heterogeneity (I2 = 71%). Core components named as "activity scheduling and monitoring" in Rochelle NS, Hoyer J. J Affect Disord 2026;407:121740, a prevention meta-analysis using the same criteria.</div>
+        </div>
+        <div class="ex" data-tier="t2">
+          <div class="top"><h4>Cyclic sighing, five minutes a day</h4><span class="chip c2">T2 &middot; single study</span></div>
+          <p class="do"><b>Do:</b> this one is fully specified by the trial and needs no equipment, so it is the first thing to hand anyone.</p>
+          <span class="asis">Protocol as tested</span>
+          <ol class="steps">
+            <li>Inhale through the nose, then <b>take a second short inhale on top</b> of the first to fully inflate.</li>
+            <li>Exhale slowly and completely through the mouth. <b>The long exhale is the active part.</b></li>
+            <li>Repeat for <b>five minutes, once a day</b>.</li>
+            <li>Run it daily for a month. That is the tested duration.</li>
+          </ol>
+          <p>Randomized against box breathing, cyclic hyperventilation, and mindfulness meditation. The exhale-focused version produced greater improvement in mood and greater reduction in respiratory rate than meditation.</p>
+          <div class="src">Balban MY, Neri E, Kogon MM, et al. Cell Rep Med 2023;4:100895. doi:10.1016/j.xcrm.2022.100895. NCT05304000. Remote randomized controlled study over 1 month, p &lt; 0.05 on both endpoints. One trial, so hold it as promising rather than settled.</div>
         </div>
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>HRV biofeedback and slow paced breathing</h4><span class="chip c1">T1 &middot; g 0.83</span></div>
-          <p class="do"><b>Do:</b> paced breathing at roughly six breaths per minute, daily.</p>
-          <div class="src">Goessl VC, Curtiss JE, Hofmann SG. Psychol Med 2017;47:2578-2586. doi:10.1017/s0033291717001003. 24 studies, 484 participants, between-groups Hedges g = 0.83.</div>
+          <div class="top"><h4>HRV biofeedback</h4><span class="chip c1">T1 &middot; g 0.83</span></div>
+          <p class="do"><b>Do:</b> slow breathing with a device that shows him the effect while he does it. The feedback loop is what separates this from ordinary breathing practice.</p>
+          <ol class="steps">
+            <li>Use a wearable or app that displays heart-rate variability live.</li>
+            <li>Slow the breath until the display shows the rhythm rising and falling with the breath.</li>
+            <li><b>Keep the course short.</b> Efficacy was not moderated by number of sessions, so a long programme buys nothing extra.</li>
+          </ol>
+          <div class="src">Goessl VC, Curtiss JE, Hofmann SG. Psychol Med 2017;47:2578-2586. doi:10.1017/s0033291717001003. 24 studies, 484 participants. Between-groups Hedges g = 0.83; efficacy was <b>not</b> moderated by study year, risk of bias, percentage of females, number of sessions, or presence of an anxiety disorder. The authors note the approach suits wearable devices. The breathing instruction above is how the technique is delivered, not a trial-specified rate.</div>
         </div>
         <div class="ex" data-tier="t2">
-          <div class="top"><h4>Cyclic sighing, five minutes</h4><span class="chip c2">T2 &middot; single study</span></div>
-          <p class="do"><b>Do:</b> double inhale through the nose, long slow exhale through the mouth. Five minutes daily.</p>
-          <p>Randomized against box breathing, cyclic hyperventilation and mindfulness meditation over one month. The extended exhale produced the greatest improvement in mood and the largest drop in respiratory rate. Cheap, fast, low risk, and one trial.</p>
-          <div class="src">Balban MY, Neri E, Kogon MM, et al. Cell Rep Med 2023;4:100895. doi:10.1016/j.xcrm.2022.100895. NCT05304000.</div>
-        </div>
-        <div class="ex" data-tier="t2">
-          <div class="top"><h4>Worry postponement</h4><span class="chip c2">T2 &middot; randomized</span></div>
-          <p class="do"><b>Do:</b> a designated thirty-minute worry window, early evening, never at bedtime. Outside the window, note it and defer it.</p>
-          <div class="src">Versluis A, Verkuil B, Brosschot JF. Br J Health Psychol 2016;21:318-335. doi:10.1111/bjhp.12170. Randomized, 996 participants. Also Krzikalla C, et al. Clin Psychol Eur 2024;6:e12741.</div>
+          <div class="top"><h4>Worry postponement, done as stimulus control</h4><span class="chip c2">T2 &middot; mixed, one null</span></div>
+          <p class="do"><b>Do:</b> the detail that matters is <b>same time and same place</b>. The version that worked restricted worry by place as well as by clock; the version that stripped that out failed.</p>
+          <span class="asis">Protocol as tested</span>
+          <ol class="steps">
+            <li>Pick a <b>30-minute</b> worry period, the <b>same time each day</b>, and a <b>specific place</b> used for nothing else. Not the bedroom.</li>
+            <li>Outside that window, when a worry arrives, note it and postpone it to the window. The instruction is to defer, not to suppress.</li>
+            <li>Go to the place at the appointed time and worry deliberately for the full period.</li>
+            <li>Run it two weeks.</li>
+          </ol>
+          <div class="src">McGowan SK, Behar E. Behav Modif 2013;37:90-112. doi:10.1177/0145445512455661. 53 participants with high trait worry randomized to 2 weeks of stimulus control ("a 30-min time- and place-restricted worry period each day") versus a focused-worry control; stimulus control was superior. Krzikalla C, et al. Clin Psychol Eur 2024;6:e12741. doi:10.32872/cpe.12741. Randomized waitlist-controlled; significant reduction in worry in the GAD group, large pre-post effect, held at 4-week follow-up; limited in hypochondriasis. <b>Disclosed null:</b> Versluis A, Verkuil B, Brosschot JF. Br J Health Psychol 2016;21:318-335, a 996-participant online-only version, found no difference from control in health complaints or in worry frequency or duration, and reported participants struggled to postpone. Do not deliver this as a bare app instruction.</div>
         </div>
         <div class="ex" data-tier="t1">
           <div class="top"><h4>Meditation, honestly scoped</h4><span class="chip c1">T1 &middot; with a ceiling</span></div>
-          <p class="do"><b>Say:</b> it works, it is not magic, and it is not better than the other things on this list.</p>
-          <p>Moderate evidence of improvement in anxiety, depression and pain against an active control. No evidence it outperforms other active treatments such as exercise or medication.</p>
+          <p class="do"><b>Say:</b> it works, it is not magic, and it is not better than the other things on this list. Offer it when he wants it, never as the centrepiece.</p>
+          <p>Moderate evidence of improvement in anxiety, depression and pain against an <b>active</b> control. No evidence that meditation programmes outperform other active treatments such as exercise or medication.</p>
           <div class="src">Goyal M, Singh S, Sibinga EM, et al. JAMA Intern Med 2014;174:357-368. doi:10.1001/jamainternmed.2013.13018.</div>
         </div>
-        <div class="dead"><b>Not this:</b> gratitude journaling as a pillar. The 2024 PNAS meta-analysis, 145 papers and 24,804 participants, puts it at g = 0.19. A garnish, never load-bearing.</div>
+        <div class="dead"><b>Not this:</b> gratitude journaling as a pillar. Choi H, Cha Y, McCullough ME, Coles NA, Oishi S. PNAS 2025;122:e2425193122. doi:10.1073/pnas.2425193122. 145 papers, 163 samples, 727 effect sizes, 24,804 participants across 28 countries: Hedges g = 0.19 (95% CI 0.15-0.22). A garnish, never load-bearing.</div>
       </div>
     </details>
 
@@ -234,15 +288,19 @@ tr:last-child td{border-bottom:none}
       <div class="dbody">
         <div class="ex" data-tier="t1">
           <div class="top"><h4>Sleep is the cognitive intervention</h4><span class="chip c1">T1 &middot; causal</span></div>
-          <p class="do"><b>Do:</b> run the fourteen-day audit from Physical. The strongest cognitive-performance finding available is a sleep finding.</p>
+          <p class="do"><b>Do:</b> run the fourteen-night audit from Physical before touching anything labelled focus or productivity. The strongest cognitive-performance finding available is a sleep finding, and the deficit is invisible from the inside.</p>
           <div class="src">Van Dongen HP, et al. Sleep 2003;26:117-126. doi:10.1093/sleep/26.2.117.</div>
         </div>
         <div class="ex" data-tier="t1">
           <div class="top"><h4>Aerobic exercise for executive function, at honest size</h4><span class="chip c1">T1 &middot; small effect</span></div>
-          <p class="do"><b>Say:</b> small but real. Promise a floor, not sharpness.</p>
-          <div class="src">Ren FF, et al. Psychiatry Res 2026;359:117023. 10 RCTs, 780 adults: core executive function g = 0.14 (95% CI 0.05-0.22), inhibitory control g = 0.19. Also Ye M, et al. Int J Nurs Stud 2024;160:104912.</div>
+          <p class="do"><b>Say:</b> small but real. Promise a floor, not sharpness. The honest pitch is that it stops the decline he is worried about, not that it makes him quicker.</p>
+          <ol class="steps">
+            <li>Use the aerobic dose he is already building in Physical. This is the same prescription, not a second one.</li>
+            <li>Set expectations at the measured size: inhibitory control moves most, and it moves a little.</li>
+          </ol>
+          <div class="src">Ren FF, et al. Psychiatry Res 2026;359:117023. 10 RCTs, 780 adults with major depressive disorder: overall core executive function g = 0.14 (95% CI 0.05-0.22), inhibitory control g = 0.19 (95% CI 0.07-0.32). Healthy middle-aged and older adults, with dose-response analysis: Ye M, et al. Int J Nurs Stud 2024;160:104912.</div>
         </div>
-        <div class="dead"><b>Not this, and saying so is the sale:</b> commercial brain training. Simons DJ, Boot WR, Charness N, et al. Psychol Sci Public Interest 2016;17:103-186 is the definitive review, and Stojanoski B, et al. Neuropsychologia 2018;117:541-550 is titled "Converging evidence against the transferable benefits of online brain training on cognitive function." Executives buy these.</div>
+        <div class="dead"><b>Not this, and saying so is the sale:</b> commercial brain training. Simons DJ, Boot WR, Charness N, et al. Psychol Sci Public Interest 2016;17:103-186. doi:10.1177/1529100616661983, the definitive review. Stojanoski B, et al. Neuropsychologia 2018;117:541-550 is titled "Converging evidence against the transferable benefits of online brain training on cognitive function." Gains stay inside the trained task. Executives buy these.</div>
       </div>
     </details>
 
@@ -250,26 +308,44 @@ tr:last-child td{border-bottom:none}
       <summary><span class="cd">SX</span><span><span class="dn">Sexual</span><span class="dt">Desire and function, which move with sleep and stress before they move with hormones.</span></span><span class="dmeta"><span class="chip c1">4</span><span class="car">&rsaquo;</span></span></summary>
       <div class="dbody">
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>Attention training against cognitive distraction</h4><span class="chip c1">T1 &middot; scope-sensitive</span></div>
-          <p class="do"><b>Do:</b> name the mechanism and train presence. <b>Refer</b> for the clinical version.</p>
-          <p>Under chronic stress the predictor of reduced genital arousal was cognitive distraction, not hormones. The intervention built to target exactly that is mindfulness-based cognitive therapy for sexual interest and arousal disorder.</p>
-          <div class="src">Mechanism: Hamilton LD, Meston CM. J Sex Med 2013;10:2443-2454. doi:10.1111/jsm.12249. Intervention: Brotto LA, Zdaniuk B. Arch Sex Behav 2025;54:3671-3682. doi:10.1007/s10508-025-03255-7. Pilot RCT: Thomas HN, et al. Arch Sex Behav 2025;54:221-230.</div>
-          <div class="flag"><b>Scope line:</b> MBCT for a sexual disorder is treatment. This domain is framed as stress physiology affecting intimacy, not sex therapy. The coach-deliverable version is attention and presence work plus naming the mechanism. The clinical version is a referral.</div>
+          <div class="top"><h4>Aerobic exercise, prescribed as a sexual-function intervention</h4><span class="chip c1">T1 &middot; fully dosed</span></div>
+          <p class="do"><b>Do:</b> this is the best item the domain can own: physical, prescribable, never touches clinical sexual content, and the dose is specified in the literature. Say out loud what it is for. Half its power is that someone finally named the target.</p>
+          <span class="asis">Recommended dose, as published</span>
+          <ol class="steps">
+            <li><b>40 minutes</b> of aerobic exercise, <b>moderate to vigorous</b> intensity.</li>
+            <li><b>Four times per week.</b> That is 160 minutes weekly.</li>
+            <li>Sustain <b>six months.</b> This is not an eight-week play.</li>
+            <li>Supervised training is what the recommendation is built on, so pair it with a trainer or a structured programme rather than a resolution.</li>
+          </ol>
+          <p>Across seven randomized trials in men with diagnosed erectile dysfunction, the pooled improvement was 3.85 points on the IIEF (95% CI 2.33 to 5.37), holding in both short and long interventions and whether exercise was alone or added to usual care.</p>
+          <div class="src">Dose: Gerbild H, Larsen CM, Graugaard C, Areskoug Josefsson K. Sex Med 2018;6:75-89. doi:10.1016/j.esxm.2018.02.001, for men with ED from physical inactivity, obesity, hypertension, metabolic syndrome or cardiovascular disease. Effect: Silva AB, Sousa N, Azevedo LF, Martins C. Br J Sports Med 2017;51:1419-1424. doi:10.1136/bjsports-2016-096418. 7 RCTs, 478 participants; risk of bias moderate to high, since patients cannot be blinded.</div>
         </div>
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>Aerobic exercise for erectile function</h4><span class="chip c1">T1 &middot; inside scope</span></div>
-          <p class="do"><b>Do:</b> prescribe it, and name what it is for.</p>
-          <p>The best item this domain can own: physical, prescribable, never touches clinical sexual content, and carries randomized evidence in men with diagnosed dysfunction.</p>
-          <div class="src">Silva AB, Sousa N, Azevedo LF, Martins C. Br J Sports Med 2017;51:1419-1424. doi:10.1136/bjsports-2016-096418. 7 RCTs, 478 participants. Activity levels: Gerbild H, et al. Sex Med 2018;6:75-89. doi:10.1016/j.esxm.2018.02.001.</div>
+          <div class="top"><h4>Attention training against cognitive distraction</h4><span class="chip c1">T1 &middot; scope-sensitive</span></div>
+          <p class="do"><b>Do:</b> name the mechanism, then train presence. Under chronic stress the predictor of reduced genital arousal was <b>cognitive distraction</b>, not hormones. Being told that, plainly, is itself part of the work.</p>
+          <ol class="steps">
+            <li>Name it: this is attention, not appetite, and not a verdict on the relationship.</li>
+            <li>Remove the spectator. The habit to break is watching and grading his own performance from outside.</li>
+            <li>Train attention on physical sensation in low-stakes, non-demand settings before anything with an outcome attached.</li>
+            <li>Refer for the structured programme where it is indicated.</li>
+          </ol>
+          <p>In a randomized trial, structured online programmes moved desire and arousal substantially (d greater than 0.90) and overall sexual function strongly (d = 1.20 to 1.23) against waitlist. Two useful facts for scope: the mindfulness and cognitive-behavioural arms <b>did not differ</b>, and participants were supported by <b>non-expert navigators</b> rather than clinicians.</p>
+          <div class="src">Mechanism: Hamilton LD, Meston CM. J Sex Med 2013;10:2443-2454. doi:10.1111/jsm.12249. Trial: Mahar EA, Stephenson KR, Brotto LA. Behav Res Ther 2025;188:104732. doi:10.1016/j.brat.2025.104732. 129 women with sexual interest/arousal disorder randomized across CBT, mindfulness and waitlist; 8 modules over 8-12 weeks; gains generally maintained at 6 months.</div>
+          <div class="flag"><b>Scope line:</b> that trial treated a diagnosed disorder, so the programme itself is treatment and belongs to a referral. What sits inside coaching is naming the mechanism and the attention work in step 3. The non-expert navigator finding tells you the <b>support</b> role does not require a clinician; it does not make the treatment yours to run.</div>
         </div>
         <div class="ex" data-tier="t2">
           <div class="top"><h4>Pelvic floor muscle training</h4><span class="chip c2">T2 &middot; refer</span></div>
-          <p class="do"><b>Do:</b> refer to a pelvic floor physiotherapist. Do not coach it.</p>
-          <div class="src">Ahmad AM, Abosteit EH, Said Kadah A, Draz RS. J Physiother 2026;72:122-127. doi:10.1016/j.jphys.2026.03.009. Three-arm randomized trial, concealed allocation, assessor blinding, 90 men.</div>
+          <p class="do"><b>Do:</b> refer to a pelvic floor physiotherapist. Do not coach it, and do not hand over a page of Kegels.</p>
+          <ol class="steps">
+            <li>Refer for assessment first. The trial used a home programme, but it was prescribed and supervised clinically.</li>
+            <li>Set the horizon at <b>six weeks</b>, which is what was tested.</li>
+            <li>Be straight about the comparison: in this trial every arm was also on sildenafil, and shockwave therapy outperformed pelvic floor training.</li>
+          </ol>
+          <div class="src">Ahmad AM, Abosteit EH, Said Kadah A, Draz RS. J Physiother 2026;72:122-127. doi:10.1016/j.jphys.2026.03.009. NCT06058832. Three-arm randomized trial, concealed allocation, assessor blinding, intention-to-treat; 90 men aged 35 to 55 with type 2 diabetes and arteriogenic ED. Home-based PFMT for 6 weeks added to sildenafil improved cavernosal peak systolic velocity and IIEF-5 over sildenafil alone; low-intensity shockwave beat PFMT on both.</div>
         </div>
         <div class="ex" data-tier="t2">
           <div class="top"><h4>Sleep, stated at its real size</h4><span class="chip c2">T2 &middot; small n</span></div>
-          <p class="do"><b>Say:</b> "in a small laboratory study of young men." Never generalize it to a fifty-year-old as established fact.</p>
+          <p class="do"><b>Say:</b> "in a small laboratory study of young men." Never generalize it to a fifty-year-old as established fact. Use it to motivate the sleep audit, not as a diagnosis.</p>
           <p>One week of five-hour nights lowered daytime testosterone 10 to 15% in ten healthy young men. Cortisol did not change, so the drop was not cortisol-mediated, and it does not replicate at population scale.</p>
           <div class="src">Leproult R, Van Cauter E. JAMA 2011;305(21):2173-2174. doi:10.1001/jama.2011.710. n=10, mean age 24.3.</div>
         </div>
@@ -282,19 +358,28 @@ tr:last-child td{border-bottom:none}
       <div class="dbody">
         <div class="ex" data-tier="t1">
           <div class="top"><h4>Treat one, both improve</h4><span class="chip c1">T1 &middot; causal</span></div>
-          <p class="do"><b>Do:</b> never scope intimate or withdrawal work to the individual when he is partnered.</p>
-          <p>In a placebo-controlled trial, treating only the man produced significantly greater improvement in his untreated partner's satisfaction.</p>
-          <div class="src">Heiman JR, et al. BJOG 2007;114(4):437-447. doi:10.1111/j.1471-0528.2006.01228.x. P&lt;0.0001.</div>
+          <p class="do"><b>Do:</b> never scope intimate or withdrawal work to the individual when he is partnered. This is the one place in the whole framework with a causal trial behind it, so use it structurally.</p>
+          <ol class="steps">
+            <li>Ask, at intake, whether there is a partner. If yes, the partner's experience becomes a tracked outcome even when the partner is never in the room.</li>
+            <li>Tell him the finding directly: improving one person measurably improved the untreated partner. It reframes his work as something he is doing <b>for</b> someone.</li>
+            <li>Review both sides at each check-in, not just his.</li>
+          </ol>
+          <div class="src">Heiman JR, et al. BJOG 2007;114(4):437-447. doi:10.1111/j.1471-0528.2006.01228.x. Multicentre double-blind placebo-controlled RCT, 176 couples, P&lt;0.0001. Supporting: Chew PY, et al. J Sex Med 2021;18(1):99-112, OR 3.011 (95% CI 1.856-4.885).</div>
         </div>
         <div class="ex" data-tier="t1">
           <div class="top"><h4>Couple therapy, by referral</h4><span class="chip c1">T1 &middot; g 1.12</span></div>
-          <p class="do"><b>Do:</b> refer. What gets delivered here is the structured conversation and the decision to go.</p>
-          <div class="src">Roddy MK, Walsh LM, Rothman K, Hatch SG, Doss BD. J Consult Clin Psychol 2020;88:583-596. doi:10.1037/ccp0000514. 58 studies, 2,092 couples, pre-post Hedges g = 1.12 (CI 0.92-1.31).</div>
+          <p class="do"><b>Do:</b> refer. What gets delivered here is the structured conversation and the decision to go, which is usually the actual blocker.</p>
+          <ol class="steps">
+            <li>Separate the two objections: "it will not work" is answered with the effect size; "I am not the kind of person who does that" is identity work and belongs in ID.</li>
+            <li>Make the referral concrete. A name and a number, not a category.</li>
+            <li>Keep the relationship goal in his plan afterwards so the referral is not an exit.</li>
+          </ol>
+          <div class="src">Roddy MK, Walsh LM, Rothman K, Hatch SG, Doss BD. J Consult Clin Psychol 2020;88:583-596. doi:10.1037/ccp0000514. 58 studies, 40 unique samples, 2,092 couples. Pre-post within-group Hedges g = 1.12 (CI 0.92-1.31) on relationship satisfaction.</div>
         </div>
         <div class="ex" data-tier="t1">
           <div class="top"><h4>Attachment as context, not intervention</h4><span class="chip c1">T1 &middot; pooled</span></div>
-          <p>Attachment <b>anxiety</b> runs r = .42 against negative mental health; <b>avoidance</b> runs .28. The umbrella word "insecurity" is wrong. The ECR-R is already in the battery.</p>
-          <div class="src">Zhang X, Li J, Xie F, et al. JPSP 2022;123(5):1089-1137. doi:10.1037/pspp0000437. 224 studies, 79,722 participants.</div>
+          <p><b>Use it to interpret, not to prescribe.</b> Attachment <b>anxiety</b> runs r = .42 against negative mental health; <b>avoidance</b> runs .28. The umbrella word "insecurity" is wrong and blurs two different patterns. The ECR-R is already in the battery.</p>
+          <div class="src">Zhang X, Li J, Xie F, et al. JPSP 2022;123(5):1089-1137. doi:10.1037/pspp0000437. 224 studies, 245 samples, 79,722 participants. Gender is named as a moderator but its direction is not published.</div>
         </div>
         <div class="flag"><b>Do not claim:</b> that withdrawal reads to a partner as rejection rather than as a stress response. No study tests it. Offer it as what you see in the room, never as a finding.</div>
       </div>
@@ -304,14 +389,20 @@ tr:last-child td{border-bottom:none}
       <summary><span class="cd">SC</span><span><span class="dn">Social</span><span class="dt">The wider circle. Its absence is measured in mortality, not mood.</span></span><span class="dmeta"><span class="chip c1">2</span><span class="car">&rsaquo;</span></span></summary>
       <div class="dbody">
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>Target the interpretation, not the calendar</h4><span class="chip c1">T1 &middot; pooled</span></div>
-          <p class="do"><b>Do:</b> for the lonely executive the intervention is not more events. It is examining what he concludes about himself from the room he was just in.</p>
-          <p>Four strategies compared: social skills, social support, opportunities for contact, and maladaptive social cognition. Addressing maladaptive social cognition had the largest effect. Randomized comparisons yielded smaller effects than uncontrolled designs, which is worth saying out loud.</p>
-          <div class="src">Masi CM, Chen HY, Hawkley LC, Cacioppo JT. Pers Soc Psychol Rev 2011;15:219-266. doi:10.1177/1088868310377394.</div>
+          <div class="top"><h4>Work the interpretation, not the calendar</h4><span class="chip c1">T1 &middot; pooled</span></div>
+          <p class="do"><b>Do:</b> four strategies were compared head to head. Adding contact was <b>not</b> the winner. Addressing what he concludes about himself in social situations was.</p>
+          <ol class="steps">
+            <li>Take one recent, specific interaction that left him feeling apart. One room, one occasion.</li>
+            <li>Get the conclusion he drew, in his own words. Usually a sentence about himself, not about them.</li>
+            <li>Test it against what actually happened, including what he did not say and what he did not ask for.</li>
+            <li>Only then look at the calendar, and go narrower rather than wider: fewer people, more depth.</li>
+          </ol>
+          <p>Randomized comparisons produced smaller effects than uncontrolled designs, which is worth saying out loud when the vendor material promises a transformation.</p>
+          <div class="src">Masi CM, Chen HY, Hawkley LC, Cacioppo JT. Pers Soc Psychol Rev 2011;15:219-266. doi:10.1177/1088868310377394. Four intervention strategies compared: social skills, social support, opportunities for social contact, and maladaptive social cognition. Addressing maladaptive social cognition had the largest effect. The four steps above are how that target is usually worked; the head-to-head comparison is the finding.</div>
         </div>
         <div class="ex" data-tier="t1">
           <div class="top"><h4>Social connection as a health variable</h4><span class="chip c1">T1 &middot; say it precisely</span></div>
-          <p class="do"><b>Say:</b> "lacking social connection," and "up to" fifteen cigarettes. Holt-Lunstad corrects that drift herself.</p>
+          <p class="do"><b>Say:</b> "lacking social connection," and "up to" fifteen cigarettes. Holt-Lunstad corrects that drift herself, and loneliness on its own runs much weaker.</p>
           <div class="src">Holt-Lunstad J, Smith TB, Layton JB. PLoS Med 2010;7(7):e1000316. doi:10.1371/journal.pmed.1000316. 148 studies, 308,849 participants.</div>
         </div>
         <div class="dead"><b>Not this:</b> "CEOs in structured peer groups report 71% improved company performance." Vendor marketing with no author, year or link. Vistage's own research has no such figure. Careful on any rewrite: a real, unrelated 71% exists (Korn Ferry 2024, CEO imposter syndrome).</div>
@@ -323,14 +414,21 @@ tr:last-child td{border-bottom:none}
       <div class="dbody">
         <div class="ex" data-tier="t1">
           <div class="top"><h4>Stop teaching, start automating</h4><span class="chip c1">T1 &middot; pooled</span></div>
-          <p class="do"><b>Do:</b> defaults, automation and pre-commitment, plus just-in-time action at the decision point. Not a curriculum.</p>
-          <p>Interventions to improve financial literacy explain about 0.1% of the variance in the financial behaviours studied, with weaker effects in low-income samples, and negligible effects twenty months or more after instruction.</p>
-          <div class="src">Fernandes D, Lynch JG, Netemeyer RG. Management Science 2014. Meta-analysis of 168 papers covering 201 studies.</div>
+          <p class="do"><b>Do:</b> teaching him about money does almost nothing to what he does with money. Change the defaults instead, and put whatever education there is <b>next to the decision</b>, not in a course months earlier.</p>
+          <ol class="steps">
+            <li>List the money behaviours that actually matter for him. Usually three or four, not twenty.</li>
+            <li>For each, ask what happens if he does nothing. That default is the real policy.</li>
+            <li>Change the default so the good outcome is automatic: transfers on payday, escalation on raise, a standing rule for windfalls.</li>
+            <li>Where a decision genuinely needs judgement, put the information <b>at</b> that moment. This is the "just-in-time" role the authors argue for.</li>
+            <li>Do not assign a course. Effects are negligible twenty months out.</li>
+          </ol>
+          <div class="src">Fernandes D, Lynch JG, Netemeyer RG. Manage Sci 2014;60(8):1861-1883. doi:10.1287/mnsc.2013.1849. Meta-analysis of 168 papers covering 201 prior studies. In the authors&rsquo; words: interventions to improve financial literacy "explain only 0.1% of the variance in financial behaviors studied, with weaker effects in low-income samples," and even large interventions have "negligible effects on behavior 20 months or more from the time of intervention." They propose "a real but narrower role for 'just-in-time' financial education tied to specific behaviors it intends to help." The default-changing steps are standard practice, not tested in this paper.</div>
         </div>
         <div class="ex" data-tier="t2">
           <div class="top"><h4>Work the identity side, because that is the keystone</h4><span class="chip c2">T2</span></div>
-          <p class="do"><b>Do:</b> values affirmation before a consequential financial decision, not after it.</p>
-          <div class="src">Zhang Y, Chen B, Hu X, Wang M. Am Psychol 2025. doi:10.1037/amp0001591. 129 tests from 67 articles.</div>
+          <p class="do"><b>Do:</b> run values affirmation <b>before</b> a consequential money decision, not after the damage. See the protocol under Identity.</p>
+          <p>One finding makes this fit the audience: effects were <b>larger for mature participants than adolescents</b>, and delayed effects were larger than immediate ones for reducing psychological barriers.</p>
+          <div class="src">Zhang Y, Chen B, Hu X, Wang M. Am Psychol 2025. doi:10.1037/amp0001591. 129 independent tests from 67 articles.</div>
         </div>
         <div class="flag"><b>Honest position:</b> this is the thinnest intervention evidence base of the ten. The keystone claim is good. The toolkit is borrowed from behavioural economics rather than from clinical trials, and it should be presented that way.</div>
         <div class="dead"><b>Not this:</b> "financial stress drives 67% of employees toward job changes." No US survey supports it. The nearest real figure is an Indian survey, n=637, asking a different question.</div>
@@ -340,12 +438,18 @@ tr:last-child td{border-bottom:none}
     <details class="dom">
       <summary><span class="cd">EN</span><span><span class="dn">Environmental</span><span class="dt">The rooms and the ground you spend your hours on.</span></span><span class="dmeta"><span class="chip c2">1</span><span class="car">&rsaquo;</span></span></summary>
       <div class="dbody">
-        <div class="flag" style="margin-top:14px"><b>The hard thing first.</b> The 183-trial meta-analysis found nature-based interventions <b>not</b> significantly better than controls. The 120-minute finding is cross-sectional self-report, so the verb is "associated with," never "produces."</div>
+        <div class="flag" style="margin-top:14px"><b>The hard thing first.</b> The 183-trial meta-analysis found nature-based interventions <b>not</b> significantly better than controls. The 120-minute finding is cross-sectional self-report, so the verb is "associated with," never "produces." Prescribe nature because he likes it, not because the evidence carries it.</div>
         <div class="ex" data-tier="t2">
           <div class="top"><h4>Circadian light hygiene</h4><span class="chip c2">T2 &middot; prospective, large</span></div>
-          <p class="do"><b>Do:</b> bright light early, dark late. Measurable, environment-level, and the one item here carrying prospective evidence at scale.</p>
+          <p class="do"><b>Do:</b> bright early, dark late. This is the one item in the domain carrying prospective evidence at scale, and it is an environment change rather than a discipline change, which is why it survives contact with a hard week.</p>
+          <ol class="steps">
+            <li>Get outdoor light into the morning. Outdoors beats any indoor fixture by a wide margin, so the mechanic is going outside, not buying a lamp.</li>
+            <li>Cut light in the hours before bed at the <b>source</b>: fewer lit rooms, lamps rather than overheads, screens down.</li>
+            <li>Make the bedroom genuinely dark and keep it that way, because this is a change you make once.</li>
+            <li>If he wears a tracker with a light sensor, use its data rather than his impression.</li>
+          </ol>
           <p>Brighter light at night predicted higher incidence of coronary artery disease, myocardial infarction, heart failure, atrial fibrillation and stroke, independent of established risk factors.</p>
-          <div class="src">Windred DP, Burns AC, Rutter MK, et al. JAMA Netw Open 2025;8:e2539031. doi:10.1001/jamanetworkopen.2025.39031. UK Biobank, roughly 13 million hours of wrist-sensor light data, about 89,000 adults, 9.5 years.</div>
+          <div class="src">Windred DP, Burns AC, Rutter MK, et al. JAMA Netw Open 2025;8:e2539031. doi:10.1001/jamanetworkopen.2025.39031. UK Biobank, approximately 13 million hours of wrist-sensor light data, about 89,000 adults, 9.5 years of cardiovascular records. Prospective cohort, so association rather than proof of cause. The steps are the standard way the exposure is reduced, not trial arms.</div>
         </div>
         <div class="dead"><b>Not this:</b> "biophilic design improves cognitive performance by 20%." No source. The likely origin is a 1999 consultancy report on daylit classrooms where students progressed 20% faster in maths.</div>
       </div>
@@ -355,17 +459,21 @@ tr:last-child td{border-bottom:none}
       <summary><span class="cd">SP</span><span><span class="dn">Spiritual</span><span class="dt">What the work is for, underneath the roles.</span></span><span class="dmeta"><span class="chip c1">2</span><span class="car">&rsaquo;</span></span></summary>
       <div class="dbody">
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>Purpose as a measurable health variable</h4><span class="chip c1">T1 &middot; 488,765 people</span></div>
-          <p class="do"><b>Do:</b> treat purpose as a variable with an outcome literature, not as a retreat mood. The Flourishing Index is already in the battery.</p>
-          <p>Purpose in life associated with roughly 30% lower risk of earlier mortality across twenty-five samples and up to thirty-two years of follow-up.</p>
-          <div class="src">Sutin A, Zavala D, Milad E, et al. Psychol Med 2026;56:e214. doi:10.1017/s0033291726104863. 488,765 participants, 48,928 deaths. Earlier: Cohen R, Bavishi C, Rozanski A. Psychosom Med 2016;78:122-133.</div>
+          <div class="top"><h4>Purpose as a measurable variable</h4><span class="chip c1">T1 &middot; 488,765 people</span></div>
+          <p class="do"><b>Do:</b> measure it rather than discuss it. Purpose has an outcome literature most executives do not know exists, and putting a number on it moves the conversation out of the retreat register.</p>
+          <ol class="steps">
+            <li>Score it at intake with a validated instrument. The Flourishing Index is already in the battery.</li>
+            <li>Show him the association: roughly 30% lower risk of earlier mortality, across nearly half a million people.</li>
+            <li>Re-score at the midpoint and at close, and treat movement as an outcome of the engagement.</li>
+          </ol>
+          <div class="src">Sutin A, Zavala D, Milad E, et al. Psychol Med 2026;56:e214. doi:10.1017/s0033291726104863. Meta-analysis plus individual-participant data, 25 samples, 488,765 participants, 48,928 deaths, up to 32 years of follow-up. Earlier: Cohen R, Bavishi C, Rozanski A. Psychosom Med 2016;78:122-133, 10 prospective studies, 136,265 participants. Observational, so "associated with."</div>
         </div>
         <div class="ex" data-tier="t1">
-          <div class="top"><h4>Values affirmation writing</h4><span class="chip c1">T1 &middot; modest</span></div>
-          <p class="do"><b>Do:</b> ten minutes writing about a core personal value, ideally before a threat or evaluation rather than after it.</p>
+          <div class="top"><h4>Values affirmation writing</h4><span class="chip c1">T1 &middot; small, durable</span></div>
+          <p class="do"><b>Do:</b> the full protocol is under Identity. Place it <b>before</b> the threat, and expect the benefit to grow rather than fade.</p>
           <div class="src">Zhang Y, Chen B, Hu X, Wang M. Am Psychol 2025. doi:10.1037/amp0001591.</div>
         </div>
-        <div class="dead"><b>Not this:</b> "spiritual engagement is one of the strongest predictors of flourishing across 22 countries." The study measures religious service attendance and its authors decline the spirituality framing; they say "most consistently associated," not strongest, at 0.27, mid-pack; and Kenya, South Africa and Tanzania ran negative.</div>
+        <div class="dead"><b>Not this:</b> "spiritual engagement is one of the strongest predictors of flourishing across 22 countries." The study measures religious service attendance and its authors decline the spirituality framing; they say "most consistently associated," not strongest, at 0.27, mid-pack behind excellent childhood health at 0.46; and Kenya, South Africa and Tanzania ran negative.</div>
       </div>
     </details>
 
@@ -374,18 +482,32 @@ tr:last-child td{border-bottom:none}
       <div class="dbody">
         <div class="ex" data-tier="t1">
           <div class="top"><h4>Values affirmation</h4><span class="chip c1">T1 &middot; best evidenced here</span></div>
-          <p class="do"><b>Do:</b> the same ten-minute protocol as Spiritual. This is where it belongs most, because it is the best-evidenced practice for the domain that determines the others.</p>
-          <div class="src">Zhang Y, et al. Am Psychol 2025. doi:10.1037/amp0001591.</div>
+          <p class="do"><b>Do:</b> ten minutes of writing, placed <b>before</b> the evaluation rather than after it. This is the best-evidenced practice for the domain that determines the others, and it is nearly free.</p>
+          <span class="asis">Protocol as commonly implemented</span>
+          <ol class="steps">
+            <li>Give him a list of values and have him <b>rank</b> them. The ranking matters; it forces a choice.</li>
+            <li>He writes for about ten minutes on <b>why the top one matters to him</b>, with a concrete occasion when he acted on it.</li>
+            <li>He does <b>not</b> write about the threat, the review, the number, or the decision. Writing about the value is what does the work.</li>
+            <li>Run it <b>before</b> the hard thing: the board meeting, the term sheet, the conversation.</li>
+            <li>Repeat at the next threat rather than treating it as done.</li>
+          </ol>
+          <p>Small but real, and it does not decay: effects on self-perception (0.32), general well-being (0.29) and social well-being (0.26), with delayed effects <b>larger</b> than immediate ones for reducing psychological barriers, and larger benefits for mature participants than adolescents.</p>
+          <div class="src">Zhang Y, Chen B, Hu X, Wang M. Am Psychol 2025. doi:10.1037/amp0001591. 129 independent tests from 67 published articles, nonclinical general populations; the review notes implementations vary. The ranking-and-write structure is the standard values-affirmation format across that literature rather than one trial's arm.</div>
         </div>
         <div class="ex" data-tier="t2">
           <div class="top"><h4>Job crafting</h4><span class="chip c2">T2 &middot; correlational</span></div>
-          <p class="do"><b>Say:</b> meta-analytic but correlational. A good frame, not a proven treatment.</p>
-          <div class="src">Wang H, Li P, Chen S. Int J Environ Res Public Health 2020;17:8016. doi:10.3390/ijerph17218016. 51 studies, 54 samples, N=17,863.</div>
+          <p class="do"><b>Say:</b> meta-analytic but correlational. A good frame for reshaping a role he cannot leave, not a proven treatment.</p>
+          <ol class="steps">
+            <li>Audit the role along three lines: the tasks, the relationships, and how he describes the job to himself.</li>
+            <li>Change one thing in each rather than negotiating the whole role at once.</li>
+            <li>Note that leader and coworker support predicted crafting, so it is partly an environment question, not only a willpower one.</li>
+          </ol>
+          <div class="src">Wang H, Li P, Chen S. Int J Environ Res Public Health 2020;17:8016. doi:10.3390/ijerph17218016. 51 studies, 54 independent samples, N=17,863; positive leadership styles and coworker support were positively related to job crafting, which in turn mediated employee outcomes. The three-line audit is the standard task/relational/cognitive division in that literature.</div>
         </div>
         <div class="ex" data-tier="t1">
           <div class="top"><h4>Concealment, as assessment rather than exercise</h4><span class="chip c1">T1 &middot; pooled</span></div>
-          <p>Situational concealment and dispositional concealment are <b>not</b> interchangeable constructs, and the literature treats them separately.</p>
-          <div class="src">Pachankis JE, et al. Psychol Bull 2020;146(10):831-871. doi:10.1037/bul0000271. 193 studies, N=92,236, ESr = 0.116. Also Larson et al. 2015, 92 studies, depression r+ = .40, authenticity r+ = -.47. Pachankis 2007 is a conceptual review and cannot carry an effect size.</div>
+          <p><b>Use it to interpret.</b> Situational concealment and dispositional concealment are <b>not</b> interchangeable constructs and the literature treats them separately, so be clear which one is in front of you before drawing on either number.</p>
+          <div class="src">Pachankis JE, et al. Psychol Bull 2020;146(10):831-871. doi:10.1037/bul0000271. 193 studies, N=92,236, 423 effects, ESr = 0.116. Also Larson et al. 2015, 92 studies, 40,000+ participants: depression r+ = .40, anxiety r+ = .38, authenticity r+ = -.47. Trap: Pachankis 2007 is a conceptual review and cannot carry an effect size.</div>
         </div>
         <div class="dead"><b>Not this:</b> any sentence of the form "women cover more than men." Gender moderation is null, p = 0.732. And never introduce the 67% covering figure with "research shows": it is a Deloitte consultancy survey pooling C-suite, other executives and senior managers, and the publisher has to be named.</div>
       </div>
@@ -401,21 +523,21 @@ tr:last-child td{border-bottom:none}
   <div class="scenes">
     <article class="scene">
       <div class="sh"><h3>The board meeting is in ten minutes and the heart is going</h3><div class="dm">ME &middot; CG</div></div>
-      <div class="mv"><div class="w">Right now</div><div class="t">Five minutes of <b>cyclic sighing</b>, extended exhale. Then <b>arousal reappraisal</b>: name the pounding heart as the body delivering oxygen for performance, not as a warning.</div></div>
+      <div class="mv"><div class="w">Right now</div><div class="t"><b>Cyclic sighing, five minutes.</b> Inhale through the nose, second short inhale on top, then a long slow exhale through the mouth. Repeat. Then <b>arousal reappraisal</b>: say it out loud once, that the pounding heart is the body delivering oxygen for performance and not a warning.</div></div>
       <div class="mv"><div class="w">Standing on</div><div class="t">Balban 2023, randomized. Reappraisal: Bosshard M, Gomez P. Sci Rep 2024;14:7923, 44 effect sizes, d = 0.23, small but significant and larger for mixed interventions.</div></div>
       <div class="tp"><div class="w">Trap</div><div class="t">Power posing. The postural-feedback effect is unreliable and the confident version did not replicate.</div></div>
     </article>
 
     <article class="scene">
       <div class="sh"><h3>The board meeting is tomorrow and he cannot sleep</h3><div class="dm">PH &middot; ME</div></div>
-      <div class="mv"><div class="w">Tonight</div><div class="t">Do not try harder. Move the worry to a designated window <b>earlier in the evening</b>, and protect time in bed rather than chasing sleep.</div></div>
+      <div class="mv"><div class="w">Tonight</div><div class="t">Do not try harder. Take the worry to a <b>30-minute window, at a set time, in a specific room that is not the bedroom</b>, and finish it there. Then protect time in bed rather than chasing sleep.</div></div>
       <div class="mv"><div class="w">This quarter</div><div class="t">If it is chronic rather than situational, <b>CBT-I</b>. Digital is fine and it is first-line.</div></div>
       <div class="tp"><div class="w">Trap</div><div class="t">Alcohol as a sleep aid, and treating one bad night as evidence of a sleep disorder.</div></div>
     </article>
 
     <article class="scene">
       <div class="sh"><h3>Single, feeling unattractive, sex life at zero, and up for a big promotion</h3><div class="dm">SX &middot; ID &middot; FI</div></div>
-      <div class="mv"><div class="w">This week</div><div class="t"><b>Aerobic exercise, prescribed as a sexual-function intervention and named as such.</b> Plus behavioural activation against the withdrawal, because withdrawal is what is actually compounding.</div></div>
+      <div class="mv"><div class="w">This week</div><div class="t"><b>Aerobic exercise, prescribed as a sexual-function intervention and named as such:</b> 40 minutes, moderate to vigorous, four times a week. Plus behavioural activation against the withdrawal, because withdrawal is what is actually compounding.</div></div>
       <div class="mv"><div class="w">This quarter</div><div class="t"><b>Values affirmation before the promotion decision</b>, to decouple worth from the outcome. This is Identity Fusion doing exactly what the keystone predicts.</div></div>
       <div class="mv"><div class="w">Standing on</div><div class="t">Silva 2017 (7 RCTs, 478 participants). Cuijpers 2026 (SMD 0.67). Zhang 2025.</div></div>
       <div class="tp"><div class="w">Trap</div><div class="t">Ordering a testosterone panel as the first move. The hormonal chain is contradicted, coaches do not order labs, and a normal result lands as "so it is just me," which is the worst available outcome here.</div></div>
@@ -424,28 +546,28 @@ tr:last-child td{border-bottom:none}
     <article class="scene">
       <div class="sh"><h3>Using food for comfort in a peak-stress stretch, now feeling fat and sluggish</h3><div class="dm">PH &middot; ME</div></div>
       <div class="mv"><div class="w">First</div><div class="t">Check sleep, because it reframes everything. Sleep curtailment <b>lowered leptin, raised ghrelin, and increased hunger and appetite</b>. At five hours a night this is not a willpower failure, it is appetite regulation with a known cause.</div></div>
-      <div class="mv"><div class="w">This week</div><div class="t"><b>Implementation intentions</b> on the exact trigger moment, written down. "If it is 4pm and I am reaching for the drawer, then I fill my water bottle and walk one lap."</div></div>
-      <div class="mv"><div class="w">Standing on</div><div class="t">Spiegel K, Tasali E, Penev P, Van Cauter E. Ann Intern Med 2004;141:846-850, randomized crossover. Gollwitzer and Sheeran 2006, 94 tests, 8,000+ participants, d = 0.65.</div></div>
+      <div class="mv"><div class="w">This week</div><div class="t"><b>Implementation intentions</b> on the exact trigger moment, written down. "If it is 4pm and I am reaching for the drawer, then I fill my water bottle and walk one lap." A small effect, reliably measured, and free.</div></div>
+      <div class="mv"><div class="w">Standing on</div><div class="t">Spiegel K, Tasali E, Penev P, Van Cauter E. Ann Intern Med 2004;141:846-850. doi:10.7326/0003-4819-141-11-200412070-00008. Randomized crossover, 12 healthy men. If-then plans: Wang G, Wang Y, Gai X. Front Psychol 2021;12:565202. doi:10.3389/fpsyg.2021.565202. 21 studies, 15,907 participants, g = 0.336, publication bias acknowledged.</div></div>
       <div class="tp"><div class="w">Trap</div><div class="t">Dieting harder while still sleeping five hours. That is fighting a hormone with a rule.</div></div>
     </article>
 
     <article class="scene">
       <div class="sh"><h3>Role loss, layoff or exit, and the identity goes with it</h3><div class="dm">ID &middot; ME &middot; SP</div></div>
-      <div class="mv"><div class="w">Week one</div><div class="t"><b>Behavioural activation.</b> Structure and scheduled valued action, before motivation returns rather than after.</div></div>
+      <div class="mv"><div class="w">Week one</div><div class="t"><b>Behavioural activation.</b> Log a week first, find the blocks that still carry something, put them in the calendar with a day and a time, and go regardless of mood. Structure before motivation, not after it.</div></div>
       <div class="mv"><div class="w">This quarter</div><div class="t">Values affirmation writing, plus purpose work with a real instrument.</div></div>
       <div class="tp"><div class="w">Trap</div><div class="t">A financial literacy course as the fix. It explains 0.1% of behaviour variance.</div></div>
     </article>
 
     <article class="scene">
       <div class="sh"><h3>Two hundred contacts and no one to call</h3><div class="dm">SC</div></div>
-      <div class="mv"><div class="w">The move</div><div class="t">Do not add events. <b>Work the interpretation.</b> Addressing maladaptive social cognition outperformed social skills, social support, and increased contact opportunities.</div></div>
+      <div class="mv"><div class="w">The move</div><div class="t">Do not add events. <b>Take one room he left feeling apart from everyone</b>, get the sentence he concluded about himself, and test it against what actually happened. Addressing that beat social skills, social support, and more contact in a head-to-head comparison.</div></div>
       <div class="mv"><div class="w">Standing on</div><div class="t">Masi 2011, the four-strategy comparison.</div></div>
       <div class="tp"><div class="w">Trap</div><div class="t">Joining another peer group on the promise of a 71% performance lift. That number is vendor marketing.</div></div>
     </article>
 
     <article class="scene">
       <div class="sh"><h3>Running on five to six hours and saying "I function fine"</h3><div class="dm">PH &middot; CG</div></div>
-      <div class="mv"><div class="w">The move</div><div class="t">A fourteen-day time-in-bed extension with an <b>objective</b> performance measure. At six hours for fourteen days, deficits matched two nights of total deprivation while subjective sleepiness plateaued.</div></div>
+      <div class="mv"><div class="w">The move</div><div class="t">Fourteen nights at a <b>fixed eight hours time in bed</b>, logged, with an <b>objective</b> performance test alongside his own rating of how sharp he feels. Show him both curves. At six hours for fourteen nights, deficits matched two nights of total deprivation while the feeling of sleepiness flattened out.</div></div>
       <div class="tp"><div class="w">Trap</div><div class="t">Trusting how he feels. The study exists precisely because self-report fails here.</div></div>
     </article>
 
@@ -466,7 +588,7 @@ tr:last-child td{border-bottom:none}
 
     <article class="scene">
       <div class="sh"><h3>A money crisis, while still having to lead</h3><div class="dm">FI &middot; CG &middot; ID</div></div>
-      <div class="mv"><div class="w">This week</div><div class="t">Implementation intentions on the <b>single next financial action</b>, not the whole plan. Behavioural activation to hold function up while the stressor persists.</div></div>
+      <div class="mv"><div class="w">This week</div><div class="t">One if-then plan on the <b>single next financial action</b>, not the whole plan: name the moment, name the move. Then change the default so the good outcome happens without a decision. Behavioural activation to hold function up while the stressor persists.</div></div>
       <div class="mv"><div class="w">This quarter</div><div class="t">Automation and defaults over education. Values affirmation to stop the crisis becoming a verdict on the self, which is exactly what Identity Fusion predicts it will do.</div></div>
       <div class="mv"><div class="w">The edge</div><div class="t">Cognitive to Financial is a strength-3 connection in the model: sustained focus is upstream of revenue. This is that edge under load.</div></div>
       <div class="tp"><div class="w">Trap</div><div class="t">Financial education as the intervention, and letting the money story become the identity story unchallenged.</div></div>
@@ -483,9 +605,9 @@ tr:last-child td{border-bottom:none}
     <thead><tr><th style="width:33%">Claim or practice</th><th>Why it dies</th></tr></thead>
     <tbody>
       <tr><td class="k">Commercial brain training</td><td>Simons et al. 2016 PSPI; Stojanoski et al. 2018. No transfer to real cognitive function.</td></tr>
-      <tr><td class="k">Power posing</td><td>Postural-feedback effects are unreliable and the strong version failed replication.</td></tr>
-      <tr><td class="k">Financial literacy education</td><td>Fernandes, Lynch and Netemeyer 2014: 0.1% of variance, decaying to negligible past twenty months.</td></tr>
-      <tr><td class="k">Gratitude journaling as a pillar</td><td>g = 0.19. PNAS 2024 meta-analysis, 145 papers, 24,804 participants.</td></tr>
+      <tr><td class="k">Power posing</td><td>Ranehill E, Dreber A, Johannesson M, Leiberg S, Sul S, Weber RA. Psychol Sci 2015;26(5):653-656. doi:10.1177/0956797614553946. Titled "no effect on hormones and risk tolerance in a large sample of men and women."</td></tr>
+      <tr><td class="k">Financial literacy education</td><td>Fernandes D, Lynch JG, Netemeyer RG. Manage Sci 2014;60(8):1861-1883. doi:10.1287/mnsc.2013.1849. 168 papers, 201 studies: literacy interventions "explain only 0.1% of the variance in financial behaviors studied," decaying to negligible past twenty months.</td></tr>
+      <tr><td class="k">Gratitude journaling as a pillar</td><td>Choi H, et al. PNAS 2025;122:e2425193122. doi:10.1073/pnas.2425193122. 145 papers, 24,804 participants, 28 countries: g = 0.19 (95% CI 0.15-0.22).</td></tr>
       <tr><td class="k">Nature-based intervention as proven</td><td>Wilkie 2026: not significantly better than controls.</td></tr>
       <tr><td class="k">"Biophilic design improves cognition 20%"</td><td>No source. Traces to a 1999 consultancy daylighting report about maths scores.</td></tr>
       <tr><td class="k">"Peer groups, 71% improved performance"</td><td>Vendor marketing. No author, year, title or link. Vistage's own research has no such figure.</td></tr>
