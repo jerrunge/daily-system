@@ -53,6 +53,7 @@ const FAMILY=["maddyrunge@icloud.com","jerrunge@gmail.com","jrunge@me.com"];
 const LS="maddy-writes-v2";
 let st=JSON.parse(localStorage.getItem(LS)||"{}");
 let R={}; // prompt_key -> row
+let D={}; // draft_key -> row
 const stage=document.getElementById("stage"),foot=document.getElementById("foot"),title=document.getElementById("title"),who=document.getElementById("who");
 const save=()=>localStorage.setItem(LS,JSON.stringify(st));
 async function rpc(fn,args){
@@ -63,6 +64,8 @@ async function rpc(fn,args){
 async function loadAll(){
   const rows=await rpc("mw_fetch",{_token:TOKEN,_email:st.email});
   R={};(rows||[]).forEach(x=>R[x.prompt_key]=x);
+  const ds=await rpc("mwd_fetch",{_token:TOKEN,_email:st.email});
+  D={};(ds||[]).forEach(x=>D[x.draft_key]=x);
 }
 const count=()=>P.filter(p=>R[p[0]]&&R[p[0]].response.trim()).length;
 function arrival(){
@@ -103,8 +106,12 @@ function shelf(){
   const n=count();
   stage.innerHTML=P.map((p,j)=>{const r=R[p[0]];const has=r&&r.response.trim();
    return `<div class="card shelfcard" data-j="${j}"><span class="badge ${has?"":"empty"}">${has?"has words":"empty"}</span><p class="q">${p[1]}</p><p class="peek ${has?"has":""}">${has?r.response.replace(/</g,"&lt;"):"Tap to answer, or don't."}</p></div>`}).join("")
+  +(Object.keys(D).length?`<div style="margin-top:26px"><span class="kick" style="font-family:M;font-size:12.5px;letter-spacing:.3em;color:#8A8574">YOUR ARTICLES · TAP TO EDIT</span></div>`+Object.values(D).map(d=>`<div class="card shelfcard" data-d="${d.draft_key}"><span class="badge ${d.status==='sent back'?'':'empty'}">${d.status}</span><p class="q">${d.title.replace(/</g,"&lt;")}</p><p class="peek has">${d.body.slice(0,140).replace(/</g,"&lt;")}...</p></div>`).join(""):"")
   +`<div class="row" style="margin-top:18px"><button class="go" id="done">Done: make my draft (${n} answered)</button></div>`;
-  document.querySelectorAll(".shelfcard").forEach(c=>c.onclick=()=>editor(+c.dataset.j,false));
+  document.querySelectorAll(".shelfcard").forEach(c=>{
+    if(c.dataset.d!==undefined)c.onclick=()=>draftEditor(c.dataset.d);
+    else c.onclick=()=>editor(+c.dataset.j,false);
+  });
   document.getElementById("done").onclick=draft;
   foot.textContent="Any number answered counts as done. Nine is not a goal.";
 }
@@ -130,6 +137,29 @@ function editor(j,railmode){
   document.getElementById("back").onclick=()=>shelf();
   foot.textContent=railmode?"Skipping is allowed. Skipping all of them is allowed.":"";
   t.focus();
+}
+function draftEditor(key){
+  const d=D[key];if(!d)return shelf();
+  title.textContent="Your article";who.textContent="";
+  stage.innerHTML=`<div class="card"><p class="q">${d.title.replace(/</g,"&lt;")}</p>
+  <div class="deal" style="margin-top:12px">${d.intro_note.replace(/</g,"&lt;")}</div>
+  <textarea id="dt" style="min-height:420px;font-size:17px;line-height:1.6">${d.body.replace(/</g,"&lt;")}</textarea>
+  <div class="saved" id="dsv"></div>
+  <div class="row"><button class="go" id="dsave">Save my edits</button><button id="dsend">Send back to Dad</button><button id="dback">Back to shelf</button></div>
+  <p class="note">Saving keeps it yours to keep working on. Send back means: I like where this is, Dad can take the next step. You can send back more than once.</p></div>`;
+  const t=document.getElementById("dt");
+  async function push(status,msg){
+    document.getElementById("dsv").textContent="Saving...";
+    try{
+      await rpc("mwd_save",{_token:TOKEN,_email:st.email,_key:key,_body:t.value,_status:status});
+      d.body=t.value;d.status=status;
+      document.getElementById("dsv").textContent=msg;
+    }catch(x){document.getElementById("dsv").textContent="Didn't save. Copy your words somewhere safe and try again."}
+  }
+  document.getElementById("dsave").onclick=()=>push("edited","Saved. Still yours.");
+  document.getElementById("dsend").onclick=()=>push("sent back","Sent back. He'll see it.");
+  document.getElementById("dback").onclick=shelf;
+  foot.textContent="";
 }
 function draft(){
   title.textContent="Your draft";who.textContent="";
