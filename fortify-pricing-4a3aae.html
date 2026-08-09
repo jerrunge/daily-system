@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Fortify · Pricing Architecture (proposed)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;0,900;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EFEEE7; --card:#F6F5EE; --dusk:#242A32; --dusk-2:#1D2229;
+    --land:#26251F; --body:#43423A; --silver:#B7B1A4; --hairline:#D8D4C6;
+    --slate:#46606F; --slate-l:#7D93A1; --sound:#AFC6D0; --red:#D14625;
+    --rust:#834112; --kelp:#4A5A3E;
+    --font-display:'Schibsted Grotesk', system-ui, sans-serif;
+    --font-body:'Newsreader', Georgia, serif;
+    --font-mono:'IBM Plex Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--paper); color:var(--body); font-family:var(--font-body); line-height:1.5;}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem) 5rem;}
+
+  /* metadata voice: mono, lowercase */
+  .mono{font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.06em; text-transform:lowercase; color:var(--slate);}
+  .eyebrow{font-family:var(--font-mono); font-size:0.78rem; color:var(--slate); text-transform:lowercase; display:inline-flex; align-items:center; gap:0.85rem; margin:4.5rem 0 1.6rem;}
+  .eyebrow::before{content:''; width:28px; height:1px; background:var(--silver);}
+
+  header{padding-top:2.4rem; display:flex; flex-wrap:wrap; align-items:baseline; gap:1rem 1.4rem; border-bottom:1px solid var(--hairline); padding-bottom:1.2rem;}
+  .wordmark{font-family:var(--font-display); font-weight:900; font-size:1.35rem; color:var(--land);}
+  .wordmark em{font-family:var(--font-body); font-style:italic; font-weight:500; font-size:1.05rem; color:var(--slate); margin-left:0.5rem;}
+  /* the page's ONE red element */
+  .status-red{margin-left:auto; font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:lowercase; color:var(--red); border:1px solid var(--red); padding:0.3rem 0.65rem; border-radius:2px;}
+
+  h1.display{font-family:var(--font-display); font-weight:900; color:var(--land); font-size:clamp(1.7rem,4.4vw,3rem); line-height:1.08; letter-spacing:-0.015em; max-width:21ch;}
+  h1.display em{font-style:normal; color:var(--slate-l);}
+  .law{margin-top:1.6rem; border-left:3px solid var(--rust); padding:0.65rem 1.1rem; background:var(--card); max-width:620px;}
+  .law p{font-size:1.02rem; color:var(--land);}
+  .law .mono{display:block; margin-bottom:0.3rem; color:var(--rust);}
+
+  /* chips */
+  .chip{font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.07em; text-transform:lowercase; padding:0.18rem 0.5rem; border-radius:2px; white-space:nowrap;}
+  .chip.exists{background:var(--slate); color:var(--paper);}
+  .chip.proposed{border:1px solid var(--rust); color:var(--rust); background:transparent;}
+  .chip.y2027{border:1px solid var(--kelp); color:var(--kelp); background:transparent;}
+  .price{font-family:var(--font-mono); font-size:0.86rem; font-weight:500; color:var(--land); white-space:nowrap;}
+
+  /* ladder */
+  .ladder{border-left:2px solid var(--slate); margin-left:0.4rem;}
+  .rung{display:grid; grid-template-columns:minmax(150px,200px) minmax(110px,150px) 1fr auto; gap:0.4rem 1.2rem; align-items:baseline; padding:1.05rem 0 1.05rem 1.4rem; border-bottom:1px dotted var(--hairline); position:relative;}
+  .rung::before{content:''; position:absolute; left:-6px; top:1.55rem; width:10px; height:10px; border-radius:50%; background:var(--paper); border:2px solid var(--slate);}
+  .rung.core::before{background:var(--slate);}
+  .rung h3{font-family:var(--font-display); font-weight:700; font-size:1.06rem; color:var(--land);}
+  .rung .why{font-size:0.95rem; color:var(--body); max-width:52ch;}
+  .rung .why strong{color:var(--land);}
+  .pay-forms{grid-column:3 / span 2; display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:0.35rem;}
+  .pay{border:1px solid var(--hairline); background:var(--card); padding:0.5rem 0.8rem; border-radius:2px;}
+  .pay .mono{display:block; color:var(--rust);}
+  .pay b{font-family:var(--font-mono); font-size:0.8rem; color:var(--land); font-weight:500;}
+  .pay span{font-size:0.85rem; color:var(--body);}
+
+  /* 2027 rails */
+  .rails{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; margin-top:1.4rem;}
+  .rail{border:1px dashed var(--kelp); padding:0.85rem 1.1rem; border-radius:2px; display:flex; gap:0.9rem; align-items:baseline;}
+  .rail h4{font-family:var(--font-display); font-weight:700; font-size:0.98rem; color:var(--land);}
+  .rail p{font-size:0.88rem;}
+
+  /* rooms */
+  .rooms{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:1.1rem;}
+  .room{background:var(--card); border:1px solid var(--hairline); border-radius:3px; padding:1.2rem 1.3rem 1.3rem; display:flex; flex-direction:column; gap:0.7rem;}
+  .room svg{width:100%; height:auto; display:block;}
+  .room h3{font-family:var(--font-display); font-weight:700; font-size:1.12rem; color:var(--land);}
+  .room .head{display:flex; align-items:baseline; justify-content:space-between; gap:0.6rem;}
+  .room dl{display:grid; grid-template-columns:auto 1fr; gap:0.28rem 0.9rem; font-size:0.9rem;}
+  .room dt{font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.07em; text-transform:lowercase; color:var(--slate); padding-top:0.22rem;}
+  .room dd{color:var(--body);}
+  .room dd b{color:var(--land); font-weight:600;}
+  .guard{margin-top:auto; font-size:0.85rem; color:var(--rust); border-top:1px dotted var(--hairline); padding-top:0.6rem;}
+  .guard b{font-family:var(--font-mono); font-size:0.66rem; text-transform:lowercase; letter-spacing:0.07em; font-weight:500;}
+
+  /* firewalls */
+  table{width:100%; border-collapse:collapse; font-size:0.92rem;}
+  th{font-family:var(--font-mono); font-size:0.64rem; letter-spacing:0.08em; text-transform:lowercase; color:var(--slate); text-align:left; font-weight:500; padding:0.45rem 0.8rem; border-bottom:1px solid var(--silver);}
+  td{padding:0.6rem 0.8rem; border-bottom:1px dotted var(--hairline); vertical-align:top;}
+  td.pair{font-family:var(--font-display); font-weight:500; color:var(--land); white-space:nowrap;}
+  td .vs{color:var(--slate-l); font-style:italic; font-family:var(--font-body);}
+
+  /* rulings */
+  .rulings{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:0.7rem;}
+  .ruling{border:1px solid var(--hairline); background:var(--card); padding:0.7rem 0.95rem; border-radius:2px; display:flex; gap:0.8rem; align-items:baseline;}
+  .ruling .n{font-family:var(--font-mono); font-size:0.72rem; color:var(--rust);}
+  .ruling p{font-size:0.92rem;}
+  .ruling p b{color:var(--land);}
+
+  .prov{margin-top:4.5rem; border-top:1px solid var(--hairline); padding-top:1rem; display:flex; flex-direction:column; gap:0.25rem;}
+  .prov .mono{color:var(--silver);}
+  .prov .mono b{color:var(--slate); font-weight:500;}
+  .closer{margin-top:2.2rem; font-family:var(--font-body); font-style:italic; font-size:1.05rem; color:var(--slate);}
+
+  @media (max-width:700px){
+    .rung{grid-template-columns:1fr auto; }
+    .rung .price{grid-column:2;}
+    .rung .why{grid-column:1 / -1;}
+    .rung .chips{grid-column:1 / -1;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="wordmark">Fortify <em>pricing architecture</em></span>
+    <span class="mono">2026-08-08 · pacific · internal</span>
+    <span class="status-red">proposed · awaiting rulings</span>
+  </header>
+
+  <div class="eyebrow">the principle</div>
+  <h1 class="display">The method never modularizes.<br><em>The container does.</em></h1>
+  <p style="margin-top:1rem; max-width:58ch; font-size:1.05rem;">A menu of modules would let every buyer skip the domains that make the work real, which is the deck's own slide 3 antagonist. What founders are asking for is not curriculum choice. It is <strong style="color:var(--land)">commitment shape</strong>: the size of the first yes, the cash-flow form, the delivery terrain. Each rung of the ladder sells more of one scarce asset: how much of the client's shape Jeremy takes on.</p>
+  <div class="law">
+    <span class="mono">the credit law · one rule, no exceptions</span>
+    <p>Personal money buying personal work credits forward. Company money does not.</p>
+  </div>
+
+  <div class="eyebrow">the ladder · five rungs, two rails</div>
+  <div class="ladder">
+
+    <div class="rung">
+      <h3>Discovery</h3>
+      <span class="price">$0 · 30 min</span>
+      <p class="why">No deck, no pitch. Unchanged. After it, three doors instead of one.</p>
+      <span class="chips"><span class="chip exists">exists</span></span>
+    </div>
+
+    <div class="rung">
+      <h3>The Day</h3>
+      <span class="price">$7.5K&#8211;$10K</span>
+      <p class="why">One person, one day: the full battery, their map, a 90-day plan. Day One of Fortify sold separately. <strong>100% credit</strong> toward the engagement within 90 days, so it can only become the engagement, never replace it. Capped per year.</p>
+      <span class="chips"><span class="chip proposed">proposed</span></span>
+    </div>
+
+    <div class="rung core">
+      <h3>The Engagement</h3>
+      <span class="price">$60K · 6 mo</span>
+      <p class="why">Weekly 1:1, always on. The center of gravity, untouched. The adventure lives <strong>inside</strong> the one price: the client chooses the terrain quarter to quarter (weekly rhythm, war-room bursts, intensive days, async stretches). The price is one number; the shape is theirs.</p>
+      <span class="chips"><span class="chip exists">exists</span></span>
+      <div class="pay-forms">
+        <div class="pay"><span class="mono">paid in full · the anchor</span><b>$60,000</b> <span>· plainly the better value</span></div>
+        <div class="pay"><span class="mono">monthly retainer · proposed</span><b>~$11.5K &times; 6 &asymp; $69K</b> <span>· first + last at signing</span></div>
+      </div>
+    </div>
+
+    <div class="rung">
+      <h3>The Continuation</h3>
+      <span class="price">$4K&#8211;$5K / mo</span>
+      <p class="why"><strong>Alumni only.</strong> Lighter cadence, always-on stays. The long-term partner shape founders actually want, gated so it can never be bought as the cheap way in. The rung the ladder is missing today: right now the deck ends at month six.</p>
+      <span class="chips"><span class="chip proposed">proposed</span></span>
+    </div>
+
+    <div class="rung">
+      <h3>Dedicated</h3>
+      <span class="price">$500K class</span>
+      <p class="why">The top of the flexibility axis, not just a bigger number. Total availability, total shape-taking, by conversation only. The honest answer to &ldquo;I want total flexibility&rdquo; is that it exists, and this is its price.</p>
+      <span class="chips"><span class="chip exists">agreement drafted</span></span>
+    </div>
+
+  </div>
+
+  <div class="rails">
+    <div class="rail"><span class="chip y2027">2027</span><div><h4>Retreat · capstone</h4><p>6 days, 7 seats, 2/year. Pilot $7.5K, steady $12K&#8211;$14K. Alumni priority. The Circle Day is its one-day proof.</p></div></div>
+    <div class="rail"><span class="chip y2027">2027</span><div><h4>Rebuild · peers</h4><p>Held by peers, not the coach. Monthly + annual both offered (ruled 2026-07-26), annual anchored. Numbers deliberately unset. Never priced against Fortify.</p></div></div>
+  </div>
+
+  <div class="eyebrow">the three rooms · disclosure sets the instrument</div>
+  <div class="rooms">
+
+    <div class="room">
+      <svg viewBox="0 0 260 90" aria-hidden="true">
+        <line x1="70" y1="45" x2="180" y2="45" stroke="#7D93A1" stroke-width="1.4"/>
+        <circle cx="60" cy="45" r="9" fill="none" stroke="#46606F" stroke-width="2"/>
+        <circle cx="192" cy="45" r="13" fill="#46606F"/>
+        <text x="60" y="76" font-family="IBM Plex Mono" font-size="9" fill="#7D93A1" text-anchor="middle">jeremy</text>
+        <text x="192" y="76" font-family="IBM Plex Mono" font-size="9" fill="#7D93A1" text-anchor="middle">one person</text>
+      </svg>
+      <div class="head"><h3>The Day</h3><span class="price">$7.5K&#8211;$10K</span></div>
+      <dl>
+        <dt>instrument</dt><dd><b>The full battery.</b> The only room where complete disclosure is safe.</dd>
+        <dt>shape</dt><dd>Battery ahead. Morning: their map, the lit connections. Afternoon: protocols, 90-day plan.</dd>
+        <dt>paper</dt><dd>Personal · <b>100% credit</b> to the engagement, 90 days</dd>
+        <dt>feeds</dt><dd>The engagement</dd>
+      </dl>
+      <p class="guard"><b>guard</b> · capped per year. A door, never the product.</p>
+    </div>
+
+    <div class="room">
+      <svg viewBox="0 0 260 90" aria-hidden="true">
+        <circle cx="130" cy="48" r="30" fill="none" stroke="#D8D4C6" stroke-width="1"/>
+        <circle cx="130" cy="18" r="8" fill="none" stroke="#46606F" stroke-width="2"/>
+        <circle cx="158" cy="38" r="8" fill="#46606F"/>
+        <circle cx="148" cy="72" r="8" fill="#46606F"/>
+        <circle cx="112" cy="72" r="8" fill="#46606F"/>
+        <circle cx="102" cy="38" r="8" fill="#46606F"/>
+        <circle cx="130" cy="48" r="2.5" fill="#834112"/>
+        <text x="130" y="8" font-family="IBM Plex Mono" font-size="9" fill="#7D93A1" text-anchor="middle">jeremy</text>
+        <text x="222" y="50" font-family="IBM Plex Mono" font-size="9" fill="#7D93A1" text-anchor="middle">4&#8211;6 peers</text>
+      </svg>
+      <div class="head"><h3>The Circle Day</h3><span class="price">$3K&#8211;$4K / seat</span></div>
+      <dl>
+        <dt>instrument</dt><dd><b>Light battery + witnessed rounds.</b> Each founder gets a hot seat; the peers witnessing is the product the 1:1 Day cannot provide.</dd>
+        <dt>shape</dt><dd>Model once, self-maps, facilitated rounds, one keystone protocol each, accountability pairs.</dd>
+        <dt>paper</dt><dd>Personal · <b>~50% credit</b> (the day is shared, the diagnostic shallower)</dd>
+        <dt>feeds</dt><dd>Engagement · retreat · Rebuild seed list</dd>
+      </dl>
+      <p class="guard"><b>guard</b> · no reporting lines, all principals, enforced at booking. One COO in the room and it silently becomes a Team Day at circle prices.</p>
+    </div>
+
+    <div class="room">
+      <svg viewBox="0 0 260 90" aria-hidden="true">
+        <circle cx="60" cy="18" r="10" fill="#26251F"/>
+        <text x="60" y="40" font-family="IBM Plex Mono" font-size="9" fill="#7D93A1" text-anchor="middle">leader</text>
+        <g fill="#46606F">
+          <circle cx="30" cy="62" r="6"/><circle cx="50" cy="62" r="6"/><circle cx="70" cy="62" r="6"/><circle cx="90" cy="62" r="6"/><circle cx="110" cy="62" r="6"/>
+          <circle cx="40" cy="80" r="6"/><circle cx="60" cy="80" r="6"/><circle cx="80" cy="80" r="6"/><circle cx="100" cy="80" r="6"/>
+        </g>
+        <path d="M150 12 h8 v72 h-8" fill="none" stroke="#834112" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <circle cx="190" cy="38" r="9" fill="#26251F"/>
+        <circle cx="218" cy="38" r="7" fill="none" stroke="#46606F" stroke-width="2"/>
+        <text x="204" y="66" font-family="IBM Plex Mono" font-size="9" fill="#834112" text-anchor="middle">private hour</text>
+      </svg>
+      <div class="head"><h3>The Team Day</h3><span class="price">$25K&#8211;$30K flat</span></div>
+      <dl>
+        <dt>instrument</dt><dd><b>The team as the body.</b> Never the personal battery: nobody discloses shame to the person who sets their comp. Anonymized load survey, team heat map, the three worst seams, working agreements.</dd>
+        <dt>the leader</dt><dd>Personal work lands in a <b>private bracketed hour</b>: the quiet door to an engagement.</dd>
+        <dt>paper</dt><dd>Company · <b>no credit</b> · flat, never per seat, <b>never hourly</b> (hourly collapses it into fractional at $350/hr)</dd>
+        <dt>feeds</dt><dd>The leader&rsquo;s engagement · repeat team days · plausibly the seed of the $120K licensed line</dd>
+      </dl>
+      <p class="guard"><b>guard</b> · which pillar it lives in (Fortify vs fractional) is a ruling, not a design choice.</p>
+    </div>
+
+  </div>
+
+  <div class="eyebrow">the firewalls · why nothing competes</div>
+  <table>
+    <thead><tr><th>pair</th><th>firewall</th></tr></thead>
+    <tbody>
+      <tr><td class="pair">Day <span class="vs">vs</span> Engagement</td><td>100% credit: the Day can only become the engagement.</td></tr>
+      <tr><td class="pair">Continuation <span class="vs">vs</span> Engagement</td><td>Alumni only. Cannot be bought first.</td></tr>
+      <tr><td class="pair">Retainer <span class="vs">vs</span> paid-in-full</td><td>Anchored; paid-in-full plainly the better value. Same mechanism already ruled for Rebuild.</td></tr>
+      <tr><td class="pair">Continuation <span class="vs">vs</span> Rebuild</td><td>Different holding: coach vs peers. Priced an order apart.</td></tr>
+      <tr><td class="pair">Day <span class="vs">vs</span> Retreat</td><td>Entry vs capstone; solo diagnostic vs group transformation.</td></tr>
+      <tr><td class="pair">Team Day <span class="vs">vs</span> Fractional</td><td>Flat premium product vs hourly operator. The flat rate is the firewall.</td></tr>
+      <tr><td class="pair">Anything <span class="vs">vs</span> Dedicated</td><td>Nothing else sells availability itself.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="eyebrow">awaiting his word · nothing here is ratified</div>
+  <div class="rulings">
+    <div class="ruling"><span class="n">01</span><p><b>The Day&rsquo;s price</b> inside $7.5K&#8211;$10K, and its annual cap.</p></div>
+    <div class="ruling"><span class="n">02</span><p><b>The retainer premium</b>: ~$69K total against the $60K anchor.</p></div>
+    <div class="ruling"><span class="n">03</span><p><b>The Continuation price</b> inside $4K&#8211;$5K/mo.</p></div>
+    <div class="ruling"><span class="n">04</span><p><b>The credit window</b>: 90 days proposed, both formats.</p></div>
+    <div class="ruling"><span class="n">05</span><p><b>Capacity</b>: 2&#8211;3 intensive days per month across all formats, so they never eat engagement delivery.</p></div>
+    <div class="ruling"><span class="n">06</span><p><b>The Team Day&rsquo;s pillar</b>: Fortify or fractional.</p></div>
+    <div class="ruling"><span class="n">07</span><p><b>The deck&rsquo;s shelf</b>: recommendation is it stays three tags; &ldquo;how it suits you best&rdquo; already carries this, and the detail lives in his mouth.</p></div>
+  </div>
+
+  <div class="prov">
+    <span class="mono"><b>provenance</b> · what this was built from</span>
+    <span class="mono">deck slide 12 (discovery $0 · engagement $60K · excuses $0.00) · /fortify: &ldquo;begins at $60,000, available how it suits you best&rdquo;</span>
+    <span class="mono">/dedicated live + $500K dedicated agreement drafted (go-forward plan, 2026-05-13) · retreat economics doc (2026-05-01)</span>
+    <span class="mono">cmo-plan lob 2 (fortify $480K: direct $360K + licensed $120K) + lob 4 (rebuild: both doors ruled 2026-07-26, numbers unset)</span>
+    <span class="mono">rulings 2026-08-05: the fortify line, high-earners scope · feedback: founders want flexibility and modularity at the gate</span>
+  </div>
+
+  <p class="closer">This page proposes. RULINGS.md decides.</p>
+
+</div>
+</body>
+</html>
