@@ -1,13 +1,7 @@
 {
-  "generated": "2026-08-11T14:32:03.864723Z",
+  "generated": "2026-08-12T14:32:37.059388Z",
   "generatedPT": "7:32 AM PT",
   "rightNow": [
-    {
-      "urgency": "urgent",
-      "text": "Maddy \u2014 public App Store launch (auth, subjects, subscriptions, listing)",
-      "jer": "JER-115",
-      "pillar": "\ud83d\udcf1 Maddy's App"
-    },
     {
       "urgency": "week",
       "text": "Billing F8: payer-departure / account-deletion billing handling",
@@ -19,6 +13,12 @@
       "text": "Billing model hardening (F1\u2013F8) \u2014 from circle-keyed scenario pressure-test",
       "jer": "JER-608",
       "pillar": "\ud83d\udcf1 Maddy's App"
+    },
+    {
+      "urgency": "urgent",
+      "text": "Build The Letting Go Protocol hosted workbook",
+      "jer": "JER-711",
+      "pillar": "Personal Systems"
     }
   ],
   "contentDue": [],
@@ -40,17 +40,17 @@
     },
     {
       "name": "Perry Swanson",
-      "days": 137,
+      "days": 138,
       "why": ""
     },
     {
       "name": "Adam Kohn",
-      "days": 138,
+      "days": 139,
       "why": ""
     },
     {
       "name": "Eric Stewart",
-      "days": 138,
+      "days": 139,
       "why": ""
     }
   ],
