@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Day · a dry run · Fortify Toolkit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;0,900;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EFEEE7; --card:#F6F5EE; --dusk:#242A32; --dusk-2:#1D2229;
+    --land:#26251F; --body:#43423A; --silver:#B7B1A4; --hairline:#D8D4C6;
+    --slate:#46606F; --slate-l:#7D93A1; --sound:#AFC6D0; --red:#D14625;
+    --rust:#834112; --kelp:#4A5A3E;
+    --font-display:'Schibsted Grotesk', system-ui, sans-serif;
+    --font-body:'Newsreader', Georgia, serif;
+    --font-mono:'IBM Plex Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--paper); color:var(--body); font-family:var(--font-body); line-height:1.5;}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem) 5rem;}
+
+  .mono{font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.06em; text-transform:lowercase; color:var(--slate);}
+  .eyebrow{font-family:var(--font-mono); font-size:0.78rem; color:var(--slate); text-transform:lowercase; display:inline-flex; align-items:center; gap:0.85rem; margin:4.5rem 0 1.6rem;}
+  .eyebrow::before{content:''; width:28px; height:1px; background:var(--silver);}
+
+  .bar{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;color:var(--silver);display:flex;justify-content:space-between;gap:12px;padding:14px 0 0;flex-wrap:wrap;text-transform:uppercase;}
+  .bar nav{display:flex;gap:14px;flex-wrap:wrap;}
+  .bar a{color:var(--silver);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px;}
+  .bar a[aria-current="page"]{color:var(--land);border-bottom-color:var(--red);}
+  .bar a:hover{color:var(--land);border-bottom-color:var(--red);}
+  .mark{font-family:'Schibsted Grotesk',sans-serif;font-weight:900;letter-spacing:.14em;font-size:12px;color:var(--land);display:inline-block;padding-bottom:7px;border-bottom:2px dashed var(--red);margin-top:14px;}
+
+  header{padding-top:1.4rem; display:flex; flex-wrap:wrap; align-items:baseline; gap:1rem 1.4rem; border-bottom:1px solid var(--hairline); padding-bottom:1.2rem;}
+  .wordmark{font-family:var(--font-display); font-weight:900; font-size:1.35rem; color:var(--land);}
+  .wordmark em{font-family:var(--font-body); font-style:italic; font-weight:500; font-size:1.05rem; color:var(--slate); margin-left:0.5rem;}
+  .status-red{margin-left:auto; font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:lowercase; color:var(--red); border:1px solid var(--red); padding:0.3rem 0.65rem; border-radius:2px;}
+
+  h1.display{font-family:var(--font-display); font-weight:900; color:var(--land); font-size:clamp(1.7rem,4.4vw,3rem); line-height:1.08; letter-spacing:-0.015em; max-width:24ch;}
+  h1.display em{font-style:normal; color:var(--slate-l);}
+  .lede{margin-top:1rem; max-width:60ch; font-size:1.05rem;}
+  .lede b{color:var(--land); font-weight:600;}
+
+  .chip{font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.07em; text-transform:lowercase; padding:0.18rem 0.5rem; border-radius:2px; white-space:nowrap;}
+  .chip.arch{background:var(--slate); color:var(--paper);}
+  .chip.ref{border:1px solid var(--rust); color:var(--rust); background:transparent;}
+  .chip.ok{border:1px solid var(--kelp); color:var(--kelp); background:transparent;}
+
+  /* archetype cards */
+  .arches{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:1.1rem;}
+  .arch-card{background:var(--card); border:1px solid var(--hairline); border-radius:3px; padding:1.2rem 1.3rem 1.3rem; display:flex; flex-direction:column; gap:0.7rem;}
+  .arch-card .head{display:flex; align-items:baseline; justify-content:space-between; gap:0.6rem;}
+  .arch-card h3{font-family:var(--font-display); font-weight:700; font-size:1.12rem; color:var(--land);}
+  .arch-card dl{display:grid; grid-template-columns:auto 1fr; gap:0.28rem 0.9rem; font-size:0.9rem;}
+  .arch-card dt{font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.07em; text-transform:lowercase; color:var(--slate); padding-top:0.22rem;}
+  .arch-card dd{color:var(--body);}
+  .arch-card dd b{color:var(--land); font-weight:600;}
+  .arch-card .keys{font-family:var(--font-mono); font-size:0.78rem; color:var(--rust); letter-spacing:0.05em;}
+  .disclaim{margin-top:0.9rem; font-size:0.9rem; color:var(--rust); font-style:italic;}
+
+  /* timeline */
+  .rail{border-left:2px solid var(--slate); margin-left:0.4rem;}
+  .stop{display:grid; grid-template-columns:minmax(92px,110px) 1fr; gap:0.4rem 1.2rem; padding:1rem 0 1rem 1.4rem; border-bottom:1px dotted var(--hairline); position:relative;}
+  .stop::before{content:''; position:absolute; left:-6px; top:1.45rem; width:10px; height:10px; border-radius:50%; background:var(--paper); border:2px solid var(--slate);}
+  .stop .when{font-family:var(--font-mono); font-size:0.78rem; color:var(--slate); letter-spacing:0.05em; padding-top:0.15rem;}
+  .stop h3{font-family:var(--font-display); font-weight:700; font-size:1.02rem; color:var(--land);}
+  .stop p{font-size:0.95rem; max-width:64ch; margin-top:0.15rem;}
+  .stop .three{margin-top:0.5rem; display:flex; flex-direction:column; gap:0.3rem;}
+  .stop .three span{font-size:0.88rem; display:block; padding-left:2.6rem; text-indent:-2.6rem;}
+  .stop .three b{font-family:var(--font-mono); font-size:0.68rem; font-weight:500; color:var(--rust); letter-spacing:0.05em; margin-right:0.5rem;}
+
+  /* plans */
+  .plans{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.1rem;}
+  .plan{background:var(--card); border:1px solid var(--hairline); border-radius:3px; padding:1.15rem 1.25rem;}
+  .plan h3{font-family:var(--font-display); font-weight:700; font-size:1.05rem; color:var(--land); margin-bottom:0.7rem;}
+  .plan h3 span{font-family:var(--font-mono); font-size:0.68rem; font-weight:500; color:var(--rust); margin-right:0.5rem;}
+  .phase{border-top:1px dotted var(--hairline); padding:0.6rem 0;}
+  .phase .mono{display:block; color:var(--rust); margin-bottom:0.25rem;}
+  .phase p{font-size:0.9rem;}
+  .phase p b{color:var(--land); font-weight:600;}
+  .plan .verdict-line{border-top:1px solid var(--silver); margin-top:0.5rem; padding-top:0.6rem; font-size:0.9rem; font-style:italic; color:var(--slate);}
+  .plan .notthis{margin-top:0.55rem; font-size:0.85rem; color:var(--rust);}
+  .plan .notthis b{font-family:var(--font-mono); font-size:0.64rem; text-transform:lowercase; letter-spacing:0.07em; font-weight:500;}
+
+  /* circle section */
+  .circle-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:1.1rem;}
+  .circle-card{border:1px solid var(--hairline); background:var(--card); border-radius:3px; padding:1.1rem 1.2rem;}
+  .circle-card h3{font-family:var(--font-display); font-weight:700; font-size:1.02rem; color:var(--land); margin-bottom:0.5rem;}
+  .circle-card ul{list-style:none;}
+  .circle-card li{font-size:0.92rem; padding:0.3rem 0 0.3rem 1.1rem; position:relative;}
+  .circle-card li::before{content:'·'; position:absolute; left:0.2rem; color:var(--slate);}
+  .circle-card li b{color:var(--land); font-weight:600;}
+
+  /* verdict */
+  table{width:100%; border-collapse:collapse; font-size:0.92rem;}
+  th{font-family:var(--font-mono); font-size:0.64rem; letter-spacing:0.08em; text-transform:lowercase; color:var(--slate); text-align:left; font-weight:500; padding:0.45rem 0.8rem; border-bottom:1px solid var(--silver);}
+  td{padding:0.6rem 0.8rem; border-bottom:1px dotted var(--hairline); vertical-align:top;}
+  td.room{font-family:var(--font-display); font-weight:500; color:var(--land); white-space:nowrap;}
+  td b{color:var(--land); font-weight:600;}
+
+  .openq{margin-top:1.4rem; border:1px solid var(--rust); border-radius:2px; padding:0.9rem 1.1rem; background:var(--card);}
+  .openq .mono{color:var(--rust); display:block; margin-bottom:0.3rem;}
+  .openq p{font-size:0.95rem; max-width:70ch;}
+
+  .prov{margin-top:4.5rem; border-top:1px solid var(--hairline); padding-top:1rem; display:flex; flex-direction:column; gap:0.25rem;}
+  .prov .mono{color:var(--silver);}
+  .prov .mono b{color:var(--slate); font-weight:500;}
+  .closer{margin-top:2.2rem; font-family:var(--font-body); font-style:italic; font-size:1.05rem; color:var(--slate);}
+
+  @media (max-width:700px){
+    .stop{grid-template-columns:1fr;}
+    .stop .three span{padding-left:0; text-indent:0;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <nav><span>Fortify Toolkit</span> <a href="fortify-model-68cd06.html">The Model</a> <a href="fortify-arsenal-c539a4.html">The Arsenal</a> <a href="fortify-pricing-4a3aae.html">The Ladder</a> <a href="#" aria-current="page">The Day · dry run</a></nav>
+    <span>three archetypes, run through</span>
+  </div>
+  <span class="mark">JEREMY RUNGE</span>
+
+  <header>
+    <span class="wordmark">The Day <em>a dry run</em></span>
+    <span class="mono">2026-08-11 · pacific · internal</span>
+    <span class="status-red">dry run · nothing here is a client</span>
+  </header>
+
+  <div class="eyebrow">the question</div>
+  <h1 class="display">Can one day honestly hand someone <em>a 90-day plan?</em></h1>
+  <p class="lede">Ladder ruling 04 (the credit window) is held until this is answered. The test: run three archetypes through the Day exactly as designed, nothing administered ahead, the map drawn together in the morning, protocols and plan in the afternoon, and see whether the plan is real for all three or a promise the method cannot keep. Then put the same three in one room and see what the Circle Day can and cannot hold. <b>Everything each plan prescribes exists in the Arsenal with its evidence attached; nothing was invented for this page.</b></p>
+
+  <div class="eyebrow">the archetypes · composites, not people</div>
+  <div class="arches">
+
+    <div class="arch-card">
+      <div class="head"><h3>The one running on six hours</h3><span class="chip arch">A1</span></div>
+      <dl>
+        <dt>arrives</dt><dd>Founder, mid-forties. Says "I function fine" about five to six hours a night. Output slipping, patience gone, calendar winning.</dd>
+        <dt>the morning surfaces</dt><dd>Sleep opportunity collapsed and rated "fine." The flat evenings and the short fuse arrive in his own telling. Everything else structurally sound.</dd>
+        <dt>lights up</dt><dd><span class="keys">PH·ME &nbsp; PH·CG</span> &nbsp; the depletion cascade, both branches</dd>
+      </dl>
+    </div>
+
+    <div class="arch-card">
+      <div class="head"><h3>The one whose company became his name</h3><span class="chip arch">A2</span></div>
+      <dl>
+        <dt>arrives</dt><dd>Founder, two years past a good exit. Money is fine. Mornings are empty, decisions feel weightless, and "what now" has no answer he respects.</dd>
+        <dt>the morning surfaces</dt><dd>Money rated high and steady, in his own numbers. Purpose rated near the floor, in his own words. Values with no container to act in.</dd>
+        <dt>lights up</dt><dd><span class="keys">FI·ID &nbsp; ID·SP</span> &nbsp; identity fusion, purpose unanchored</dd>
+      </dl>
+    </div>
+
+    <div class="arch-card">
+      <div class="head"><h3>The one going quiet at home</h3><span class="chip arch">A3</span></div>
+      <dl>
+        <dt>arrives</dt><dd>Founder, partnered, months into a brutal stretch of short nights. Desire gone, reads it as private failure, distance growing on both sides of the bed.</dd>
+        <dt>the morning surfaces</dt><dd>The same short nights as A1. The withdrawal, the spectating, the distraction, named in his own words once the room is private enough to say them.</dd>
+        <dt>lights up</dt><dd><span class="keys">PH·SX &nbsp; SX·RL &nbsp; PH·ME</span> &nbsp; the cascade the deck draws in a body</dd>
+      </dl>
+    </div>
+
+  </div>
+  <p class="disclaim">Composites built from the Model's own cascades and the ten situations in the Arsenal. No client, no real person, no borrowed story.</p>
+
+  <div class="eyebrow">the day itself · one spine, three mornings</div>
+  <div class="rail">
+
+    <div class="stop">
+      <span class="when">BEFORE</span>
+      <div>
+        <h3>Nothing. No forms, no battery, no homework.</h3>
+        <p>There is no pre-assessment. Jeremy is not certified to administer one, and the method does not want one: the assessment is the morning itself, done together. The client walks in as they are, and the privacy of the solo room is what makes the whole map safe to draw.</p>
+      </div>
+    </div>
+
+    <div class="stop">
+      <span class="when">09:00</span>
+      <div>
+        <h3>The map</h3>
+        <p>Ten domains rated in conversation: his questions, their numbers, drawn live as their own network, with the connections lighting as they talk. The map is theirs because they made it in the room.</p>
+        <div class="three">
+          <span><b>A1</b>Two thick lines out of Physical. The surprise is seeing "fine" drawn as a cascade.</span>
+          <span><b>A2</b>Financial bright, Identity dim, and the line between them is the thickest mark on the page.</span>
+          <span><b>A3</b>Physical to Sexual to Relational, lit end to end. The shame gets a mechanism instead of a mirror.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stop">
+      <span class="when">11:00</span>
+      <div>
+        <h3>The keystone, named</h3>
+        <p>One cascade, said out loud, with the evidence standing under it. Naming the mechanism is itself part of the work.</p>
+        <div class="three">
+          <span><b>A1</b>Sleep debt is invisible from the inside; performance falls while the feeling of sleepiness flattens.</span>
+          <span><b>A2</b>Compensation became a verdict on the self. The number was the scoreboard, and the scoreboard is gone.</span>
+          <span><b>A3</b>Under chronic load the mechanism is cognitive distraction, not hormones. Attention, not appetite, and not a verdict on the marriage.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stop">
+      <span class="when">13:00</span>
+      <div>
+        <h3>Protocols, started in the room</h3>
+        <p>Nothing leaves as advice. Whatever can be run live is run live.</p>
+        <div class="three">
+          <span><b>A1</b>Cyclic sighing learned in five minutes. The fourteen-night sleep audit designed to his calendar, tonight as night one.</span>
+          <span><b>A2</b>Values ranked and the first ten-minute affirmation written at the table. The activity log opens on his phone before lunch ends.</span>
+          <span><b>A3</b>The mechanism named, the spectator named. First attention rep run in the room. The dyad principle set: his partner's experience becomes a tracked outcome from today.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stop">
+      <span class="when">15:30</span>
+      <div>
+        <h3>The plan, written together</h3>
+        <p>Ninety days, three phases, every item carrying a dose and a day. He writes it, Jeremy shapes it, and it leaves in his handwriting, not as a PDF that arrives next week.</p>
+      </div>
+    </div>
+
+    <div class="stop">
+      <span class="when">17:00</span>
+      <div>
+        <h3>The close</h3>
+        <p>The plan is his either way. The door to more stays visible and unpushed: no deck, no pitch, same as the discovery call that started it.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="eyebrow">three plans, ninety days · everything below is in the arsenal</div>
+  <div class="plans">
+
+    <div class="plan">
+      <h3><span>A1</span>Running on six hours</h3>
+      <div class="phase"><span class="mono">days 1 to 14</span>
+        <p><b>The sleep-opportunity audit:</b> fourteen nights, fixed eight hours in bed, a simple objective test he runs himself beside his own rating. <b>Circadian light hygiene</b> set once: morning outside, sources cut at night.</p></div>
+      <div class="phase"><span class="mono">days 15 to 45</span>
+        <p>The two curves reviewed together; that gap is the intervention. <b>Movement started below the guideline:</b> his real weekly total plus one session, held four weeks. <b>Cyclic sighing</b> daily. Every session closes with one dosed physical commitment inside the same seven days.</p></div>
+      <div class="phase"><span class="mono">days 46 to 90</span>
+        <p>Second session added only after the first is habitual. <b>Behavioural activation</b> on the flat evenings: log, find the live blocks, schedule, go regardless of mood. At day 90 the map is re-rated: same ten domains, his own numbers beside day one’s.</p></div>
+      <div class="phase"><span class="mono">the gate</span>
+        <p>If the audit shows he cannot use the opportunity he has, that is insomnia, and it goes to <b>full CBT-I by referral</b> <span class="chip ref">referral</span></p></div>
+      <p class="verdict-line">Complete inside its window. The protocols are the plan.</p>
+      <p class="notthis"><b>not this</b> · a productivity stack before the sleep debt is paid, and trusting how he feels. Self-report fails here; that is why the audit exists.</p>
+    </div>
+
+    <div class="plan">
+      <h3><span>A2</span>The company that became his name</h3>
+      <div class="phase"><span class="mono">days 1 to 7</span>
+        <p><b>The activity log, monitoring only:</b> what he actually did, hour by hour, mood after each block. No changes yet. The log is the diagnostic.</p></div>
+      <div class="phase"><span class="mono">days 8 to 30</span>
+        <p><b>Behavioural activation:</b> the live blocks go into the calendar with a day and a time; he goes on the schedule, not the feeling. <b>Values affirmation</b> placed before every consequential decision: rank, write ten minutes on why the top one matters, never about the threat.</p></div>
+      <div class="phase"><span class="mono">days 31 to 90</span>
+        <p><b>Job crafting on what he builds next:</b> tasks, relationships, and the sentence he uses to describe himself; one change per line, not a renegotiation of the whole life. <b>Purpose tracked, not discussed:</b> the purpose rating from the morning map, re-rated at midpoint and at close in his own numbers, movement treated as an outcome. <b>Distanced self-talk</b> for the loops.</p></div>
+      <p class="verdict-line">A start vector, and honest about it. The affirmation and crafting arcs outlive the window by design; day 90 measures direction, not arrival.</p>
+      <p class="notthis"><b>not this</b> · anything that treats the money as the problem. His own morning ratings say the money is fine; teaching him about it explains almost none of behaviour anyway.</p>
+    </div>
+
+    <div class="plan">
+      <h3><span>A3</span>Going quiet at home</h3>
+      <div class="phase"><span class="mono">days 1 to 14</span>
+        <p><b>The same sleep audit as A1</b>, because the mechanism runs through sleep, stress and attention. The finding said at its real size: in a small study of young men, a week of five-hour nights lowered daytime testosterone 10 to 15%. Motivation for the audit, never a diagnosis.</p></div>
+      <div class="phase"><span class="mono">days 15 to 60</span>
+        <p><b>Aerobic exercise prescribed as a sexual-function intervention and named as such:</b> 40 minutes, moderate to vigorous, four times a week, with a trainer or structured programme. The dose is six months; these weeks establish it. <b>Attention training against distraction:</b> remove the spectator, train presence on sensation in low-stakes settings first.</p></div>
+      <div class="phase"><span class="mono">days 61 to 90</span>
+        <p><b>The dyad, structurally:</b> her experience reviewed beside his at every check-in; improving one measurably improves the other untreated. Where indicated, <b>couple therapy by referral</b>, concrete, a name and a number <span class="chip ref">referral</span>. The relationship goal stays in his plan after the referral so it is never an exit.</p></div>
+      <p class="verdict-line">Real, and honest about its edges: one dose is six months long, two items may be referrals, and the plan says both on its face.</p>
+      <p class="notthis"><b>not this</b> · a testosterone panel as the first move. Coaches do not order labs, the single-chain hormone story is contradicted, and a normal result lands as "so it is just me," the worst outcome available.</p>
+    </div>
+
+  </div>
+
+  <div class="eyebrow">the same three, one room · the circle day</div>
+  <div class="circle-grid">
+    <div class="circle-card">
+      <h3>What the room runs</h3>
+      <ul>
+        <li><b>Nothing ahead here either.</b> Each founder rates their own ten domains as the Model is taught. The room sees exactly what each person chooses to show, and the design respects that instead of pretending.</li>
+        <li><b>The Model taught once</b>, to everyone, then each founder draws their own map.</li>
+        <li><b>The room's full attention in turn:</b> each founder gets their keystone worked in front of peers.</li>
+        <li><b>One protocol each, started live.</b> A1 leaves with the audit, A2 with the affirmation, A3 with the mechanism named.</li>
+        <li><b>Accountability pairs</b> leaving the room with a date already set.</li>
+      </ul>
+    </div>
+    <div class="circle-card">
+      <h3>What only the room can do</h3>
+      <ul>
+        <li>A3 watches A1's sleep audit get designed and recognizes his own mechanism without having to say a word first. <b>The witness is the product</b> the solo Day cannot provide.</li>
+        <li>Three founders discover the cascades rhyme. What felt like private failure is structure, and the room proves it in an afternoon.</li>
+        <li>The pair holds after the day ends. Nobody leaves into silence.</li>
+      </ul>
+    </div>
+    <div class="circle-card">
+      <h3>What it cannot hold</h3>
+      <ul>
+        <li><b>The full map.</b> A shared room maps at the depth each founder chooses to show, so it is a first draft by design.</li>
+        <li><b>The deep half of A3's day.</b> The intimacy cascade needs the solo room; in the circle it stays at the mechanism level, which is exactly as far as it should go there.</li>
+        <li><b>The 90-day plan.</b> The plan needs the private morning's full disclosure and a private afternoon. The circle sends each founder out with a keystone, one protocol and a pair, and that is its honest deliverable.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="eyebrow">the verdict · what each room may promise</div>
+  <table>
+    <thead><tr><th>room</th><th>promises, because delivery is inside the day</th><th>never promises</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="room">The Day</td>
+        <td>The whole map. The keystone, named with its evidence. Protocols started in the room, not assigned. <b>A written 90-day plan, doses and days, in his own hand.</b></td>
+        <td>An outcome by day 90. Some doses are six months long, some items are referrals, and the plan carries that honesty on its face.</td>
+      </tr>
+      <tr>
+        <td class="room">The Circle Day</td>
+        <td>The map's first draft. The keystone, named in front of peers. One protocol started. A pair who will actually call.</td>
+        <td><b>The 90-day plan.</b> It cannot be built without the private morning’s full disclosure and the private afternoon, so the circle does not pretend to sell it.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="lede" style="margin-top:1.6rem;"><b>So: yes, the 90-day plan is a promise the Day can keep, for all three archetypes, because the promise is the plan itself and not the transformation.</b> A1's plan completes inside the window. A2's plan is a start vector and says so. A3's plan contains a six-month dose and possible referrals and says so. What survives all three is the artifact: they leave with the map, the keystone, the started protocols and the written plan. The Circle Day makes no plan promise at all, and that difference is exactly what the two prices are for.</p>
+
+  <div class="openq">
+    <span class="mono">awaiting his word · ruling 04, held for this page</span>
+    <p>If the Day's deliverable is a 90-day plan, the 90-day credit window rhymes with it: the decision about the engagement arrives exactly when the plan's window closes. Proposed, not ruled. This page is the evidence either way.</p>
+  </div>
+
+  <div class="prov">
+    <span class="mono"><b>provenance</b> · what this was built from</span>
+    <span class="mono">the arsenal (28 practices, evidence chips intact) · the model (10 domains, 22 connections, 4 keystones)</span>
+    <span class="mono">assessment: in conversation, together, on his word 2026-08-11. no pre-assessments, no administered instruments; the battery doc stands as a certification map only</span>
+    <span class="mono">the ladder 2026-08-08 · rulings 2026-08-11: day $10K capped 10/yr · capacity 2 to 3 days/mo · team day = fortify · retainer $11.5K x 6 · continuation $5K/mo</span>
+    <span class="mono">every practice named here carries its citation on the arsenal page; claims_ledger in fortify-life-os remains the source of truth</span>
+  </div>
+
+  <p class="closer">This page proposes. RULINGS.md decides.</p>
+
+</div>
+</body>
+</html>
